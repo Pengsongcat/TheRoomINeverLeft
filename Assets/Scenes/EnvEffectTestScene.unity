@@ -19949,6 +19949,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 884367510}
+  - component: {fileID: 884367512}
+  - component: {fileID: 884367511}
   m_Layer: 0
   m_Name: BeamLeafSHadow
   m_TagString: Untagged
@@ -19973,6 +19975,55 @@ Transform:
   - {fileID: 1286262006}
   m_Father: {fileID: 451851169}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &884367511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884367509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753bfb2a6272c234eb757da85eff9af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VideoLightCookieURP
+  spotLight: {fileID: 1286262008}
+  videoPlayer: {fileID: 884367512}
+  cookieRT: {fileID: 8400000, guid: 0e71876914fdd9f4fafc56d05e35147b, type: 2}
+--- !u!328 &884367512
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884367509}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 7972574421a2b5e45b5155c8a5641156, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 0e71876914fdd9f4fafc56d05e35147b, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1 &891843358
 GameObject:
   m_ObjectHideFlags: 0
@@ -29269,7 +29320,7 @@ GameObject:
   - component: {fileID: 1286262008}
   - component: {fileID: 1286262007}
   m_Layer: 0
-  m_Name: Spot Light (15)
+  m_Name: Spot Light (15) cookie light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29361,7 +29412,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 2800000, guid: a9974bd29f89f2645b3668113976f349, type: 3}
+  m_Cookie: {fileID: 8400000, guid: 0e71876914fdd9f4fafc56d05e35147b, type: 2}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -31445,7 +31496,7 @@ GameObject:
   - component: {fileID: 1395016929}
   - component: {fileID: 1395016931}
   m_Layer: 0
-  m_Name: Spot Light (14)
+  m_Name: LightBeam Spot Light (14) no cookie light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31537,7 +31588,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 2800000, guid: a9974bd29f89f2645b3668113976f349, type: 3}
+  m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -31573,8 +31624,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Contribution: 1
-  m_CookieTexture: {fileID: 2800000, guid: a9974bd29f89f2645b3668113976f349, type: 3}
-  m_Channel: 3
+  m_CookieTexture: {fileID: 8400000, guid: 0e71876914fdd9f4fafc56d05e35147b, type: 2}
+  m_Channel: 0
   m_Negative: 0
   m_Translation: {x: 0, y: 0}
   m_Rotation: 0
