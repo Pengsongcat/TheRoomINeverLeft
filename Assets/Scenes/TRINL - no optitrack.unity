@@ -4821,6 +4821,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993794176}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2100000001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2100000002}
+  m_Layer: 0
+  m_Name: Start Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2100000002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100000001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2140217875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7285396547846629746, guid: a307066da0ce24042a0a7d540d4e3363, type: 3}
@@ -5639,11 +5670,19 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 543229134990820794, guid: 5c74191526dfe95409b40c634ed7c27d, type: 3}
-      propertyPath: onKeyPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: startPoint
+      value: 
+      objectReference: {fileID: 2100000002}
+    - target: {fileID: 543229134990820794, guid: 5c74191526dfe95409b40c634ed7c27d, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 405209021}
+    - target: {fileID: 543229134990820794, guid: 5c74191526dfe95409b40c634ed7c27d, type: 3}
+      propertyPath: onTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1854296270}
     - target: {fileID: 543229134990820794, guid: 5c74191526dfe95409b40c634ed7c27d, type: 3}
-      propertyPath: onKeyPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: onTriggered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1353409227}
     - target: {fileID: 8205659934613210205, guid: 5c74191526dfe95409b40c634ed7c27d, type: 3}
@@ -5689,10 +5728,6 @@ PrefabInstance:
     - target: {fileID: 8876332056388047606, guid: 5c74191526dfe95409b40c634ed7c27d, type: 3}
       propertyPath: m_Name
       value: Onboarding
-      objectReference: {fileID: 0}
-    - target: {fileID: 8876332056388047606, guid: 5c74191526dfe95409b40c634ed7c27d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5801,3 +5836,4 @@ SceneRoots:
   - {fileID: 1127899496}
   - {fileID: 531511263}
   - {fileID: 1276460691}
+  - {fileID: 2100000002}

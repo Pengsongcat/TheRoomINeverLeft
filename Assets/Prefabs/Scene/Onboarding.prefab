@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7823737594818290010}
   - component: {fileID: 543229134990820794}
   m_Layer: 0
-  m_Name: Keyboard Start Trigger
+  m_Name: Start Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,12 +41,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8822763632730925206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f6f752b642ceb44badc538a1f4cfa09, type: 3}
+  m_Script: {fileID: 11500000, guid: 85e22f94f69d41f2b682157f25fe4a36, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KeyboardEventRelay
-  triggerKey: 1
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityEventRelay
+  playerTransform: {fileID: 0}
+  startPoint: {fileID: 0}
+  triggerDistance: 1
+  ignoreHeight: 1
   triggerOnlyOnce: 1
-  onKeyPressed:
+  onTriggered:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
