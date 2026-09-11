@@ -29,6 +29,8 @@ namespace TRINL.Rendering
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
             if (material == null || renderingData.cameraData.cameraType == CameraType.Preview) return;
+            var target = renderingData.cameraData.camera.targetTexture;
+            if (target != null && target.graphicsFormat == GraphicsFormat.None) return;
             pass.material = material;
             pass.layers = layerMask;
             pass.radius = Mathf.Clamp(radius, 0f, 100f);
@@ -67,6 +69,7 @@ namespace TRINL.Rendering
             public override void RecordRenderGraph(RenderGraph graph, ContextContainer frameData)
             {
                 var resources = frameData.Get<UniversalResourceData>();
+                if (!resources.activeColorTexture.IsValid() || !resources.cameraDepthTexture.IsValid()) return;
                 var camera = frameData.Get<UniversalCameraData>();
                 var rendering = frameData.Get<UniversalRenderingData>();
                 var lights = frameData.Get<UniversalLightData>();
