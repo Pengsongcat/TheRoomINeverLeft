@@ -23,7 +23,16 @@ MonoBehaviour:
   gaussianNearStrength: 0.6
   gaussianFarStrength: 1
   cylinderTrails: 1
+  continuousLines: 0
+  lineLengthMultiplier: 1
+  lineRandomRange: {x: 1, y: 1}
+  lineRandomCellSize: 0.1
+  lineRandomSeed: 0
+  overlayPoints: 0
+  overlayPointWeight: 0.5
   upwardResponse: 1
+  blendBaseStretch: 0
+  baseStretchBlend: 0.5
   upwardThreshold: 0.35
   upwardSoftness: 0.3
   upwardLength: 1.5
@@ -51,6 +60,30 @@ MonoBehaviour:
   depthBias: 0.005
   blurShader: {fileID: 4800000, guid: 7c9c8014508ddd94e8072894091230aa, type: 3}
   objectIdShader: {fileID: 4800000, guid: fefad0917186d1e4fb029ae692b8b92a, type: 3}
+--- !u!114 &-230384645894861462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f442bd29babbf4a8a29169c19afd28, type: 3}
+  m_Name: ScreenDiffusion (Dual Filtering)
+  m_EditorClassIdentifier: Assembly-CSharp::TRINL.Rendering.ScreenDiffusionRendererFeature
+  m_Active: 1
+  target: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  iterations: 6
+  spread: 2.81
+  strength: 0.097
+  blendMode: 0
+  maxPyramid: 0
+  injectionPoint: 550
+  diffusionShader: {fileID: 4800000, guid: 6e2b914801c14ca41a154b6581457517, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +111,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: 3593875027875084220}
   - {fileID: -7148062670125612371}
-  m_RendererFeatureMap: bc37a4f34b02e031
+  - {fileID: -230384645894861462}
+  m_RendererFeatureMap: bc37a4f34b02e0316a8dbb9b6282cdfc
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -88,10 +122,10 @@ MonoBehaviour:
     m_Bits: 4294967167
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 4294966911
+    m_Bits: 4294966399
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 4294966911
+    m_Bits: 4294966399
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0
@@ -127,3 +161,4 @@ MonoBehaviour:
   opacity: 1
   depthBias: 0.005
   blurShader: {fileID: 4800000, guid: 8ca7748318e7ca94dad90142e6cd7ee6, type: 3}
+  objectIdShader: {fileID: 4800000, guid: a27493389c8c88a4aae0701cc3bad1a7, type: 3}

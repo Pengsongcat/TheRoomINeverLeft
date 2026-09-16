@@ -13,6 +13,19 @@ Shader "Hidden/TRINL/ScreenBlur"
         float4 _ScreenBlurParameters;
         float4 _ScreenBlurTexel;
 
+        TEXTURE2D_X_FLOAT(_ScreenBlurObjectIds);
+        // x = this pass's group id, y = 1 when at least one override group exists.
+        float4 _ScreenBlurGroup;
+
+        // The id buffer clears to 0, so the global group owns every pixel that no
+        // override claimed. Guarded by .y so the texture stays unbound when unused.
+        bool BelongsToGroup(float2 uv)
+        {
+            if (_ScreenBlurGroup.y < 0.5) return true;
+            float id = SAMPLE_TEXTURE2D_X_LOD(_ScreenBlurObjectIds, sampler_PointClamp, uv, 0).r;
+            return abs(id - _ScreenBlurGroup.x) < 0.25;
+        }
+
         float EyeDepth(float raw)
         {
             if (unity_OrthoParams.w > 0.5)
@@ -52,7 +65,7 @@ Shader "Hidden/TRINL/ScreenBlur"
                 float4 color = SAMPLE_TEXTURE2D_X_LOD(_BlitTexture, sampler_PointClamp, uv, 0);
                 float depth = EyeDepth(SAMPLE_TEXTURE2D_X_LOD(_ScreenBlurLayerDepth, sampler_PointClamp, uv, 0).r);
                 // Reject both hidden source pixels and spread across foreground occluders.
-                if (color.a < 0.0001 || depth > min(sceneDepth, SceneEyeDepth(uv)) + _ScreenBlurParameters.z) continue;
+                if (color.a < 0.0001 || !BelongsToGroup(uv) || depth > min(sceneDepth, SceneEyeDepth(uv)) + _ScreenBlurParameters.z) continue;
                 // Alpha-blended captures already contain premultiplied RGB over the clear target.
                 // Multiplying again would darken translucent spatial ghosts twice.
                 output.color += color * weight;
