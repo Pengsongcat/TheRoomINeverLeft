@@ -10,7 +10,12 @@ public class RoomCornerCalibrator : MonoBehaviour
 {
     [SerializeField] InputActionReference _placeAction;
     [SerializeField] InputActionReference _undoAction;
-    [SerializeField] Transform _controllerTip; // right controller tip or hand tracking point
+    [SerializeField] Transform _controllerTip; // fallback: world position used directly
+
+    [Header("Floor Pointer (optional)")]
+    [SerializeField] Transform  _rayOrigin;       // if set, raycast replaces controller-tip placement
+    [SerializeField] LayerMask  _floorMask = ~0;
+    [SerializeField] float      _maxRayDistance = 5f;
 
     public event Action<RoomRect> OnCornersAccepted;
     public event Action<string>   OnShapeCheckFailed;
@@ -56,10 +61,29 @@ public class RoomCornerCalibrator : MonoBehaviour
 
     // ─── Input handlers ────────────────────────────────────────────────────────
 
+    public bool TryGetFloorHit(out Vector3 point)
+    {
+        if (_rayOrigin != null &&
+            Physics.Raycast(_rayOrigin.position, _rayOrigin.forward, out var hit, _maxRayDistance, _floorMask))
+        {
+            point = hit.point;
+            return true;
+        }
+        point = default;
+        return false;
+    }
+
     void OnPlace(InputAction.CallbackContext _)
     {
         if (!_active || _placing || _positions.Count >= 4) return;
-        PlaceCornerAsync(_controllerTip.position);
+        if (_rayOrigin != null)
+        {
+            if (TryGetFloorHit(out var point)) PlaceCornerAsync(point);
+        }
+        else
+        {
+            PlaceCornerAsync(_controllerTip.position);
+        }
     }
 
     void OnUndo(InputAction.CallbackContext _)
