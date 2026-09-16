@@ -5,25 +5,33 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Top-level calibration state machine.
-// States: Loading → Calibrating ↔ Confirming → Ready → (A fires OnCalibrationAccepted)
+// States: Loading → Calibrating ↔ Confirming → Ready → Running (A fires OnCalibrationAccepted once)
+// OnLayoutReady fires on entering Confirming (shape check passed or anchors loaded),
+// so the sound layout is already fitted to the room while staff confirm.
 public class CalibrationFlow : MonoBehaviour
 {
-    public enum State { Loading, Calibrating, Confirming, Ready }
+    public enum State { Loading, Calibrating, Confirming, Ready, Running }
 
     [Header("Components")]
     [SerializeField] RoomCornerCalibrator _calibrator;
     [SerializeField] RoomDebugView        _debugView;
+    [SerializeField] CalibrationHud       _hud; // optional; messages always go to the console too
+    [SerializeField] SoundVisualizer      _soundVisualizer; // optional; sound meshes + legend
 
     [Header("Input")]
     [SerializeField] InputActionReference _confirmAction;     // A button
     [SerializeField] InputActionReference _recalibrateAction; // B button with Hold interaction
+    [SerializeField] InputActionReference _toggleVisualizerAction; // left X (keyboard V in the Editor)
 
-    public event Action<RoomRect> OnCalibrationAccepted;
+    public event Action<RoomRect> OnLayoutReady;         // apply room fit + show sound markers
+    public event Action<RoomRect> OnCalibrationAccepted; // staff pressed Start
 
     public State CurrentState { get; private set; }
 
     RoomRect   _pendingRect;
     Vector3[]  _rawCorners; // placed anchor positions, for debug view
+    IReadOnlyList<IAnchorHandle> _confirmedAnchors; // anchors behind the current Confirm (placed or loaded)
+    bool       _visualizerOn;
 
     // ─── Lifecycle ─────────────────────────────────────────────────────────────
 
@@ -35,18 +43,31 @@ public class CalibrationFlow : MonoBehaviour
         _recalibrateAction.action.Enable();
         _confirmAction.action.performed     += OnConfirmInput;
         _recalibrateAction.action.performed += OnRecalibrateInput;
+        if (_toggleVisualizerAction != null)
+        {
+            _toggleVisualizerAction.action.Enable();
+            _toggleVisualizerAction.action.performed += OnToggleVisualizerInput;
+        }
 
         _calibrator.OnCornersAccepted  += HandleCornersAccepted;
         _calibrator.OnShapeCheckFailed += HandleShapeCheckFailed;
+        _calibrator.OnCornerPlaced     += HandleCornerCountChanged;
+        _calibrator.OnCornerRemoved    += HandleCornerRemoved;
+        _calibrator.OnCornerRejected   += HandleCornerRejected;
     }
 
     void OnDisable()
     {
         _confirmAction.action.performed     -= OnConfirmInput;
         _recalibrateAction.action.performed -= OnRecalibrateInput;
+        if (_toggleVisualizerAction != null)
+            _toggleVisualizerAction.action.performed -= OnToggleVisualizerInput;
 
         _calibrator.OnCornersAccepted  -= HandleCornersAccepted;
         _calibrator.OnShapeCheckFailed -= HandleShapeCheckFailed;
+        _calibrator.OnCornerPlaced     -= HandleCornerCountChanged;
+        _calibrator.OnCornerRemoved    -= HandleCornerRemoved;
+        _calibrator.OnCornerRejected   -= HandleCornerRejected;
     }
 
     // ─── Load on startup ───────────────────────────────────────────────────────
@@ -54,7 +75,8 @@ public class CalibrationFlow : MonoBehaviour
     async Task StartLoadingAsync()
     {
         SetState(State.Loading);
-        Log("Loading anchors…");
+        _hud?.SetVisible(true);
+        Log("Loading saved room…");
 
         XRPlatformServices.Instance.PassthroughService.Enable();
 
@@ -86,27 +108,65 @@ public class CalibrationFlow : MonoBehaviour
     void GoToCalibrating()
     {
         SetState(State.Calibrating);
-        Log($"Place corner {_calibrator.CornerCount + 1}/4 (trigger). B = undo.");
         _calibrator.Activate();
-        _debugView.Hide();
+        SetVisualizer(false);
+        _hud?.ClearError();
+        ShowCornerInstruction();
+    }
+
+    // Corners go clockwise seen from above; corners 1 → 2 are the front wall (the wall the visitor faces).
+    static readonly string[] CornerNames =
+    {
+        "front wall, left end",
+        "front wall, right end",
+        "back wall, right end",
+        "back wall, left end",
+    };
+
+    void ShowCornerInstruction()
+    {
+        int n = _calibrator.CornerCount;
+        if (n >= 4) return;
+        string controls = n == 0 ? "Trigger = place" : "Trigger = place · B = undo · hold B = start over";
+        Log($"Corner {n + 1} of 4: {CornerNames[n]}\n<size=75%>Point at the floor. {controls}</size>");
     }
 
     void GoToConfirming(Vector3[] rawCorners, IReadOnlyList<IAnchorHandle> handles)
     {
-        _rawCorners  = rawCorners;
+        _rawCorners       = rawCorners;
+        _confirmedAnchors = handles;
         _pendingRect = new RoomRect(rawCorners[0], rawCorners[1], rawCorners[2], rawCorners[3]);
         SetState(State.Confirming);
 
+        OnLayoutReady?.Invoke(_pendingRect); // listeners hand sound markers to the debug view before Show
+
         var fit = RoomFit.Compute(_pendingRect, new LabReference());
-        Log($"Room {_pendingRect.width:F1} × {_pendingRect.length:F1} m  scale {fit.sx:F2}x. A = accept, hold B = redo.");
-        _debugView.Show(_pendingRect, _rawCorners);
+        _hud?.ClearError();
+        Log($"Room {_pendingRect.width:F1} × {_pendingRect.length:F1} m · scale {fit.sx:F2}x\n" +
+            "<size=75%>Check the corners and sounds. A = accept · hold B = redo corners · X = sounds on/off</size>");
+        SetVisualizer(true);
     }
 
     void GoToReady()
     {
         SetState(State.Ready);
-        _debugView.Hide();
-        Log("Ready. Staff presses Start.");
+        SetVisualizer(false);
+        Log("Ready\n<size=75%>A = start the experience · X = sounds on/off</size>");
+    }
+
+    // Confirming / Ready: planned sound markers from the debug view.
+    // Running: the sounds' own visualizer meshes (only sounds currently active) plus the room outline.
+    void SetVisualizer(bool on)
+    {
+        _visualizerOn = on;
+        bool hasLayout = CurrentState is State.Confirming or State.Ready or State.Running;
+        bool running   = CurrentState == State.Running;
+
+        if (on && hasLayout) _debugView.Show(_pendingRect, _rawCorners, includeSounds: !running);
+        else                 _debugView.Hide();
+
+        _soundVisualizer?.SetMeshesVisible(on && running);
+        _soundVisualizer?.SetLegendVisible(on && hasLayout);
     }
 
     // ─── Input ─────────────────────────────────────────────────────────────────
@@ -119,15 +179,37 @@ public class CalibrationFlow : MonoBehaviour
         }
         else if (CurrentState == State.Ready)
         {
+            SetState(State.Running); // further A / B presses are ignored
+            Log("Starting.");
+            _hud?.SetVisible(false);
+            SetVisualizer(false);
             OnCalibrationAccepted?.Invoke(_pendingRect);
         }
     }
 
+    void OnToggleVisualizerInput(InputAction.CallbackContext _)
+    {
+        if (CurrentState is State.Loading or State.Calibrating) return; // no layout yet
+        SetVisualizer(!_visualizerOn);
+    }
+
+    // Hold B: from Confirming, redo the corners; while placing corners, start over.
     void OnRecalibrateInput(InputAction.CallbackContext _)
     {
-        if (CurrentState != State.Confirming) return;
-        _calibrator.ClearAnchors();
-        RoomAnchorStore.Clear();
+        if (CurrentState != State.Confirming && CurrentState != State.Calibrating) return;
+        bool anchorsWereLoaded = _calibrator.CornerCount == 0; // Confirm came from saved anchors, not placement
+        _calibrator.Deactivate();
+        _calibrator.ClearAnchors(); // anchors placed this session
+        if (CurrentState == State.Confirming)
+        {
+            // Anchors loaded from a previous session are not owned by the calibrator; erase them here.
+            if (anchorsWereLoaded && _confirmedAnchors != null)
+            {
+                var erase = XRPlatformServices.Instance.AnchorService.EraseAnchorsAsync(_confirmedAnchors); // fire and forget
+            }
+            _confirmedAnchors = null;
+            RoomAnchorStore.Clear();
+        }
         GoToCalibrating();
     }
 
@@ -136,14 +218,15 @@ public class CalibrationFlow : MonoBehaviour
     async void HandleCornersAccepted(RoomRect rect)
     {
         _calibrator.Deactivate();
-        Log("Saving anchors…");
+        Log("Saving corners…");
 
         var anchors = _calibrator.GetAnchors();
         bool saved  = await XRPlatformServices.Instance.AnchorService.SaveAnchorsAsync(anchors);
         if (!saved)
         {
-            Log("Anchor save failed — restarting calibration.");
+            _calibrator.ClearAnchors();
             GoToCalibrating();
+            ShowError("Could not save the corners. Place them again.");
             return;
         }
 
@@ -154,9 +237,24 @@ public class CalibrationFlow : MonoBehaviour
         GoToConfirming(_calibrator.GetPositions(), anchors);
     }
 
-    void HandleShapeCheckFailed(string reason)
+    void HandleShapeCheckFailed(string reason, int badSide)
     {
-        Log($"Shape invalid: {reason}  B = undo.");
+        Log("Room shape is not valid\n<size=75%>B = undo last corner · hold B = start over</size>");
+        ShowError(reason);
+    }
+
+    void HandleCornerCountChanged(int index, Vector3 position)
+    {
+        if (CurrentState != State.Calibrating) return;
+        _hud?.ClearError();
+        ShowCornerInstruction();
+    }
+
+    void HandleCornerRemoved(int index) => HandleCornerCountChanged(index, default);
+
+    void HandleCornerRejected(string reason)
+    {
+        if (CurrentState == State.Calibrating) ShowError(reason);
     }
 
     // ─── Helpers ───────────────────────────────────────────────────────────────
@@ -197,7 +295,17 @@ public class CalibrationFlow : MonoBehaviour
     }
 
     void SetState(State s) => CurrentState = s;
-    void Log(string msg)   => Debug.Log($"[CalibrationFlow] {msg}");
+    void Log(string msg)
+    {
+        Debug.Log($"[CalibrationFlow] {msg}");
+        _hud?.SetMessage(msg);
+    }
+
+    void ShowError(string error)
+    {
+        Debug.Log($"[CalibrationFlow] {error}");
+        _hud?.ShowError(error);
+    }
 
     // Stand-in for an anchor position that was geometrically reconstructed, not loaded from OVR.
     sealed class RebuiltAnchorHandle : IAnchorHandle

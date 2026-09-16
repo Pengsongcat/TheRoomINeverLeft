@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -268,5 +269,66 @@ public class RoomMathTests
         var c = RectCorners(4f, 8f);
         var crossed = new[] { c[0], c[2], c[1], c[3] };
         Assert.IsFalse(RoomShapeCheck.Validate(crossed, out _));
+    }
+
+    [Test]
+    public void ShapeCheck_SideTooShort_ReportsBadSide()
+    {
+        var corners = new[]
+        {
+            new Vector3(-0.25f, 0f,  4f),
+            new Vector3( 0.25f, 0f,  4f),
+            new Vector3( 2f,    0f, -4f),
+            new Vector3(-2f,    0f, -4f),
+        };
+        RoomShapeCheck.Validate(corners, out _, out int badSide);
+        Assert.AreEqual(0, badSide);
+    }
+
+    // ─── RoomShapeCheck.ValidateNext ─────────────────────────────────────────────
+
+    [Test]
+    public void ValidateNext_ValidRoomInOrder_AllPass()
+    {
+        var c = RectCorners(4f, 8f);
+        var placed = new List<Vector3>();
+        for (int i = 0; i < 4; i++)
+        {
+            Assert.IsTrue(RoomShapeCheck.ValidateNext(placed, c[i], out var reason), $"corner {i + 1}: {reason}");
+            placed.Add(c[i]);
+        }
+    }
+
+    [Test]
+    public void ValidateNext_DoublePressSameSpot_Fails()
+    {
+        var c = RectCorners(4f, 8f);
+        var placed = new List<Vector3> { c[0] };
+        Assert.IsFalse(RoomShapeCheck.ValidateNext(placed, c[0] + new Vector3(0.11f, 0f, 0f), out _));
+    }
+
+    [Test]
+    public void ValidateNext_FourthTooCloseToFirst_Fails()
+    {
+        var c = RectCorners(4f, 8f);
+        var placed = new List<Vector3> { c[0], c[1], c[2] };
+        Assert.IsFalse(RoomShapeCheck.ValidateNext(placed, c[0] + new Vector3(0.5f, 0f, 0f), out _));
+    }
+
+    [Test]
+    public void ValidateNext_CounterClockwiseTurn_Fails()
+    {
+        // After corners 1 → 2 along the front wall, turning toward +z (away from the room) is counter-clockwise.
+        var c = RectCorners(4f, 8f);
+        var placed = new List<Vector3> { c[0], c[1] };
+        var wrong  = c[1] + new Vector3(0f, 0f, 3f);
+        Assert.IsFalse(RoomShapeCheck.ValidateNext(placed, wrong, out _));
+    }
+
+    [Test]
+    public void ValidateNext_AfterFour_Fails()
+    {
+        var c = RectCorners(4f, 8f);
+        Assert.IsFalse(RoomShapeCheck.ValidateNext(new List<Vector3>(c), Vector3.zero, out _));
     }
 }

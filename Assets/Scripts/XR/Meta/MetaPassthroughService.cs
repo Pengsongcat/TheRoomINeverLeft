@@ -12,6 +12,13 @@ public class MetaPassthroughService : PassthroughService
         set { if (_passthroughLayer != null) _passthroughLayer.textureOpacity = value; }
     }
 
+    // Darkens the camera feed only; virtual content drawn over passthrough is unaffected.
+    public override float Brightness
+    {
+        get => _passthroughLayer != null ? _passthroughLayer.colorMapEditorBrightness : 0f;
+        set { if (_passthroughLayer != null) _passthroughLayer.SetBrightnessContrastSaturation(Mathf.Clamp(value, -1f, 1f)); }
+    }
+
     public override void Enable()
     {
         if (_passthroughLayer == null) return;

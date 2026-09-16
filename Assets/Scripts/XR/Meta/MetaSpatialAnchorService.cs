@@ -55,9 +55,17 @@ public class MetaSpatialAnchorService : SpatialAnchorService
         var ovrAnchors = new List<OVRSpatialAnchor>();
         foreach (var h in anchors)
         {
-            if (h is MetaAnchorHandle meta) ovrAnchors.Add(meta.Anchor);
+            if (h is MetaAnchorHandle meta && meta.Anchor != null) ovrAnchors.Add(meta.Anchor);
         }
+        if (ovrAnchors.Count == 0) return true;
+
         var result = await OVRSpatialAnchor.EraseAnchorsAsync(ovrAnchors, null);
+
+        // Erasing only removes the anchor from storage; the tracked GameObject stays until destroyed.
+        // Callers discard erased anchors, so destroy them whether or not the erase succeeded.
+        foreach (var a in ovrAnchors)
+            if (a != null) Destroy(a.gameObject);
+
         return result.Success;
     }
 
