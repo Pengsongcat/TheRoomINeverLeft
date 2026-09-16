@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Top-level calibration state machine.
-// States: Loading → Calibrating ↔ Confirming → Ready
+// States: Loading → Calibrating ↔ Confirming → Ready → (A fires OnCalibrationAccepted)
 public class CalibrationFlow : MonoBehaviour
 {
     public enum State { Loading, Calibrating, Confirming, Ready }
@@ -113,9 +113,14 @@ public class CalibrationFlow : MonoBehaviour
 
     void OnConfirmInput(InputAction.CallbackContext _)
     {
-        if (CurrentState != State.Confirming) return;
-        GoToReady();
-        OnCalibrationAccepted?.Invoke(_pendingRect);
+        if (CurrentState == State.Confirming)
+        {
+            GoToReady();
+        }
+        else if (CurrentState == State.Ready)
+        {
+            OnCalibrationAccepted?.Invoke(_pendingRect);
+        }
     }
 
     void OnRecalibrateInput(InputAction.CallbackContext _)
