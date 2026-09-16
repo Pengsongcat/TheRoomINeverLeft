@@ -15,6 +15,10 @@
     <meta-data android:name="com.oculus.telemetry.project_guid" android:value="4d517676-7eac-4ad9-8bda-e4acc0ebd082" />
     <meta-data android:name="com.oculus.supportedDevices" android:value="quest|quest2|questpro|quest3|quest3s" tools:replace="android:value" />
   </application>
+  <queries>
+    <!-- OVR Metrics Tool: lets PerformanceOverlayToggle send its overlay on/off broadcast -->
+    <package android:name="com.oculus.ovrmonitormetricsservice" />
+  </queries>
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
   <uses-feature android:name="oculus.software.handtracking" android:required="false" />
   <uses-permission android:name="com.oculus.permission.HAND_TRACKING" />

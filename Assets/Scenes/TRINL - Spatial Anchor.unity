@@ -3063,6 +3063,7 @@ GameObject:
   - component: {fileID: 1880492167}
   - component: {fileID: 1880492166}
   - component: {fileID: 1880492168}
+  - component: {fileID: 1880492169}
   m_Layer: 0
   m_Name: Room Calibration
   m_TagString: Untagged
@@ -3285,6 +3286,22 @@ MonoBehaviour:
     label: Trigger area
   - material: {fileID: 2100000, guid: 7bd508290bd437743814d925fb307b8e, type: 2}
     label: Player feet / head
+--- !u!114 &1880492169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880492158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c107f23b67ed5eb4fab79cb3a92ea29f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.RoomCalibration::PerformanceOverlayToggle
+  _toggleAction: {fileID: -874627601990781002, guid: c7fcd08071ff6b141ab56287cafeb0f4, type: 3}
+  _inAppReadout: 0
+  _readoutOffset: {x: -0.15, y: 0.12, z: 0.7}
+  _fontSize: 0.02
 --- !u!114 &1881330206 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6235396682233919267, guid: 457ba0d902d78ab48afbb55450304674, type: 3}
