@@ -7,7 +7,6 @@
 #
 .utmp/
 /[Ll]ibrary/
-.claude/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
@@ -108,3 +107,24 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# --- AI coding agents (local only: instructions, config, session/conversation data) ---
+# Per-developer agent setup and chat context - should not live in the shared repo.
+.claude/
+.agents/
+.codex/
+.cursor/
+.cursorrules
+.cursorignore
+.windsurf/
+.continue/
+.gemini/
+.aider*
+.mcp.json
+.github/copilot-instructions.md
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.opencode/
+.roo/
+.clinerules
