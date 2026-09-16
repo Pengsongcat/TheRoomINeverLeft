@@ -32,6 +32,8 @@ namespace TRINL.Rendering.Editor
                 camera.cullingMask=1<<cube.layer;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=Color.black;
                 camera.allowHDR=false;camera.allowMSAA=false;camera.targetTexture=target;
                 effect.upwardResponse=true;effect.upwardPreview=true;effect.upwardTwoSided=true;
+                effect.blendBaseStretch=false;effect.continuousLines=false;effect.overlayPoints=false;
+                effect.lineLengthMultiplier=1;effect.lineRandomRange=Vector2.one;
                 effect.upwardThreshold=.35f;effect.upwardSoftness=.3f;
                 effect.upwardLength=1.5f;effect.otherLength=.2f;
                 effect.upwardContribution=1;effect.otherContribution=0;
@@ -66,7 +68,30 @@ namespace TRINL.Rendering.Editor
                 var restored=Capture(camera,pixels,folder+"/global-restored.png");
                 if(Read(restored,camera,cube.transform.position+Vector3.back*.5f)>20)
                     throw new Exception("Global preview not restored after local disabled");
-                string report=$"PASS: top mask={top}, side mask={side}; side source retained={preserved}; flat and cylinder normals alter trails; local override and disable restore passed. Desktop only.";
+                effect.upwardPreview=false;
+                for(int mode=0;mode<3;mode++)
+                {
+                    effect.cylinderTrails=mode>0;effect.continuousLines=mode==2;effect.overlayPoints=mode==2;
+                    effect.blendBaseStretch=false;effect.upwardResponse=true;
+                    var weighted=Capture(camera,pixels,folder+$"/blend-{mode}-weighted.png");
+                    effect.upwardResponse=false;
+                    var basic=Capture(camera,pixels,folder+$"/blend-{mode}-base.png");
+                    effect.upwardResponse=true;effect.blendBaseStretch=true;effect.baseStretchBlend=0;
+                    if(Difference(weighted,Capture(camera,pixels,folder+$"/blend-{mode}-zero.png"))>10)
+                        throw new Exception("Zero blend changed weighted effect, mode="+mode);
+                    effect.baseStretchBlend=1;
+                    if(Difference(basic,Capture(camera,pixels,folder+$"/blend-{mode}-one.png"))>10)
+                        throw new Exception("Full blend does not match base, mode="+mode);
+                    effect.baseStretchBlend=.5f;
+                    var mixed=Capture(camera,pixels,folder+$"/blend-{mode}-mixed.png");
+                    if(Difference(mixed,basic)<100 || Difference(mixed,weighted)<100)
+                        throw new Exception("Half blend missing one effect, mode="+mode);
+                    local.CopyFrom(effect);local.enabled=true;
+                    if(Difference(mixed,Capture(camera,pixels,folder+$"/blend-{mode}-local.png"))>10)
+                        throw new Exception("Local base blend differs from global, mode="+mode);
+                    local.enabled=false;
+                }
+                string report=$"PASS: top mask={top}, side mask={side}; side source retained={preserved}; flat and cylinder normals alter trails; local override and disable restore passed. Base blend endpoints, halfway mix and local override passed in flat, cylinder points and cylinder lines plus points. Desktop only.";
                 File.WriteAllText(folder+"/validation.txt",report);Debug.Log(report);
             }
             finally

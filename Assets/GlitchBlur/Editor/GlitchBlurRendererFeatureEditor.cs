@@ -15,6 +15,24 @@ namespace TRINL.Rendering.Editor
             if (cylindrical)
             {
                 EditorGUILayout.LabelField("Cylinder Settings", EditorStyles.boldLabel);
+                var lines=serializedObject.FindProperty("continuousLines");
+                EditorGUI.showMixedValue=lines.hasMultipleDifferentValues;
+                EditorGUI.BeginChangeCheck();
+                bool next=GUILayout.Toggle(lines.boolValue,lines.boolValue ? "连续拉伸成线：开启" : "连续拉伸成线：关闭（点状残影）","Button");
+                if(EditorGUI.EndChangeCheck())lines.boolValue=next;
+                EditorGUI.showMixedValue=false;
+                if(lines.boolValue)EditorGUILayout.HelpBox("把相邻采样连接成连续弧线。拖影采样数控制弧线分段精度；关闭可恢复原点状效果。",MessageType.None);
+                if(lines.boolValue)
+                {
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("lineLengthMultiplier"),new GUIContent("线条长度倍率"));
+                    Pair("lineRandomRange","随机长度倍率：最小 / 最大");
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("lineRandomCellSize"),new GUIContent("随机区域大小（米）"));
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("lineRandomSeed"),new GUIContent("随机种子"));
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("overlayPoints"),new GUIContent("叠加点状残影"));
+                    if(serializedObject.FindProperty("overlayPoints").boolValue)
+                        EditorGUILayout.PropertyField(serializedObject.FindProperty("overlayPointWeight"),new GUIContent("点状叠加强度"));
+                    EditorGUILayout.HelpBox("线长 = 原拖影长度 × 线条倍率 × 随机倍率。随机范围设为 1 / 1 可关闭随机；点状残影保留原拖影长度。随机分布固定在世界空间，物体移动跨区域时会变化。",MessageType.None);
+                }
                 Pair("cylinderDistances", "响应距离（米）：近 / 远");
                 Pair("cylinderRadii", "圆柱半径（米）：近 / 远");
                 Pair("cylinderLengths", "拖影长度（米）：内 / 外");

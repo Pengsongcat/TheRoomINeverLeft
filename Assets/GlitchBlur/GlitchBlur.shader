@@ -19,9 +19,13 @@ Shader "Hidden/TRINL/GlitchBlur"
         float4 _GlitchCylinderRange, _GlitchCylinderShape, _GlitchCylinderGrid, _GlitchCylinderPlayer;
         TEXTURE2D_X_FLOAT(_GlitchBlurObjectIds);
         float4 _GlitchBlurGroup;
+        float _GlitchContinuousLines;
+        float4 _GlitchLineSettings;
+        float _GlitchLineCellSize, _GlitchPointOverlayWeight;
         float4 _GlitchGaussian;
         float4 _GlitchGaussianResponse; // enabled, distance threshold, near strength, far strength
         float4 _GlitchUpward, _GlitchUpwardWeights;
+        float _GlitchBaseBlend, _GlitchEffectWeight;
         TEXTURE2D_X(_GlitchSurfaceNormals);
         float UpMask(float2 uv)
         {
@@ -73,23 +77,18 @@ Shader "Hidden/TRINL/GlitchBlur"
         }
 
         struct SmearOutput { float4 color : SV_Target0; float depth : SV_Target1; };
-        SmearOutput Horizontal(Varyings input)
+        SmearOutput HorizontalInternal(Varyings input, bool useUpward)
         {
             UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
-            SmearOutput output;
+            SmearOutput output = (SmearOutput)0;
             output.color = 0;
             output.depth = _ProjectionParams.z;
             float sceneDepth = SceneDepth(input.texcoord);
             float width = clamp(_GlitchBlurParameters.x, 0, 256);
             float outerWidth = clamp(_GlitchBlurOuter.x, 0, 256);
             float maxWidth = max(width, outerWidth);
-            float coreDepth;
+            float coreDepth = _ProjectionParams.z;
             float4 core = ReadVisible(input.texcoord, sceneDepth, coreDepth);
-            if(_GlitchUpward.x>1.5)
-            {
-                output.color=float4(UpMask(input.texcoord).xxx*core.a,core.a);
-                output.depth=coreDepth;return output;
-            }
             float nearest = core.a > 0.0001 ? 0 : maxWidth + 1;
             float band = floor(input.texcoord.y * _GlitchBlurShape.z);
             float rowShift = sin(band * 12.9898 + _GlitchBlurBands.x * _GlitchBlurShape.w)
@@ -97,7 +96,7 @@ Shader "Hidden/TRINL/GlitchBlur"
             int support = (int)ceil(maxWidth);
             float2 total = 0;
             float4 nearColor = 0, outerColor = 0;
-            if(_GlitchUpward.x>.5)
+            if(useUpward && _GlitchUpward.x>.5)
             {
                 support=(int)ceil(maxWidth*max(_GlitchUpwardWeights.x,_GlitchUpwardWeights.y));
                 [loop]for(int j=-support;j<=support;j++)
@@ -116,8 +115,9 @@ Shader "Hidden/TRINL/GlitchBlur"
                 float contribution=UpFactors(input.texcoord).y;
                 output.color=lerp(nearColor,outerColor,t)*(1-keep)+core*(1-contribution*(1-keep));
                 output.depth=min(output.depth,coreDepth);
-                return output;
             }
+            else
+            {
             // Contiguous taps preserve thin stems; length changes coverage, not sample spacing.
             [loop] for (int i = -support; i <= support; i++)
             {
@@ -142,7 +142,30 @@ Shader "Hidden/TRINL/GlitchBlur"
             float keep = saturate(lerp(_GlitchBlurShape.x, _GlitchBlurOuter.y, transition));
             output.color = lerp(output.color, core, keep);
             if (keep > 0) output.depth = min(output.depth, coreDepth);
+            }
             return output;
+        }
+
+        SmearOutput Horizontal(Varyings input)
+        {
+            UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+            if(_GlitchUpward.x>1.5)
+            {
+                SmearOutput preview=(SmearOutput)0;
+                float depth=_ProjectionParams.z;
+                float4 core=ReadVisible(input.texcoord,SceneDepth(input.texcoord),depth);
+                preview.color=float4(UpMask(input.texcoord).xxx*core.a,core.a);
+                preview.depth=depth;
+                return preview;
+            }
+            if(_GlitchUpward.x<.5 || _GlitchBaseBlend<=0)
+                return HorizontalInternal(input,true);
+            if(_GlitchBaseBlend>=1)return HorizontalInternal(input,false);
+            SmearOutput weighted=HorizontalInternal(input,true);
+            SmearOutput basic=HorizontalInternal(input,false);
+            weighted.color=lerp(weighted.color,basic.color,_GlitchBaseBlend);
+            weighted.depth=min(weighted.depth,basic.depth);
+            return weighted;
         }
 
         SmearOutput Gaussian(Varyings input)
@@ -246,6 +269,11 @@ Shader "Hidden/TRINL/GlitchBlur"
             float2 corners[6] = {float2(0,0),float2(1,0),float2(1,1),float2(0,0),float2(1,1),float2(0,1)};
             float2 centerUV = (float2(cell % width, cell / width) + .5) / _GlitchCylinderGrid.xy;
             float2 uv = (float2(cell % width, cell / width) + corners[corner]) / _GlitchCylinderGrid.xy;
+            bool lineMode=_GlitchContinuousLines>.5;
+            bool originalPatch=lineMode && tap==(uint)_GlitchCylinderGrid.z-1;
+            // A line quad spans two adjacent arc samples. Its vertical extent comes
+            // from the source pixel, rather than duplicating an isolated pixel patch.
+            if(lineMode && !originalPatch)uv.x=centerUV.x;
             float raw = SAMPLE_TEXTURE2D_X_LOD(_GlitchBlurLayerDepth,sampler_PointClamp,centerUV,0).r;
             output.sourceDepth = EyeDepth(raw);
             output.uv = centerUV;
@@ -259,6 +287,10 @@ Shader "Hidden/TRINL/GlitchBlur"
                 raw = lerp(UNITY_NEAR_CLIP_VALUE, 1, raw);
             #endif
             float3 center = ComputeWorldSpacePosition(centerUV,raw,UNITY_MATRIX_I_VP);
+            // World-space cells keep random lengths stable as time advances.
+            float3 randomCell=floor(center/max(.001,_GlitchLineCellSize));
+            float randomValue=frac(sin(dot(randomCell,float3(12.9898,78.233,37.719))+_GlitchLineSettings.w*19.19)*43758.5453);
+            float lineScale=lineMode ? _GlitchLineSettings.x*lerp(_GlitchLineSettings.y,_GlitchLineSettings.z,randomValue) : 1;
             float3 world = ComputeWorldSpacePosition(uv,raw,UNITY_MATRIX_I_VP);
             float3 toward = _GlitchCylinderPlayer.xyz-center; toward.y=0;
             float distance = length(toward);
@@ -267,10 +299,17 @@ Shader "Hidden/TRINL/GlitchBlur"
             float blend = smoothstep(_GlitchCylinderRange.x,_GlitchCylinderRange.y,distance);
             float radius = lerp(_GlitchCylinderRange.z,_GlitchCylinderRange.w,blend);
             float t = 2.0 * tap / max(1,_GlitchCylinderGrid.z-1) - 1;
+            float middleT=t;
+            if(lineMode)
+            {
+                middleT=originalPatch ? 0 : 2.0*(tap+.5)/max(1,_GlitchCylinderGrid.z-1)-1;
+                t=originalPatch ? 0 : 2.0*(tap+corners[corner].x)/max(1,_GlitchCylinderGrid.z-1)-1;
+            }
             float transition = smoothstep(0,1,abs(t));
             float lengthMeters = lerp(_GlitchCylinderShape.x,_GlitchCylinderShape.y,transition);
             float2 upward=UpFactors(centerUV);
             lengthMeters*=upward.x;
+            lengthMeters*=lineScale;
             float row = floor(centerUV.y*_GlitchBlurShape.z);
             float shift = sin(row*12.9898+_GlitchBlurBands.x*_GlitchBlurShape.w)*_GlitchBlurShape.y*lengthMeters;
             // Keep the central source in place; jitter only the trail samples.
@@ -284,6 +323,19 @@ Shader "Hidden/TRINL/GlitchBlur"
             float keep = lerp(_GlitchBlurShape.x,_GlitchBlurOuter.y,transition);
             output.weight = ((1-keep)/_GlitchCylinderGrid.z + (abs(t)<.0001 ? _GlitchBlurShape.x : 0)) / _GlitchCylinderGrid.w;
             output.weight=output.weight*upward.y + (abs(t)<.0001 ? 1-upward.y : 0);
+            if(lineMode)
+            {
+                float span=max(_GlitchCylinderShape.x,_GlitchCylinderShape.y)*upward.x;
+                span*=lineScale;
+                float middleKeep=lerp(_GlitchBlurShape.x,_GlitchBlurOuter.y,smoothstep(0,1,abs(middleT)));
+                float3 sourceRight=ComputeWorldSpacePosition(centerUV+float2(rcp(_GlitchCylinderGrid.x),0),raw,UNITY_MATRIX_I_VP);
+                float pixelWidth=length(sourceRight-center);
+                // Normalize by arc length, so connecting samples does not multiply
+                // brightness as tessellation changes. The original stays a full patch.
+                output.weight=originalPatch ? (span<.00001 ? 1 : _GlitchBlurShape.x/_GlitchCylinderGrid.w*upward.y+1-upward.y)
+                    : saturate(pixelWidth/max(2*span,.00001))*(1-middleKeep)/_GlitchCylinderGrid.w*upward.y;
+            }
+            output.weight*=_GlitchPointOverlayWeight*_GlitchEffectWeight;
             return output;
         }
         SmearOutput CylinderFrag(CylinderVaryings input)
