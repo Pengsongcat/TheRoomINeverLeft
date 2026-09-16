@@ -43,6 +43,7 @@ namespace TRINL.Rendering.Editor
                 effect.cylinderTrails=false;effect.horizontalLength=effect.outerHorizontalLength=30;
                 effect.gaussianRadius=0;effect.gaussianStrength=1;
                 effect.gaussianDistanceResponse=false;
+                effect.upwardResponse=false;
                 effect.originalWeight=effect.outerOriginalWeight=0;
                 effect.verticalSoftness=effect.bandJitter=effect.driftSpeed=0;
                 effect.downsample=2;effect.opacity=1;

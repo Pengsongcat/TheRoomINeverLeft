@@ -16,6 +16,15 @@ namespace TRINL.Rendering
         [Range(0,1)] public float gaussianNearStrength = .6f;
         [Range(0,1)] public float gaussianFarStrength = 1;
         public bool cylinderTrails;
+        public bool upwardResponse;
+        [Range(-1,1)] public float upwardThreshold = .35f;
+        [Range(.01f,1)] public float upwardSoftness = .3f;
+        [Range(0,3)] public float upwardLength = 1.5f;
+        [Range(0,3)] public float otherLength = .2f;
+        [Range(0,1)] public float upwardContribution = 1;
+        [Range(0,1)] public float otherContribution = .15f;
+        public bool upwardTwoSided = true;
+        public bool upwardPreview;
         public Vector2 cylinderDistances = new Vector2(.6f,4f);
         public Vector2 cylinderRadii = new Vector2(.8f,12f);
         public Vector2 cylinderLengths = new Vector2(.6f,1.2f);
@@ -59,6 +68,11 @@ namespace TRINL.Rendering
             gaussianNearStrength = source.gaussianNearStrength;
             gaussianFarStrength = source.gaussianFarStrength;
             cylinderTrails = source.cylinderTrails;
+            upwardResponse=source.upwardResponse; upwardThreshold=source.upwardThreshold;
+            upwardSoftness=source.upwardSoftness; upwardLength=source.upwardLength;
+            otherLength=source.otherLength; upwardContribution=source.upwardContribution;
+            otherContribution=source.otherContribution; upwardTwoSided=source.upwardTwoSided;
+            upwardPreview=source.upwardPreview;
             cylinderDistances = source.cylinderDistances;
             cylinderRadii = source.cylinderRadii;
             cylinderLengths = source.cylinderLengths;
@@ -79,8 +93,12 @@ namespace TRINL.Rendering
         }
         internal void Collect(List<MaskDraw> draws, Shader shader, int id, Camera camera, int layers)
         {
+            CollectRenderers(includeChildren ? GetComponentsInChildren<Renderer>() : GetComponents<Renderer>(), this, masks, draws, shader, id, camera, layers);
+        }
+        internal static void CollectRenderers(Renderer[] renderers, GlitchBlurOverride expectedOwner,
+            Dictionary<long,Material> cache, List<MaskDraw> draws, Shader shader, int id, Camera camera, int layers)
+        {
             if(!shader) return;
-            var renderers = includeChildren ? GetComponentsInChildren<Renderer>() : GetComponents<Renderer>();
             foreach(var r in renderers)
             {
                 if(!r.enabled || r.forceRenderingOff || !r.gameObject.activeInHierarchy ||
@@ -92,7 +110,7 @@ namespace TRINL.Rendering
                     var candidate=t.GetComponent<GlitchBlurOverride>();
                     if(candidate && candidate.isActiveAndEnabled && (t==r.transform || candidate.includeChildren)) {owner=candidate;break;}
                 }
-                if(owner!=this) continue;
+                if(owner!=expectedOwner) continue;
 #if UNITY_EDITOR
                 if(UnityEditor.SceneVisibilityManager.instance.IsHidden(r.gameObject)) continue;
 #endif
@@ -102,8 +120,8 @@ namespace TRINL.Rendering
                 {
                     var source=materials[submesh]; if(!source) continue;
                     long key=((long)r.GetInstanceID()<<32) | (uint)(submesh*32);
-                    if(!masks.TryGetValue(key,out var mask) || !mask)
-                    { mask=CoreUtils.CreateEngineMaterial(shader); masks[key]=mask; }
+                    if(!cache.TryGetValue(key,out var mask) || !mask)
+                    { mask=CoreUtils.CreateEngineMaterial(shader); cache[key]=mask; }
                     string map=source.HasProperty("_BaseMap") ? "_BaseMap" : "_MainTex";
                     mask.SetTexture("_BaseMap",source.HasProperty(map) ? source.GetTexture(map) : Texture2D.whiteTexture);
                     var scale=source.HasProperty(map) ? source.GetTextureScale(map) : Vector2.one;
@@ -126,8 +144,8 @@ namespace TRINL.Rendering
                         for(int side=-1;side<=1;side+=2)
                         {
                             long ghostKey=key+(step-1)*2+(side<0?1:2);
-                            if(!masks.TryGetValue(ghostKey,out var ghostMask) || !ghostMask)
-                            {ghostMask=CoreUtils.CreateEngineMaterial(shader);masks[ghostKey]=ghostMask;}
+                            if(!cache.TryGetValue(ghostKey,out var ghostMask) || !ghostMask)
+                            {ghostMask=CoreUtils.CreateEngineMaterial(shader);cache[ghostKey]=ghostMask;}
                             ghostMask.CopyPropertiesFromMaterial(mask);
                             ghostMask.SetFloat("_ObjectId",id);
                             ghostMask.SetVector("_MaskST",new Vector4(scale.x,scale.y,offset.x,offset.y));

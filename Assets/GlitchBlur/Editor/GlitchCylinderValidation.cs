@@ -39,6 +39,7 @@ namespace TRINL.Rendering.Editor
                 effect.cylinderTrails=true; effect.cylinderSamples=33; effect.cylinderResolution=256;
                 effect.gaussianRadius=0;effect.gaussianStrength=1;
                 effect.gaussianDistanceResponse=false;
+                effect.upwardResponse=false;
                 effect.cylinderLengths=new Vector2(1.2f,1.2f); effect.cylinderRadii=new Vector2(.8f,12);
                 effect.originalWeight=0; effect.outerOriginalWeight=0; effect.opacity=1;
                 effect.bandJitter=0; effect.verticalSoftness=0; effect.downsample=2;

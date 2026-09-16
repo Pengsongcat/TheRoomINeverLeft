@@ -15,6 +15,7 @@ namespace TRINL.Rendering.Editor
             var effect = data.rendererFeatures.Find(f => f is GlitchBlurRendererFeature) as GlitchBlurRendererFeature;
             if (effect == null) throw new Exception("GlitchBlur not installed.");
             bool wasCylindrical = effect.cylinderTrails;
+            bool wasUpward = effect.upwardResponse;
             float savedGaussianRadius = effect.gaussianRadius;
             int glitchLayer = LayerMask.NameToLayer("GlitchBlur"), screenLayer = LayerMask.NameToLayer("ScreenBlur");
             float length = effect.horizontalLength, vertical = effect.verticalSoftness, core = effect.originalWeight, jitter = effect.bandJitter;
@@ -48,6 +49,7 @@ namespace TRINL.Rendering.Editor
             try
             {
                 effect.cylinderTrails = false;
+                effect.upwardResponse = false;
                 effect.gaussianRadius = 0;
                 probe.layer = glitchLayer;
                 camera.cullingMask = 1 << glitchLayer;
@@ -106,6 +108,7 @@ namespace TRINL.Rendering.Editor
             finally
             {
                 effect.cylinderTrails = wasCylindrical;
+                effect.upwardResponse = wasUpward;
                 effect.gaussianRadius = savedGaussianRadius;
                 effect.horizontalLength = length;
                 effect.verticalSoftness = vertical;
