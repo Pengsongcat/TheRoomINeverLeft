@@ -177,4 +177,96 @@ public class RoomMathTests
         Assert.AreEqual(0f, worldX, 0.001f, "lab centre x maps to Room Root at non-1 scale");
         Assert.AreEqual(0f, worldZ, 0.001f, "lab centre z maps to Room Root at non-1 scale");
     }
+
+    // ─── RoomRect fitted corners ─────────────────────────────────────────────────
+
+    [Test]
+    public void RoomRect_AxisAligned_FittedCornersMatchInputCorners()
+    {
+        var c    = RectCorners(4f, 8f);
+        var rect = new RoomRect(c[0], c[1], c[2], c[3]);
+
+        Assert.AreEqual(c[0].x, rect.FrontLeft.x,  0.01f, "FL x");
+        Assert.AreEqual(c[0].z, rect.FrontLeft.z,  0.01f, "FL z");
+        Assert.AreEqual(c[1].x, rect.FrontRight.x, 0.01f, "FR x");
+        Assert.AreEqual(c[2].x, rect.BackRight.x,  0.01f, "BR x");
+        Assert.AreEqual(c[3].x, rect.BackLeft.x,   0.01f, "BL x");
+    }
+
+    [Test]
+    public void RoomRect_Skewed_FittedCornersAreRightAngles()
+    {
+        // Trapezoid: front wall wider than back wall.
+        var c1 = new Vector3(-2.5f, 0f,  4f);
+        var c2 = new Vector3( 2.5f, 0f,  4f);
+        var c3 = new Vector3( 2f,   0f, -4f);
+        var c4 = new Vector3(-2f,   0f, -4f);
+        var rect = new RoomRect(c1, c2, c3, c4);
+
+        Vector3 fl = rect.FrontLeft;
+        Vector3 fr = rect.FrontRight;
+        Vector3 br = rect.BackRight;
+        Vector3 bl = rect.BackLeft;
+
+        // Each corner must be a right angle (dot product of two adjacent edges = 0).
+        Assert.AreEqual(0f, Vector3.Dot(fr - fl, bl - fl), 0.01f, "right angle at FL");
+        Assert.AreEqual(0f, Vector3.Dot(fl - fr, br - fr), 0.01f, "right angle at FR");
+    }
+
+    [Test]
+    public void RoomRect_Skewed_FittedCornersDimensionsMatchAveraged()
+    {
+        var c1 = new Vector3(-2.5f, 0f,  4f);
+        var c2 = new Vector3( 2.5f, 0f,  4f);
+        var c3 = new Vector3( 2f,   0f, -4f);
+        var c4 = new Vector3(-2f,   0f, -4f);
+        var rect = new RoomRect(c1, c2, c3, c4);
+
+        float fittedWidth  = Vector3.Distance(rect.FrontLeft, rect.FrontRight);
+        float fittedLength = Vector3.Distance(rect.FrontLeft, rect.BackLeft);
+
+        Assert.AreEqual(rect.width,  fittedWidth,  0.01f, "fitted width equals rect.width");
+        Assert.AreEqual(rect.length, fittedLength, 0.01f, "fitted length equals rect.length");
+    }
+
+    // ─── RoomShapeCheck ──────────────────────────────────────────────────────────
+
+    [Test]
+    public void ShapeCheck_ValidRoom_Passes()
+    {
+        var c = RectCorners(4f, 8f);
+        Assert.IsTrue(RoomShapeCheck.Validate(c, out _));
+    }
+
+    [Test]
+    public void ShapeCheck_SideTooShort_Fails()
+    {
+        // Front wall only 0.5 m wide.
+        var corners = new[]
+        {
+            new Vector3(-0.25f, 0f,  4f),
+            new Vector3( 0.25f, 0f,  4f),
+            new Vector3( 2f,    0f, -4f),
+            new Vector3(-2f,    0f, -4f),
+        };
+        Assert.IsFalse(RoomShapeCheck.Validate(corners, out _));
+    }
+
+    [Test]
+    public void ShapeCheck_CounterClockwise_Fails()
+    {
+        // Reverse a valid clockwise room to make it counter-clockwise.
+        var c = RectCorners(4f, 8f);
+        var ccw = new[] { c[3], c[2], c[1], c[0] };
+        Assert.IsFalse(RoomShapeCheck.Validate(ccw, out _));
+    }
+
+    [Test]
+    public void ShapeCheck_SelfIntersecting_Fails()
+    {
+        // Butterfly / figure-8 shape: c2 and c4 are swapped.
+        var c = RectCorners(4f, 8f);
+        var crossed = new[] { c[0], c[2], c[1], c[3] };
+        Assert.IsFalse(RoomShapeCheck.Validate(crossed, out _));
+    }
 }

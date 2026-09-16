@@ -27,6 +27,13 @@ public readonly struct RoomRect
         floorY = (c1.y + c2.y + c3.y + c4.y) * 0.25f;
     }
 
+    // Fitted rectangle corners derived from centre / forward / right / width / length.
+    // Use these for room geometry and sound layout; keep raw anchor positions for debug markers.
+    public Vector3 FrontLeft  => centre + forward * (length * 0.5f) - right * (width * 0.5f);
+    public Vector3 FrontRight => centre + forward * (length * 0.5f) + right * (width * 0.5f);
+    public Vector3 BackRight  => centre - forward * (length * 0.5f) + right * (width * 0.5f);
+    public Vector3 BackLeft   => centre - forward * (length * 0.5f) - right * (width * 0.5f);
+
     // Rebuild the corner at missingIndex using the parallelogram diagonal property.
     // Pass the other three corners in their correct index positions; missingIndex slot is ignored.
     public static Vector3 RebuildCorner(int missingIndex, Vector3[] corners) =>
