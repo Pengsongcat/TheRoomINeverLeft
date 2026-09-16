@@ -53,7 +53,9 @@ Shader "Hidden/TRINL/ScreenBlur"
                 float depth = EyeDepth(SAMPLE_TEXTURE2D_X_LOD(_ScreenBlurLayerDepth, sampler_PointClamp, uv, 0).r);
                 // Reject both hidden source pixels and spread across foreground occluders.
                 if (color.a < 0.0001 || depth > min(sceneDepth, SceneEyeDepth(uv)) + _ScreenBlurParameters.z) continue;
-                output.color += float4(color.rgb * color.a, color.a) * weight;
+                // Alpha-blended captures already contain premultiplied RGB over the clear target.
+                // Multiplying again would darken translucent spatial ghosts twice.
+                output.color += color * weight;
                 output.depth = min(output.depth, depth);
             }
             output.color /= total;

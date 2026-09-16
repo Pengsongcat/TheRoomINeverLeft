@@ -72,7 +72,7 @@ namespace TRINL.Rendering.Editor
             if(renderer.transform.parent!=fog.source.transform)
                 Undo.SetTransformParent(renderer.transform,fog.source.transform,"更新雾代理父物体");
             Undo.RecordObjects(new UnityEngine.Object[]{renderer,renderer.transform,renderer.gameObject},"更新雾代理盒");
-            renderer.gameObject.layer=0;
+            renderer.gameObject.layer=fog.gameObject.layer;
             renderer.transform.localPosition=fog.shape.localBounds.center;
             renderer.transform.localRotation=Quaternion.identity;
             renderer.transform.localScale=fog.shape.localBounds.size;
