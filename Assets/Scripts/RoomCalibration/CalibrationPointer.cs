@@ -25,7 +25,8 @@ public class CalibrationPointer : MonoBehaviour
         _marker.name = "PointerMarker";
         Destroy(_marker.GetComponent<Collider>());
         _marker.transform.localScale = Vector3.one * (_sphereRadius * 2f);
-        _marker.GetComponent<Renderer>().material.color = _color;
+        // CreatePrimitive's default material is URP-incompatible in player builds (pink / invisible on Quest).
+        _marker.GetComponent<Renderer>().material = new Material(Shader.Find("Sprites/Default")) { color = _color };
         _marker.SetActive(false);
 
         if (_showFloorGrid) _grid = BuildGrid();
