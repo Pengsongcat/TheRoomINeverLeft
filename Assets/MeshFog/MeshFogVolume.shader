@@ -21,13 +21,21 @@ Shader "TRINL/Mesh Fog Volume"
             float4x4 _FogWorldToLocal;
             float4 _BoundsMin, _BoundsSize, _FogColor, _FogParams, _NoiseParams, _Flow;
             struct Attributes { float4 positionOS : POSITION; UNITY_VERTEX_INPUT_INSTANCE_ID };
-            struct Varyings { float4 positionCS : SV_POSITION; UNITY_VERTEX_OUTPUT_STEREO };
+            struct Varyings
+            {
+                float4 positionCS : SV_POSITION;
+                float4 screenPosition : TEXCOORD0;
+                UNITY_VERTEX_OUTPUT_STEREO
+            };
             Varyings Vert(Attributes input)
             {
                 Varyings o;
                 UNITY_SETUP_INSTANCE_ID(input);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
                 o.positionCS = TransformObjectToHClip(input.positionOS.xyz);
+                // Interpolated clip coordinates are independent of the render-target size.
+                // SV_POSITION / _ScaledScreenParams is incorrect in downsampled layer captures.
+                o.screenPosition = ComputeScreenPos(o.positionCS);
                 return o;
             }
             float Hash(float3 p)
@@ -45,10 +53,11 @@ Shader "TRINL/Mesh Fog Volume"
                             lerp(lerp(Hash(cell+float3(0,0,1)), Hash(cell+float3(1,0,1)), f.x),
                                  lerp(Hash(cell+float3(0,1,1)), Hash(cell+float3(1,1,1)), f.x), f.y), f.z);
             }
-            float4 Frag(Varyings input) : SV_Target
+            struct FogOutput { float4 color : SV_Target; float depth : SV_Depth; };
+            FogOutput Frag(Varyings input)
             {
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
-                float2 uv = GetNormalizedScreenSpaceUV(input.positionCS);
+                float2 uv = input.screenPosition.xy / input.screenPosition.w;
                 float depth = SampleSceneDepth(uv);
                 #if UNITY_REVERSED_Z
                     float nearDepth = 1, farDepth = 0.0001;
@@ -71,11 +80,12 @@ Shader "TRINL/Mesh Fog Volume"
                 float3 entry = min(a,b), leave = max(a,b);
                 float start = max(0, max(entry.x, max(entry.y, entry.z)));
                 float end = min(maxDistance, min(leave.x, min(leave.y, leave.z)));
-                if (end <= start || _FogParams.w >= 1) return 0;
+                if (end <= start || _FogParams.w >= 1) discard;
                 int count = (int)clamp(_NoiseParams.z, 16, 128);
                 float stepLength = (end - start) / count;
                 float transmission = 1;
                 float3 accumulated = 0;
+                float firstDistance = end;
                 [loop] for (int i=0; i<count; i++)
                 {
                     float3 p = ro + rd * (start + (i + 0.5) * stepLength);
@@ -91,11 +101,24 @@ Shader "TRINL/Mesh Fog Volume"
                     float variation = lerp(1, smoothstep(0.15, 0.8, noise), _FogParams.z);
                     float extinction = _FogParams.x * shape * variation * (1 - _FogParams.w);
                     float alpha = 1 - exp(-extinction * stepLength);
+                    if (alpha > 0.00001) firstDistance = min(firstDistance, start + (i + 0.5) * stepLength);
                     accumulated += transmission * alpha * _FogColor.rgb * lerp(0.65, 1.15, noise);
                     transmission *= 1 - alpha;
                     if (transmission < 0.005) break;
                 }
-                return float4(accumulated, 1 - transmission);
+                // Empty proxy pixels must not write a box-surface depth into layer captures.
+                if (1 - transmission < 0.0001) discard;
+                float4 firstClip = TransformWorldToHClip(origin + direction * firstDistance);
+                float deviceDepth = firstClip.z / firstClip.w;
+                #if !UNITY_REVERSED_Z
+                    deviceDepth = (deviceDepth - UNITY_NEAR_CLIP_VALUE) / (1 - UNITY_NEAR_CLIP_VALUE);
+                #endif
+                FogOutput output;
+                output.color = float4(accumulated, 1 - transmission);
+                // Normal fog keeps ZWrite Off. Capture passes that enable depth writes now
+                // receive the first contributing fog sample rather than the proxy back face.
+                output.depth = saturate(deviceDepth);
+                return output;
             }
             ENDHLSL
         }

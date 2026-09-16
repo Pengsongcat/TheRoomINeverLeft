@@ -1,5 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7148062670125612371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe309fa0a731a614bb3856cd267c9c38, type: 3}
+  m_Name: GlitchBlur (Horizontal Smear)
+  m_EditorClassIdentifier: Assembly-CSharp::TRINL.Rendering.GlitchBlurRendererFeature
+  m_Active: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  gaussianRadius: 6
+  gaussianStrength: 0.7
+  gaussianDistanceResponse: 1
+  gaussianResponseDistance: 3
+  gaussianNearStrength: 0.6
+  gaussianFarStrength: 1
+  cylinderTrails: 1
+  cylinderDistances: {x: 0.6, y: 4}
+  cylinderRadii: {x: 0.8, y: 12}
+  cylinderLengths: {x: 0.6, y: 1.2}
+  cylinderTowardPlayer: 1
+  cylinderSamples: 9
+  cylinderResolution: 172
+  horizontalLength: 20
+  verticalSoftness: 4.04
+  originalWeight: 0.5
+  outerHorizontalLength: 256
+  outerOriginalWeight: 0
+  bandJitter: 0.195
+  bandCount: 51
+  driftSpeed: 0.2
+  downsample: 4
+  opacity: 1
+  depthBias: 0.005
+  blurShader: {fileID: 4800000, guid: 7c9c8014508ddd94e8072894091230aa, type: 3}
+  objectIdShader: {fileID: 4800000, guid: fefad0917186d1e4fb029ae692b8b92a, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,6 +68,7 @@ MonoBehaviour:
     probeVolumeBlendStatesCS: {fileID: 0}
   m_RendererFeatures:
   - {fileID: 3593875027875084220}
+  - {fileID: -7148062670125612371}
   m_RendererFeatureMap: bc37a4f34b02e031
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
@@ -36,10 +79,10 @@ MonoBehaviour:
     m_Bits: 4294967167
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967167
+    m_Bits: 4294966911
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294966911
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
@@ -7,7 +8,8 @@ using UnityEngine.Rendering.Universal;
 
 namespace TRINL.Rendering
 {
-    // The renderer's Opaque Layer Mask must exclude these layers; camera culling must include them.
+    // Both the renderer's Opaque and Transparent Layer Masks must exclude these layers;
+    // camera culling must include them. This feature draws both queues exactly once.
     public sealed class ScreenBlurRendererFeature : ScriptableRendererFeature
     {
         public LayerMask layerMask = 1 << 7;
@@ -57,7 +59,7 @@ namespace TRINL.Rendering
             static readonly int Parameters = Shader.PropertyToID("_ScreenBlurParameters");
             static readonly int Texel = Shader.PropertyToID("_ScreenBlurTexel");
 
-            sealed class DrawData { public RendererListHandle list; }
+            sealed class DrawData { public RendererListHandle list, transparentList; }
             sealed class FilterData
             {
                 public TextureHandle source;
@@ -91,17 +93,40 @@ namespace TRINL.Rendering
                 var drawing = RenderingUtils.CreateDrawingSettings(Tags, rendering, camera, lights, camera.defaultOpaqueSortFlags);
                 var filtering = new FilteringSettings(RenderQueueRange.opaque, layers);
                 var list = graph.CreateRendererList(new RendererListParams(rendering.cullResults, drawing, filtering));
+                var transparentDrawing = RenderingUtils.CreateDrawingSettings(Tags, rendering, camera, lights, SortingCriteria.CommonTransparent);
+                var transparentFiltering = new FilteringSettings(RenderQueueRange.transparent, layers);
+                // Capture a representative front depth for the existing depth-aware blur.
+                // Keep each shader's blending, including separate RGB/alpha blend factors.
+                var tags = new NativeArray<ShaderTagId>(1, Allocator.Temp);
+                tags[0] = ShaderTagId.none;
+                var states = new NativeArray<RenderStateBlock>(1, Allocator.Temp);
+                states[0] = new RenderStateBlock(RenderStateMask.Depth)
+                {
+                    depthState = new DepthState(true, CompareFunction.LessEqual)
+                };
+                var transparentList = graph.CreateRendererList(new RendererListParams(rendering.cullResults, transparentDrawing, transparentFiltering)
+                {
+                    tagValues = tags,
+                    stateBlocks = states,
+                    isPassTagName = false
+                });
                 using (var builder = graph.AddRasterRenderPass<DrawData>("ScreenBlur: Original Materials", out var data))
                 {
                     data.list = list;
+                    data.transparentList = transparentList;
                     builder.UseRendererList(list);
+                    builder.UseRendererList(transparentList);
                     builder.UseAllGlobalTextures(true);
                     builder.SetRenderAttachment(color, 0, AccessFlags.Write);
                     builder.SetRenderAttachmentDepth(depth, AccessFlags.Write);
                     builder.SetGlobalTextureAfterPass(depth, LayerDepth);
                     builder.SetGlobalTextureAfterPass(resources.cameraDepthTexture, SceneDepth);
                     builder.UseTexture(resources.cameraDepthTexture, AccessFlags.Read);
-                    builder.SetRenderFunc((DrawData d, RasterGraphContext ctx) => ctx.cmd.DrawRendererList(d.list));
+                    builder.SetRenderFunc((DrawData d, RasterGraphContext ctx) =>
+                    {
+                        ctx.cmd.DrawRendererList(d.list);
+                        ctx.cmd.DrawRendererList(d.transparentList);
+                    });
                 }
 
                 using (var builder = graph.AddRasterRenderPass<FilterData>("ScreenBlur: Horizontal Gaussian", out var data))
