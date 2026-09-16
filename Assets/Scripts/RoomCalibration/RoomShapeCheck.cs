@@ -36,7 +36,7 @@ public static class RoomShapeCheck
             var bc = corners[(i + 2) % 4] - corners[(i + 1) % 4];
             ab.y = 0f;
             bc.y = 0f;
-            if (Vector3.Cross(ab, bc).y >= 0f)
+            if (Vector3.Cross(ab, bc).y <= 0f)
             {
                 reason = "Corners must be placed clockwise (seen from above) without crossing.";
                 return false;
