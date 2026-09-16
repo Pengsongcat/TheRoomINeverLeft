@@ -19,6 +19,9 @@ namespace TRINL.Rendering.Editor
             Field(obj,"otherContribution","其他区域拖影贡献","减少贡献时保留更多原像，不会直接删除模型。");
             Field(obj,"upwardTwoSided","双面法线修正","查看薄片背面时翻转法线；若资产已自定义正反面法线，可关闭比较。");
             Field(obj,"upwardPreview","预览朝向遮罩","白色影响大，黑色影响小。预览时跳过拖影与高斯柔化。");
+            Field(obj,"blendBaseStretch","叠加基础拉伸","混合未应用朝向权重的基础拖影，保留当前圆柱、线条、随机长度与点状叠加设置。");
+            if(obj.FindProperty("blendBaseStretch").boolValue)
+                Field(obj,"baseStretchBlend","基础拉伸融合强度","0 = 当前朝向效果，0.5 = 各占一半，1 = 完整基础效果。遮罩预览时不参与混合。");
             EditorGUILayout.HelpBox("依据表面朝向，不依据物体高度或实际灯光。调好遮罩后关闭预览即可查看拖影。",MessageType.None);
         }
         static void Field(SerializedObject obj,string name,string label,string tip=null)

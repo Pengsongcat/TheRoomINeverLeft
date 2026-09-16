@@ -19,13 +19,32 @@ the radius controls how strongly that arc bends. It is not a single object-pivot
 like SpatialGhosts. Both effects can be enabled together, which stacks their deformations.
 
 Settings:
+- Continuous lines: the `连续拉伸成线` button in Cylinder Settings, available globally
+  and in each GlitchBlurOverride (`public bool continuousLines`). Disabled by default
+  to preserve discrete patches. Enable to join adjacent arc samples with ribbon quads;
+  disable to restore the original point-like trails. Existing length, influence,
+  upward weighting and Gaussian controls still apply.
+- Line length multiplier (`lineLengthMultiplier`, default 1) scales only continuous
+  lines. Final arc length = existing inner/outer length * multiplier * random factor
+  * upward length weight. Zero collapses the line back to its source patch.
+- Random length range (`lineRandomRange`, default 1/1) supplies min/max multipliers.
+  Try 0.3/1 for varied lengths; equal endpoints remove variation. World-space cells
+  (`lineRandomCellSize`, metres) and `lineRandomSeed` define a deterministic pattern.
+  It does not animate with time, but moving sources across cells changes the pattern;
+  this is not a persistent object-space random ID for animated objects.
+- Overlay points (`overlayPoints`, default false) adds the original discrete trail
+  on top of lines, using its original lengths. `overlayPointWeight` (default 0.5)
+  controls its additive contribution. This also increases brightness where they overlap
+  and adds one procedural draw. All these controls are public and available locally.
 - Response distance near/far: world metres, default 0.6/4.
 - Radius near/far: world metres, default 0.8/12.
 - Length inner/outer: per-side arc length in metres, default 0.6/1.2.
 - Influence endpoints: control contributions near the original sample and toward trail ends.
   In this mode the transition is along the sweep, not measured from a screen silhouette.
 - Toward player: reverses the depth direction of the arc.
-- Samples: odd count, 9–65, default 33. More samples reduce separated bands.
+- Samples: odd count, 9–65, default 33. More samples reduce separated bands in point
+  mode, or improve arc segmentation in continuous-line mode. Continuous ribbons cover
+  more screen area, so their fragment cost can exceed the discrete mode.
 - Capture width limit: 64–512, default 256; retains aspect ratio and XR texture layout.
   Higher resolution increases both captured detail and procedural vertex cost.
 - Vertical softness, jitter, drift and opacity retain their controls. Pixel lengths are
@@ -41,3 +60,7 @@ Tools > TRINL > Validate Glitch Cylinder checks curved versus nearly straight pr
 zero-length coverage, perspective visibility, foreground occlusion, and ScreenBlur isolation.
 Temporary objects/settings are restored. Reports/images: Library/GlitchCylinderValidation.
 The existing Validate GlitchBlur explicitly exercises flat mode and restores the mode.
+
+Tools > TRINL > Validate Glitch Continuous Lines checks that gaps disappear at nine
+samples, switching off restores the point image, and local/global mode controls agree.
+Reports/images: Library/GlitchLineValidation. This is desktop validation only.

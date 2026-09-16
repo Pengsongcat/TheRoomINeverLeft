@@ -20,7 +20,16 @@ namespace TRINL.Rendering
         [Range(0,1)] public float gaussianNearStrength = .6f;
         [Range(0,1)] public float gaussianFarStrength = 1;
         public bool cylinderTrails;
+        public bool continuousLines;
+        [Min(0)] public float lineLengthMultiplier = 1;
+        public Vector2 lineRandomRange = Vector2.one;
+        [Min(.001f)] public float lineRandomCellSize = .1f;
+        public int lineRandomSeed;
+        public bool overlayPoints;
+        [Range(0,1)] public float overlayPointWeight = .5f;
         public bool upwardResponse;
+        public bool blendBaseStretch;
+        [Range(0,1)] public float baseStretchBlend = .5f;
         [Range(-1,1)] public float upwardThreshold = .35f;
         [Range(.01f,1)] public float upwardSoftness = .3f;
         [Range(0,3)] public float upwardLength = 1.5f;
@@ -92,6 +101,11 @@ namespace TRINL.Rendering
             pass.gaussianStrength = Mathf.Clamp01(gaussianStrength);
             pass.gaussianResponse = new Vector4(gaussianDistanceResponse ? 1 : 0, Mathf.Max(.01f,gaussianResponseDistance), Mathf.Clamp01(gaussianNearStrength), Mathf.Clamp01(gaussianFarStrength));
             pass.cylindrical = cylinderTrails;
+            pass.continuousLines = continuousLines;
+            pass.lineSettings = new Vector4(Mathf.Max(0,lineLengthMultiplier),Mathf.Max(0,Mathf.Min(lineRandomRange.x,lineRandomRange.y)),Mathf.Max(0,Mathf.Max(lineRandomRange.x,lineRandomRange.y)),lineRandomSeed);
+            pass.lineCellSize = Mathf.Max(.001f,lineRandomCellSize);
+            pass.overlayPoints = overlayPoints;
+            pass.overlayPointWeight = Mathf.Clamp01(overlayPointWeight);
             pass.cylinderDistances = cylinderDistances;
             pass.cylinderRadii = cylinderRadii;
             pass.cylinderLengths = cylinderLengths;
@@ -104,6 +118,7 @@ namespace TRINL.Rendering
             pass.upward = new Vector4(upwardResponse ? 1 : 0,upwardThreshold,Mathf.Max(.01f,upwardSoftness),upwardTwoSided ? 1 : 0);
             pass.upwardWeights = new Vector4(Mathf.Clamp(upwardLength,0,3),Mathf.Clamp(otherLength,0,3),Mathf.Clamp01(upwardContribution),Mathf.Clamp01(otherContribution));
             pass.upwardPreview=upwardResponse && upwardPreview;
+            pass.baseBlend=upwardResponse && blendBaseStretch ? Mathf.Clamp01(baseStretchBlend) : 0;
             var owners = GlitchBlurOverride.Active.ToArray();
             var masks = new List<GlitchBlurOverride.MaskDraw>();
             if(upwardResponse)
@@ -133,7 +148,13 @@ namespace TRINL.Rendering
                 local.upward=new Vector4(owner.upwardResponse ? 1 : 0,owner.upwardThreshold,Mathf.Max(.01f,owner.upwardSoftness),owner.upwardTwoSided ? 1 : 0);
                 local.upwardWeights=new Vector4(Mathf.Clamp(owner.upwardLength,0,3),Mathf.Clamp(owner.otherLength,0,3),Mathf.Clamp01(owner.upwardContribution),Mathf.Clamp01(owner.otherContribution));
                 local.upwardPreview=owner.upwardResponse && owner.upwardPreview;
+                local.baseBlend=owner.upwardResponse && owner.blendBaseStretch ? Mathf.Clamp01(owner.baseStretchBlend) : 0;
                 local.cylindrical=owner.cylinderTrails;
+                local.continuousLines=owner.continuousLines;
+                local.lineSettings=new Vector4(Mathf.Max(0,owner.lineLengthMultiplier),Mathf.Max(0,Mathf.Min(owner.lineRandomRange.x,owner.lineRandomRange.y)),Mathf.Max(0,Mathf.Max(owner.lineRandomRange.x,owner.lineRandomRange.y)),owner.lineRandomSeed);
+                local.lineCellSize=Mathf.Max(.001f,owner.lineRandomCellSize);
+                local.overlayPoints=owner.overlayPoints;
+                local.overlayPointWeight=Mathf.Clamp01(owner.overlayPointWeight);
                 local.cylinderSign=owner.cylinderTowardPlayer ? 1 : -1;
                 local.cylinderDistances = owner.cylinderDistances;
                 local.cylinderRadii = owner.cylinderRadii;
@@ -178,10 +199,15 @@ namespace TRINL.Rendering
             internal Vector4 gaussianResponse;
             internal Vector4 upward, upwardWeights;
             internal bool upwardPreview;
+            internal float baseBlend;
             internal float horizontalLength, verticalSoftness, originalWeight, bandJitter, driftSpeed, opacity, depthBias;
             internal float outerHorizontalLength, outerOriginalWeight;
             internal int bandCount, downsample;
             internal bool cylindrical;
+            internal bool continuousLines;
+            internal Vector4 lineSettings;
+            internal float lineCellSize, overlayPointWeight;
+            internal bool overlayPoints;
             internal Vector2 cylinderDistances, cylinderRadii, cylinderLengths;
             internal float cylinderSign;
             internal int cylinderSamples, cylinderResolution;
@@ -215,8 +241,13 @@ namespace TRINL.Rendering
                 public Vector4 gaussian;
                 public Vector4 gaussianResponse;
                 public Vector4 upward, upwardWeights;
+                public float baseBlend;
                 public Vector4 parameters, texel, shape, bands, outer;
                 public Vector4 cylinderRange, cylinderShape, cylinderGrid, player;
+                public bool continuousLines;
+                public Vector4 lineSettings;
+                public float lineCellSize, overlayPointWeight;
+                public bool overlayPoints;
             }
 
             public override void RecordRenderGraph(RenderGraph graph, ContextContainer frameData)
@@ -394,10 +425,16 @@ namespace TRINL.Rendering
                 data.cylinderRange = new Vector4(Mathf.Max(0,cylinderDistances.x), Mathf.Max(cylinderDistances.x+.01f,cylinderDistances.y), Mathf.Max(.05f,cylinderRadii.x), Mathf.Max(.05f,cylinderRadii.y));
                 data.cylinderShape = new Vector4(Mathf.Max(0,cylinderLengths.x), Mathf.Max(0,cylinderLengths.y), cylinderSign, 0);
                 data.cylinderGrid = new Vector4(0,0,cylinderSamples,0);
+                data.continuousLines=continuousLines;
+                data.lineSettings=lineSettings;
+                data.lineCellSize=lineCellSize;
+                data.overlayPoints=overlayPoints;
+                data.overlayPointWeight=overlayPointWeight;
                 data.player = new Vector4(playerPosition.x,playerPosition.y,playerPosition.z,0);
                 data.gaussianResponse = gaussianResponse;
                 data.upward=upward;
                 data.upwardWeights=upwardWeights;
+                data.baseBlend=upwardPreview ? 0 : baseBlend;
                 if(upwardPreview){ data.upward.x=2;data.parameters.y=1;data.parameters.w=0; }
             }
 
@@ -414,6 +451,12 @@ namespace TRINL.Rendering
                 context.cmd.SetGlobalVector("_GlitchUpwardWeights", data.upwardWeights);
                 context.cmd.SetGlobalVector("_GlitchGaussianResponse", data.gaussianResponse);
                 context.cmd.SetGlobalVector("_GlitchCylinderPlayer", data.player);
+                context.cmd.SetGlobalFloat("_GlitchContinuousLines",data.continuousLines ? 1 : 0);
+                context.cmd.SetGlobalVector("_GlitchLineSettings",data.lineSettings);
+                context.cmd.SetGlobalFloat("_GlitchLineCellSize",data.lineCellSize);
+                context.cmd.SetGlobalFloat("_GlitchPointOverlayWeight",1);
+                context.cmd.SetGlobalFloat("_GlitchBaseBlend",data.baseBlend);
+                context.cmd.SetGlobalFloat("_GlitchEffectWeight",1);
                 if (data.shaderPass == 2)
                 {
                     float normalization = data.shape.x;
@@ -427,8 +470,24 @@ namespace TRINL.Rendering
                     context.cmd.SetGlobalVector("_GlitchCylinderShape", data.cylinderShape);
                     context.cmd.SetGlobalVector("_GlitchCylinderGrid", new Vector4(data.texel.z,data.texel.w,data.cylinderGrid.z,Mathf.Max(1,normalization)));
                     context.cmd.SetGlobalVector("_GlitchCylinderPlayer", data.player);
+                    for(int layer=0;layer<(data.baseBlend>0 ? 2 : 1);layer++)
+                    {
+                    float weight=layer==0 ? 1-data.baseBlend : data.baseBlend;
+                    if(weight<=0)continue;
+                    context.cmd.SetGlobalVector("_GlitchUpward",layer==0 ? data.upward : Vector4.zero);
+                    context.cmd.SetGlobalFloat("_GlitchEffectWeight",weight);
+                    context.cmd.SetGlobalFloat("_GlitchContinuousLines",data.continuousLines ? 1 : 0);
+                    context.cmd.SetGlobalFloat("_GlitchPointOverlayWeight",1);
                     context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 2, MeshTopology.Triangles,
                         (int)(data.texel.z * data.texel.w * 6 * data.cylinderGrid.z), 1);
+                    if(data.continuousLines && data.overlayPoints && data.overlayPointWeight>0)
+                    {
+                        context.cmd.SetGlobalFloat("_GlitchContinuousLines",0);
+                        context.cmd.SetGlobalFloat("_GlitchPointOverlayWeight",data.overlayPointWeight);
+                        context.cmd.DrawProcedural(Matrix4x4.identity,data.material,2,MeshTopology.Triangles,
+                            (int)(data.texel.z*data.texel.w*6*data.cylinderGrid.z),1);
+                    }
+                    }
                     return;
                 }
                 Blitter.BlitTexture(context.cmd, data.source, new Vector4(1, 1, 0, 0), data.material, data.shaderPass);
