@@ -21,6 +21,20 @@ Shader "Hidden/TRINL/GlitchBlur"
         float4 _GlitchBlurGroup;
         float4 _GlitchGaussian;
         float4 _GlitchGaussianResponse; // enabled, distance threshold, near strength, far strength
+        float4 _GlitchUpward, _GlitchUpwardWeights;
+        TEXTURE2D_X(_GlitchSurfaceNormals);
+        float UpMask(float2 uv)
+        {
+            float4 n=SAMPLE_TEXTURE2D_X_LOD(_GlitchSurfaceNormals,sampler_PointClamp,uv,0);
+            float ny=_GlitchUpward.w>.5 ? n.y : n.x;
+            return n.a>.5 ? smoothstep(_GlitchUpward.y-_GlitchUpward.z*.5,_GlitchUpward.y+_GlitchUpward.z*.5,ny) : 0;
+        }
+        float2 UpFactors(float2 uv)
+        {
+            if(_GlitchUpward.x<.5)return float2(1,1);
+            float m=UpMask(uv);
+            return float2(lerp(_GlitchUpwardWeights.y,_GlitchUpwardWeights.x,m),lerp(_GlitchUpwardWeights.w,_GlitchUpwardWeights.z,m));
+        }
         TEXTURE2D_X(_GlitchGaussianOriginal);
         bool BelongsToGroup(float2 uv)
         {
@@ -71,6 +85,11 @@ Shader "Hidden/TRINL/GlitchBlur"
             float maxWidth = max(width, outerWidth);
             float coreDepth;
             float4 core = ReadVisible(input.texcoord, sceneDepth, coreDepth);
+            if(_GlitchUpward.x>1.5)
+            {
+                output.color=float4(UpMask(input.texcoord).xxx*core.a,core.a);
+                output.depth=coreDepth;return output;
+            }
             float nearest = core.a > 0.0001 ? 0 : maxWidth + 1;
             float band = floor(input.texcoord.y * _GlitchBlurShape.z);
             float rowShift = sin(band * 12.9898 + _GlitchBlurBands.x * _GlitchBlurShape.w)
@@ -78,6 +97,27 @@ Shader "Hidden/TRINL/GlitchBlur"
             int support = (int)ceil(maxWidth);
             float2 total = 0;
             float4 nearColor = 0, outerColor = 0;
+            if(_GlitchUpward.x>.5)
+            {
+                support=(int)ceil(maxWidth*max(_GlitchUpwardWeights.x,_GlitchUpwardWeights.y));
+                [loop]for(int j=-support;j<=support;j++)
+                {
+                    float2 uv=input.texcoord+float2((j+rowShift)*_GlitchBlurTexel.x,0);
+                    float d;float4 c=ReadVisible(uv,sceneDepth,d);
+                    float2 factors=UpFactors(uv);
+                    float2 widths=float2(width,outerWidth)*factors.x;
+                    float2 w=float2(abs(j)<=ceil(widths.x) ? exp(-1.5*j*j/max(widths.x*widths.x,.001))/max(1,1.3267*widths.x) : 0,
+                        abs(j)<=ceil(widths.y) ? exp(-1.5*j*j/max(widths.y*widths.y,.001))/max(1,1.3267*widths.y) : 0);
+                    nearColor+=c*w.x*factors.y;outerColor+=c*w.y*factors.y;
+                    if(c.a>.0001){nearest=min(nearest,abs(j+rowShift));output.depth=min(output.depth,d);}
+                }
+                float t=smoothstep(0,max(maxWidth*.5,1),nearest);
+                float keep=saturate(lerp(_GlitchBlurShape.x,_GlitchBlurOuter.y,t));
+                float contribution=UpFactors(input.texcoord).y;
+                output.color=lerp(nearColor,outerColor,t)*(1-keep)+core*(1-contribution*(1-keep));
+                output.depth=min(output.depth,coreDepth);
+                return output;
+            }
             // Contiguous taps preserve thin stems; length changes coverage, not sample spacing.
             [loop] for (int i = -support; i <= support; i++)
             {
@@ -229,6 +269,8 @@ Shader "Hidden/TRINL/GlitchBlur"
             float t = 2.0 * tap / max(1,_GlitchCylinderGrid.z-1) - 1;
             float transition = smoothstep(0,1,abs(t));
             float lengthMeters = lerp(_GlitchCylinderShape.x,_GlitchCylinderShape.y,transition);
+            float2 upward=UpFactors(centerUV);
+            lengthMeters*=upward.x;
             float row = floor(centerUV.y*_GlitchBlurShape.z);
             float shift = sin(row*12.9898+_GlitchBlurBands.x*_GlitchBlurShape.w)*_GlitchBlurShape.y*lengthMeters;
             // Keep the central source in place; jitter only the trail samples.
@@ -241,6 +283,7 @@ Shader "Hidden/TRINL/GlitchBlur"
             output.uv = centerUV;
             float keep = lerp(_GlitchBlurShape.x,_GlitchBlurOuter.y,transition);
             output.weight = ((1-keep)/_GlitchCylinderGrid.z + (abs(t)<.0001 ? _GlitchBlurShape.x : 0)) / _GlitchCylinderGrid.w;
+            output.weight=output.weight*upward.y + (abs(t)<.0001 ? 1-upward.y : 0);
             return output;
         }
         SmearOutput CylinderFrag(CylinderVaryings input)

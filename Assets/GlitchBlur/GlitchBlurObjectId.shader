@@ -32,27 +32,35 @@ Shader "Hidden/TRINL/GlitchBlurObjectId"
             float4 _MaskPivot,_MaskRight,_MaskForward,_MaskShape;
             CBUFFER_END
             float _GlitchMaskObjectId;
-            struct A { float3 positionOS:POSITION; float2 uv:TEXCOORD0; UNITY_VERTEX_INPUT_INSTANCE_ID };
-            struct V { float4 positionCS:SV_POSITION; float2 uv:TEXCOORD0; float4 screenPosition:TEXCOORD1; float eyeDepth:TEXCOORD2; UNITY_VERTEX_OUTPUT_STEREO };
+            struct A { float3 positionOS:POSITION; float3 normalOS:NORMAL; float2 uv:TEXCOORD0; UNITY_VERTEX_INPUT_INSTANCE_ID };
+            struct V { float4 positionCS:SV_POSITION; float2 uv:TEXCOORD0; float4 screenPosition:TEXCOORD1; float eyeDepth:TEXCOORD2; float3 normalWS:TEXCOORD3; UNITY_VERTEX_OUTPUT_STEREO };
             V Vert(A input)
             {
                 V o; UNITY_SETUP_INSTANCE_ID(input); UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
                 float3 world=TransformObjectToWorld(input.positionOS);
+                float3 normal=TransformObjectToWorldNormal(input.normalOS);
                 if(_MaskCylinder>.5)
                 {
                     float3 p=world-_MaskPivot.xyz;
                     float radius=max(.05,_MaskShape.x),sign=_MaskShape.y;
                     float angle=(dot(p,_MaskRight.xyz)*_MaskShape.z+_MaskShape.w)/radius;
                     float depth=dot(p,_MaskForward.xyz);
+                    float sn,cs;sincos(angle,sn,cs);
+                    float metric=1-sign*depth/radius;
+                    metric=(metric<0 ? -1 : 1)*max(abs(metric),.001);
+                    normal=normalize((_MaskRight.xyz*cs+_MaskForward.xyz*sign*sn)*(dot(normal,_MaskRight.xyz)/max(.001,_MaskShape.z)/metric)
+                        +float3(0,normal.y,0)+(-_MaskRight.xyz*sign*sn+_MaskForward.xyz*cs)*dot(normal,_MaskForward.xyz));
                     world=_MaskPivot.xyz+_MaskRight.xyz*((radius-sign*depth)*sin(angle))
                         +float3(0,p.y,0)+_MaskForward.xyz*(sign*radius*(1-cos(angle))+depth*cos(angle));
                 }
                 o.positionCS=TransformWorldToHClip(world);
                 o.screenPosition=ComputeScreenPos(o.positionCS);
                 o.eyeDepth=-TransformWorldToView(world).z;
+                o.normalWS=normal;
                 o.uv=input.uv*_MaskST.xy+_MaskST.zw;return o;
             }
-            float Frag(V input):SV_Target
+            struct MaskOutput { float id:SV_Target0; float4 normal:SV_Target1; };
+            MaskOutput Frag(V input, FRONT_FACE_TYPE front:FRONT_FACE_SEMANTIC)
             {
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
                 float raw=SAMPLE_TEXTURE2D_X_LOD(_GlitchBlurLayerDepth,sampler_PointClamp,input.screenPosition.xy/input.screenPosition.w,0).r;
@@ -68,7 +76,11 @@ Shader "Hidden/TRINL/GlitchBlurObjectId"
                 // Compare in metres instead of requiring bit-identical device depth.
                 clip(max(.001,depth*.00001)-abs(input.eyeDepth-depth));
                 clip(SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,input.uv).a-max(.0001,_MaskCutoff));
-                return _GlitchMaskObjectId;
+                MaskOutput output;
+                output.id=_GlitchMaskObjectId;
+                float ny=normalize(input.normalWS).y;
+                output.normal=float4(ny,ny*IS_FRONT_VFACE(front,1,-1),0,1);
+                return output;
             }
             ENDHLSL
         }

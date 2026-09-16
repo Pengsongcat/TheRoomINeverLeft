@@ -20,6 +20,15 @@ namespace TRINL.Rendering
         [Range(0,1)] public float gaussianNearStrength = .6f;
         [Range(0,1)] public float gaussianFarStrength = 1;
         public bool cylinderTrails;
+        public bool upwardResponse;
+        [Range(-1,1)] public float upwardThreshold = .35f;
+        [Range(.01f,1)] public float upwardSoftness = .3f;
+        [Range(0,3)] public float upwardLength = 1.5f;
+        [Range(0,3)] public float otherLength = .2f;
+        [Range(0,1)] public float upwardContribution = 1;
+        [Range(0,1)] public float otherContribution = .15f;
+        public bool upwardTwoSided = true;
+        public bool upwardPreview;
         public Vector2 cylinderDistances = new Vector2(.6f, 4f);
         public Vector2 cylinderRadii = new Vector2(.8f, 12f);
         public Vector2 cylinderLengths = new Vector2(.6f, 1.2f);
@@ -51,6 +60,7 @@ namespace TRINL.Rendering
         Material material;
         BlurPass pass;
         readonly List<BlurPass> localPasses = new();
+        readonly Dictionary<long,Material> globalNormalMasks = new();
 
         public override void Create()
         {
@@ -91,8 +101,13 @@ namespace TRINL.Rendering
             var reference = Camera.main;
             pass.playerPosition = (reference != null ? reference : renderingData.cameraData.camera).transform.position;
             pass.groupId = 0;
+            pass.upward = new Vector4(upwardResponse ? 1 : 0,upwardThreshold,Mathf.Max(.01f,upwardSoftness),upwardTwoSided ? 1 : 0);
+            pass.upwardWeights = new Vector4(Mathf.Clamp(upwardLength,0,3),Mathf.Clamp(otherLength,0,3),Mathf.Clamp01(upwardContribution),Mathf.Clamp01(otherContribution));
+            pass.upwardPreview=upwardResponse && upwardPreview;
             var owners = GlitchBlurOverride.Active.ToArray();
             var masks = new List<GlitchBlurOverride.MaskDraw>();
+            if(upwardResponse)
+                GlitchBlurOverride.CollectRenderers(Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None),null,globalNormalMasks,masks,objectIdShader,0,renderingData.cameraData.camera,layerMask);
             for (int i=0; i<owners.Length; i++)
                 if (owners[i] && owners[i].isActiveAndEnabled)
                     owners[i].Collect(masks, objectIdShader, i+1, renderingData.cameraData.camera, layerMask);
@@ -115,6 +130,9 @@ namespace TRINL.Rendering
                 local.material=material; local.layers=layerMask;
                 local.groupId=i+1; local.maskDraws=pass.maskDraws;
                 local.playerPosition=pass.playerPosition;
+                local.upward=new Vector4(owner.upwardResponse ? 1 : 0,owner.upwardThreshold,Mathf.Max(.01f,owner.upwardSoftness),owner.upwardTwoSided ? 1 : 0);
+                local.upwardWeights=new Vector4(Mathf.Clamp(owner.upwardLength,0,3),Mathf.Clamp(owner.otherLength,0,3),Mathf.Clamp01(owner.upwardContribution),Mathf.Clamp01(owner.otherContribution));
+                local.upwardPreview=owner.upwardResponse && owner.upwardPreview;
                 local.cylindrical=owner.cylinderTrails;
                 local.cylinderSign=owner.cylinderTowardPlayer ? 1 : -1;
                 local.cylinderDistances = owner.cylinderDistances;
@@ -143,7 +161,12 @@ namespace TRINL.Rendering
             }
         }
 
-        protected override void Dispose(bool disposing) => CoreUtils.Destroy(material);
+        protected override void Dispose(bool disposing)
+        {
+            CoreUtils.Destroy(material);
+            foreach(var m in globalNormalMasks.Values)CoreUtils.Destroy(m);
+            globalNormalMasks.Clear();
+        }
 
         sealed class BlurPass : ScriptableRenderPass
         {
@@ -153,6 +176,8 @@ namespace TRINL.Rendering
             internal int layers;
             internal float gaussianRadius, gaussianStrength;
             internal Vector4 gaussianResponse;
+            internal Vector4 upward, upwardWeights;
+            internal bool upwardPreview;
             internal float horizontalLength, verticalSoftness, originalWeight, bandJitter, driftSpeed, opacity, depthBias;
             internal float outerHorizontalLength, outerOriginalWeight;
             internal int bandCount, downsample;
@@ -177,6 +202,7 @@ namespace TRINL.Rendering
             static readonly int CylinderSource = Shader.PropertyToID("_GlitchBlurCylinderSource");
             static readonly int ObjectIds = Shader.PropertyToID("_GlitchBlurObjectIds");
             static readonly int GaussianOriginal = Shader.PropertyToID("_GlitchGaussianOriginal");
+            static readonly int SurfaceNormals = Shader.PropertyToID("_GlitchSurfaceNormals");
 
             sealed class DrawData { public RendererListHandle list, transparentList; }
             sealed class MaskData { public GlitchBlurOverride.MaskDraw[] draws; }
@@ -188,6 +214,7 @@ namespace TRINL.Rendering
                 public Vector4 group;
                 public Vector4 gaussian;
                 public Vector4 gaussianResponse;
+                public Vector4 upward, upwardWeights;
                 public Vector4 parameters, texel, shape, bands, outer;
                 public Vector4 cylinderRange, cylinderShape, cylinderGrid, player;
             }
@@ -265,12 +292,17 @@ namespace TRINL.Rendering
                 idDesc.depthBufferBits=DepthBits.None;
                 idDesc.colorFormat=GraphicsFormat.R32_SFloat;
                 var ids=graph.CreateTexture(idDesc);
+                idDesc.colorFormat=GraphicsFormat.R16G16B16A16_SFloat;
+                idDesc.name="GlitchBlur Surface Normals";
+                var normals=graph.CreateTexture(idDesc);
                 using(var builder=graph.AddRasterRenderPass<MaskData>("GlitchBlur: Object Ownership",out var data))
                 {
                     data.draws=maskDraws;
                     builder.SetRenderAttachment(ids,0,AccessFlags.Write);
+                    builder.SetRenderAttachment(normals,1,AccessFlags.Write);
                     builder.UseTexture(depth,AccessFlags.Read);
                     builder.SetGlobalTextureAfterPass(ids,ObjectIds);
+                    builder.SetGlobalTextureAfterPass(normals,SurfaceNormals);
                     builder.AllowGlobalStateModification(true);
                     builder.SetRenderFunc((MaskData d,RasterGraphContext ctx)=>
                     {
@@ -289,10 +321,11 @@ namespace TRINL.Rendering
 
                 using (var builder = graph.AddRasterRenderPass<FilterData>("GlitchBlur: Horizontal Color Smear", out var data))
                 {
-                    Fill(data, color, cylindrical ? 2 : 0, camera.cameraTargetDescriptor);
+                    Fill(data, color, cylindrical && !upwardPreview ? 2 : 0, camera.cameraTargetDescriptor);
                     if (cylindrical) data.texel = new Vector4(1f / desc.width, 1f / desc.height, desc.width, desc.height);
                     builder.UseTexture(color);
                     builder.UseTexture(ids);
+                    builder.UseTexture(normals);
                     builder.UseTexture(depth);
                     builder.UseTexture(resources.cameraDepthTexture);
                     builder.SetRenderAttachment(horizontal, 0, AccessFlags.Write);
@@ -301,7 +334,7 @@ namespace TRINL.Rendering
                     builder.AllowGlobalStateModification(true);
                     builder.SetRenderFunc((FilterData d, RasterGraphContext ctx) => ExecuteFilter(d, ctx));
                 }
-                if (gaussianRadius > 0 && (gaussianResponse.x > .5f ? Mathf.Max(gaussianResponse.z,gaussianResponse.w) > 0 : gaussianStrength > 0))
+                if (!upwardPreview && gaussianRadius > 0 && (gaussianResponse.x > .5f ? Mathf.Max(gaussianResponse.z,gaussianResponse.w) > 0 : gaussianStrength > 0))
                 {
                     var original = horizontal;
                     for (int axis = 0; axis < 2; axis++)
@@ -363,6 +396,9 @@ namespace TRINL.Rendering
                 data.cylinderGrid = new Vector4(0,0,cylinderSamples,0);
                 data.player = new Vector4(playerPosition.x,playerPosition.y,playerPosition.z,0);
                 data.gaussianResponse = gaussianResponse;
+                data.upward=upward;
+                data.upwardWeights=upwardWeights;
+                if(upwardPreview){ data.upward.x=2;data.parameters.y=1;data.parameters.w=0; }
             }
 
             static void ExecuteFilter(FilterData data, RasterGraphContext context)
@@ -374,6 +410,8 @@ namespace TRINL.Rendering
                 context.cmd.SetGlobalVector(Outer, data.outer);
                 context.cmd.SetGlobalVector("_GlitchBlurGroup", data.group);
                 context.cmd.SetGlobalVector("_GlitchGaussian", data.gaussian);
+                context.cmd.SetGlobalVector("_GlitchUpward", data.upward);
+                context.cmd.SetGlobalVector("_GlitchUpwardWeights", data.upwardWeights);
                 context.cmd.SetGlobalVector("_GlitchGaussianResponse", data.gaussianResponse);
                 context.cmd.SetGlobalVector("_GlitchCylinderPlayer", data.player);
                 if (data.shaderPass == 2)

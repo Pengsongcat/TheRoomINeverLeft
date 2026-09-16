@@ -39,6 +39,7 @@ namespace TRINL.Rendering.Editor
             if (!cylindrical) Endpoints("拖影长度（像素）", "horizontalLength", "outerHorizontalLength", 256, false);
             Endpoints("拖影影响（%）", "originalWeight", "outerOriginalWeight", 100, true);
             EditorGUILayout.Space(5);
+            GlitchUpwardInspector.Draw(serializedObject);
             EditorGUILayout.LabelField("Gaussian Blur · 高斯模糊", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("gaussianRadius"), new GUIContent("模糊范围（像素）", "控制左右和上下的高斯柔化范围；0 为关闭。像素以相机输出分辨率计算。"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("gaussianDistanceResponse"), new GUIContent("强度随玩家距离变化"));
