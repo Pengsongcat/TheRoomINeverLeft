@@ -48,7 +48,7 @@ public class CalibrationHud : MonoBehaviour
     public void ShowError(string error)
     {
         _error      = error;
-        _errorUntil = Time.time + _errorSeconds;
+        _errorUntil = Time.unscaledTime + _errorSeconds;
         Refresh();
     }
 
@@ -69,7 +69,7 @@ public class CalibrationHud : MonoBehaviour
     {
         if (_panel == null || !_panel.gameObject.activeSelf) return;
 
-        if (_error != null && Time.time > _errorUntil)
+        if (_error != null && Time.unscaledTime > _errorUntil)
         {
             _error = null;
             Refresh();
@@ -108,7 +108,7 @@ public class CalibrationHud : MonoBehaviour
                 _targetPosition = desired;
                 if (Vector3.Distance(_panel.position, desired) < 0.02f) _following = false;
             }
-            _panel.position = Vector3.Lerp(_panel.position, _targetPosition, 1f - Mathf.Exp(-_followSpeed * Time.deltaTime));
+            _panel.position = Vector3.Lerp(_panel.position, _targetPosition, 1f - Mathf.Exp(-_followSpeed * Time.unscaledDeltaTime)); // unscaled: unaffected by DevFastForward
         }
 
         // Face the head.

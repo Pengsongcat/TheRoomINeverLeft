@@ -58,7 +58,7 @@ public class CalibrationConnector : MonoBehaviour
         var passthrough = XRPlatformServices.Instance.PassthroughService;
         float startOpacity    = passthrough.Opacity;
         float startBrightness = passthrough.Brightness;
-        for (float t = 0f; t < seconds; t += Time.deltaTime)
+        for (float t = 0f; t < seconds; t += Time.unscaledDeltaTime) // unaffected by DevFastForward
         {
             passthrough.Opacity    = Mathf.Lerp(startOpacity, targetOpacity, t / seconds);
             passthrough.Brightness = Mathf.Lerp(startBrightness, targetBrightness, t / seconds);
