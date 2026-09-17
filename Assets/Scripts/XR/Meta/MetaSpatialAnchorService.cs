@@ -69,6 +69,21 @@ public class MetaSpatialAnchorService : SpatialAnchorService
         return result.Success;
     }
 
+    public override async Task<bool> EraseAnchorsByIdAsync(IEnumerable<Guid> ids)
+    {
+        var list = new List<Guid>(ids);
+        if (list.Count == 0) return true;
+
+        var result = await OVRSpatialAnchor.EraseAnchorsAsync(null, list);
+        return result.Success;
+    }
+
+    public override void ReleaseAnchors(IEnumerable<IAnchorHandle> anchors)
+    {
+        foreach (var h in anchors)
+            if (h is MetaAnchorHandle meta && meta.Anchor != null) Destroy(meta.Anchor.gameObject);
+    }
+
     sealed class MetaAnchorHandle : IAnchorHandle
     {
         public OVRSpatialAnchor Anchor { get; }

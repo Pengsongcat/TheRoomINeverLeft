@@ -80,10 +80,14 @@ public class CalibrationFlow : MonoBehaviour
 
         XRPlatformServices.Instance.PassthroughService.Enable();
 
+        // Anchors left over from a redraw that was never confirmed (app closed first).
+        _ = ErasePendingAnchorsAsync();
+
         var ids = RoomAnchorStore.Load();
         if (ids.Length >= 3)
         {
-            var handles = await XRPlatformServices.Instance.AnchorService.LoadAnchorsAsync(ids);
+            var service = XRPlatformServices.Instance.AnchorService;
+            var handles = await service.LoadAnchorsAsync(ids);
             if (handles.Count == 4)
             {
                 GoToConfirming(HandlesToPositions(handles), handles);
@@ -98,6 +102,9 @@ public class CalibrationFlow : MonoBehaviour
                     return;
                 }
             }
+            // Not enough to rebuild the room. The saved IDs stay in the store and are marked for erase
+            // when the new corners are saved.
+            service.ReleaseAnchors(handles);
         }
 
         GoToCalibrating();
@@ -176,6 +183,7 @@ public class CalibrationFlow : MonoBehaviour
         if (CurrentState == State.Confirming)
         {
             GoToReady();
+            var erase = ErasePendingAnchorsAsync(); // fire and forget: the replaced calibration's anchors
         }
         else if (CurrentState == State.Ready)
         {
@@ -194,20 +202,20 @@ public class CalibrationFlow : MonoBehaviour
     }
 
     // Hold B: from Confirming, redo the corners; while placing corners, start over.
+    // Saved anchors are not erased here but marked, and erased once the new corners are confirmed.
     void OnRecalibrateInput(InputAction.CallbackContext _)
     {
         if (CurrentState != State.Confirming && CurrentState != State.Calibrating) return;
         bool anchorsWereLoaded = _calibrator.CornerCount == 0; // Confirm came from saved anchors, not placement
         _calibrator.Deactivate();
-        _calibrator.ClearAnchors(); // anchors placed this session
+        _calibrator.ClearAnchors(); // anchors placed this session (not yet confirmed, so erased right away)
         if (CurrentState == State.Confirming)
         {
-            // Anchors loaded from a previous session are not owned by the calibrator; erase them here.
+            // Anchors loaded from a previous session are not owned by the calibrator; stop tracking them here.
             if (anchorsWereLoaded && _confirmedAnchors != null)
-            {
-                var erase = XRPlatformServices.Instance.AnchorService.EraseAnchorsAsync(_confirmedAnchors); // fire and forget
-            }
+                XRPlatformServices.Instance.AnchorService.ReleaseAnchors(_confirmedAnchors);
             _confirmedAnchors = null;
+            RoomAnchorStore.MarkForErase(RoomAnchorStore.Load()); // includes IDs that failed to load or were rebuilt
             RoomAnchorStore.Clear();
         }
         GoToCalibrating();
@@ -232,6 +240,11 @@ public class CalibrationFlow : MonoBehaviour
 
         var ids = new Guid[anchors.Length];
         for (int i = 0; i < anchors.Length; i++) ids[i] = anchors[i].Uuid;
+
+        // A previous calibration still in the store (e.g. its anchors failed to load) is replaced now.
+        var replaced = new List<Guid>(RoomAnchorStore.Load());
+        replaced.RemoveAll(id => Array.IndexOf(ids, id) >= 0);
+        RoomAnchorStore.MarkForErase(replaced);
         RoomAnchorStore.Save(ids);
 
         GoToConfirming(_calibrator.GetPositions(), anchors);
@@ -258,6 +271,34 @@ public class CalibrationFlow : MonoBehaviour
     }
 
     // ─── Helpers ───────────────────────────────────────────────────────────────
+
+    // Erases anchors from replaced calibrations by UUID, so ones that never loaded are erased too.
+    // The current corners are never erased. On failure the list is kept and retried next time.
+    static async Task ErasePendingAnchorsAsync()
+    {
+        var pending = RoomAnchorStore.LoadPendingErase();
+        if (pending.Length == 0) return;
+
+        var current = RoomAnchorStore.Load();
+        var toErase = new List<Guid>();
+        foreach (var id in pending)
+            if (Array.IndexOf(current, id) < 0) toErase.Add(id);
+
+        try
+        {
+            if (toErase.Count > 0 && !await XRPlatformServices.Instance.AnchorService.EraseAnchorsByIdAsync(toErase))
+            {
+                Debug.LogWarning($"[CalibrationFlow] Could not erase {toErase.Count} previous anchor(s); will retry.");
+                return;
+            }
+            RoomAnchorStore.ClearPendingErase(pending);
+            if (toErase.Count > 0) Debug.Log($"[CalibrationFlow] Erased {toErase.Count} previous anchor(s).");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"[CalibrationFlow] Erasing previous anchors failed; will retry. {e.Message}");
+        }
+    }
 
     static Vector3[] HandlesToPositions(IReadOnlyList<IAnchorHandle> handles)
     {

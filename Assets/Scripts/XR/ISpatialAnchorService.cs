@@ -9,4 +9,6 @@ public interface ISpatialAnchorService
     Task<bool> SaveAnchorsAsync(IEnumerable<IAnchorHandle> anchors);
     Task<IReadOnlyList<IAnchorHandle>> LoadAnchorsAsync(IEnumerable<Guid> ids);
     Task<bool> EraseAnchorsAsync(IEnumerable<IAnchorHandle> anchors);
+    Task<bool> EraseAnchorsByIdAsync(IEnumerable<Guid> ids); // erases from storage without loading
+    void ReleaseAnchors(IEnumerable<IAnchorHandle> anchors); // stops tracking locally; storage is untouched
 }
