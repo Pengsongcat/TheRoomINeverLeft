@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 // Wires CalibrationFlow.OnLayoutReady → RoomLayoutApplier + AudioRangeScaler + player floor height,
 // and hands the fitted sound positions to RoomDebugView for the Confirming phase.
-// Wires CalibrationFlow.OnCalibrationAccepted (staff pressed Start) → dim passthrough + activate the story.
+// Wires CalibrationFlow.OnCalibrationAccepted (staff pressed Start) → activate the story.
+// The passthrough fade to the void is VisualsConnector's job.
 // Must live in Assembly-CSharp (not an asmdef) to reference AudioRangeScaler and the V1 sound scripts.
 public class CalibrationConnector : MonoBehaviour
 {
@@ -15,11 +15,6 @@ public class CalibrationConnector : MonoBehaviour
     [Header("Start")]
     [Tooltip("Switched on when staff press Start (e.g. Onboarding). The story chain continues from there.")]
     [SerializeField] GameObject[] _activateOnStart;
-    [Tooltip("Passthrough opacity during the story. 1 = full room view, 0 = black.")]
-    [SerializeField, Range(0f, 1f)] float _storyPassthroughOpacity = 0.15f;
-    [Tooltip("Passthrough brightness during the story. 0 = unchanged, -1 = black. Darkens the camera feed only.")]
-    [SerializeField, Range(-1f, 0f)] float _storyPassthroughBrightness = -0.5f;
-    [SerializeField, Min(0f)] float _passthroughFadeSeconds = 2f;
 
     [Header("Player")]
     [SerializeField] FollowXZ _feetCollider;
@@ -44,28 +39,11 @@ public class CalibrationConnector : MonoBehaviour
 
     void OnStart(RoomRect rect)
     {
-        StartCoroutine(FadePassthrough(_storyPassthroughOpacity, _storyPassthroughBrightness, _passthroughFadeSeconds));
-
         if (_activateOnStart == null || _activateOnStart.Length == 0)
             Debug.LogWarning("[CalibrationConnector] Nothing to activate on Start; assign Onboarding.");
         else
             foreach (var go in _activateOnStart)
                 if (go != null) go.SetActive(true);
-    }
-
-    static IEnumerator FadePassthrough(float targetOpacity, float targetBrightness, float seconds)
-    {
-        var passthrough = XRPlatformServices.Instance.PassthroughService;
-        float startOpacity    = passthrough.Opacity;
-        float startBrightness = passthrough.Brightness;
-        for (float t = 0f; t < seconds; t += Time.unscaledDeltaTime) // unaffected by DevFastForward
-        {
-            passthrough.Opacity    = Mathf.Lerp(startOpacity, targetOpacity, t / seconds);
-            passthrough.Brightness = Mathf.Lerp(startBrightness, targetBrightness, t / seconds);
-            yield return null;
-        }
-        passthrough.Opacity    = targetOpacity;
-        passthrough.Brightness = targetBrightness;
     }
 
     void OnLayoutReady(RoomRect rect)

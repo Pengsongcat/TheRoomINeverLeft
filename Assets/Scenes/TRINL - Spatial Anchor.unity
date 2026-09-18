@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -35,7 +35,7 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_UseRadianceAmbientProbe: 0
@@ -138,6 +138,58 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8876332056388047606, guid: 5c74191526dfe95409b40c634ed7c27d, type: 3}
   m_PrefabInstance: {fileID: 7110415471664869346}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &88233187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 88233188}
+  - component: {fileID: 88233189}
+  m_Layer: 0
+  m_Name: Void
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &88233188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88233187}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 341670025}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &88233189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88233187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80dd1be01d2421d43bab3f6ce6a309eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Visuals::VoidBox
+  _floorMaterial: {fileID: 2100000, guid: 25cabc7e7c2aa87478bc0ec0fc2ffd0c, type: 2}
+  _tiledSize: 24
+  _tileSize: 2
+  _totalSize: 60
+  _buildWalls: 0
+  _wallMaterial: {fileID: 2100000, guid: ca325132de844c94da2714a62e48b10b, type: 2}
+  _height: 20
+  _visibleAtStart: 0
 --- !u!1 &204671475
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +448,38 @@ MonoBehaviour:
   edgeRenderingEnabled_: 0
   edgeColor_: {r: 1, g: 1, b: 1, a: 1}
   colorMapType: 0
+--- !u!1 &341670024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 341670025}
+  m_Layer: 0
+  m_Name: Visual Layout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &341670025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341670024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 88233188}
+  m_Father: {fileID: 1909468664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355633564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,6 +2758,7 @@ GameObject:
   - component: {fileID: 1880492168}
   - component: {fileID: 1880492169}
   - component: {fileID: 1880492170}
+  - component: {fileID: 1880492171}
   m_Layer: 0
   m_Name: Room Calibration
   m_TagString: Untagged
@@ -2783,9 +2868,6 @@ MonoBehaviour:
   _scaler: {fileID: 1909468666}
   _activateOnStart:
   - {fileID: 77570057}
-  _storyPassthroughOpacity: 0.15
-  _storyPassthroughBrightness: -0.5
-  _passthroughFadeSeconds: 2
   _feetCollider: {fileID: 204671480}
   _feetHeightAboveFloor: 0.1
   _debugView: {fileID: 1880492163}
@@ -2931,6 +3013,23 @@ MonoBehaviour:
   _allow: 1
   _indicatorOffset: {x: 0, y: 0.1, z: 0.7}
   _fontSize: 0.03
+--- !u!114 &1880492171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880492158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04eb75cd202264b41b5b3a8b348c582b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Visuals::VisualsConnector
+  _flow: {fileID: 1880492161}
+  _void: {fileID: 88233189}
+  _fadeSeconds: 5
+  _fadeCurve: 2
+  _stopPassthroughAfterFade: 1
 --- !u!114 &1881330206 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6235396682233919267, guid: 457ba0d902d78ab48afbb55450304674, type: 3}
@@ -3039,6 +3138,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 838065794}
+  - {fileID: 341670025}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1909468665
