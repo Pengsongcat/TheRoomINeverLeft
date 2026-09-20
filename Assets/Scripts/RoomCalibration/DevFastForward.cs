@@ -121,5 +121,6 @@ public class DevFastForward : MonoBehaviour
         _indicator.color            = new Color(1f, 0.85f, 0.1f);
         _indicator.outlineWidth     = 0.2f;
         _indicator.outlineColor     = Color.black;
+        SharpUi.Apply(go);
     }
 }

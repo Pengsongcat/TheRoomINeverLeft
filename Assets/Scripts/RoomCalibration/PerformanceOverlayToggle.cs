@@ -102,6 +102,7 @@ public class PerformanceOverlayToggle : MonoBehaviour
         _text.rectTransform.sizeDelta = new Vector2(0.3f, 0.1f);
         _text.outlineWidth     = 0.2f;
         _text.outlineColor     = Color.black;
+        SharpUi.Apply(go);
     }
 
     void Update()

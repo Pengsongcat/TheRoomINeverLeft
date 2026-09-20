@@ -65,4 +65,16 @@ public static class SoundLightMath
     // A sound's own falloff blended by its spatial blend (0 = 2D, heard everywhere at full volume).
     public static float Heard(float rolloff, float spatialBlend) =>
         Mathf.Lerp(1f, Mathf.Clamp01(rolloff), Mathf.Clamp01(spatialBlend));
+
+    // Same as RoomFit's range factor: the smaller horizontal scale of Sound Layout.
+    public static float RangeFactor(Vector3 soundLayoutLossyScale) =>
+        Mathf.Min(Mathf.Abs(soundLayoutLossyScale.x), Mathf.Abs(soundLayoutLossyScale.z));
+
+    // Blur 0..1 from viewer distance: minBlur up to near, eased to 1 at far and beyond.
+    // Same curve as FragComposite in DistanceBlur.shader (keep in sync).
+    public static float Blur(float distance, float near, float far, float minBlur)
+    {
+        float t = far > near ? Mathf.Clamp01((distance - near) / (far - near)) : (distance > near ? 1f : 0f);
+        return Mathf.Lerp(Mathf.Clamp01(minBlur), 1f, t * t * (3f - 2f * t));
+    }
 }

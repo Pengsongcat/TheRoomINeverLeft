@@ -154,6 +154,7 @@ public class CalibrationHud : MonoBehaviour
         _text.alignment        = _alignment;
         _text.textWrappingMode = TextWrappingModes.Normal;
         _text.rectTransform.sizeDelta = new Vector2(_width, 0.5f);
+        SharpUi.Apply(_panel.gameObject);
 
         Refresh();
     }

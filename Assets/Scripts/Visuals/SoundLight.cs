@@ -58,6 +58,8 @@ public class SoundLight : MonoBehaviour
     public AudioSource Source  => _source;
     public float       Desired { get; private set; } // target brightness this frame, before the budget
     public float       Current { get; private set; }
+    public bool        IsOn    => _light.enabled;
+    public float       Range   => _light.range;
 
     public void Init(AudioSource source, SoundLightSettings settings, Material glowMaterial)
     {

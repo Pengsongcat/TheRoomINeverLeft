@@ -350,6 +350,54 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4352887052103856715, guid: 5d21ea3164cd90d4cab0e407c6ebb5cc, type: 3}
   m_PrefabInstance: {fileID: 5202769584542581062}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &254339053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 254339054}
+  - component: {fileID: 254339055}
+  m_Layer: 0
+  m_Name: Sound Cubes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &254339054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254339053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 341670025}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254339055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254339053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231e0fb43d9a71a4992219bae72c2c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Visuals::SoundCubeSpawner
+  _lights: {fileID: 1012726214}
+  _visuals: {fileID: 1880492171}
+  _material: {fileID: 2100000, guid: a48587835d623a54b9a55f7798cf3b3c, type: 2}
+  _size: 0.3
 --- !u!1 &295573424
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 341670025}
+  - component: {fileID: 341670026}
   m_Layer: 0
   m_Name: Visual Layout
   m_TagString: Untagged
@@ -479,8 +528,28 @@ Transform:
   m_Children:
   - {fileID: 88233188}
   - {fileID: 1012726213}
+  - {fileID: 254339054}
   m_Father: {fileID: 1909468664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &341670026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341670024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e23d3d1b3eb6c4882af13ee1dad45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Visuals::DistanceBlur
+  _near: 1
+  _far: 6
+  _scaleWithRoom: 1
+  _soundLayout: {fileID: 838065794}
+  _minBlur: 0.2
+  _maxAngle: 6
+  _visuals: {fileID: 1880492171}
 --- !u!1 &355633564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,7 +1778,7 @@ MonoBehaviour:
   _maxLights: 8
   _settings:
     color: {r: 1, g: 0.82, b: 0.62, a: 1}
-    maxIntensity: 6
+    maxIntensity: 25
     gain: 4
     fluxWeight: 2
     lowBandWeight: 0.5
@@ -1717,8 +1786,8 @@ MonoBehaviour:
     attackSeconds: 0.02
     releaseSeconds: 0.15
     heardDistance: 1
-    height: 1
-    poolRadius: 2.5
+    height: 2.2
+    poolRadius: 5
     glowSize: 0.12
     glowStrength: 1
 --- !u!114 &1014481569

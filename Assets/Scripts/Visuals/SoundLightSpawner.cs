@@ -17,14 +17,16 @@ public class SoundLightSpawner : MonoBehaviour
     [SerializeField, Min(0)] int _maxLights = 8;
     [SerializeField] SoundLightSettings _settings = new();
 
-    readonly List<SoundLight> _lights  = new();
-    readonly List<SoundLight> _wanting = new(); // reused each frame for the budget sort
+    readonly List<SoundLight>  _lights  = new();
+    readonly List<AudioSource> _unlit   = new();
+    readonly List<SoundLight>  _wanting = new(); // reused each frame for the budget sort
     readonly HashSet<SoundLight> _allowed = new();
     AudioListener _listener;
 
     static readonly System.Comparison<SoundLight> ByDesiredDescending = (a, b) => b.Desired.CompareTo(a.Desired);
 
-    public IReadOnlyList<SoundLight> Lights => _lights;
+    public IReadOnlyList<SoundLight>  Lights => _lights;
+    public IReadOnlyList<AudioSource> Unlit  => _unlit; // sounds skipped above (ambient / NoSoundLight); filled in Awake
 
     void Awake()
     {
@@ -34,10 +36,9 @@ public class SoundLightSpawner : MonoBehaviour
             return;
         }
 
-        int skipped = 0;
         foreach (var source in _soundLayout.GetComponentsInChildren<AudioSource>(includeInactive: true))
         {
-            if (source.GetComponent<NoSoundLight>() != null || IsAmbient(source)) { skipped++; continue; }
+            if (source.GetComponent<NoSoundLight>() != null || IsAmbient(source)) { _unlit.Add(source); continue; }
 
             var go = new GameObject($"Sound Light - {source.name}");
             go.transform.SetParent(transform, worldPositionStays: false);
@@ -45,7 +46,7 @@ public class SoundLightSpawner : MonoBehaviour
             light.Init(source, _settings, _glowMaterial);
             _lights.Add(light);
         }
-        Debug.Log($"[SoundLightSpawner] {_lights.Count} sound lights, {skipped} sounds without a light.");
+        Debug.Log($"[SoundLightSpawner] {_lights.Count} sound lights, {_unlit.Count} sounds without a light.");
     }
 
     // The sound's own visualizer: renderers below it whose nearest AudioSource is this one (not a nested sound).
@@ -83,10 +84,8 @@ public class SoundLightSpawner : MonoBehaviour
             light.Apply(_allowed.Contains(light), rangeFactor, floorY, dt, listenerPosition);
     }
 
-    // Same as RoomFit's range factor: the smaller horizontal scale of Sound Layout.
-    float RangeFactor()
-    {
-        var s = _soundLayout.lossyScale;
-        return Mathf.Min(Mathf.Abs(s.x), Mathf.Abs(s.z));
-    }
+    // Current floor-pool radius in metres (room-scaled).
+    public float PoolRadius => _settings.poolRadius * RangeFactor();
+
+    float RangeFactor() => SoundLightMath.RangeFactor(_soundLayout.lossyScale);
 }

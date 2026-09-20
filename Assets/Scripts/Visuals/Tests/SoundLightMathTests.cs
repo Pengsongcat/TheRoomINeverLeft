@@ -88,4 +88,29 @@ public class SoundLightMathTests
         Assert.AreEqual(0f,   SoundLightMath.Heard(rolloff: 0f, spatialBlend: 1f), Eps);
         Assert.AreEqual(0.6f, SoundLightMath.Heard(rolloff: 0.2f, spatialBlend: 0.5f), Eps);
     }
+
+    [Test]
+    public void Blur_MinUpToNear_OneFromFar_EasedBetween()
+    {
+        Assert.AreEqual(0.2f, SoundLightMath.Blur(0.3f, near: 1f, far: 6f, minBlur: 0.2f), Eps);
+        Assert.AreEqual(0.2f, SoundLightMath.Blur(1f,   near: 1f, far: 6f, minBlur: 0.2f), Eps);
+        Assert.AreEqual(0.6f, SoundLightMath.Blur(3.5f, near: 1f, far: 6f, minBlur: 0.2f), Eps);
+        Assert.AreEqual(1f,   SoundLightMath.Blur(6f,   near: 1f, far: 6f, minBlur: 0.2f), Eps);
+        Assert.AreEqual(1f,   SoundLightMath.Blur(20f,  near: 1f, far: 6f, minBlur: 0.2f), Eps);
+    }
+
+    [Test]
+    public void RangeFactor_IsSmallerHorizontalScale_IgnoringY()
+    {
+        Assert.AreEqual(0.3f, SoundLightMath.RangeFactor(new Vector3(0.3f, 1f, 0.5f)), Eps);
+        Assert.AreEqual(0.5f, SoundLightMath.RangeFactor(new Vector3(-0.8f, 0.1f, 0.5f)), Eps);
+    }
+
+    [Test]
+    public void Blur_ScaledRoom_FullBlurAtScaledFar()
+    {
+        const float k = 0.3f; // near 0.3 m, far 1.8 m
+        Assert.AreEqual(0.2f, SoundLightMath.Blur(0.3f, 1f * k, 6f * k, 0.2f), Eps);
+        Assert.AreEqual(1f,   SoundLightMath.Blur(1.8f, 1f * k, 6f * k, 0.2f), Eps);
+    }
 }
