@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // Sits on Room. When the Room Calibrator has the room's corners, moves Room to the measured room's centre on
@@ -16,6 +17,9 @@ public class RoomFitter : MonoBehaviour
     public Vector2 MeasuredSize { get; private set; } // width × length of the calibrated room, metres
     public float   Scale        { get; private set; } = 1f;
     public Vector2 DesignSize   => _designSize;
+
+    // Raised after Room has been moved, turned and scaled.
+    public event Action<RoomFitter> Fitted;
 
     // The design space as it is now in the world, width × length, metres.
     public Vector2 CurrentSize
@@ -40,5 +44,6 @@ public class RoomFitter : MonoBehaviour
             Quaternion.LookRotation(rect.forward, Vector3.up));
         transform.localScale = new Vector3(Scale, 1f, Scale);
         Debug.Log($"[RoomFitter] Room {rect.width:F2} × {rect.length:F2} m → scale {Scale:F2}");
+        Fitted?.Invoke(this);
     }
 }
