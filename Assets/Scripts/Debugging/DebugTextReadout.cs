@@ -1,13 +1,12 @@
 using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using UnityEngine;
-using UnityEngine.XR;
 
-// Head-locked frame rate readout: fps against the headset refresh rate, average frame time and the worst frame
-// of the last second. Green at 95 % of the refresh rate or better, yellow down to 80 %, red below.
-// Measures only while visible. On Air Link this is the PC's render rate; frames lost in streaming don't show here.
+// One head-locked text block that every DebugTextSource child writes its lines into, stacked in child order
+// with a blank line between blocks.
 // The text material uses the TextMeshPro overlay shader (depth test off), so scene geometry never hides it.
-public class FrameRateVisualizer : DebugVisualizer
+public class DebugTextReadout : DebugVisualizer
 {
     [SerializeField] TMP_FontAsset _font;
     [Tooltip("Material for _font using the 'TextMeshPro/Distance Field Overlay' shader.")]
@@ -16,23 +15,22 @@ public class FrameRateVisualizer : DebugVisualizer
     [SerializeField] Vector3       _offset   = new Vector3(-0.15f, 0.12f, 0.7f);
     [Tooltip("Line height, metres.")]
     [SerializeField, Min(0f)] float _fontSize = 0.02f;
-    [Tooltip("Seconds between readout updates.")]
+    [Tooltip("Seconds between text updates.")]
     [SerializeField, Min(0.05f)] float _interval = 0.5f;
 
+    readonly List<DebugTextSource> _sources = new();
+    readonly StringBuilder _builder = new();
     TextMeshPro _text;
     Transform   _head;
     bool        _wasVisible;
     float       _windowTime;
-    int         _windowFrames;
-    float       _worstFrame;
-    float       _worstFrameShown;
-    float       _worstResetTime;
 
     protected override void Awake()
     {
         base.Awake();
+        GetComponentsInChildren(includeInactive: true, _sources);
 
-        var go = new GameObject("Readout") { layer = Geometry.gameObject.layer };
+        var go = new GameObject("Text") { layer = Geometry.gameObject.layer };
         go.transform.SetParent(Geometry, worldPositionStays: false);
 
         _text = go.AddComponent<TextMeshPro>();
@@ -53,36 +51,33 @@ public class FrameRateVisualizer : DebugVisualizer
         if (!_wasVisible)
         {
             _wasVisible = true;
-            _windowTime = 0f; _windowFrames = 0; _worstFrame = 0f; _worstFrameShown = 0f;
-            _worstResetTime = Time.unscaledTime;
-            _text.text = "";
+            _windowTime = 0f;
+            foreach (var s in _sources) s.Begin();
+            Refresh(0f);
         }
 
         float dt = Time.unscaledDeltaTime;
         _windowTime += dt;
-        _windowFrames++;
-        _worstFrame = Mathf.Max(_worstFrame, dt);
-
-        if (Time.unscaledTime - _worstResetTime >= 1f)
-        {
-            _worstFrameShown = _worstFrame;
-            _worstFrame      = 0f;
-            _worstResetTime  = Time.unscaledTime;
-        }
+        foreach (var s in _sources) s.Sample(dt);
 
         if (_windowTime < _interval) return;
-
-        float fps   = _windowFrames / _windowTime;
-        float hz    = RefreshRate();
-        var   color = hz <= 0f || fps >= hz * 0.95f ? "#6f6" : fps >= hz * 0.8f ? "#ff6" : "#f66";
-        _text.text = $"<color={color}>{fps:F0} fps</color>" + (hz > 0f ? $" / {hz:F0} Hz" : "") +
-                     $"\n{1000f / fps:F1} ms · worst {_worstFrameShown * 1000f:F0} ms";
-
-        _windowTime   = 0f;
-        _windowFrames = 0;
+        Refresh(_windowTime);
+        _windowTime = 0f;
     }
 
-    // Parents the Geometry to the camera so the readout moves with the head in the same frame, without lag.
+    void Refresh(float windowSeconds)
+    {
+        _builder.Clear();
+        foreach (var s in _sources)
+        {
+            if (!s.isActiveAndEnabled) continue;
+            if (_builder.Length > 0) _builder.Append("\n\n"); // blank line between blocks
+            s.Write(_builder, windowSeconds);
+        }
+        _text.text = _builder.ToString();
+    }
+
+    // Parents the Geometry to the camera so the text moves with the head in the same frame, without lag.
     bool TryAttachToHead()
     {
         var cam = Camera.main;
@@ -93,15 +88,5 @@ public class FrameRateVisualizer : DebugVisualizer
         Geometry.localPosition = _offset;
         Geometry.localRotation = Quaternion.identity;
         return true;
-    }
-
-    static readonly List<XRDisplaySubsystem> Displays = new();
-
-    static float RefreshRate()
-    {
-        SubsystemManager.GetSubsystems(Displays);
-        foreach (var d in Displays)
-            if (d.running && d.TryGetDisplayRefreshRate(out float hz)) return hz;
-        return 0f;
     }
 }

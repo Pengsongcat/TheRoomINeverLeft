@@ -5,18 +5,35 @@ using UnityEngine;
 // fits inside. Height scale stays 1. Without calibration Room stays where it is (the tracking origin), unscaled.
 public class RoomFitter : MonoBehaviour
 {
+    public const string ScaleMethod = "Even";
+
     [SerializeField] RoomCalibrator _calibrator;
 
     [Tooltip("Size of the designed space in metres, X (width) × Z (length). Must match the Plane.")]
     [SerializeField] Vector2 _designSize = new Vector2(5f, 5f);
 
-    public float Scale { get; private set; } = 1f;
+    public bool    Calibrated   { get; private set; }
+    public Vector2 MeasuredSize { get; private set; } // width × length of the calibrated room, metres
+    public float   Scale        { get; private set; } = 1f;
+    public Vector2 DesignSize   => _designSize;
+
+    // The design space as it is now in the world, width × length, metres.
+    public Vector2 CurrentSize
+    {
+        get
+        {
+            var s = transform.lossyScale;
+            return new Vector2(_designSize.x * Mathf.Abs(s.x), _designSize.y * Mathf.Abs(s.z));
+        }
+    }
 
     void OnEnable()  => _calibrator.LayoutReady += Fit;
     void OnDisable() => _calibrator.LayoutReady -= Fit;
 
     void Fit(RoomRect rect)
     {
+        Calibrated   = true;
+        MeasuredSize = new Vector2(rect.width, rect.length);
         Scale = Mathf.Min(rect.width / _designSize.x, rect.length / _designSize.y);
         transform.SetPositionAndRotation(
             new Vector3(rect.centre.x, rect.floorY, rect.centre.z),

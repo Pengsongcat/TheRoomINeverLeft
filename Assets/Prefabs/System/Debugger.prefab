@@ -31,8 +31,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8213175675033059784}
-  - {fileID: 7774666289641102972}
   - {fileID: 5068938651313426268}
+  - {fileID: 7217647614193897159}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7403355967633571802
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: TRINL.Debugging::DebugManager
   _toggleAction: {fileID: -6460212704726519748, guid: 0c6a278da30571b48a97d358833a86e7, type: 3}
   _visibleAtStart: 0
---- !u!1 &3602098148655503751
+--- !u!1 &2020084109287643332
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,47 +57,138 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7774666289641102972}
-  - component: {fileID: 3580201395799925152}
+  - component: {fileID: 928779350804857066}
+  - component: {fileID: 6169272129100418143}
   m_Layer: 11
-  m_Name: Frame Rate Visualizer
+  m_Name: Room Scale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7774666289641102972
+--- !u!4 &928779350804857066
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3602098148655503751}
+  m_GameObject: {fileID: 2020084109287643332}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6941352272744898883}
+  m_Father: {fileID: 7217647614193897159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3580201395799925152
+--- !u!114 &6169272129100418143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3602098148655503751}
+  m_GameObject: {fileID: 2020084109287643332}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc5a7073f0184b145b17f94267688fdf, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ebfacd3c0ebb434a843811914e9b0fc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: TRINL.Debugging::FrameRateVisualizer
+  m_EditorClassIdentifier: TRINL.Debugging::RoomScaleText
+  _room: {fileID: 0}
+--- !u!1 &3205977214464079832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7217647614193897159}
+  - component: {fileID: 7934647141142914021}
+  m_Layer: 11
+  m_Name: Text Readout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7217647614193897159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3205977214464079832}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6579994028710919792}
+  - {fileID: 928779350804857066}
+  m_Father: {fileID: 6941352272744898883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7934647141142914021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3205977214464079832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6416798c91ea03345a82f6a34cfb27fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Debugging::DebugTextReadout
   _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   _material: {fileID: 2100000, guid: 4679e32c94512324793c55bb9f172d25, type: 2}
   _offset: {x: -0.15, y: 0.12, z: 0.7}
   _fontSize: 0.02
   _interval: 0.5
+--- !u!1 &4330649464897482956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6579994028710919792}
+  - component: {fileID: 80346265692952383}
+  m_Layer: 11
+  m_Name: Frame Rate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6579994028710919792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330649464897482956}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7217647614193897159}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &80346265692952383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330649464897482956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd6646f3debecb4e964297a455ed5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Debugging::FrameRateText
 --- !u!1 &7032436919419767831
 GameObject:
   m_ObjectHideFlags: 0
