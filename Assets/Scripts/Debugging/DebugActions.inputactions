@@ -1,0 +1,45 @@
+{
+    "name": "DebugActions",
+    "maps": [
+        {
+            "name": "Debug",
+            "id": "db6a3c10-0000-0000-0000-000000000001",
+            "actions": [
+                {
+                    "name": "ToggleVisualizers",
+                    "type": "Button",
+                    "id": "db6a3c10-0000-0000-0001-000000000001",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "db6a3c10-0000-0000-0002-000000000001",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleVisualizers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db6a3c10-0000-0000-0002-000000000002",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleVisualizers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
