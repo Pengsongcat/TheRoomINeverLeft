@@ -7,6 +7,12 @@ public class VideoLightCookieURP : MonoBehaviour
     public VideoPlayer videoPlayer;
     public RenderTexture cookieRT;
 
+    [Header("Editor Preview (does not affect Play Mode)")]
+    [Tooltip("Keep the video cookie visible while editing, including after saving the scene.")]
+    public bool editorPreview;
+    [Tooltip("Optional still image. If empty, use the video asset's native preview frame.")]
+    public Texture2D editorPreviewImage;
+
     void Start()
     {
         videoPlayer.renderMode    = VideoRenderMode.RenderTexture;
