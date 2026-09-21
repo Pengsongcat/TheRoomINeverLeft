@@ -2,13 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Owns the top-level flow and passthrough. Starts in VR (passthrough off), with every story part off, and asks
-// staff which experience to run:
-//   VR (B) → VR experience: Onboarding on.
+// Owns the top-level flow and passthrough. Starts in VR (passthrough off), with every story part off (the Story
+// Director does that), and asks staff which experience to run:
+//   VR (B) → VR experience: the story begins.
 //   MR (A) → passthrough on, VR content hidden → Room Calibrator runs → Completed
-//          → MR experience: Onboarding on, the VR world masked to the portal's opening
+//          → MR experience: Onboarding shown (not begun), the VR world masked to the portal's opening
 //          → the visitor walks through the portal → VR experience: the VR world is all around, the real room
-//            shows only through the doorway behind → the portal dissolves → passthrough off.
+//            shows only through the doorway behind → the portal dissolves → passthrough off, the story begins.
 public class ExperienceManager : MonoBehaviour
 {
     public enum Mode  { None, VR, MR }
@@ -23,10 +23,8 @@ public class ExperienceManager : MonoBehaviour
     [SerializeField] MRPortal _portal;
 
     [Header("Story")]
-    [Tooltip("Every story part (Onboarding, scenes, Ending). All are turned off at start. Set on the scene instance.")]
-    [SerializeField] GameObject[] _storyParts;
-    [Tooltip("Turned on when the experience starts. Set on the scene instance.")]
-    [SerializeField] GameObject _onboarding;
+    [Tooltip("Set on the scene instance.")]
+    [SerializeField] StoryDirector _story;
 
     [Header("Input")]
     [SerializeField] InputActionReference _chooseMRAction; // A
@@ -63,8 +61,6 @@ public class ExperienceManager : MonoBehaviour
 
     void Start()
     {
-        foreach (var part in _storyParts)
-            if (part != null) part.SetActive(false);
         _portal.gameObject.SetActive(false);
         _mask.Hide();
 
@@ -113,7 +109,7 @@ public class ExperienceManager : MonoBehaviour
         SetState(State.MRExperience);
         SetVRContentHidden(false);
         _mask.ShowMask();
-        SetOnboarding(true);
+        _story.ShowFirst();
         _portal.gameObject.SetActive(true);
         Debug.Log("[ExperienceManager] MR experience: portal open.");
     }
@@ -125,15 +121,21 @@ public class ExperienceManager : MonoBehaviour
         StartVRExperience();
     }
 
-    // VR experience logic goes here.
+    // MR path: passthrough stays on only through the doorway behind the visitor; the story begins once the portal
+    // has dissolved. VR path: the story begins now.
     void StartVRExperience()
     {
         SetState(State.VRExperience);
-        SetOnboarding(true);
 
-        // MR path: passthrough stays on only through the doorway behind the visitor, until the portal closes.
-        if (CurrentMode == Mode.MR) _mask.ShowFill();
-        else SetPassthrough(false);
+        if (CurrentMode == Mode.MR)
+        {
+            _mask.ShowFill();
+        }
+        else
+        {
+            SetPassthrough(false);
+            _story.Begin();
+        }
 
         Debug.Log("[ExperienceManager] VR experience.");
     }
@@ -142,6 +144,7 @@ public class ExperienceManager : MonoBehaviour
     {
         _mask.Hide();
         SetPassthrough(false);
+        _story.Begin();
     }
 
     // ─── Helpers ───────────────────────────────────────────────────────────────
@@ -157,11 +160,6 @@ public class ExperienceManager : MonoBehaviour
     {
         foreach (var go in _hideInPassthrough)
             if (go != null) go.SetActive(!hidden);
-    }
-
-    void SetOnboarding(bool on)
-    {
-        if (_onboarding != null) _onboarding.SetActive(on);
     }
 
     void SetState(State state)
