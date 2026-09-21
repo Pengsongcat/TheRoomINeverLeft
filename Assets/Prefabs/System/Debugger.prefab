@@ -32,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 8213175675033059784}
   - {fileID: 7774666289641102972}
+  - {fileID: 5068938651313426268}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7403355967633571802
@@ -147,3 +148,51 @@ MonoBehaviour:
   _triangleGap: 0.02
   _triangleLength: 0.08
   _triangleWidth: 0.08
+--- !u!1 &8232705046236249793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5068938651313426268}
+  - component: {fileID: 2483058147103946371}
+  m_Layer: 11
+  m_Name: Plane Visualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5068938651313426268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8232705046236249793}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6941352272744898883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2483058147103946371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8232705046236249793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7bfb423e3cb65747ac728e8cdd9dc4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Debugging::PlaneVisualizer
+  _material: {fileID: 2100000, guid: 7bd508290bd437743814d925fb307b8e, type: 2}
+  _plane: {fileID: 0}
+  _width: 0.01
+  _lift: 0.005

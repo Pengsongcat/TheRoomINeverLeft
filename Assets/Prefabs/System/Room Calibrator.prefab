@@ -1,0 +1,254 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3604474279441798337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5018398399030960120}
+  - component: {fileID: 4929745543882240548}
+  m_Layer: 0
+  m_Name: Floor Pointer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5018398399030960120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604474279441798337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 831489475494552616}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4929745543882240548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604474279441798337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e6c09a7b757674d89fd9a7cc8654a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.RoomCalibrator::CalibratorFloorPointer
+  _flow: {fileID: 4780728398782836877}
+  _corners: {fileID: 5078412924347885174}
+  _sphereRadius: 0.04
+  _color: {r: 0, g: 1, b: 1, a: 1}
+  _showFloorGrid: 1
+  _gridSize: 6
+  _gridSpacing: 0.5
+  _gridColor: {r: 1, g: 1, b: 1, a: 0.25}
+--- !u!1 &5090813774484793977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6049300059458714225}
+  - component: {fileID: 592573699984231167}
+  m_Layer: 0
+  m_Name: Corner Markers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6049300059458714225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090813774484793977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 831489475494552616}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &592573699984231167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090813774484793977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bcf6af3f371454394a8c484bc0ab79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.RoomCalibrator::CalibratorCornerMarkers
+  _flow: {fileID: 4780728398782836877}
+  _corners: {fileID: 5078412924347885174}
+  _postHeight: 0.3
+  _postRadius: 0.03
+  _labelHeight: 0.45
+  _labelSize: 0.12
+  _lineWidth: 0.015
+  _pendingColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  _placedColor: {r: 1, g: 0.85, b: 0.1, a: 1}
+  _previewColor: {r: 1, g: 1, b: 1, a: 0.6}
+  _errorColor: {r: 1, g: 0.25, b: 0.2, a: 1}
+--- !u!1 &7645501411615562594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3620392093519632476}
+  - component: {fileID: 5891975045928947079}
+  m_Layer: 0
+  m_Name: Confirm View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3620392093519632476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7645501411615562594}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 831489475494552616}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5891975045928947079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7645501411615562594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f8491931ac4804aa02a2d70371b5ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.RoomCalibrator::CalibratorConfirmView
+  _flow: {fileID: 4780728398782836877}
+  _markerRadius: 0.05
+  _lineWidth: 0.01
+  _rawColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  _fittedColor: {r: 0, g: 0.8, b: 1, a: 1}
+--- !u!1 &7948198117104048083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831489475494552616}
+  - component: {fileID: 5078412924347885174}
+  - component: {fileID: 3533575563427499821}
+  - component: {fileID: 4780728398782836877}
+  m_Layer: 0
+  m_Name: Room Calibrator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &831489475494552616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948198117104048083}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6049300059458714225}
+  - {fileID: 5018398399030960120}
+  - {fileID: 3620392093519632476}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5078412924347885174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948198117104048083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e2ff9f8d721a94eacfca131d7d010e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.RoomCalibration::RoomCornerCalibrator
+  _placeAction: {fileID: 2864139996934269539, guid: 002faa2f0bb8db24cb67126b2418731e, type: 3}
+  _undoAction: {fileID: 177812742067552295, guid: 002faa2f0bb8db24cb67126b2418731e, type: 3}
+  _rayOrigin: {fileID: 0}
+  _maxRayDistance: 10
+  _rayIsRightHand: 1
+--- !u!114 &3533575563427499821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948198117104048083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4767886c74211fb48a3895d183983be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.RoomCalibration::CalibrationHud
+  _distance: 1.2
+  _heightOffset: -0.25
+  _sideOffset: 0
+  _refollowAngle: 25
+  _refollowDistance: 0.4
+  _followSpeed: 4
+  _font: {fileID: 0}
+  _fontSize: 0.045
+  _width: 0.8
+  _alignment: 514
+  _textColor: {r: 1, g: 1, b: 1, a: 1}
+  _errorColor: {r: 1, g: 0.35, b: 0.3, a: 1}
+  _backgroundColor: {r: 0, g: 0, b: 0, a: 0.6}
+  _errorSeconds: 4
+--- !u!114 &4780728398782836877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948198117104048083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc14660ab46b4344bbac2698ecbd434a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.RoomCalibrator::RoomCalibrator
+  _corners: {fileID: 5078412924347885174}
+  _hud: {fileID: 3533575563427499821}
+  _confirmAction: {fileID: -2403431654697494135, guid: 002faa2f0bb8db24cb67126b2418731e, type: 3}
+  _redoAction: {fileID: -7464948773767734931, guid: 002faa2f0bb8db24cb67126b2418731e, type: 3}
