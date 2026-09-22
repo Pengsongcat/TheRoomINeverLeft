@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3666967714056656157}
   - component: {fileID: 222175782110910813}
   - component: {fileID: 8492605419118853305}
+  - component: {fileID: 4890070661235378970}
   m_Layer: 0
   m_Name: Opening Back
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 802468575196951601}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: 0, y: 1.05, z: 0}
-  m_LocalScale: {x: 1, y: 2.1, z: 1}
+  m_LocalPosition: {x: 0, y: 1.11, z: 0}
+  m_LocalScale: {x: 1, y: 2.36, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5034661720808165149}
@@ -90,6 +91,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4890070661235378970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802468575196951601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b84f586e3de7144582457dba76c8b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Experience::PortalDissolve
+  _markForMR: 0
 --- !u!1 &1573200730515309996
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +115,7 @@ GameObject:
   - component: {fileID: 9141919370139598931}
   - component: {fileID: 1336211010952406605}
   - component: {fileID: 3955798370972218047}
+  - component: {fileID: 9086128531301188633}
   m_Layer: 0
   m_Name: Frame Top
   m_TagString: Untagged
@@ -180,6 +195,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9086128531301188633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573200730515309996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b84f586e3de7144582457dba76c8b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Experience::PortalDissolve
+  _markForMR: 0
 --- !u!1 &2115299370428344306
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +219,7 @@ GameObject:
   - component: {fileID: 681538777094387531}
   - component: {fileID: 6930971606989387956}
   - component: {fileID: 5026775359889830226}
+  - component: {fileID: 5730564640153561756}
   m_Layer: 0
   m_Name: Frame Right
   m_TagString: Untagged
@@ -270,6 +299,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5730564640153561756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115299370428344306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b84f586e3de7144582457dba76c8b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Experience::PortalDissolve
+  _markForMR: 0
 --- !u!1 &4254835657677004876
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +323,7 @@ GameObject:
   - component: {fileID: 1711081295400352861}
   - component: {fileID: 54710271974202471}
   - component: {fileID: 3896213913677870754}
+  - component: {fileID: 3663179596105974230}
   m_Layer: 0
   m_Name: Opening
   m_TagString: Untagged
@@ -360,6 +403,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3663179596105974230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4254835657677004876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b84f586e3de7144582457dba76c8b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Experience::PortalDissolve
+  _markForMR: 0
 --- !u!1 &5092124850121255072
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,17 +479,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b5b97ce1bd27d4b914b07363ba8af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.Experience::MRPortal
-  _parts:
-  - {fileID: 3896213913677870754}
-  - {fileID: 8492605419118853305}
-  - {fileID: 5599499903868710176}
-  - {fileID: 5026775359889830226}
-  - {fileID: 3955798370972218047}
+  _mark: {fileID: 2100000, guid: 3a83f3aa2160bb94683b64351d2a187d, type: 2}
   _backOpening: {fileID: 802468575196951601}
-  _doorway: {x: 1, y: 2.1}
-  _height: 2.15
+  _doorway: {x: 0.93, y: 2.25}
+  _height: 2.36
   _switchDistance: 0.15
-  _dissolveDistance: 1
+  _dissolveDistance: 0.5
   _dissolveSeconds: 3
 --- !u!1 &5157128865407095952
 GameObject:
@@ -446,6 +497,7 @@ GameObject:
   - component: {fileID: 304736658917397347}
   - component: {fileID: 4178393631293293861}
   - component: {fileID: 5599499903868710176}
+  - component: {fileID: 1367086685398710304}
   m_Layer: 0
   m_Name: Frame Left
   m_TagString: Untagged
@@ -525,6 +577,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1367086685398710304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5157128865407095952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b84f586e3de7144582457dba76c8b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Experience::PortalDissolve
+  _markForMR: 0
 --- !u!1001 &859478929279257560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -533,6 +598,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5034661720808165149}
     m_Modifications:
+    - target: {fileID: 3712459337055896382, guid: 77878e6eda1b5034d994f28fe865230e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712459337055896382, guid: 77878e6eda1b5034d994f28fe865230e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712459337055896382, guid: 77878e6eda1b5034d994f28fe865230e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712459337055896382, guid: 77878e6eda1b5034d994f28fe865230e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712459337055896382, guid: 77878e6eda1b5034d994f28fe865230e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 4118245716292789511, guid: 77878e6eda1b5034d994f28fe865230e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
