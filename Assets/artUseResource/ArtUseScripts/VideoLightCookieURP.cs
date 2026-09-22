@@ -12,6 +12,8 @@ public class VideoLightCookieURP : MonoBehaviour
     public bool editorPreview;
     [Tooltip("Optional still image. If empty, use the video asset's native preview frame.")]
     public Texture2D editorPreviewImage;
+    [Tooltip("Additional players whose own Target Textures need an editor preview, e.g. a separate beam cookie. Each uses its own video preview frame.")]
+    public VideoPlayer[] additionalEditorPreviewPlayers = new VideoPlayer[0];
 
     void Start()
     {
