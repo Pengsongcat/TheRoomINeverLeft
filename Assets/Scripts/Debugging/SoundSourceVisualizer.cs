@@ -55,6 +55,9 @@ public class SoundSourceVisualizer : DebugVisualizer
         public Material     Material; // this sound's tinted copy, shared by its marker and ring
         public Color        Colour;
         public bool         WasPlaying;
+        public bool         HasAuthored;
+        public float        AuthoredMin, AuthoredMax;
+        public string       LastText;
     }
 
     readonly List<Entry>   _entries  = new();
@@ -69,10 +72,15 @@ public class SoundSourceVisualizer : DebugVisualizer
 
     void Start()
     {
+        // Room Scaled Ranges caches the authored min / max in its Awake, so it is ready to ask by now.
+        var ranges = FindFirstObjectByType<RoomScaledRanges>(FindObjectsInactive.Include);
         foreach (var source in FindObjectsByType<AudioSource>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
             var part = source.GetComponentInParent<StoryPart>(includeInactive: true);
-            if (part != null) _entries.Add(Build(source, part, source.GetComponentInParent<StoryScene>(includeInactive: true)));
+            if (part == null) continue;
+            var e = Build(source, part, source.GetComponentInParent<StoryScene>(includeInactive: true));
+            e.HasAuthored = ranges != null && ranges.TryGetAuthoredRange(source, out e.AuthoredMin, out e.AuthoredMax);
+            _entries.Add(e);
         }
         Colourise();
     }
@@ -134,10 +142,25 @@ public class SoundSourceVisualizer : DebugVisualizer
 
             UpdateRing(e, new Vector3(centre.x, floorY, centre.z), e.Source.maxDistance);
 
+            var text = LabelText(e);
+            if (text != e.LastText) { e.Label.text = text; e.LastText = text; }
+
             var label = e.Label.transform;
             label.position = centre + Vector3.up * (_markerSize * 0.5f + _labelGap);
             if (cam != null) label.rotation = Quaternion.LookRotation(label.position - cam.transform.position);
         }
+    }
+
+    // The sound's name, then its range: authored > current where the room has scaled it, plain values where
+    // it has not (an uncalibrated VR run, or a room the same size as the design space).
+    static string LabelText(Entry e)
+    {
+        float min = e.Source.minDistance, max = e.Source.maxDistance;
+        bool scaled = e.HasAuthored &&
+                      (!Mathf.Approximately(min, e.AuthoredMin) || !Mathf.Approximately(max, e.AuthoredMax));
+        return scaled
+            ? $"{e.Source.name}\nmin {e.AuthoredMin:0.0} > {min:0.0}  max {e.AuthoredMax:0.0} > {max:0.0} m"
+            : $"{e.Source.name}\nmin {min:0.0}  max {max:0.0} m";
     }
 
     // While a scene waits, its guide is the only sound shown; while it plays, all of its sounds are.
@@ -220,8 +243,7 @@ public class SoundSourceVisualizer : DebugVisualizer
         e.Label.textWrappingMode = TextWrappingModes.NoWrap;
         e.Label.rectTransform.sizeDelta = new Vector2(1f, 0.2f);
         e.Label.rectTransform.pivot     = new Vector2(0.5f, 0f);
-        e.Label.text = source.name;
-        return e;
+        return e; // the text is written every frame, name plus range
     }
 
     static Mesh BuiltinSphere()

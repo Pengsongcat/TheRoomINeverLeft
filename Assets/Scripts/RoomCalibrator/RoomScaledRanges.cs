@@ -18,6 +18,15 @@ public class RoomScaledRanges : MonoBehaviour
     readonly List<Trigger> _triggers = new();
     RoomFitter _room;
 
+    // For the Debugger: the min / max this sound was authored with, before any room scaling.
+    public bool TryGetAuthoredRange(AudioSource source, out float min, out float max)
+    {
+        foreach (var s in _sounds)
+            if (s.Source == source) { min = s.Min; max = s.Max; return true; }
+        min = max = 0f;
+        return false;
+    }
+
     void Awake()
     {
         _room = GetComponent<RoomFitter>();
