@@ -22,6 +22,9 @@ namespace TRINL.Rendering
         [Min(0)] public float contourNoise = 0.045f;
         [Range(0, 1)] public float dissolve;
         [Range(16, 128)] public int steps = 64;
+        [Header("Rendering Order / 前后渲染顺序")]
+        [Tooltip("同一 Sorting Layer、同一渲染阶段内，数值越大越晚绘制，叠在较小值上方。相同值沿用透明物体距离排序。范围 -32768 到 32767；默认 0。不能正确分解互相穿插的雾体。")]
+        public int sortingOrder;
         [Header("Lighting / 雾光照")]
         [Tooltip("Enable scene lights inside the fog. Off preserves the original appearance.")]
         public bool enableLighting;
@@ -68,6 +71,7 @@ namespace TRINL.Rendering
             }
             else RestoreSource();
             if (!volumeRenderer) return;
+            volumeRenderer.sortingOrder = Mathf.Clamp(sortingOrder, short.MinValue, short.MaxValue);
             volumeRenderer.enabled = ready;
             volumeRenderer.receiveShadows = enableLighting && receiveLightShadows;
             if (!ready) return;

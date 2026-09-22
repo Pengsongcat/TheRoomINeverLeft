@@ -17,7 +17,8 @@ namespace TRINL.Rendering.Editor
             if (fog.enableLighting)
                 EditorGUILayout.HelpBox("雾光照：支持方向光、点光源、聚光灯和 Light Cookie。Ambient Brightness 为固定补光；设为 0 时未受光区域变暗。阴影需同时开启灯光阴影、URP Shadows 和 Renderer 的 Transparent Receive Shadows。Fog Color 会乘以灯光颜色，纯红色雾无法显示蓝/绿色光。", MessageType.Info);
             fog.Apply();
-            EditorGUILayout.HelpBox("静态封闭 Mesh → SDF → 体积雾。Source 指定单个 MeshFilter。骨骼动画及相交雾体排序不在此版本范围内。",MessageType.Info);
+            EditorGUILayout.HelpBox("Sorting Order：数值越大，越晚绘制、叠在上方。例如后层 0、前层 10。相同值保留距离排序；仅控制同一 Sorting Layer 和渲染阶段内的整块雾，不解决体积互相穿插。", MessageType.Info);
+            EditorGUILayout.HelpBox("静态封闭 Mesh → SDF → 体积雾。Source 指定单个 MeshFilter。不支持骨骼动画。",MessageType.Info);
             if(!fog.source && GUILayout.Button("识别本物体的 Mesh"))
             { Undo.RecordObject(fog,"识别 Mesh"); fog.source=fog.GetComponent<MeshFilter>(); EditorUtility.SetDirty(fog); }
             if(fog.shape && fog.source && fog.shape.sourceMesh!=fog.source.sharedMesh)
