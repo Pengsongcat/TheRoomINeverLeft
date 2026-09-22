@@ -1,56 +1,68 @@
+using System;
 using UnityEngine;
+using UnityEngine.Playables;
 
-// A scene made of chapters the visitor can play in any order. All chapters wait (guide sounds loop) until one is
-// triggered; the others are turned off while it plays. When it finishes it turns off, and the chapters that have not
-// played yet turn back on. The scene is finished once every chapter has played.
-public class StoryScene : StoryPart
+// One scene of a chapter. While it waits, its guide sound loops and its trigger is on. When the visitor walks into
+// the trigger, the guide stops, Triggered is raised (the chapter turns the other scenes off) and the scene's own
+// Timeline plays. When the Timeline ends, Finished is raised and the chapter turns this scene off.
+public class StoryScene : MonoBehaviour
 {
-    Chapter[] _chapters;
+    [SerializeField] SceneTrigger _trigger;
+    [Tooltip("Looping sound that leads the visitor to the trigger. Play On Awake off.")]
+    [SerializeField] AudioSource _guide;
+    [Tooltip("Wrap Mode must be None, so the director stops at the end.")]
+    [SerializeField] PlayableDirector _timeline;
 
-    void Awake()
+    public event Action<StoryScene> Triggered;
+    public event Action<StoryScene> Finished;
+
+    public bool Done { get; private set; }
+
+    bool _playing;
+
+    void Awake() => _trigger.Entered += OnEntered;
+
+    void OnEnable()
     {
-        _chapters = GetComponentsInChildren<Chapter>(includeInactive: true);
-        foreach (var chapter in _chapters)
-        {
-            chapter.Triggered += OnChapterTriggered;
-            chapter.Finished  += OnChapterFinished;
-        }
+        _timeline.stopped += OnStopped;
+        if (!Done && !_playing) Wait();
     }
 
-    public override void Begin()
+    void OnDisable()
     {
-        if (_chapters.Length == 0)
-        {
-            Debug.LogWarning($"[Story] {name} has no chapters.");
-            RaiseFinished();
-            return;
-        }
-
-        foreach (var chapter in _chapters)
-        {
-            chapter.ResetProgress();
-            chapter.gameObject.SetActive(true);
-        }
+        _timeline.stopped -= OnStopped;
+        if (_playing) { _playing = false; _timeline.Stop(); }
     }
 
-    void OnChapterTriggered(Chapter triggered)
+    // Called by the chapter when it begins, so the scene can play again.
+    public void ResetProgress() => Done = false;
+
+    void Wait()
     {
-        foreach (var chapter in _chapters)
-            if (chapter != triggered) chapter.gameObject.SetActive(false);
+        _trigger.gameObject.SetActive(true);
+        if (_guide != null) _guide.Play();
     }
 
-    void OnChapterFinished(Chapter finished)
+    void OnEntered()
     {
-        finished.gameObject.SetActive(false);
+        if (_playing || Done) return;
+        _playing = true;
+        _trigger.gameObject.SetActive(false);
+        if (_guide != null) _guide.Stop();
+        Debug.Log($"[Story] {name} triggered.");
+        Triggered?.Invoke(this);
 
-        bool allDone = true;
-        foreach (var chapter in _chapters)
-        {
-            if (chapter.Done) continue;
-            allDone = false;
-            chapter.gameObject.SetActive(true);
-        }
+        _timeline.time = 0;
+        _timeline.Play();
+    }
 
-        if (allDone) RaiseFinished();
+    void OnStopped(PlayableDirector director)
+    {
+        // Also raised when the director is disabled with the scene; only a Timeline that ran to its end counts.
+        if (!_playing || !isActiveAndEnabled) return;
+        _playing = false;
+        Done = true;
+        Debug.Log($"[Story] {name} finished.");
+        Finished?.Invoke(this);
     }
 }

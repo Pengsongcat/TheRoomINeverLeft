@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-// A see-through sphere with the chapter's name for every chapter trigger in the scene that is on now. Armed
-// triggers (the visitor can walk into them) are bright; the rest of that scene's triggers (playing, played, or
+// A see-through sphere with the scene's name for every scene trigger in the chapter that is on now. Armed
+// triggers (the visitor can walk into them) are bright; the rest of that chapter's triggers (playing, played, or
 // turned off while a sibling plays) are dim. Follows the colliders every frame, so it shows their placement and
 // the room calibration, at the size that actually fires.
 public class TriggerVisualizer : DebugVisualizer
@@ -21,9 +21,9 @@ public class TriggerVisualizer : DebugVisualizer
 
     class Entry
     {
-        public ChapterTrigger Trigger;
+        public SceneTrigger   Trigger;
         public Collider       Collider;
-        public StoryScene     Scene;
+        public StoryChapter   Chapter;
         public GameObject     Root;
         public MeshRenderer   Sphere;
         public TextMeshPro    Label;
@@ -40,7 +40,7 @@ public class TriggerVisualizer : DebugVisualizer
 
     void Start()
     {
-        foreach (var trigger in FindObjectsByType<ChapterTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        foreach (var trigger in FindObjectsByType<SceneTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             _entries.Add(Build(trigger));
     }
 
@@ -51,7 +51,7 @@ public class TriggerVisualizer : DebugVisualizer
 
         foreach (var e in _entries)
         {
-            bool show = e.Trigger != null && e.Scene != null && e.Scene.gameObject.activeInHierarchy;
+            bool show = e.Trigger != null && e.Chapter != null && e.Chapter.gameObject.activeInHierarchy;
             e.Root.SetActive(show);
             if (!show) continue;
 
@@ -68,15 +68,15 @@ public class TriggerVisualizer : DebugVisualizer
         }
     }
 
-    Entry Build(ChapterTrigger trigger)
+    Entry Build(SceneTrigger trigger)
     {
-        var chapter = trigger.GetComponentInParent<Chapter>(includeInactive: true);
+        var scene = trigger.GetComponentInParent<StoryScene>(includeInactive: true);
         var e = new Entry
         {
             Trigger  = trigger,
             Collider = trigger.GetComponent<Collider>(),
-            Scene    = trigger.GetComponentInParent<StoryScene>(includeInactive: true),
-            Root     = new GameObject(chapter != null ? chapter.name : trigger.name) { layer = Geometry.gameObject.layer },
+            Chapter  = trigger.GetComponentInParent<StoryChapter>(includeInactive: true),
+            Root     = new GameObject(scene != null ? scene.name : trigger.name) { layer = Geometry.gameObject.layer },
         };
         e.Root.transform.SetParent(Geometry, worldPositionStays: false);
 
