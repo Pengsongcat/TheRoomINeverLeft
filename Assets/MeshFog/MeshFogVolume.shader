@@ -15,22 +15,36 @@ Shader "TRINL/Mesh Fog Volume"
             #pragma vertex Vert
             #pragma fragment Frag
             #pragma multi_compile_instancing
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+            #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
+            #pragma multi_compile_fragment _ _LIGHT_COOKIES
+            #pragma multi_compile _ _LIGHT_LAYERS
+            #pragma multi_compile _ _CLUSTER_LIGHT_LOOP
+            // Volume samples must use world-space shadows, never opaque screen-space shadows.
+            #define _SURFACE_TYPE_TRANSPARENT 1
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/RealtimeLights.hlsl"
             TEXTURE3D(_ShapeSDF); SAMPLER(sampler_ShapeSDF);
             float4x4 _FogWorldToLocal;
             float4 _BoundsMin, _BoundsSize, _FogColor, _FogParams, _NoiseParams, _Flow;
+            float4 _FogLighting;
+            float _FogReceiveShadows;
             struct Attributes { float4 positionOS : POSITION; UNITY_VERTEX_INPUT_INSTANCE_ID };
             struct Varyings
             {
                 float4 positionCS : SV_POSITION;
                 float4 screenPosition : TEXCOORD0;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
                 UNITY_VERTEX_OUTPUT_STEREO
             };
             Varyings Vert(Attributes input)
             {
                 Varyings o;
                 UNITY_SETUP_INSTANCE_ID(input);
+                UNITY_TRANSFER_INSTANCE_ID(input, o);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
                 o.positionCS = TransformObjectToHClip(input.positionOS.xyz);
                 // Interpolated clip coordinates are independent of the render-target size.
@@ -53,10 +67,77 @@ Shader "TRINL/Mesh Fog Volume"
                             lerp(lerp(Hash(cell+float3(0,0,1)), Hash(cell+float3(1,0,1)), f.x),
                                  lerp(Hash(cell+float3(0,1,1)), Hash(cell+float3(1,1,1)), f.x), f.y), f.z);
             }
+            float3 FogLightContribution(Light light, float3 rayDirection)
+            {
+                #if defined(_LIGHT_LAYERS)
+                    if ((light.layerMask & GetMeshRenderingLayer()) == 0) return 0;
+                #endif
+                // Henyey-Greenstein relative to isotropic scattering (g = 0 gives 1).
+                float g = clamp(_FogLighting.w, -0.8, 0.8);
+                float d = max(0.04, 1 + g*g - 2*g*dot(light.direction, rayDirection));
+                float phase = (1 - g*g) / (d * sqrt(d));
+                return light.color * light.distanceAttenuation * light.shadowAttenuation * phase;
+            }
+            float3 FogIllumination(float3 positionWS, float3 rayDirection, float2 screenUV)
+            {
+                Light mainLight = GetMainLight();
+                if (_FogReceiveShadows > 0.5)
+                {
+                    float4 shadowCoord = TransformWorldToShadowCoord(positionWS);
+                    shadowCoord.w = 1; // Directional shadow coordinates are already orthographic.
+                    mainLight.shadowAttenuation = MainLightShadow(shadowCoord, positionWS, half4(1,1,1,1), _MainLightOcclusionProbes);
+                }
+                #if defined(_LIGHT_COOKIES)
+                    if (IsMainLightCookieEnabled())
+                    {
+                        float2 cookieUV = ComputeLightCookieUVDirectional(_MainLightWorldToLight, positionWS, float4(1,1,0,0), URP_TEXTURE_WRAP_MODE_NONE);
+                        // Explicit LOD: derivatives are undefined inside an early-exit volume loop.
+                        real4 cookie = SAMPLE_TEXTURE2D_LOD(_MainLightCookieTexture, sampler_MainLightCookieTexture, cookieUV, 0);
+                        mainLight.color *= IsMainLightCookieTextureRGBFormat() ? cookie.rgb : (IsMainLightCookieTextureAlphaFormat() ? cookie.aaa : cookie.rrr);
+                    }
+                #endif
+                float3 lighting = FogLightContribution(mainLight, rayDirection);
+                #if defined(_ADDITIONAL_LIGHTS) || defined(_ADDITIONAL_LIGHTS_VERTEX) || USE_CLUSTER_LIGHT_LOOP
+                    // Forward+ clusters are selected at each volume sample, not at the proxy surface.
+                    InputData inputData = (InputData)0;
+                    inputData.positionWS = positionWS;
+                    inputData.normalizedScreenSpaceUV = screenUV;
+                    #if USE_CLUSTER_LIGHT_LOOP
+                        [loop] for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++)
+                        {
+                            CLUSTER_LIGHT_LOOP_SUBTRACTIVE_LIGHT_CHECK
+                            Light light = GetAdditionalLight(lightIndex, positionWS, half4(1,1,1,1));
+                            if (_FogReceiveShadows < 0.5) light.shadowAttenuation = 1;
+                            lighting += FogLightContribution(light, rayDirection);
+                        }
+                    #endif
+                    uint lightCount = GetAdditionalLightsCount();
+                    LIGHT_LOOP_BEGIN(lightCount)
+                        Light light;
+                        if (_FogReceiveShadows > 0.5)
+                            light = GetAdditionalLight(lightIndex, positionWS, half4(1,1,1,1));
+                        else
+                        {
+                            light = GetAdditionalLight(lightIndex, positionWS);
+                            #if defined(_LIGHT_COOKIES)
+                                #if USE_CLUSTER_LIGHT_LOOP
+                                    int cookieIndex = lightIndex;
+                                #else
+                                    int cookieIndex = GetPerObjectLightIndex(lightIndex);
+                                #endif
+                                light.color *= SampleAdditionalLightCookie(cookieIndex, positionWS);
+                            #endif
+                        }
+                        lighting += FogLightContribution(light, rayDirection);
+                    LIGHT_LOOP_END
+                #endif
+                return _FogLighting.y + lighting * _FogLighting.z;
+            }
             struct FogOutput { float4 color : SV_Target; float depth : SV_Depth; };
             FogOutput Frag(Varyings input)
             {
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+                UNITY_SETUP_INSTANCE_ID(input);
                 float2 uv = input.screenPosition.xy / input.screenPosition.w;
                 float depth = SampleSceneDepth(uv);
                 #if UNITY_REVERSED_Z
@@ -102,7 +183,10 @@ Shader "TRINL/Mesh Fog Volume"
                     float extinction = _FogParams.x * shape * variation * (1 - _FogParams.w);
                     float alpha = 1 - exp(-extinction * stepLength);
                     if (alpha > 0.00001) firstDistance = min(firstDistance, start + (i + 0.5) * stepLength);
-                    accumulated += transmission * alpha * _FogColor.rgb * lerp(0.65, 1.15, noise);
+                    float3 illumination = 1;
+                    if (_FogLighting.x > 0.5 && alpha > 0.00001)
+                        illumination = FogIllumination(origin + direction * (start + (i + 0.5) * stepLength), direction, uv);
+                    accumulated += transmission * alpha * _FogColor.rgb * lerp(0.65, 1.15, noise) * illumination;
                     transmission *= 1 - alpha;
                     if (transmission < 0.005) break;
                 }

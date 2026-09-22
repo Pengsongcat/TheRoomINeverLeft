@@ -14,6 +14,8 @@ namespace TRINL.Rendering.Editor
             if(fog.source && fog.source.GetComponent<Renderer>())
                 Undo.RecordObject(fog.source.GetComponent<Renderer>(),"编辑雾显示");
             DrawDefaultInspector();
+            if (fog.enableLighting)
+                EditorGUILayout.HelpBox("雾光照：支持方向光、点光源、聚光灯和 Light Cookie。Ambient Brightness 为固定补光；设为 0 时未受光区域变暗。阴影需同时开启灯光阴影、URP Shadows 和 Renderer 的 Transparent Receive Shadows。Fog Color 会乘以灯光颜色，纯红色雾无法显示蓝/绿色光。", MessageType.Info);
             fog.Apply();
             EditorGUILayout.HelpBox("静态封闭 Mesh → SDF → 体积雾。Source 指定单个 MeshFilter。骨骼动画及相交雾体排序不在此版本范围内。",MessageType.Info);
             if(!fog.source && GUILayout.Button("识别本物体的 Mesh"))

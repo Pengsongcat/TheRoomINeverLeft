@@ -22,6 +22,16 @@ namespace TRINL.Rendering
         [Min(0)] public float contourNoise = 0.045f;
         [Range(0, 1)] public float dissolve;
         [Range(16, 128)] public int steps = 64;
+        [Header("Lighting / 雾光照")]
+        [Tooltip("Enable scene lights inside the fog. Off preserves the original appearance.")]
+        public bool enableLighting;
+        [Range(0, 2), Tooltip("Constant fill light; 0 makes unlit regions dark. Not baked ambient lighting.")]
+        public float ambientBrightness = 0.2f;
+        [Range(0, 10)] public float lightIntensity = 1;
+        [Range(-0.8f, 0.8f), Tooltip("0 scatters equally in all directions; positive values emphasize looking toward the light.")]
+        public float anisotropy;
+        [Tooltip("Sample scene shadow maps inside the fog. Requires shadows enabled on the light and URP asset; adds GPU cost.")]
+        public bool receiveLightShadows = true;
         [HideInInspector] public MeshRenderer volumeRenderer;
         [HideInInspector] public Material volumeMaterial;
         [SerializeField, HideInInspector] bool capturedSourceState;
@@ -59,6 +69,7 @@ namespace TRINL.Rendering
             else RestoreSource();
             if (!volumeRenderer) return;
             volumeRenderer.enabled = ready;
+            volumeRenderer.receiveShadows = enableLighting && receiveLightShadows;
             if (!ready) return;
             properties ??= new MaterialPropertyBlock();
             properties.Clear();
@@ -70,6 +81,8 @@ namespace TRINL.Rendering
             properties.SetVector("_FogParams", new Vector4(density, Mathf.Max(0.001f, edgeSoftness), noiseStrength, dissolve));
             properties.SetVector("_NoiseParams", new Vector4(noiseScale, contourNoise, Mathf.Clamp(steps, 16, 128), 0));
             properties.SetVector("_Flow", flowSpeed);
+            properties.SetVector("_FogLighting", new Vector4(enableLighting ? 1 : 0, ambientBrightness, lightIntensity, anisotropy));
+            properties.SetFloat("_FogReceiveShadows", receiveLightShadows ? 1 : 0);
             volumeRenderer.SetPropertyBlock(properties);
         }
     }

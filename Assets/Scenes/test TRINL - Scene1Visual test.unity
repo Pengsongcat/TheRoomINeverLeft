@@ -6902,6 +6902,8 @@ MonoBehaviour:
   spotLight: {fileID: 90301572}
   videoPlayer: {fileID: 959037916}
   cookieRT: {fileID: 8400000, guid: 4968f011de4cf5a4e9a9a980c4e4f61e, type: 2}
+  editorPreview: 0
+  editorPreviewImage: {fileID: 0}
 --- !u!328 &959037916
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -7617,6 +7619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoDisableCamera
   disableOnAwake: 1
+  targetDisplay: 0
 --- !u!1 &1134505566
 GameObject:
   m_ObjectHideFlags: 0
@@ -8016,6 +8019,8 @@ MonoBehaviour:
   spotLight: {fileID: 813123946}
   videoPlayer: {fileID: 1199677940}
   cookieRT: {fileID: 8400000, guid: 0e71876914fdd9f4fafc56d05e35147b, type: 2}
+  editorPreview: 0
+  editorPreviewImage: {fileID: 0}
 --- !u!328 &1199677940
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -11595,17 +11600,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1744549274 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6373435219269714864, guid: f2ed6f339d7a95940a5a0563b3c2962b, type: 3}
-  m_PrefabInstance: {fileID: 5213692205321211951}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96940477f73c796429bf867d140d4101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimelineController
 --- !u!114 &1751101507 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3558166446226011546, guid: 096faad4530264740936d336cf61ba79, type: 3}
@@ -13884,6 +13878,8 @@ MonoBehaviour:
   spotLight: {fileID: 1813183782}
   videoPlayer: {fileID: 2047892543}
   cookieRT: {fileID: 8400000, guid: 00d2d42c6978bf14abbc719572a3e68d, type: 2}
+  editorPreview: 0
+  editorPreviewImage: {fileID: 0}
 --- !u!328 &2047892543
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -15079,7 +15075,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148100647952}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 711db05cbdaa6b546a59ead3d84920db, type: 3}
   m_Name: 
@@ -15485,7 +15481,7 @@ PrefabInstance:
     - target: {fileID: 3437187552102097830, guid: 096faad4530264740936d336cf61ba79, type: 3}
       propertyPath: onTimelineFinished.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1744549274}
+      objectReference: {fileID: 0}
     - target: {fileID: 3558166446226011546, guid: 096faad4530264740936d336cf61ba79, type: 3}
       propertyPath: autoActivate
       value: 1

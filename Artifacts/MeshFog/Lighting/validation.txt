@@ -1,0 +1,19 @@
+01-no-light mean RGB: RGBA(0.000, 0.000, 0.000, 2.000)
+02-red-point mean RGB: RGBA(0.097, 0.000, 0.000, 2.000)
+PASS Point light illuminates fog and transfers color
+03-blue-point mean RGB: RGBA(0.000, 0.000, 0.097, 2.000)
+PASS Changing light color changes fog color
+04-out-of-range mean RGB: RGBA(0.000, 0.000, 0.000, 2.000)
+PASS Point light range controls fog illumination
+05-spot-on mean RGB: RGBA(0.000, 0.000, 0.097, 2.000)
+06-spot-away mean RGB: RGBA(0.000, 0.000, 0.000, 2.000)
+PASS Spot cone illuminates only its aimed region
+07-directional mean RGB: RGBA(0.043, 0.043, 0.043, 2.000)
+PASS Directional light illuminates fog
+08-shadow mean RGB: RGBA(0.178, 0.178, 0.178, 2.000)
+09-shadows-disabled mean RGB: RGBA(0.218, 0.218, 0.218, 2.000)
+PASS Scene occluder casts a shadow into fog; toggle restores illumination
+10-legacy-light-on mean RGB: RGBA(0.043, 0.043, 0.043, 2.000)
+11-legacy-light-off mean RGB: RGBA(0.043, 0.043, 0.043, 2.000)
+PASS Lighting disabled preserves light-independent appearance
+Desktop camera only; Quest stereo, Android and GPU performance are unverified.

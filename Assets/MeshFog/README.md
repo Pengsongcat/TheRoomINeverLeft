@@ -28,6 +28,21 @@
 
 ## 实现
 
+### 光照
+
+在源模型的 **Mesh Fog → Lighting / 雾光照** 中启用 `Enable Lighting`，无需换材质或重新烘焙 SDF。旧实例默认关闭光照以保留原效果。
+
+- `Ambient Brightness`：固定补光亮度，默认 0.2；0 时无灯区域变暗，不是烘焙环境光。
+- `Light Intensity`：场景灯对雾的贡献倍率，默认 1。
+- `Anisotropy`：默认 0 为各向同性；正值增强朝向光源观看时的散射。
+- `Receive Light Shadows`：采样场景阴影贴图；需开启灯的 Shadows、URP 对应阴影，以及 Renderer 的 Transparent Receive Shadows。当前 VR_Renderer 已开启后者，也会影响其他支持阴影的透明材质。
+
+每个有效体积采样点计算方向光、点光源和聚光灯，包含颜色、距离衰减、聚光锥及 Light Cookie；支持 URP Rendering Layers。Forward 模式遵循管线的每物体灯光数量上限（当前 VR 为 4）。Forward+ 路径按采样点查询灯光簇，但本次未做其运行验证。
+
+Fog Color 是散射颜色，会乘以灯光颜色：纯红色雾会滤掉蓝/绿色光；要明显显示灯的颜色，可将雾调成白或浅灰。保留原模型材料。没有雾自阴影、多次散射或体积密度向场景投影；场景阴影是实体遮挡物投进雾里的阴影。
+
+光照和阴影随 Steps 与灯数增加 GPU 成本，Quest 性能需要真机验证。桌面渲染检查可运行 `MeshFogLightingValidation.Run(example)`，结果位于 `Artifacts/MeshFog/Lighting/`，覆盖灯色、距离、聚光锥、方向光、阴影开关和关闭光照后的旧效果。
+
 - 编辑器 CPU 烘焙，不新增 VFX Graph 包依赖。BVH 加速最近三角形距离和射线奇偶内部测试。
 - 预先焊接位置重合的顶点以检查封闭边界；开口或非流形 Mesh 会拒绝烘焙。自相交、重叠壳体和嵌套壳体仍需人工检查，内部按奇偶规则解释。
 - SDF 用 RFloat Texture3D 保存：内部为负、外部为正，数值是 Mesh 局部距离；采样点位于体素中心。Shape 同时保存局部 Bounds、原 Mesh 和精度。
