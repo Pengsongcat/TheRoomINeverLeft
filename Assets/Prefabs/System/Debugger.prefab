@@ -34,6 +34,7 @@ Transform:
   - {fileID: 5068938651313426268}
   - {fileID: 7217647614193897159}
   - {fileID: 6968771459511923072}
+  - {fileID: 2771589747256234608}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7403355967633571802
@@ -190,6 +191,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd6646f3debecb4e964297a455ed5ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.Debugging::FrameRateText
+--- !u!1 &5578970406634073779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2771589747256234608}
+  - component: {fileID: 7129281433311921131}
+  m_Layer: 0
+  m_Name: Sound Visualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2771589747256234608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578970406634073779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6941352272744898883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7129281433311921131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578970406634073779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3283bf2538a444da5b1cc1bbe31bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Debugging::SoundSourceVisualizer
+  _playingMaterial: {fileID: 2100000, guid: 71cf6a15d25cfd741895644ad698f0fb, type: 2}
+  _silentMaterial: {fileID: 2100000, guid: 24a6b618613d0d14d8ea837836333012, type: 2}
+  _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  _textMaterial: {fileID: 2100000, guid: 4679e32c94512324793c55bb9f172d25, type: 2}
+  _markerSize: 0.15
+  _ringWidth: 0.01
+  _floor: {fileID: 0}
+  _ringLift: 0.005
+  _fontSize: 0.05
+  _labelGap: 0.05
 --- !u!1 &6429630067911283342
 GameObject:
   m_ObjectHideFlags: 0

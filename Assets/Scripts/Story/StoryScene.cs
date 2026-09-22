@@ -18,6 +18,10 @@ public class StoryScene : MonoBehaviour
 
     public bool Done { get; private set; }
 
+    // For the Debugger: which sound leads to this scene, and whether its Timeline is running now.
+    public AudioSource Guide   => _guide;
+    public bool        Playing => _playing;
+
     bool _playing;
 
     void Awake() => _trigger.Entered += OnEntered;
