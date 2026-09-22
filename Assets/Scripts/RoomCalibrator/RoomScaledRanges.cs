@@ -7,6 +7,7 @@ using UnityEngine;
 //   - every trigger sphere under Room: world radius × room scale. A sphere collider takes its radius from its
 //     largest scale axis, and Room's height scale stays 1, so without this it would not shrink in a smaller room.
 // Authored values are read in Awake, while Room is still unfitted (scale 1). Inactive story parts are included.
+// Anything carrying KeepRealRange, or under something that does, is left at its authored range.
 [RequireComponent(typeof(RoomFitter))]
 public class RoomScaledRanges : MonoBehaviour
 {
@@ -22,12 +23,16 @@ public class RoomScaledRanges : MonoBehaviour
         _room = GetComponent<RoomFitter>();
 
         foreach (var s in GetComponentsInChildren<AudioSource>(includeInactive: true))
-            _sounds.Add(new Sound { Source = s, Min = s.minDistance, Max = s.maxDistance });
+            if (!KeepsRealRange(s))
+                _sounds.Add(new Sound { Source = s, Min = s.minDistance, Max = s.maxDistance });
 
         foreach (var c in GetComponentsInChildren<SphereCollider>(includeInactive: true))
-            if (c.isTrigger)
+            if (c.isTrigger && !KeepsRealRange(c))
                 _triggers.Add(new Trigger { Collider = c, WorldRadius = c.radius * MaxAxis(c.transform) });
     }
+
+    static bool KeepsRealRange(Component c) =>
+        c.GetComponentInParent<KeepRealRange>(includeInactive: true) != null;
 
     void OnEnable()
     {
