@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6507735703077936410}
   - component: {fileID: 8551480873645431064}
   m_Layer: 0
-  m_Name: Timeline
+  m_Name: Scene1.2 Timeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,18 +67,10 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -558655575438670716, guid: 09546315a232e7340a402d5b774f6876, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 5691018747110341299, guid: 505921c78d6974b4fb0205e8418bc6be, type: 2}
-    value: {fileID: 5570266298481328198}
-  - key: {fileID: -7694183842072290435, guid: 505921c78d6974b4fb0205e8418bc6be, type: 2}
-    value: {fileID: 6939877099205483831}
-  - key: {fileID: -5923326523346735362, guid: 505921c78d6974b4fb0205e8418bc6be, type: 2}
-    value: {fileID: 4515331366171897094}
-  - key: {fileID: -1527119451787375775, guid: 505921c78d6974b4fb0205e8418bc6be, type: 2}
-    value: {fileID: 6895689739904858002}
-  - key: {fileID: -558655575438670716, guid: 505921c78d6974b4fb0205e8418bc6be, type: 2}
-    value: {fileID: 5250592004411468122}
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - 3f2df3ac-684f-4ddb-9f28-96bb2ee83de0: {fileID: 5198890508914611585}
+    - cf7d476d-cf2e-4b4a-b796-8f281652c97e: {fileID: 2173180343720763268}
 --- !u!1 &4731172969254380177
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +135,7 @@ GameObject:
   - component: {fileID: 3510844937195728927}
   - component: {fileID: 3497916036810483583}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: Scene1.2 Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6290184248395528238, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
       propertyPath: m_Name
-      value: Guide Sound
+      value: Scene1.2 Guide Sound
       objectReference: {fileID: 0}
     - target: {fileID: 8209128810542020403, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
       propertyPath: Loop
@@ -323,7 +315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745831926044422909, guid: 314fa3aa80821aa41ba3853a052f19ca, type: 3}
       propertyPath: m_Name
-      value: Visual
+      value: Scene1.2 Visual
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -333,6 +325,11 @@ PrefabInstance:
 --- !u!4 &536018195341605010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4955898931192059371, guid: 314fa3aa80821aa41ba3853a052f19ca, type: 3}
+  m_PrefabInstance: {fileID: 4879283403465928057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2173180343720763268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6745831926044422909, guid: 314fa3aa80821aa41ba3853a052f19ca, type: 3}
   m_PrefabInstance: {fileID: 4879283403465928057}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7887589608322949734
@@ -345,7 +342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2688776151927076839, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
       propertyPath: m_Name
-      value: Sound
+      value: Scene1.2 Sound
       objectReference: {fileID: 0}
     - target: {fileID: 7713574631807733829, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -397,28 +394,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7713574631807733829, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
   m_PrefabInstance: {fileID: 7887589608322949734}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &4515331366171897094 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6043818610302652256, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
-  m_PrefabInstance: {fileID: 7887589608322949734}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &5250592004411468122 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2714405512305527612, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
-  m_PrefabInstance: {fileID: 7887589608322949734}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &5570266298481328198 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2322686818604655136, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
-  m_PrefabInstance: {fileID: 7887589608322949734}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &6895689739904858002 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3658103489285019124, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
-  m_PrefabInstance: {fileID: 7887589608322949734}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &6939877099205483831 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 952860444067118929, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
+--- !u!1 &5198890508914611585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2688776151927076839, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
   m_PrefabInstance: {fileID: 7887589608322949734}
   m_PrefabAsset: {fileID: 0}

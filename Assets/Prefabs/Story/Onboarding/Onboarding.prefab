@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6966306257229811689}
   - component: {fileID: 147191748165603174}
   m_Layer: 0
-  m_Name: Timeline
+  m_Name: Onboarding Timeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,9 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings: []
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - 0b10ac43-a111-4cfb-b167-e1470908ddb1: {fileID: 4673531250457861834}
+    - 9aa9dc28-9435-42b2-8dcb-82fb1aa66bb2: {fileID: 9128766724051160774}
 --- !u!1 &7146513953755719453
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,21 +149,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7010510898671002209, guid: 0bd777959026602479063953dcffc6c7, type: 3}
       propertyPath: m_Name
-      value: Sound
+      value: Onboarding Sound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7010510898671002209, guid: 0bd777959026602479063953dcffc6c7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7774708957169141928}
-    - targetCorrespondingSourceObject: {fileID: 7010510898671002209, guid: 0bd777959026602479063953dcffc6c7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 619451778949389532}
-    - targetCorrespondingSourceObject: {fileID: 7010510898671002209, guid: 0bd777959026602479063953dcffc6c7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2766319848826451282}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bd777959026602479063953dcffc6c7, type: 3}
 --- !u!4 &3132293232682307730 stripped
 Transform:
@@ -173,225 +166,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7010510898671002209, guid: 0bd777959026602479063953dcffc6c7, type: 3}
   m_PrefabInstance: {fileID: 2418962336622607531}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &7774708957169141928
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4673531250457861834}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 9473d4f6144d09d4c96cf6d6dbf409c8, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 1
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 0
-  MinDistance: 1
-  MaxDistance: 5
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.1
-      value: 1
-      inSlope: -10.0039835
-      outSlope: -10.0039835
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.16974182
-      value: 0.65808105
-      inSlope: -2.5009959
-      outSlope: -2.5009959
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.39482728
-      value: 0.37979126
-      inSlope: -0.62524897
-      outSlope: -0.62524897
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.7633179
-      value: 0.24319458
-      inSlope: -0.15631224
-      outSlope: -0.15631224
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &619451778949389532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4673531250457861834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59c3684b22f00604a97bb68037fcf4cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: SteamAudioUnity::SteamAudio.SteamAudioSource
-  directBinaural: 1
-  interpolation: 0
-  perspectiveCorrection: 0
-  distanceAttenuation: 1
-  distanceAttenuationInput: 0
-  distanceAttenuationValue: 0.42322564
-  airAbsorption: 1
-  airAbsorptionInput: 0
-  airAbsorptionLow: 0.9995276
-  airAbsorptionMid: 0.9959913
-  airAbsorptionHigh: 0.95790845
-  directivity: 0
-  directivityInput: 0
-  dipoleWeight: 0
-  dipolePower: 0
-  directivityValue: 1
-  occlusion: 0
-  occlusionInput: 0
-  occlusionType: 0
-  occlusionRadius: 1
-  occlusionSamples: 16
-  occlusionValue: 1
-  transmission: 0
-  transmissionType: 0
-  transmissionInput: 0
-  transmissionLow: 1
-  transmissionMid: 1
-  transmissionHigh: 1
-  maxTransmissionSurfaces: 1
-  directMixLevel: 1
-  reflections: 0
-  reflectionsType: 0
-  useDistanceCurveForReflections: 1
-  currentBakedSource: {fileID: 0}
-  reverbTimeLow: 0
-  reverbTimeMid: 0
-  reverbTimeHigh: 0
-  hybridReverbEQLow: 1
-  hybridReverbEQMid: 1
-  hybridReverbEQHigh: 1
-  hybridReverbDelay: 0
-  applyHRTFToReflections: 1
-  reflectionsMixLevel: 0.07
-  pathing: 0
-  pathingProbeBatch: {fileID: 0}
-  pathValidation: 1
-  findAlternatePaths: 1
-  pathingEQ:
-  - 1
-  - 1
-  - 1
-  pathingSH:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  applyHRTFToPathing: 0
-  pathingMixLevel: 1
-  normalizePathingEQ: 0
---- !u!114 &2766319848826451282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4673531250457861834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5daffe9b48cefa34d8f7ec730d158f0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SoundRangeScaler
 --- !u!1001 &4451389033131684326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -466,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4857526122262036256, guid: 15e2ac062b7b5764386b7d772c5c3d09, type: 3}
       propertyPath: m_Name
-      value: Visual
+      value: Onboarding Visual
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -515,3 +289,8 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &9128766724051160774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4857526122262036256, guid: 15e2ac062b7b5764386b7d772c5c3d09, type: 3}
+  m_PrefabInstance: {fileID: 4451389033131684326}
+  m_PrefabAsset: {fileID: 0}

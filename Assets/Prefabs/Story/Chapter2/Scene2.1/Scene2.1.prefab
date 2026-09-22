@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1503823370970594565}
   - component: {fileID: 4707040566261381862}
   m_Layer: 0
-  m_Name: Timeline
+  m_Name: Scene2.1 Timeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,27 +46,11 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -7903446247554845896, guid: 9970e0f5562bd30478c1364dc973cdc3, type: 2}
-    value: {fileID: 7073154101047495842}
-  - key: {fileID: -7006490334034239373, guid: 9970e0f5562bd30478c1364dc973cdc3, type: 2}
-    value: {fileID: 2858612264203465627}
-  - key: {fileID: 7160493578117491826, guid: 9970e0f5562bd30478c1364dc973cdc3, type: 2}
-    value: {fileID: 3348805348191131225}
-  - key: {fileID: 5396217601870317687, guid: 9970e0f5562bd30478c1364dc973cdc3, type: 2}
-    value: {fileID: 3226415955357332069}
-  - key: {fileID: -7685077610677691510, guid: 9970e0f5562bd30478c1364dc973cdc3, type: 2}
-    value: {fileID: 2970002843639168311}
-  - key: {fileID: 7182981210939175132, guid: 9970e0f5562bd30478c1364dc973cdc3, type: 2}
-    value: {fileID: 1555238330029851643}
-  - key: {fileID: 1729076552912026433, guid: 9970e0f5562bd30478c1364dc973cdc3, type: 2}
-    value: {fileID: 4668364186553151130}
-  - key: {fileID: 6469810114706799926, guid: 9970e0f5562bd30478c1364dc973cdc3, type: 2}
-    value: {fileID: 2009216643609470869}
-  - key: {fileID: -6808787502564747897, guid: 9970e0f5562bd30478c1364dc973cdc3, type: 2}
-    value: {fileID: 4045483920108632391}
+  m_SceneBindings: []
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - 2f16f4c4-2829-480f-a991-3368142907a3: {fileID: 5491281331990866189}
+    - 6aa04687-1f93-4755-b681-535b44553c2e: {fileID: 2299253292422784201}
 --- !u!1 &5646004677710076658
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +115,7 @@ GameObject:
   - component: {fileID: 6447468382935047165}
   - component: {fileID: 7498050548761540535}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: Scene2.1 Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,61 +220,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5027731377840623556, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
       propertyPath: m_Name
-      value: Sound
+      value: Scene2.1 Sound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
---- !u!82 &1555238330029851643 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2046803905425859890, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
-  m_PrefabInstance: {fileID: 716886304990308041}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &2009216643609470869 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1301768645225939292, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
-  m_PrefabInstance: {fileID: 716886304990308041}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2847168946572258630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3346677385335163791, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
   m_PrefabInstance: {fileID: 716886304990308041}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &2858612264203465627 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3339754469358703954, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
-  m_PrefabInstance: {fileID: 716886304990308041}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &2970002843639168311 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2361422851368098814, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
-  m_PrefabInstance: {fileID: 716886304990308041}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &3226415955357332069 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2680886959197639852, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
-  m_PrefabInstance: {fileID: 716886304990308041}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &3348805348191131225 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2849578942742294672, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
-  m_PrefabInstance: {fileID: 716886304990308041}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &4045483920108632391 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3591223207160127374, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
-  m_PrefabInstance: {fileID: 716886304990308041}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &4668364186553151130 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5277013928531839059, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
-  m_PrefabInstance: {fileID: 716886304990308041}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &7073154101047495842 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7771524544325659243, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
+--- !u!1 &5491281331990866189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5027731377840623556, guid: 41f5aac68f17e7d46b29c74b61e51566, type: 3}
   m_PrefabInstance: {fileID: 716886304990308041}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5744154008997190462
@@ -303,7 +247,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5791562105734316023, guid: 7f354b12440c9dd408233b4e5d1011db, type: 3}
       propertyPath: m_Name
-      value: Visual
+      value: Scene2.1 Visual
       objectReference: {fileID: 0}
     - target: {fileID: 8138434723118575302, guid: 7f354b12440c9dd408233b4e5d1011db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -350,6 +294,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f354b12440c9dd408233b4e5d1011db, type: 3}
+--- !u!1 &2299253292422784201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5791562105734316023, guid: 7f354b12440c9dd408233b4e5d1011db, type: 3}
+  m_PrefabInstance: {fileID: 5744154008997190462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4559563539828061688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8138434723118575302, guid: 7f354b12440c9dd408233b4e5d1011db, type: 3}
@@ -405,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6290184248395528238, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
       propertyPath: m_Name
-      value: Guide Sound
+      value: Scene2.1 Guide Sound
       objectReference: {fileID: 0}
     - target: {fileID: 8209128810542020403, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
       propertyPath: Loop

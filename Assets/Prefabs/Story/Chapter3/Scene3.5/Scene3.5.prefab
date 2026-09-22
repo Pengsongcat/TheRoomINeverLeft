@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 8595637223747103259}
   - component: {fileID: 2487428082509068713}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: Scene3.5 Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 7313944395710543570}
   - component: {fileID: 5828901144123233321}
   m_Layer: 0
-  m_Name: Timeline
+  m_Name: Scene3.5 Timeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,9 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings: []
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - ebfb5276-d340-4ee3-98b7-7c707462c2b7: {fileID: 4902196093262624071}
+    - 7d94bb7b-c3f4-46b5-b0a5-25fff5ec219d: {fileID: 8744192441826932611}
 --- !u!1001 &2699257551681736353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6290184248395528238, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
       propertyPath: m_Name
-      value: Guide Sound
+      value: Scene3.5 Guide Sound
       objectReference: {fileID: 0}
     - target: {fileID: 8209128810542020403, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
       propertyPath: Loop
@@ -253,7 +255,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5333394701112048413, guid: 8c6d3a4c90ec76743a1a163a361f2be4, type: 3}
       propertyPath: m_Name
-      value: Visual
+      value: Scene3.5 Visual
       objectReference: {fileID: 0}
     - target: {fileID: 6034861020972344398, guid: 8c6d3a4c90ec76743a1a163a361f2be4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -303,6 +305,11 @@ PrefabInstance:
 --- !u!4 &6961923547865049296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6034861020972344398, guid: 8c6d3a4c90ec76743a1a163a361f2be4, type: 3}
+  m_PrefabInstance: {fileID: 3701284392304643230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8744192441826932611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5333394701112048413, guid: 8c6d3a4c90ec76743a1a163a361f2be4, type: 3}
   m_PrefabInstance: {fileID: 3701284392304643230}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8160413790226876331
@@ -355,13 +362,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3834679039425377004, guid: 78d5ceb62954224458579aaa133a0448, type: 3}
       propertyPath: m_Name
-      value: Sound
+      value: Scene3.5 Sound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78d5ceb62954224458579aaa133a0448, type: 3}
+--- !u!1 &4902196093262624071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3834679039425377004, guid: 78d5ceb62954224458579aaa133a0448, type: 3}
+  m_PrefabInstance: {fileID: 8160413790226876331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6316434408680012696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2780944988891069491, guid: 78d5ceb62954224458579aaa133a0448, type: 3}
