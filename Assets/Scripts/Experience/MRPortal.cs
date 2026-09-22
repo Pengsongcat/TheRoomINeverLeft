@@ -8,12 +8,11 @@ using UnityEngine;
 // the camera's near plane, the portal raises Entered and turns on its back opening, which keeps the real room
 // visible through the doorway behind them. Once they are _dissolveDistance past the door it dissolves from the
 // top down and raises Closed.
+// Everything that dissolves carries a PortalDissolve; the portal finds them itself, so a new model only needs one.
 public class MRPortal : MonoBehaviour
 {
-    static readonly int CutYId = Shader.PropertyToID("_CutY");
-
-    [Tooltip("Every renderer that dissolves (openings and frame).")]
-    [SerializeField] Renderer[] _parts;
+    [Tooltip("Stencil mark added to PortalDissolve models so they show in MR ('TRINL/Portal', colour mask 0).")]
+    [SerializeField] Material _mark;
     [Tooltip("Back-facing opening that shows the real room; turned on when the visitor enters.")]
     [SerializeField] GameObject _backOpening;
     [Tooltip("Doorway size, metres (width × height).")]
@@ -29,12 +28,16 @@ public class MRPortal : MonoBehaviour
     public event Action Entered;
     public event Action Closed;
 
-    MaterialPropertyBlock _block;
+    PortalDissolve[] _parts;
     Transform _head;
     float     _lastZ;
     bool      _entered;
 
-    void Awake() => _block = new MaterialPropertyBlock();
+    void Awake()
+    {
+        _parts = GetComponentsInChildren<PortalDissolve>(includeInactive: true);
+        foreach (var part in _parts) part.Prepare(_mark);
+    }
 
     void OnEnable()
     {
@@ -88,8 +91,6 @@ public class MRPortal : MonoBehaviour
 
     void SetCut(float worldY)
     {
-        _block.SetFloat(CutYId, worldY);
-        foreach (var r in _parts)
-            if (r != null) r.SetPropertyBlock(_block);
+        foreach (var part in _parts) part.SetCut(worldY);
     }
 }

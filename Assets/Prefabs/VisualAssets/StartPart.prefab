@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4118245716292789511}
+  - component: {fileID: 8328490093270941473}
   m_Layer: 0
   m_Name: StartPart
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 3712459337055896382}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8328490093270941473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7604976509472288573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b84f586e3de7144582457dba76c8b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Experience::PortalDissolve
+  _markForMR: 1
 --- !u!1001 &3751489029983560917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81,48 +95,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c92b80d4e394d954ba3a5974c6bc4700, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c92b80d4e394d954ba3a5974c6bc4700, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a9c79440d6a29a748b1792a54e960387, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c92b80d4e394d954ba3a5974c6bc4700, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3a83f3aa2160bb94683b64351d2a187d, type: 2}
     - target: {fileID: 919132149155446097, guid: c92b80d4e394d954ba3a5974c6bc4700, type: 3}
       propertyPath: m_Name
       value: StartDoor
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c92b80d4e394d954ba3a5974c6bc4700, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c92b80d4e394d954ba3a5974c6bc4700, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2807197251254507752}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c92b80d4e394d954ba3a5974c6bc4700, type: 3}
 --- !u!4 &3712459337055896382 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c92b80d4e394d954ba3a5974c6bc4700, type: 3}
   m_PrefabInstance: {fileID: 3751489029983560917}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4093383608985508228 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c92b80d4e394d954ba3a5974c6bc4700, type: 3}
-  m_PrefabInstance: {fileID: 3751489029983560917}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2807197251254507752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4093383608985508228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8df7403382d48ed4988aaafeeeb32b59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TRINL.Rendering.ScreenBlurOverride
-  includeChildren: 1
-  radius: 0
-  opacity: 1
-  depthBias: 0.005
