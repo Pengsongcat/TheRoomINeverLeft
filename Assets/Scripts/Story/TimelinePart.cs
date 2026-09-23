@@ -25,6 +25,11 @@ public class TimelinePart : StoryPart
         _timeline.Play();
     }
 
+    public override void Skip()
+    {
+        if (_playing) JumpToEnd(_timeline);
+    }
+
     void OnStopped(PlayableDirector director)
     {
         // Also raised when the director is disabled with the part; only a Timeline that ran to its end counts.

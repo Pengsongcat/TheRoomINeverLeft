@@ -41,6 +41,13 @@ public class StoryChapter : StoryPart
         }
     }
 
+    // A scene playing → skip that scene (the chapter then carries on as usual); otherwise skip the whole chapter.
+    public override void Skip()
+    {
+        if (_activeScene != null && !_activeScene.Done) _activeScene.Skip();
+        else RaiseFinished();
+    }
+
     void OnSceneTriggered(StoryScene triggered)
     {
         _activeScene = triggered;

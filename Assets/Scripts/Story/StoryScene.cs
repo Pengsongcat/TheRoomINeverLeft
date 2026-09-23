@@ -75,6 +75,15 @@ public class StoryScene : MonoBehaviour
         _timeline.Play();
     }
 
+    // Development shortcut: ends a triggered scene as if its Timeline had run to its end, starting it first if the
+    // other guides are still fading.
+    public void Skip()
+    {
+        if (!_triggered || Done || !isActiveAndEnabled) return;
+        _playing = true;
+        StoryPart.JumpToEnd(_timeline);
+    }
+
     void OnEntered()
     {
         if (_triggered || Done) return;

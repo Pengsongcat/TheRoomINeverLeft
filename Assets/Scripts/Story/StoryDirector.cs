@@ -34,6 +34,18 @@ public class StoryDirector : MonoBehaviour
         Enter(0);
     }
 
+    // Development shortcut: skips what is playing in the current part (see each part's Skip).
+    public void SkipCurrent()
+    {
+        if (_current < 0 || _current >= _parts.Length)
+        {
+            Debug.Log("[Story] Nothing to skip: the story is not running.");
+            return;
+        }
+        Debug.Log($"[Story] Skip requested in {_parts[_current].name}.");
+        _parts[_current].Skip();
+    }
+
     void Enter(int index)
     {
         _current = index;
