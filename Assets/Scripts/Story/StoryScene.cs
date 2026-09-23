@@ -60,10 +60,10 @@ public class StoryScene : MonoBehaviour
         if (_guideFader != null) _guideFader.FadeIn();
     }
 
-    public void FadeOutGuide(float durationMultiplier = 1f, Action onComplete = null)
+    public void FadeOutGuide(bool wasTriggered, Action onComplete = null)
     {
         _trigger.gameObject.SetActive(false);
-        if (_guideFader != null) _guideFader.FadeOut(durationMultiplier, onComplete);
+        if (_guideFader != null) _guideFader.FadeOut(wasTriggered, onComplete);
         else onComplete?.Invoke();
     }
 
