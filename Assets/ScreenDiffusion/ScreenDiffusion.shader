@@ -9,6 +9,36 @@ Shader "Hidden/TRINL/ScreenDiffusion"
         #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
 
         TEXTURE2D_X(_ScreenDiffusionOriginal);
+        TEXTURE2D_X_FLOAT(_ScreenDiffusionObjectIds);
+        float4 _ScreenDiffusionGroup;
+        TEXTURE2D_X_FLOAT(_ScreenDiffusionLayerDepth);
+        TEXTURE2D_X_FLOAT(_ScreenDiffusionOccluderDepth);
+        float4 _ScreenDiffusionOcclusion;
+
+        float OcclusionEyeDepth(float raw)
+        {
+            if (unity_OrthoParams.w > 0.5)
+            {
+                #if UNITY_REVERSED_Z
+                raw = 1.0 - raw;
+                #endif
+                return lerp(_ProjectionParams.y, _ProjectionParams.z, raw);
+            }
+            return LinearEyeDepth(raw, _ZBufferParams);
+        }
+
+        float LayerVisibility(float2 uv)
+        {
+            if (_ScreenDiffusionOcclusion.x < 0.5) return 1;
+            float groundRaw = SAMPLE_TEXTURE2D_X_LOD(_ScreenDiffusionOccluderDepth, sampler_PointClamp, uv, 0).r;
+            #if UNITY_REVERSED_Z
+            if (groundRaw <= 0.000001) return 1;
+            #else
+            if (groundRaw >= 0.999999) return 1;
+            #endif
+            float layerRaw = SAMPLE_TEXTURE2D_X_LOD(_ScreenDiffusionLayerDepth, sampler_PointClamp, uv, 0).r;
+            return OcclusionEyeDepth(layerRaw) <= OcclusionEyeDepth(groundRaw) + _ScreenDiffusionOcclusion.y ? 1 : 0;
+        }
         // xy = half a destination texel in UV, zw = destination size in pixels
         float4 _ScreenDiffusionTexel;
         // x = spread, y = strength, z = blend mode
@@ -124,7 +154,17 @@ Shader "Hidden/TRINL/ScreenDiffusion"
         float4 FragCompositeLayer(Varyings input) : SV_Target
         {
             UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
-            return SampleSource(input.texcoord) * saturate(_ScreenDiffusionParams.y);
+            return SampleSource(input.texcoord) * (saturate(_ScreenDiffusionParams.y) * LayerVisibility(input.texcoord));
+        }
+        float4 FragOcclusion(Varyings input) : SV_Target
+        {
+            UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+            if (_ScreenDiffusionGroup.y > 0.5)
+            {
+                float id = SAMPLE_TEXTURE2D_X_LOD(_ScreenDiffusionObjectIds, sampler_PointClamp, input.texcoord, 0).r;
+                if (abs(id - _ScreenDiffusionGroup.x) > 0.25) return 0;
+            }
+            return SampleSource(input.texcoord) * LayerVisibility(input.texcoord);
         }
         ENDHLSL
 
@@ -213,6 +253,15 @@ Shader "Hidden/TRINL/ScreenDiffusion"
             #pragma target 3.5
             #pragma vertex Vert
             #pragma fragment FragCompositeLayer
+            ENDHLSL
+        }
+        Pass
+        {
+            Name "RejectHiddenSources"
+            HLSLPROGRAM
+            #pragma target 3.5
+            #pragma vertex Vert
+            #pragma fragment FragOcclusion
             ENDHLSL
         }
     }

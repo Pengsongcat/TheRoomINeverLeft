@@ -1,11 +1,16 @@
 using UnityEngine;
 
 // A chapter made of scenes the visitor can play in any order. All scenes wait (guide sounds loop) until one is
-// triggered; the others are turned off while it plays. When it finishes it turns off, and the scenes that have not
-// played yet turn back on. The chapter is finished once every scene has played.
+// triggered; all guide sounds fade out and other triggers disarm. The triggered guide fades twice as long,
+// while its Timeline begins when the other guides finish fading. Unplayed scenes then resume waiting.
 public class StoryChapter : StoryPart
 {
     StoryScene[] _scenes;
+    StoryScene _activeScene;
+    int _pendingOtherGuides;
+    bool _activeTimelineStarted;
+    bool _activeTimelineFinished;
+    bool _activeGuideFaded;
 
     void Awake()
     {
@@ -19,6 +24,7 @@ public class StoryChapter : StoryPart
 
     public override void Begin()
     {
+        _activeScene = null;
         if (_scenes.Length == 0)
         {
             Debug.LogWarning($"[Story] {name} has no scenes.");
@@ -28,19 +34,63 @@ public class StoryChapter : StoryPart
 
         foreach (var scene in _scenes)
         {
+            bool alreadyActive = scene.gameObject.activeSelf;
             scene.ResetProgress();
             scene.gameObject.SetActive(true);
+            if (alreadyActive) scene.ResumeWaiting();
         }
     }
 
     void OnSceneTriggered(StoryScene triggered)
     {
+        _activeScene = triggered;
+        _activeTimelineStarted = false;
+        _activeTimelineFinished = false;
+        _activeGuideFaded = false;
+        _pendingOtherGuides = 0;
+
         foreach (var scene in _scenes)
-            if (scene != triggered) scene.gameObject.SetActive(false);
+            if (scene != triggered && !scene.Done && scene.gameObject.activeInHierarchy)
+                _pendingOtherGuides++;
+
+        triggered.FadeOutGuide(2f, () =>
+        {
+            if (_activeScene != triggered) return;
+            _activeGuideFaded = true;
+            if (_activeTimelineFinished) CompleteScene(triggered);
+        });
+
+        foreach (var scene in _scenes)
+        {
+            if (scene == triggered || scene.Done || !scene.gameObject.activeInHierarchy) continue;
+            scene.FadeOutGuide(1f, () =>
+            {
+                if (_activeScene != triggered) return;
+                scene.gameObject.SetActive(false);
+                _pendingOtherGuides--;
+                TryStartTimeline(triggered);
+            });
+        }
+        TryStartTimeline(triggered);
+    }
+
+    void TryStartTimeline(StoryScene triggered)
+    {
+        if (_activeScene != triggered || _activeTimelineStarted || _pendingOtherGuides > 0) return;
+        _activeTimelineStarted = true;
+        triggered.StartTimeline();
     }
 
     void OnSceneFinished(StoryScene finished)
     {
+        if (_activeScene != finished) return;
+        _activeTimelineFinished = true;
+        if (_activeGuideFaded) CompleteScene(finished);
+    }
+
+    void CompleteScene(StoryScene finished)
+    {
+        _activeScene = null;
         finished.gameObject.SetActive(false);
 
         bool allDone = true;
@@ -48,7 +98,8 @@ public class StoryChapter : StoryPart
         {
             if (scene.Done) continue;
             allDone = false;
-            scene.gameObject.SetActive(true);
+            if (scene.gameObject.activeSelf) scene.ResumeWaiting();
+            else scene.gameObject.SetActive(true);
         }
 
         if (allDone) RaiseFinished();
