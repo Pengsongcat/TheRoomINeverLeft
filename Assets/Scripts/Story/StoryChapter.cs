@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // A chapter made of scenes the visitor can play in any order. All scenes wait (guide sounds loop) until one is
-// triggered; all guide sounds fade out and other triggers disarm. The triggered guide fades twice as long,
-// while its Timeline begins when the other guides finish fading. Unplayed scenes then resume waiting.
+// triggered; all guide sounds fade out and other triggers disarm. Each guide uses its own triggered or
+// untriggered fade-out time; the Timeline begins when the other guides finish fading.
 //
 // When the chapter opens, no trigger may start under the visitor. Each scene's Trigger + Guide go back to their
 // designed spots; if the visitor (Player Body, tag Player) is within a trigger's radius + body radius + Clearance,
@@ -86,7 +86,7 @@ public class StoryChapter : StoryPart
             if (scene != triggered && !scene.Done && scene.gameObject.activeInHierarchy)
                 _pendingOtherGuides++;
 
-        triggered.FadeOutGuide(2f, () =>
+        triggered.FadeOutGuide(true, () =>
         {
             if (_activeScene != triggered) return;
             _activeGuideFaded = true;
@@ -96,7 +96,7 @@ public class StoryChapter : StoryPart
         foreach (var scene in _scenes)
         {
             if (scene == triggered || scene.Done || !scene.gameObject.activeInHierarchy) continue;
-            scene.FadeOutGuide(1f, () =>
+            scene.FadeOutGuide(false, () =>
             {
                 if (_activeScene != triggered) return;
                 scene.gameObject.SetActive(false);

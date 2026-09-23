@@ -1,13 +1,18 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // Controls the looping guide sound; the chapter decides when to fade it.
 [RequireComponent(typeof(AudioSource))]
 public sealed class GuideSoundFader : MonoBehaviour
 {
     [SerializeField, Min(0f)] float _fadeInDuration = 1f;
-    [SerializeField, Min(0f)] float _fadeOutDuration = 1f;
+    [Tooltip("Fade-out time for this guide when its own trigger is activated.")]
+    [SerializeField, Min(0f)] float _triggeredFadeOutDuration = 4f;
+    [Tooltip("Fade-out time for this guide when a different guide is triggered.")]
+    [FormerlySerializedAs("_fadeOutDuration")]
+    [SerializeField, Min(0f)] float _untriggeredFadeOutDuration = 2f;
     [SerializeField] AnimationCurve _fadeInCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
     [SerializeField] AnimationCurve _fadeOutCurve = AnimationCurve.EaseInOut(0f, 1f, 1f, 0f);
 
@@ -37,7 +42,7 @@ public sealed class GuideSoundFader : MonoBehaviour
         _fade = StartCoroutine(FadeTo(_fullVolume, _fadeInDuration, false));
     }
 
-    public void FadeOut(float durationMultiplier = 1f, Action onComplete = null)
+    public void FadeOut(bool wasTriggered, Action onComplete = null)
     {
         EnsureInitialised();
         CancelFade();
@@ -47,7 +52,8 @@ public sealed class GuideSoundFader : MonoBehaviour
             FinishFadeOut();
             return;
         }
-        _fade = StartCoroutine(FadeTo(0f, _fadeOutDuration * Mathf.Max(0f, durationMultiplier), true));
+        float duration = wasTriggered ? _triggeredFadeOutDuration : _untriggeredFadeOutDuration;
+        _fade = StartCoroutine(FadeTo(0f, Mathf.Max(0f, duration), true));
     }
 
     public void StopImmediate()
