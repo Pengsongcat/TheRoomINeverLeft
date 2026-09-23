@@ -7,7 +7,7 @@ using UnityEngine;
 //   - Audio boost: Audio Boost × loudness × distance level, added on top; loudness (0..1) follows the sound's
 //     volume + spectral flux, like SoundLight, so the light brightens as the sound gets louder.
 // intensity = animated × distance level × (Base Brightness + Audio Boost × loudness). Out of the sound's range the
-// light is black. Runs in LateUpdate, after animation has written the intensity; if nothing wrote it this frame,
+// light is black. With Track Distance off, the distance level is always 1. Runs in LateUpdate, after animation has written the intensity; if nothing wrote it this frame,
 // the last animated value is kept.
 // The source is read whether or not isPlaying is set (audio played by a Timeline Audio Track does not set it).
 // A Volumetric Light Beam on the same object that takes its intensity from the light is told to re-read it, since
@@ -19,6 +19,9 @@ public class AudioFlickerLight : MonoBehaviour
     const string BeamReadFromLight = "AssignPropertiesFromAttachedSpotLight"; // VLB, in Assembly-CSharp so not referenced
 
     [SerializeField] AudioSource _source;
+    [Tooltip("Fade with the headset's distance from the sound (black out of its range). Off: distance level is " +
+             "always 1, so the light is Base Brightness + Audio Boost × loudness wherever the visitor stands.")]
+    [SerializeField] bool _trackDistance = true;
 
     [Header("Brightness (fractions of the animated intensity)")]
     [Tooltip("Brightness from distance alone: this much when right at the sound, fading to 0 at the edge of its range.")]
@@ -92,9 +95,10 @@ public class AudioFlickerLight : MonoBehaviour
     }
 
     // The source's own falloff at the listener, like SoundLight: 1 up close, 0 at and beyond its max distance
-    // (checked explicitly, since the Logarithmic curve never reaches 0 on its own).
+    // (checked explicitly, since the Logarithmic curve never reaches 0 on its own). 1 when Track Distance is off.
     float DistanceLevel()
     {
+        if (!_trackDistance) return 1f;
         if (_source == null) return 0f;
         if (_listener == null) _listener = FindFirstObjectByType<AudioListener>();
         if (_listener == null) return 0f;

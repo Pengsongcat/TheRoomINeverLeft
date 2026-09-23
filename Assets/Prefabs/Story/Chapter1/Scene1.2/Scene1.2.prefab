@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TRINL.Story::ChapterTrigger
   _playerTag: Player
+  _stayDuration: 0.5
 --- !u!1001 &1545477003323981157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,8 +201,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_Resource
-      value:
+      value: 
       objectReference: {fileID: 8300000, guid: e9466050646fbee4bae12044aa12dc6f, type: 3}
+    - target: {fileID: 4214891843865118311, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: m_Name
+      value: Scene1.2 Guiding Sound
+      objectReference: {fileID: 0}
     - target: {fileID: 6874077145480170851, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -242,10 +247,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4214891843865118311, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
-      propertyPath: m_Name
-      value: Scene1.2 Guiding Sound
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -269,6 +270,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5041832885086445408}
     m_Modifications:
+    - target: {fileID: 595649816418473156, guid: 314fa3aa80821aa41ba3853a052f19ca, type: 3}
+      propertyPath: _source
+      value: 
+      objectReference: {fileID: 1722697255830958235}
     - target: {fileID: 4955898931192059371, guid: 314fa3aa80821aa41ba3853a052f19ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -313,6 +318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene1.2 Visual
       objectReference: {fileID: 0}
+    - target: {fileID: 7163826296155145169, guid: 314fa3aa80821aa41ba3853a052f19ca, type: 3}
+      propertyPath: _source
+      value: 
+      objectReference: {fileID: 2432790643134669658}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -388,6 +397,16 @@ PrefabInstance:
 --- !u!4 &466764362816401955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7713574631807733829, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
+  m_PrefabInstance: {fileID: 7887589608322949734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1722697255830958235 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8835526953176847101, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
+  m_PrefabInstance: {fileID: 7887589608322949734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2432790643134669658 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5527423924969226556, guid: ea0e314be40f4e34e9a077f31b8b89ef, type: 3}
   m_PrefabInstance: {fileID: 7887589608322949734}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5198890508914611585 stripped
