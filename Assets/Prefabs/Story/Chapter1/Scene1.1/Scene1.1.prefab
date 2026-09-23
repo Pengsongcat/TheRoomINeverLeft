@@ -227,6 +227,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7869324513897021002, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: _triggeredFadeOutDuration
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869324513897021002, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: _untriggeredFadeOutDuration
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -256,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1380812381792032002, guid: 36e92fa33991f6b429b9de31eef00e1f, type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 0.10046472
       objectReference: {fileID: 0}
     - target: {fileID: 1380812381792032002, guid: 36e92fa33991f6b429b9de31eef00e1f, type: 3}
       propertyPath: m_SpotAngle
@@ -312,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6992093318708896122, guid: 36e92fa33991f6b429b9de31eef00e1f, type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 0.10046472
       objectReference: {fileID: 0}
     - target: {fileID: 6992093318708896122, guid: 36e92fa33991f6b429b9de31eef00e1f, type: 3}
       propertyPath: m_SpotAngle
@@ -368,7 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183567a7e7838ad4fa513711e3bfec09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.Visuals::AudioFlickerLight
+  _listenTo: 0
   _source: {fileID: 1678771395181337502}
+  _trackDistance: 1
   _baseBrightness: 0.3
   _audioBoost: 0.7
   _gain: 4
@@ -394,7 +404,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183567a7e7838ad4fa513711e3bfec09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.Visuals::AudioFlickerLight
+  _listenTo: 0
   _source: {fileID: 1678771395181337502}
+  _trackDistance: 1
   _baseBrightness: 0.3
   _audioBoost: 0.7
   _gain: 4

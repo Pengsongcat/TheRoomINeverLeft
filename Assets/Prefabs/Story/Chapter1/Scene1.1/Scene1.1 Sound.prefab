@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1853026730424804140
 Transform:
   m_ObjectHideFlags: 0
@@ -30,70 +30,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4441322730871649456}
-  m_Father: {fileID: 2661044111410213972}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &652686939973991884
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1977049134263259726}
-  m_Layer: 0
-  m_Name: Trigger 1 - Dog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1977049134263259726
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652686939973991884}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.12, y: 0.69, z: 2.41}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4699670341982039177}
-  m_Father: {fileID: 2661044111410213972}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &885420294906988225
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 387744251911461390}
-  m_Layer: 0
-  m_Name: Static Sound 1 - Farm
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &387744251911461390
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885420294906988225}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.2, y: 0, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3734996905141963578}
   m_Father: {fileID: 2661044111410213972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5492393380742521273
@@ -128,11 +64,11 @@ Transform:
   m_Children:
   - {fileID: 7790172286886990395}
   - {fileID: 1853026730424804140}
-  - {fileID: 1977049134263259726}
-  - {fileID: 387744251911461390}
-  - {fileID: 9200813491855403832}
-  - {fileID: 1174305881986431583}
-  - {fileID: 9212286591290846412}
+  - {fileID: 4699670341982039177}
+  - {fileID: 3734996905141963578}
+  - {fileID: 4564202644737550351}
+  - {fileID: 2894560756103399227}
+  - {fileID: 2903904730940576894}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &8646708093535616656
@@ -160,8 +96,8 @@ PlayableDirector:
     value: {fileID: 7752930054392021794}
   - key: {fileID: -3430466598978304189, guid: 81fcd0281cb592241a99e7848faba148, type: 2}
     value: {fileID: 7777934889678196839}
-  - key: {fileID: -9189711784060847785, guid: 81fcd0281cb592241a99e7848faba148, type: 2}
-    value: {fileID: 1906439551160399606}
+  - key: {fileID: 0}
+    value: {fileID: 0}
   - key: {fileID: 8547385400590721985, guid: 81fcd0281cb592241a99e7848faba148, type: 2}
     value: {fileID: 181531721700731024}
   - key: {fileID: -1784891187170556802, guid: 81fcd0281cb592241a99e7848faba148, type: 2}
@@ -181,7 +117,7 @@ GameObject:
   - component: {fileID: 7790172286886990395}
   - component: {fileID: 7935794398583447808}
   m_Layer: 0
-  m_Name: Narrator 1
+  m_Name: Narrator 1.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,126 +157,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage:
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!1 &5680525229852672947
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9200813491855403832}
-  m_Layer: 0
-  m_Name: Static Sound 1 - Duck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9200813491855403832
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5680525229852672947}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.65, y: 0, z: -3.12}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4564202644737550351}
-  m_Father: {fileID: 2661044111410213972}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8277671179934575058
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9212286591290846412}
-  m_Layer: 0
-  m_Name: Static Sound Ambient - Rural Song
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9212286591290846412
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8277671179934575058}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.28, y: 0, z: -0.18}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2903904730940576894}
-  m_Father: {fileID: 2661044111410213972}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8585704113084408226
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1174305881986431583}
-  - component: {fileID: 1906439551160399606}
-  m_Layer: 0
-  m_Name: Static Sound Ambient - Rural
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1174305881986431583
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8585704113084408226}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.97, y: 0, z: -2.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2894560756103399227}
-  m_Father: {fileID: 2661044111410213972}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1906439551160399606
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8585704113084408226}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -407,11 +224,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8488400994486905988, guid: bc6dbee8b00c86041b9418c2ac23ffe2, type: 3}
       propertyPath: reflectionsMixLevel
-      value: 0.12
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8488400994486905988, guid: bc6dbee8b00c86041b9418c2ac23ffe2, type: 3}
       propertyPath: useDistanceCurveForReflections
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876054081638071908, guid: bc6dbee8b00c86041b9418c2ac23ffe2, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876054081638071908, guid: bc6dbee8b00c86041b9418c2ac23ffe2, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876054081638071908, guid: bc6dbee8b00c86041b9418c2ac23ffe2, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -434,11 +263,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 387744251911461390}
+    m_TransformParent: {fileID: 2661044111410213972}
     m_Modifications:
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3
+      value: 1.74
       objectReference: {fileID: 0}
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -446,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.71
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -478,7 +307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5002510627178393574, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_Name
-      value: Audio Farm
+      value: Static Sound - Farm
       objectReference: {fileID: 0}
     - target: {fileID: 7191099609832415483, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_Volume
@@ -601,11 +430,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 9200813491855403832}
+    m_TransformParent: {fileID: 2661044111410213972}
     m_Modifications:
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.12
+      value: -0.16
       objectReference: {fileID: 0}
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -613,7 +442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.15
+      value: 1.86
       objectReference: {fileID: 0}
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -645,7 +474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5002510627178393574, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_Name
-      value: ' Audio Duck'
+      value: Static Sound - Duck
       objectReference: {fileID: 0}
     - target: {fileID: 7191099609832415483, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_Volume
@@ -768,11 +597,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1174305881986431583}
+    m_TransformParent: {fileID: 2661044111410213972}
     m_Modifications:
     - target: {fileID: 803634029902452539, guid: 268bb48985d9b9b459ba2cff62414267, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.46
+      value: -4.51
       objectReference: {fileID: 0}
     - target: {fileID: 803634029902452539, guid: 268bb48985d9b9b459ba2cff62414267, type: 3}
       propertyPath: m_LocalPosition.y
@@ -780,7 +609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 803634029902452539, guid: 268bb48985d9b9b459ba2cff62414267, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.72
+      value: 0.120000124
       objectReference: {fileID: 0}
     - target: {fileID: 803634029902452539, guid: 268bb48985d9b9b459ba2cff62414267, type: 3}
       propertyPath: m_LocalRotation.w
@@ -828,7 +657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7943498268896386111, guid: 268bb48985d9b9b459ba2cff62414267, type: 3}
       propertyPath: m_Name
-      value: Static Sound Ambient - Rural
+      value: Ambient - Rural
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -851,11 +680,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 9212286591290846412}
+    m_TransformParent: {fileID: 2661044111410213972}
     m_Modifications:
     - target: {fileID: 803634029902452539, guid: 268bb48985d9b9b459ba2cff62414267, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.46
+      value: 4.18
       objectReference: {fileID: 0}
     - target: {fileID: 803634029902452539, guid: 268bb48985d9b9b459ba2cff62414267, type: 3}
       propertyPath: m_LocalPosition.y
@@ -863,7 +692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 803634029902452539, guid: 268bb48985d9b9b459ba2cff62414267, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.72
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 803634029902452539, guid: 268bb48985d9b9b459ba2cff62414267, type: 3}
       propertyPath: m_LocalRotation.w
@@ -915,7 +744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7943498268896386111, guid: 268bb48985d9b9b459ba2cff62414267, type: 3}
       propertyPath: m_Name
-      value: Static Sound Ambient - Rural Song
+      value: Ambient - Rural Song
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -978,22 +807,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 219146493467287489, guid: 5503930f1b845384badd785b652cc02f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5644176252845459768, guid: 5503930f1b845384badd785b652cc02f, type: 3}
-      propertyPath: reflections
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5644176252845459768, guid: 5503930f1b845384badd785b652cc02f, type: 3}
-      propertyPath: airAbsorption
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5644176252845459768, guid: 5503930f1b845384badd785b652cc02f, type: 3}
-      propertyPath: reflectionsMixLevel
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5644176252845459768, guid: 5503930f1b845384badd785b652cc02f, type: 3}
-      propertyPath: useDistanceCurveForReflections
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7354798074450695365, guid: 5503930f1b845384badd785b652cc02f, type: 3}
@@ -1077,7 +890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663173906332064728, guid: 5503930f1b845384badd785b652cc02f, type: 3}
       propertyPath: m_Resource
-      value:
+      value: 
       objectReference: {fileID: 8300000, guid: b5c4945a56796a34db7e0abeece70f6f, type: 3}
     - target: {fileID: 4663173906332064728, guid: 5503930f1b845384badd785b652cc02f, type: 3}
       propertyPath: MaxDistance
@@ -1153,7 +966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7354798074450695365, guid: 5503930f1b845384badd785b652cc02f, type: 3}
       propertyPath: m_Name
-      value: Footsteps 1 - Grass
+      value: Footsteps - Grass
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1171,19 +984,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1977049134263259726}
+    m_TransformParent: {fileID: 2661044111410213972}
     m_Modifications:
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.01
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.21
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.32
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1215,7 +1028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5002510627178393574, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: m_Name
-      value: Audio Dog
+      value: Static Sound - Dog
       objectReference: {fileID: 0}
     - target: {fileID: 7865859376152932891, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       propertyPath: reflections
