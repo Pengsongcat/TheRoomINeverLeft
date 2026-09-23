@@ -17,8 +17,6 @@ public class AudioReactiveFog : MonoBehaviour
 {
     public enum Channel { Glow, Density, LightIntensity, Dissolve }
 
-    const int Samples = 256;
-
     [SerializeField] AudioSource _source;
     [Tooltip("Which Mesh Fog value the sound drives, on every fog under this object.")]
     [SerializeField] Channel _reactsVia = Channel.Glow;
@@ -51,16 +49,12 @@ public class AudioReactiveFog : MonoBehaviour
         public float   BaseValue,  WrittenValue;
     }
 
-    readonly float[] _samples      = new float[Samples];
-    readonly float[] _spectrum     = new float[Samples];
-    readonly float[] _prevSpectrum = new float[Samples];
-    readonly List<Driven> _fogs    = new();
+    readonly LoudnessMeter _meter = new();
+    readonly List<Driven>  _fogs  = new();
 
     AudioListener  _listener;
     AnimationCurve _customRolloff; // cached: GetCustomCurve allocates
     Channel _driven;               // channel written last frame, so a change in the inspector restores the old one
-    float   _loudness;             // smoothed, 0..1
-    bool    _primed;               // _prevSpectrum holds a real frame
 
     void Awake()
     {
@@ -68,16 +62,14 @@ public class AudioReactiveFog : MonoBehaviour
             _fogs.Add(new Driven { Fog = fog });
         if (_fogs.Count == 0) Debug.LogWarning($"[AudioReactiveFog] {name}: no Mesh Fog on this object or its children.", this);
 
-        if (_source != null && _source.rolloffMode == AudioRolloffMode.Custom)
-            _customRolloff = _source.GetCustomCurve(AudioSourceCurveType.CustomRolloff);
+        _customRolloff = LoudnessMeter.CustomRolloff(_source);
     }
 
     void OnEnable()
     {
         _driven = _reactsVia;
         foreach (var d in _fogs) Capture(d);
-        _loudness = 0f;
-        _primed = false;
+        _meter.Reset();
     }
 
     // Leave every fog at its animated value.
@@ -95,8 +87,9 @@ public class AudioReactiveFog : MonoBehaviour
             foreach (var d in _fogs) Capture(d);
         }
 
-        _loudness = SoundLightMath.Smooth(_loudness, Loudness(), _attackSeconds, _releaseSeconds, Time.deltaTime);
-        float level = DistanceLevel() * (_base + _boost * _loudness);
+        float loudness = _meter.Update(ListenTo.Source, _source, _gain, _fluxWeight, _lowBandWeight, _highBandWeight,
+                                       _attackSeconds, _releaseSeconds, Time.deltaTime);
+        float level = DistanceLevel() * (_base + _boost * loudness);
 
         foreach (var d in _fogs)
         {
@@ -156,38 +149,7 @@ public class AudioReactiveFog : MonoBehaviour
         d.WrittenValue = Read(d.Fog);
     }
 
-    // 0..1 loudness of the sound this frame; silence or not playing reads as 0.
-    float Loudness()
-    {
-        if (_source == null || !_source.isActiveAndEnabled) return 0f;
-
-        _source.GetOutputData(_samples, 0);
-        _source.GetSpectrumData(_spectrum, 0, FFTWindow.BlackmanHarris);
-        if (!_primed) System.Array.Copy(_spectrum, _prevSpectrum, Samples); // no flux spike on the first frame
-        _primed = true;
-
-        float rms  = SoundLightMath.Rms(_samples);
-        float flux = SoundLightMath.SpectralFlux(_spectrum, _prevSpectrum, _lowBandWeight, _highBandWeight);
-        return SoundLightMath.Target(rms, flux, _gain, _fluxWeight, heard: 1f, maxIntensity: 1f);
-    }
-
-    // The source's own falloff at the listener, as in Audio Flicker Light: 1 up close, 0 at and beyond its max
-    // distance. 1 when Track Distance is off.
-    float DistanceLevel()
-    {
-        if (!_trackDistance) return 1f;
-        if (_source == null) return 0f;
-        if (_listener == null) _listener = FindFirstObjectByType<AudioListener>();
-        if (_listener == null) return 0f;
-
-        float distance = Vector3.Distance(_source.transform.position, _listener.transform.position);
-        float rolloff = distance >= _source.maxDistance ? 0f : _source.rolloffMode switch
-        {
-            AudioRolloffMode.Custom => _customRolloff != null && _source.maxDistance > 0f
-                                       ? _customRolloff.Evaluate(distance / _source.maxDistance) : 1f,
-            AudioRolloffMode.Linear => SoundLightMath.LinearRolloff(distance, _source.minDistance, _source.maxDistance),
-            _                       => SoundLightMath.LogarithmicRolloff(distance, _source.minDistance),
-        };
-        return SoundLightMath.Heard(rolloff, _source.spatialBlend);
-    }
+    // The source's own falloff at the listener, as in Audio Flicker Light. 1 when Track Distance is off.
+    float DistanceLevel() =>
+        _trackDistance ? LoudnessMeter.DistanceLevel(_source, _customRolloff, ref _listener) : 1f;
 }
