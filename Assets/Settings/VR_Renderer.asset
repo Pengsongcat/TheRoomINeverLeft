@@ -203,6 +203,20 @@ MonoBehaviour:
   m_Name: ScreenBlur (Gaussian)
   m_EditorClassIdentifier: Assembly-CSharp::TRINL.Rendering.ScreenBlurRendererFeature
   m_Active: 1
+  enableNoise: 1
+  noisePlacement: 0
+  noiseTexture: {fileID: 0}
+  noiseSize: 0.2
+  noiseStrength: 0.5
+  animateNoise: 0
+  noiseVelocity: {x: 0.03, y: 0.02, z: 0}
+  enableCameraGrain: 0
+  cameraGrainStrength: 0.18
+  cameraGrainSize: 1.5
+  cameraGrainColor: 0.15
+  cameraGrainSpeed: 24
+  cameraExposure: 1
+  cameraClipHighlights: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 128

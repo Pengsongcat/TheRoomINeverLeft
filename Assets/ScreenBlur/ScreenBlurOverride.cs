@@ -15,6 +15,24 @@ namespace TRINL.Rendering
         [Range(0, 1)] public float opacity = 0.85f;
         [Min(0)] public float depthBias = 0.005f;
 
+        [Tooltip("Off: inherit Renderer Feature noise settings. On: use this object's settings, including its own noise on/off switch.")]
+        public bool overrideNoise = false;
+        public bool enableNoise = true;
+        public ScreenBlurRendererFeature.NoisePlacement noisePlacement = ScreenBlurRendererFeature.NoisePlacement.BeforeBlur;
+        public Texture2D noiseTexture;
+        [Range(0.01f, 2f)] public float noiseSize = 0.2f;
+        [Range(0, 1)] public float noiseStrength = 0.5f;
+        public bool animateNoise = false;
+        public Vector3 noiseVelocity = new Vector3(0.03f, 0.02f, 0);
+
+        public bool overrideCameraGrain = false;
+        public bool enableCameraGrain = true;
+        [Range(0, 1)] public float cameraGrainStrength = 0.18f;
+        [Range(1, 8), Tooltip("Grain cell size in rendered pixels.")] public float cameraGrainSize = 1.5f;
+        [Range(0, 1)] public float cameraGrainColor = 0.15f;
+        [Range(0, 60), Tooltip("Noise updates per second. Zero freezes the pattern.")] public float cameraGrainSpeed = 24;
+        [Range(-2, 4), Tooltip("Exposure in stops, applied only to ScreenBlur objects.")] public float cameraExposure = 1;
+        public bool cameraClipHighlights = true;
         internal static readonly List<ScreenBlurOverride> Active = new();
         readonly Dictionary<long, Material> masks = new();
 
@@ -41,6 +59,21 @@ namespace TRINL.Rendering
             radius = source.radius;
             opacity = source.opacity;
             depthBias = source.depthBias;
+            enableNoise = source.enableNoise;
+            noisePlacement = source.noisePlacement;
+            noiseTexture = source.noiseTexture;
+            noiseSize = source.noiseSize;
+            noiseStrength = source.noiseStrength;
+            animateNoise = source.animateNoise;
+            noiseVelocity = source.noiseVelocity;
+            enableCameraGrain = source.enableCameraGrain;
+            cameraGrainStrength = source.cameraGrainStrength;
+            cameraGrainSize = source.cameraGrainSize;
+            cameraGrainColor = source.cameraGrainColor;
+            cameraGrainSpeed = source.cameraGrainSpeed;
+            cameraExposure = source.cameraExposure;
+            cameraClipHighlights = source.cameraClipHighlights;
+            // Copy values without changing the user's choice to inherit or override.
         }
 
         internal void Collect(List<MaskDraw> draws, Shader shader, int id, Camera camera, int layers)

@@ -46,6 +46,38 @@ namespace TRINL.Rendering.Editor
                 "每个独立覆盖组会额外重跑一遍捕获与合成，组数越多开销越高。未挂本组件的物体使用 Feature 的全局参数，无需额外 Layer。",
                 MessageType.None);
 
+            EditorGUILayout.Space(5);
+            EditorGUILayout.LabelField("表面噪波", EditorStyles.boldLabel);
+            var overrideNoise = serializedObject.FindProperty("overrideNoise");
+            EditorGUILayout.PropertyField(overrideNoise, new GUIContent("独立控制噪波", "不勾选时继承 Renderer 全局噪波。勾选后可独立开启或关闭。"));
+            using (new EditorGUI.DisabledScope(!overrideNoise.hasMultipleDifferentValues && !overrideNoise.boolValue))
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("enableNoise"), new GUIContent("启用噪波"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("noisePlacement"), new GUIContent("处理顺序", "Before Blur：噪波一起模糊；After Blur：模糊后叠加噪波。"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("noiseTexture"), new GUIContent("噪波贴图", "留空使用内置三维噪波。"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("noiseSize"), new GUIContent("噪波大小", "模型最长尺寸的比例；越大颗粒越大。"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("noiseStrength"), new GUIContent("噪波强度"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("animateNoise"), new GUIContent("噪波流动"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("noiseVelocity"), new GUIContent("流动速度 / 方向"));
+            }
+            if (!overrideNoise.hasMultipleDifferentValues && !overrideNoise.boolValue)
+                EditorGUILayout.HelpBox("当前继承 Renderer 的全局噪波；下方灰色数值是本组件保存的独立参数，不代表全局实时值。", MessageType.None);
+
+            EditorGUILayout.Space(5);
+            EditorGUILayout.LabelField("相机颗粒 / 局部过曝", EditorStyles.boldLabel);
+            var overrideGrain = serializedObject.FindProperty("overrideCameraGrain");
+            EditorGUILayout.PropertyField(overrideGrain, new GUIContent("独立控制相机颗粒"));
+            using (new EditorGUI.DisabledScope(!overrideGrain.hasMultipleDifferentValues && !overrideGrain.boolValue))
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("enableCameraGrain"), new GUIContent("启用相机颗粒与曝光"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("cameraGrainStrength"), new GUIContent("颗粒强度"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("cameraGrainSize"), new GUIContent("颗粒大小（渲染像素）"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("cameraGrainColor"), new GUIContent("彩色噪点比例"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("cameraGrainSpeed"), new GUIContent("每秒变化次数", "0 为静止颗粒。"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("cameraExposure"), new GUIContent("曝光增益（EV）", "+1 为两倍亮度。只处理本组的颜色。"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("cameraClipHighlights"), new GUIContent("高光截白", "截断超过白点的颜色，模拟过曝细节丢失；关闭则保留 HDR 高光。"));
+            }
+            EditorGUILayout.HelpBox("颗粒在模糊后叠加，只限本组模糊覆盖范围（包含软边缘），不会给整个背景加噪点。未独立控制时继承 Renderer 全局设置。", MessageType.None);
             serializedObject.ApplyModifiedProperties();
         }
     }
