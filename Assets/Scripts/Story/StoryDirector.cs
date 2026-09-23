@@ -12,6 +12,9 @@ public class StoryDirector : MonoBehaviour
 
     int _current = -1;
 
+    // True from Begin until the last part has finished.
+    public bool Running => _current >= 0 && _current < _parts.Length;
+
     void Awake()
     {
         foreach (var part in _parts)
@@ -37,7 +40,7 @@ public class StoryDirector : MonoBehaviour
     // Development shortcut: skips what is playing in the current part (see each part's Skip).
     public void SkipCurrent()
     {
-        if (_current < 0 || _current >= _parts.Length)
+        if (!Running)
         {
             Debug.Log("[Story] Nothing to skip: the story is not running.");
             return;

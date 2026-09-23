@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6941352272744898883}
   - component: {fileID: 7403355967633571802}
   - component: {fileID: 5821930461177350281}
+  - component: {fileID: 3905172846610254417}
   m_Layer: 11
   m_Name: Debugger
   m_TagString: Untagged
@@ -65,6 +66,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TRINL.Debugging::StorySkipper
   _director: {fileID: 0}
+--- !u!114 &3905172846610254417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279380152422492101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5b379855f24e569d8a53b41167da6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Debugging::StoryFastForward
+  _director: {fileID: 0}
+  _speed: 3
+  _indicatorMaterial: {fileID: 2100000, guid: 4679e32c94512324793c55bb9f172d25, type: 2}
+  _indicatorOffset: {x: 0, y: 0.1, z: 0.7}
+  _fontSize: 0.03
 --- !u!1 &2020084109287643332
 GameObject:
   m_ObjectHideFlags: 0
