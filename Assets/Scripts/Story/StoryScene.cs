@@ -19,6 +19,8 @@ public class StoryScene : MonoBehaviour
     public bool Done { get; private set; }
 
     // For the Debugger: which sound leads to this scene, and whether its Timeline is running now.
+    // Trigger and Guide are also moved by the chapter to keep them clear of the visitor.
+    public SceneTrigger Trigger => _trigger;
     public AudioSource Guide   => _guide;
     public bool        Playing => _playing;
 

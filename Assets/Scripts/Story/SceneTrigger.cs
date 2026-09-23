@@ -9,7 +9,7 @@ public class SceneTrigger : MonoBehaviour
 {
     [SerializeField] string _playerTag = "Player";
     [Tooltip("Seconds the visitor must stay inside before the scene triggers. 0 = on entering.")]
-    [SerializeField, Min(0f)] float _stayDuration = 1.5f;
+    [SerializeField, Min(0f)] float _stayDuration = 0.5f;
 
     public event Action Entered;
 
