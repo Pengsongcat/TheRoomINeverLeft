@@ -119,6 +119,10 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 512
+  occluderLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  occlusionDepthBias: 0.005
   iterations: 6
   spread: 2.81
   strength: 0.097
@@ -126,6 +130,7 @@ MonoBehaviour:
   maxPyramid: 0
   injectionPoint: 550
   diffusionShader: {fileID: 4800000, guid: 6e2b914801c14ca41a154b6581457517, type: 3}
+  objectIdShader: {fileID: 4800000, guid: 4920bf654d80b3d40a2cbed7e245588b, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
