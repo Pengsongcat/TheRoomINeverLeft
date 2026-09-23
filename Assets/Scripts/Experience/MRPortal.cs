@@ -21,7 +21,8 @@ public class MRPortal : MonoBehaviour
     [SerializeField, Min(0f)] float _height = 2.15f;
     [Tooltip("The switch happens when the head is this far in front of the door surface, metres.")]
     [SerializeField, Min(0f)] float _switchDistance = 0.15f;
-    [Tooltip("The dissolve starts once the head is this far past the door surface, metres.")]
+    [Tooltip("The dissolve starts once the head is this far past the door surface, metres at room scale 1; " +
+             "scaled with the calibrated room.")]
     [SerializeField, Min(0f)] float _dissolveDistance = 1f;
     [SerializeField, Min(0.01f)] float _dissolveSeconds = 3f;
 
@@ -29,6 +30,7 @@ public class MRPortal : MonoBehaviour
     public event Action Closed;
 
     PortalDissolve[] _parts;
+    RoomFitter _room;
     Transform _head;
     float     _lastZ;
     bool      _entered;
@@ -37,6 +39,7 @@ public class MRPortal : MonoBehaviour
     {
         _parts = GetComponentsInChildren<PortalDissolve>(includeInactive: true);
         foreach (var part in _parts) part.Prepare(_mark);
+        _room = GetComponentInParent<RoomFitter>(includeInactive: true);
     }
 
     void OnEnable()
@@ -73,8 +76,10 @@ public class MRPortal : MonoBehaviour
 
     IEnumerator Dissolve()
     {
-        // Keep the doorway open until the visitor has walked far enough into the room.
-        while (transform.InverseTransformPoint(_head.position).z < _dissolveDistance)
+        // Keep the doorway open until the visitor has walked far enough into the room. The portal keeps its real
+        // size (KeepRealSize), so this distance is in real metres and needs the room scale applied here.
+        float distance = _dissolveDistance * (_room != null ? _room.Scale : 1f);
+        while (transform.InverseTransformPoint(_head.position).z < distance)
             yield return null;
 
         float bottom = transform.position.y;
