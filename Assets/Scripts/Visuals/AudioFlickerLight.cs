@@ -6,8 +6,9 @@ using UnityEngine;
 //     AudioListener (its rolloff at its current, room-scaled min / max distance). 1 up close, 0 out of range.
 //   - Audio boost: Audio Boost × loudness × distance level, added on top; loudness (0..1) follows the sound's
 //     volume + spectral flux (Loudness Meter), so the light brightens as the sound gets louder.
-// intensity = animated × distance level × (Base Brightness + Audio Boost × loudness). Out of the sound's range the
-// light is black. With Track Distance off, the distance level is always 1.
+// intensity = animated × (Min Brightness + distance level × (Base Brightness + Audio Boost × loudness)). Out of the
+// sound's range only Min Brightness is left (black when it is 0). With Track Distance off, the distance level is
+// always 1.
 // Listen To Headset: loudness is the AudioListener's whole mix (every sound the visitor hears, after Steam Audio's
 // distance falloff) instead of one source, and the distance level is 1.
 // Runs in LateUpdate, after animation has written the intensity; if nothing wrote it this frame, the last animated
@@ -29,6 +30,8 @@ public class AudioFlickerLight : MonoBehaviour
     [SerializeField] bool _trackDistance = true;
 
     [Header("Brightness (fractions of the animated intensity)")]
+    [Tooltip("Always there, whatever the distance or loudness: a faint glow in silence and out of range. 0 = none.")]
+    [Min(0f)] [SerializeField] float _minBrightness = 0f;
     [Tooltip("Brightness from distance alone: this much when right at the sound, fading to 0 at the edge of its range.")]
     [Min(0f)] [SerializeField] float _baseBrightness = 0.3f;
     [Tooltip("Extra brightness added at full loudness, on top of the base; also fades with distance.")]
@@ -75,7 +78,8 @@ public class AudioFlickerLight : MonoBehaviour
 
         float loudness = _meter.Update(_listenTo, _source, _gain, _fluxWeight, _lowBandWeight, _highBandWeight,
                                        _attackSeconds, _releaseSeconds, Time.deltaTime);
-        _written = _light.intensity = _base * DistanceLevel() * (_baseBrightness + _audioBoost * loudness);
+        _written = _light.intensity =
+            _base * (_minBrightness + DistanceLevel() * (_baseBrightness + _audioBoost * loudness));
         SendMessage(BeamReadFromLight, SendMessageOptions.DontRequireReceiver);
     }
 

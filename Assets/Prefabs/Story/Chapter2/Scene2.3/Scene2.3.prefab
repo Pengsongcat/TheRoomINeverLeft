@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TRINL.Story::ChapterTrigger
   _playerTag: Player
+  _stayDuration: 0.5
 --- !u!1 &7871080492449506511
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,8 +181,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_Resource
-      value:
+      value: 
       objectReference: {fileID: 8300000, guid: a442789618d38d04ba0d40e246788181, type: 3}
+    - target: {fileID: 4214891843865118311, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: m_Name
+      value: Scene2.3 Guiding Sound
+      objectReference: {fileID: 0}
     - target: {fileID: 6874077145480170851, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -222,10 +227,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4214891843865118311, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
-      propertyPath: m_Name
-      value: Scene2.3 Guiding Sound
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -249,6 +250,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8182071828542618495}
     m_Modifications:
+    - target: {fileID: 845953296150201478, guid: 7011d0a1943ce9a499a17e2a96195f0c, type: 3}
+      propertyPath: _source
+      value: 
+      objectReference: {fileID: 8815465323698825699}
+    - target: {fileID: 1007502008066488939, guid: 7011d0a1943ce9a499a17e2a96195f0c, type: 3}
+      propertyPath: _source
+      value: 
+      objectReference: {fileID: 8815465323698825699}
+    - target: {fileID: 2213144389615461116, guid: 7011d0a1943ce9a499a17e2a96195f0c, type: 3}
+      propertyPath: _source
+      value: 
+      objectReference: {fileID: 1901445204726843313}
+    - target: {fileID: 2799877487182174191, guid: 7011d0a1943ce9a499a17e2a96195f0c, type: 3}
+      propertyPath: _source
+      value: 
+      objectReference: {fileID: 1901445204726843313}
+    - target: {fileID: 5916476899368619741, guid: 7011d0a1943ce9a499a17e2a96195f0c, type: 3}
+      propertyPath: _source
+      value: 
+      objectReference: {fileID: 5776098853971720303}
+    - target: {fileID: 7226489647152363175, guid: 7011d0a1943ce9a499a17e2a96195f0c, type: 3}
+      propertyPath: _source
+      value: 
+      objectReference: {fileID: 5776098853971720303}
     - target: {fileID: 7384171575693200009, guid: 7011d0a1943ce9a499a17e2a96195f0c, type: 3}
       propertyPath: m_Name
       value: Scene2.3 Visual
@@ -316,9 +341,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8182071828542618495}
     m_Modifications:
+    - target: {fileID: 1087113029402294452, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: Spatialize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087113029402294452, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087113029402294452, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087113029402294452, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
     - target: {fileID: 1921566191172954395, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
       propertyPath: m_Name
       value: Scene2.3 Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574651257651729615, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: Spatialize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574651257651729615, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574651257651729615, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574651257651729615, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695461305873672504, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: Spatialize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695461305873672504, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695461305873672504, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695461305873672504, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 3124847758776159665, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -360,11 +433,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6139427788530565319, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: Spatialize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139427788530565319, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139427788530565319, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139427788530565319, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008432432106854118, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: Spatialize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008432432106854118, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008432432106854118, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008432432106854118, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+--- !u!82 &1901445204726843313 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8008432432106854118, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+  m_PrefabInstance: {fileID: 8448999789373116759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5776098853971720303 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2695461305873672504, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+  m_PrefabInstance: {fileID: 8448999789373116759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6781665613395270886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3124847758776159665, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
@@ -373,5 +488,10 @@ Transform:
 --- !u!1 &8064300749731723340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1921566191172954395, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
+  m_PrefabInstance: {fileID: 8448999789373116759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &8815465323698825699 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1087113029402294452, guid: dea790b6bff8c694689f65688ea366ad, type: 3}
   m_PrefabInstance: {fileID: 8448999789373116759}
   m_PrefabAsset: {fileID: 0}
