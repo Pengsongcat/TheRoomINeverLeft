@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1069918690522151254
 Transform:
   m_ObjectHideFlags: 0
@@ -48,6 +48,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae1ece52a0fb29459cf0f5aee80b5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.Story::StoryScene
+  _clearance: 0.3
+  _playerTag: Player
+  _sceneToggles:
+  - name: Scene2.1
+    scene: {fileID: 4411515255325607494}
+    included: 1
+  - name: Scene2.2
+    scene: {fileID: 2095877892758698478}
+    included: 1
+  - name: Scene2.3
+    scene: {fileID: 588842856679845217}
+    included: 1
+  - name: Scene2.4
+    scene: {fileID: 2398468735177909826}
+    included: 1
 --- !u!1001 &96035080413246648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,9 +111,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2036509610247458134, guid: 23b0fb8d140235d4d9a8e887b1173c44, type: 3}
+      propertyPath: _guideOnDuration
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036509610247458134, guid: 23b0fb8d140235d4d9a8e887b1173c44, type: 3}
+      propertyPath: _guideOffDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456168659415250370, guid: 23b0fb8d140235d4d9a8e887b1173c44, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: a6c791b2271753a41ab65ed59a54c05c, type: 3}
     - target: {fileID: 6291738748619684855, guid: 23b0fb8d140235d4d9a8e887b1173c44, type: 3}
       propertyPath: m_Name
       value: Scene2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148373546258990981, guid: 23b0fb8d140235d4d9a8e887b1173c44, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.67680585
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -110,6 +141,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1625876577170927192, guid: 23b0fb8d140235d4d9a8e887b1173c44, type: 3}
   m_PrefabInstance: {fileID: 96035080413246648}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2095877892758698478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2036509610247458134, guid: 23b0fb8d140235d4d9a8e887b1173c44, type: 3}
+  m_PrefabInstance: {fileID: 96035080413246648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb53fb4ec1a97da4b82cf84d7d670836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Story::Chapter
 --- !u!1001 &2010232635902153758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,11 +204,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7263080594477785078, guid: 543ce89c346fc4144a1828b7bb92b4ae, type: 3}
+      propertyPath: m_Pitch
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263080594477785078, guid: 543ce89c346fc4144a1828b7bb92b4ae, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 054cc578d812edc4cbcefd250b97515f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 543ce89c346fc4144a1828b7bb92b4ae, type: 3}
+--- !u!114 &2398468735177909826 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4227988852573254236, guid: 543ce89c346fc4144a1828b7bb92b4ae, type: 3}
+  m_PrefabInstance: {fileID: 2010232635902153758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb53fb4ec1a97da4b82cf84d7d670836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Story::Chapter
 --- !u!4 &5346554515412922162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5897183266341583660, guid: 543ce89c346fc4144a1828b7bb92b4ae, type: 3}
@@ -180,6 +241,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1069918690522151254}
     m_Modifications:
+    - target: {fileID: 2449722365689050846, guid: ce87ede3f8241004fa57111297b18eab, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449722365689050846, guid: ce87ede3f8241004fa57111297b18eab, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.9930061
+      objectReference: {fileID: 0}
     - target: {fileID: 3612008025685728200, guid: ce87ede3f8241004fa57111297b18eab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -224,11 +293,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene2.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7124088844953846937, guid: ce87ede3f8241004fa57111297b18eab, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: b1ccef6acda6f4a4ca0c3e9674a08695, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce87ede3f8241004fa57111297b18eab, type: 3}
+--- !u!114 &4411515255325607494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8943677057048148191, guid: ce87ede3f8241004fa57111297b18eab, type: 3}
+  m_PrefabInstance: {fileID: 4694592655593324185}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb53fb4ec1a97da4b82cf84d7d670836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Story::Chapter
 --- !u!4 &8288564004747978065 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3612008025685728200, guid: ce87ede3f8241004fa57111297b18eab, type: 3}
@@ -242,6 +326,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1069918690522151254}
     m_Modifications:
+    - target: {fileID: 858813391994268235, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 731afd0963734c04787af80a3255de87, type: 3}
     - target: {fileID: 8088241851018563885, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
       propertyPath: m_Name
       value: Scene2.3
@@ -291,6 +379,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+--- !u!114 &588842856679845217 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7755417962031240577, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+  m_PrefabInstance: {fileID: 7172891697123424480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb53fb4ec1a97da4b82cf84d7d670836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Story::Chapter
 --- !u!4 &1299204950825403295 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8182071828542618495, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
