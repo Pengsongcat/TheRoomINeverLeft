@@ -23,6 +23,9 @@ public class StoryScene : MonoBehaviour
     public event Action<StoryScene> Triggered;
     public event Action<StoryScene> Finished;
 
+    // Set by the chapter: asked before this scene triggers; false = another scene is under way, so the entry is ignored.
+    public Func<StoryScene, bool> CanTrigger;
+
     public bool Done { get; private set; }
 
     // For the Debugger: which sound leads to this scene, and whether its Timeline is running now.
@@ -128,6 +131,11 @@ public class StoryScene : MonoBehaviour
     void OnEntered()
     {
         if (_triggered || Done) return;
+        if (CanTrigger != null && !CanTrigger(this))
+        {
+            Debug.Log($"[Story] {name} entered, but another scene is under way; ignored.");
+            return;
+        }
         _triggered = true;
         StopPulse();
         _trigger.gameObject.SetActive(false);

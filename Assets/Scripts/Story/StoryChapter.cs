@@ -59,6 +59,7 @@ public class StoryChapter : StoryPart
         {
             scene.Triggered += OnSceneTriggered;
             scene.Finished  += OnSceneFinished;
+            scene.CanTrigger = _ => _activeScene == null;
             foreach (var spot in Spot(scene))
                 if (spot != null) _designed[spot] = spot.localPosition;
         }
