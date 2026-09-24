@@ -216,11 +216,39 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3877176939956405430}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b116e4a45a2230d499e8590071e4327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.RoomCalibrator::KeepRealSize
+--- !u!1 &4393362929445015054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1902506999756748696, guid: ede32d3ce1bbfff40af87086a088fe44, type: 3}
+  m_PrefabInstance: {fileID: 2783026966419306902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7362915048812204417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4393362929445015054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183567a7e7838ad4fa513711e3bfec09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Visuals::AudioFlickerLight
+  _listenTo: 1
+  _source: {fileID: 0}
+  _trackDistance: 1
+  _baseBrightness: 0.7
+  _audioBoost: 0.4
+  _gain: 1.5
+  _fluxWeight: 0
+  _lowBandWeight: 0.5
+  _highBandWeight: 1.5
+  _attackSeconds: 0.1
+  _releaseSeconds: 0.5
 --- !u!1 &6535339496627038404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8947945347356397906, guid: ede32d3ce1bbfff40af87086a088fe44, type: 3}
@@ -248,6 +276,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4418820193746601231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535339496627038404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183567a7e7838ad4fa513711e3bfec09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Visuals::AudioFlickerLight
+  _listenTo: 1
+  _source: {fileID: 0}
+  _trackDistance: 1
+  _baseBrightness: 0.5
+  _audioBoost: 0.7
+  _gain: 1.5
+  _fluxWeight: 0
+  _lowBandWeight: 0.5
+  _highBandWeight: 1.5
+  _attackSeconds: 0.1
+  _releaseSeconds: 0.5
 --- !u!4 &7370562610286306969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4671978714587029263, guid: ede32d3ce1bbfff40af87086a088fe44, type: 3}
@@ -280,54 +331,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &5129384756012938471 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1902506999756748696, guid: ede32d3ce1bbfff40af87086a088fe44, type: 3}
-  m_PrefabInstance: {fileID: 2783026966419306902}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4418820193746601231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6535339496627038404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 183567a7e7838ad4fa513711e3bfec09, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: TRINL.Visuals::AudioFlickerLight
-  _listenTo: 1
-  _source: {fileID: 0}
-  _trackDistance: 1
-  _baseBrightness: 0.5
-  _audioBoost: 0.7
-  _gain: 1.5
-  _fluxWeight: 0
-  _lowBandWeight: 0.5
-  _highBandWeight: 1.5
-  _attackSeconds: 0.1
-  _releaseSeconds: 0.5
---- !u!114 &7362915048812204417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5129384756012938471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 183567a7e7838ad4fa513711e3bfec09, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: TRINL.Visuals::AudioFlickerLight
-  _listenTo: 1
-  _source: {fileID: 0}
-  _trackDistance: 1
-  _baseBrightness: 0.7
-  _audioBoost: 0.4
-  _gain: 1.5
-  _fluxWeight: 0
-  _lowBandWeight: 0.5
-  _highBandWeight: 1.5
-  _attackSeconds: 0.1
-  _releaseSeconds: 0.5

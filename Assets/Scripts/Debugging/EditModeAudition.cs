@@ -21,14 +21,27 @@ using UnityEditor.SceneManagement;
 // before Play mode and whenever this component is disabled or removed. Nested auditions over the same source
 // share it: the original settings are kept once, Flat wins over Unity 3D, and they are put back when the last one
 // lets go.
+//
+// Sources lists every Audio Source found, kept in step with the hierarchy. Untick one to leave it out: it keeps its
+// own settings and gets no sphere. New sources come in ticked.
 [ExecuteAlways]
 public class EditModeAudition : MonoBehaviour
 {
     public enum Mode { Unity3D, Flat, Unchanged }
 
+    [System.Serializable]
+    public class Entry
+    {
+        public bool        Include = true;
+        public AudioSource Source;
+    }
+
     [Tooltip("How the sources are heard in Edit mode. Unity 3D: Steam Audio spatializer off, volume follows the " +
              "Scene camera. Flat: 2D, full volume everywhere. Unchanged: own settings, only the spheres.")]
     [SerializeField] Mode _mode = Mode.Unity3D;
+    [Tooltip("Every Audio Source on this object and its children, in hierarchy order. Untick to leave one out of " +
+             "the audition: own settings, no sphere. Filled in automatically.")]
+    [SerializeField] List<Entry> _sourceList = new();
     [Tooltip("Sounding spheres: each source gets its own hue, spread evenly in hierarchy order. " +
              "Saturation, brightness and alpha of those colours.")]
     [SerializeField, Range(0f, 1f)] float _saturation = 0.8f;
@@ -66,15 +79,16 @@ public class EditModeAudition : MonoBehaviour
         _sounding.Clear();
     }
 
-    // Mode changed in the inspector; other components may not be changed from OnValidate itself.
+    // Mode or a tick changed in the inspector; other components may not be changed from OnValidate itself.
     void OnValidate() => EditorApplication.delayCall += () => { if (this != null && isActiveAndEnabled) Refresh(); };
 
-    // Takes in sources added under this object and lets go of ones removed or moved out; on a Mode change, lets go
-    // of them all and takes them in again in the new mode.
+    // Brings the Sources list in step with the hierarchy (keeping each one's tick), then takes in the ticked sources
+    // and lets go of ones unticked, removed or moved out; on a Mode change, lets go of them all and takes them in
+    // again in the new mode.
     void Refresh()
     {
         if (this == null) return;
-        var found = GetComponentsInChildren<AudioSource>(includeInactive: true);
+        var found = SyncList();
         var now = new HashSet<AudioSource>(found);
         var hold = _mode == Mode.Unchanged ? new HashSet<AudioSource>() : now;
 
@@ -94,6 +108,29 @@ public class EditModeAudition : MonoBehaviour
         _sounding.IntersectWith(now);
         _order.Clear();
         _order.AddRange(found);
+    }
+
+    // Rebuilds Sources in hierarchy order, keeping the tick of every source already listed; new ones come in ticked.
+    // Only writes the list when it actually changed. Returns the ticked sources, in order.
+    List<AudioSource> SyncList()
+    {
+        var ticks = new Dictionary<AudioSource, bool>();
+        foreach (var e in _sourceList)
+            if (e != null && e.Source != null) ticks[e.Source] = e.Include;
+
+        var synced = new List<Entry>();
+        foreach (var source in GetComponentsInChildren<AudioSource>(includeInactive: true))
+            synced.Add(new Entry { Source = source, Include = !ticks.TryGetValue(source, out bool on) || on });
+
+        bool changed = synced.Count != _sourceList.Count;
+        for (int i = 0; !changed && i < synced.Count; i++)
+            changed = _sourceList[i] == null || _sourceList[i].Source != synced[i].Source;
+        if (changed) _sourceList = synced;
+
+        var included = new List<AudioSource>();
+        foreach (var e in _sourceList)
+            if (e.Include) included.Add(e.Source);
+        return included;
     }
 
     // Repaints the Scene view when a source starts or stops sounding, so the colour follows a Timeline scrub.
@@ -195,3 +232,24 @@ public class EditModeAudition : MonoBehaviour
     }
 #endif
 }
+
+#if UNITY_EDITOR
+// One line per source in the Sources list: its tick, then the source itself (read-only, the list fills itself).
+[CustomPropertyDrawer(typeof(EditModeAudition.Entry))]
+class EditModeAuditionEntryDrawer : PropertyDrawer
+{
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        var include = property.FindPropertyRelative(nameof(EditModeAudition.Entry.Include));
+        var source  = property.FindPropertyRelative(nameof(EditModeAudition.Entry.Source));
+        var tick = new Rect(position.x, position.y, 18f, EditorGUIUtility.singleLineHeight);
+        var field = new Rect(position.x + 20f, position.y, position.width - 20f, EditorGUIUtility.singleLineHeight);
+        EditorGUI.PropertyField(tick, include, GUIContent.none);
+        using (new EditorGUI.DisabledScope(true))
+            EditorGUI.PropertyField(field, source, GUIContent.none);
+    }
+
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label) =>
+        EditorGUIUtility.singleLineHeight;
+}
+#endif

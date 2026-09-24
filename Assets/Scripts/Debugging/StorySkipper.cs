@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Development / staff shortcut: Shift + S skips the story part playing now (Editor and builds).
+// Development / staff shortcut: Shift + S, or Y on the left controller, skips the story part playing now (Editor and
+// builds).
 //   Onboarding / Ending playing        → its Timeline jumps to the end, the next part begins.
 //   A chapter with a scene playing     → that scene ends, the chapter carries on as usual.
 //   A chapter waiting (nothing playing) → the whole chapter ends, the next part begins.
@@ -20,6 +21,7 @@ public class StorySkipper : MonoBehaviour
         _skip.AddCompositeBinding("OneModifier")
              .With("Modifier", "<Keyboard>/shift")
              .With("Binding", "<Keyboard>/s");
+        _skip.AddBinding("<XRController>{LeftHand}/secondaryButton"); // Y
     }
 
     void OnEnable()

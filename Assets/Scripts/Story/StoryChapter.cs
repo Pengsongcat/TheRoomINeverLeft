@@ -9,10 +9,13 @@ using UnityEngine;
 // designed spots; if the visitor (Player Body, tag Player) is within a trigger's radius + body radius + Clearance,
 // the Trigger + Guide pairs are turned together around the chapter's centre (the room centre) by the smallest angle
 // that clears them all. A trigger near the centre barely moves when turned, so any still too close is then pushed
-// straight away from the visitor. The scenes' own sounds and visuals stay where they were designed.
+// out to the edge of the visitor's reach, straight away from them if that spot is free, otherwise the nearest spot
+// round the visitor that does not overlap another trigger. The scenes' own sounds and visuals stay where they were
+// designed.
 public class StoryChapter : StoryPart
 {
     const float AngleStep = 5f;
+    const float PushStep  = 10f; // degrees between the spots tried for a pushed trigger
 
     [Tooltip("Space kept between the visitor's body and the edge of any trigger when the chapter opens, metres.")]
     [SerializeField, Min(0f)] float _clearance = 0.3f;
@@ -174,8 +177,9 @@ public class StoryChapter : StoryPart
             foreach (var spot in Spot(scene))
                 if (spot != null) spot.position = Turned(spot.position, angle);
 
-        // Anything still too close (a trigger near the centre) is pushed straight away from the visitor.
-        int pushed = 0;
+        // Anything still too close (a trigger near the centre) is pushed out to the edge of the visitor's reach, at
+        // the spot nearest straight-away-from-the-visitor that does not overlap another trigger.
+        int pushed = 0, overlapping = 0;
         foreach (var (scene, reach) in triggers)
         {
             Vector3 away = Flat(scene.Trigger.transform.position - visitor);
@@ -183,14 +187,47 @@ public class StoryChapter : StoryPart
             if (gap >= reach) continue;
             Vector3 dir = gap > 0.001f ? away / gap : Flat(scene.Trigger.transform.position - transform.position).normalized;
             if (dir == Vector3.zero) dir = Flat(transform.forward).normalized;
-            Vector3 shift = dir * (reach - gap);
+
+            Vector3 from = scene.Trigger.transform.position;
+            Vector3 to = PushTarget(scene, triggers, visitor, dir, reach, from.y, out bool clear);
+            if (!clear) overlapping++;
             foreach (var spot in Spot(scene))
-                if (spot != null) spot.position += shift;
+                if (spot != null) spot.position += to - from;
             pushed++;
         }
 
         Debug.Log($"[Story] {name}: triggers turned {angle:0}° around the centre" +
-                  (pushed > 0 ? $", {pushed} pushed away" : "") + " to clear the visitor.");
+                  (pushed > 0 ? $", {pushed} pushed away" : "") + " to clear the visitor." +
+                  (overlapping > 0 ? $" {overlapping} could not avoid overlapping another trigger (room too small)." : ""));
+    }
+
+    // Where a trigger too close to the visitor goes: on the circle of its reach around the visitor, trying straight
+    // away first, then PushStep further round each way. The first spot that keeps clear of every other trigger (their
+    // radii not overlapping) wins; failing that, the spot that overlaps least.
+    Vector3 PushTarget(StoryScene pushed, List<(StoryScene scene, float reach)> triggers, Vector3 visitor,
+                       Vector3 away, float reach, float height, out bool clear)
+    {
+        float radius = TriggerRadius(pushed.Trigger);
+        Vector3 best = default;
+        float bestGap = float.NegativeInfinity;
+        for (float step = 0f; step <= 180f; step += PushStep)
+        {
+            foreach (float a in step == 0f ? new[] { 0f } : new[] { step, -step })
+            {
+                Vector3 candidate = visitor + Quaternion.AngleAxis(a, transform.up) * away * reach;
+                candidate.y = height;
+
+                float gap = float.PositiveInfinity; // smallest space to another trigger's edge
+                foreach (var (other, _) in triggers)
+                    if (other != pushed)
+                        gap = Mathf.Min(gap, Flat(candidate - other.Trigger.transform.position).magnitude
+                                             - radius - TriggerRadius(other.Trigger));
+                if (gap >= 0f) { clear = true; return candidate; }
+                if (gap > bestGap) { bestGap = gap; best = candidate; }
+            }
+        }
+        clear = false;
+        return best;
     }
 
     // Smallest gap (negative = overlap) between the visitor and any trigger's reach, with the layout turned by angle.
