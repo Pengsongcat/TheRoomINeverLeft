@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,19 @@ public class StoryChapter : StoryPart
     [SerializeField, Min(0f)] float _clearance = 0.3f;
     [SerializeField] string _playerTag = "Player";
 
+    // Development toggle, set in Edit Mode and read when Play starts: an unticked scene is left off and the chapter
+    // runs as if it were not there. The list fills itself from the child scenes.
+    [Serializable]
+    struct SceneToggle
+    {
+        [HideInInspector] public string name;
+        public StoryScene scene;
+        public bool included;
+    }
+
+    [Tooltip("Untick a scene to leave it out of this chapter (development). Read when Play starts.")]
+    [SerializeField] List<SceneToggle> _sceneToggles = new();
+
     StoryScene[] _scenes;
     StoryScene _activeScene;
     int _pendingOtherGuides;
@@ -33,7 +47,14 @@ public class StoryChapter : StoryPart
 
     void Awake()
     {
-        _scenes = GetComponentsInChildren<StoryScene>(includeInactive: true);
+        var included = new List<StoryScene>();
+        foreach (var scene in GetComponentsInChildren<StoryScene>(includeInactive: true))
+        {
+            if (IsIncluded(scene)) included.Add(scene);
+            else scene.gameObject.SetActive(false);
+        }
+        _scenes = included.ToArray();
+
         foreach (var scene in _scenes)
         {
             scene.Triggered += OnSceneTriggered;
@@ -41,6 +62,30 @@ public class StoryChapter : StoryPart
             foreach (var spot in Spot(scene))
                 if (spot != null) _designed[spot] = spot.localPosition;
         }
+    }
+
+    // A scene missing from the list (added since the list last filled) takes part.
+    bool IsIncluded(StoryScene scene)
+    {
+        foreach (var toggle in _sceneToggles)
+            if (toggle.scene == scene) return toggle.included;
+        return true;
+    }
+
+    // Keeps the toggle list matching the child scenes: new scenes arrive ticked, removed ones drop out, the rest keep
+    // their tick. Only rewritten when something changed, so a prefab instance gains no needless overrides.
+    void OnValidate()
+    {
+        var scenes = GetComponentsInChildren<StoryScene>(includeInactive: true);
+        bool changed = scenes.Length != _sceneToggles.Count;
+        for (int i = 0; !changed && i < scenes.Length; i++)
+            changed = _sceneToggles[i].scene != scenes[i] || _sceneToggles[i].name != scenes[i].name;
+        if (!changed) return;
+
+        var synced = new List<SceneToggle>(scenes.Length);
+        foreach (var scene in scenes)
+            synced.Add(new SceneToggle { name = scene.name, scene = scene, included = IsIncluded(scene) });
+        _sceneToggles = synced;
     }
 
     static Transform[] Spot(StoryScene scene) => new[]
