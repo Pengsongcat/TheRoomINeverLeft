@@ -52,6 +52,8 @@ MonoBehaviour:
   _trigger: {fileID: 2807541703860915884}
   _guide: {fileID: 1141385698707229282}
   _timeline: {fileID: 8744897006083087680}
+  _guideOnDuration: 0
+  _guideOffDuration: 0
 --- !u!1 &3983201310124434246
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,11 +251,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: lowpassLevelCustomCurve.m_Curve.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[1].time
-      value: 0.39262664
+      value: 0.3575009
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[2].time
+      value: 0.7105723
       objectReference: {fileID: 0}
     - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[0].value
@@ -261,19 +267,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[1].value
-      value: 0.077021
+      value: 0.38756788
       objectReference: {fileID: 0}
     - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[2].value
-      value: 0.5517448
+      value: 0.11840284
       objectReference: {fileID: 0}
     - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[1].inSlope
-      value: 0
+      value: -1.559985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[2].inSlope
+      value: -0.21057096
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[1].inWeight
+      value: 0.24497192
       objectReference: {fileID: 0}
     - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[1].outSlope
-      value: 0
+      value: -1.559985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[2].inWeight
+      value: 0.34824982
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[2].outSlope
+      value: -0.21057096
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[1].outWeight
+      value: 0.41459832
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869324513897021002, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: _fadeInDuration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7869324513897021002, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: _triggeredFadeOutDuration
