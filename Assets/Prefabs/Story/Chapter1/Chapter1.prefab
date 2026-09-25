@@ -48,6 +48,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae1ece52a0fb29459cf0f5aee80b5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.Story::StoryScene
+  _clearance: 0.3
+  _playerTag: Player
+  _sceneToggles:
+  - name: Scene1.1
+    scene: {fileID: 4553789480878119663}
+    included: 1
+  - name: Scene1.2
+    scene: {fileID: 2442469205350218918}
+    included: 1
+  - name: Scene1.3
+    scene: {fileID: 3669020566549065438}
+    included: 1
+  - name: Scene1.4
+    scene: {fileID: 1186637209330527881}
+    included: 1
 --- !u!1001 &6037281083654420783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,6 +120,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61b7fe75b867a0d40b90aafeaa16ee35, type: 3}
+--- !u!114 &1186637209330527881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4881747418502141862, guid: 61b7fe75b867a0d40b90aafeaa16ee35, type: 3}
+  m_PrefabInstance: {fileID: 6037281083654420783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb53fb4ec1a97da4b82cf84d7d670836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Story::Chapter
 --- !u!4 &3067188889477579501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8743847682679651266, guid: 61b7fe75b867a0d40b90aafeaa16ee35, type: 3}
@@ -118,6 +144,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4964625917772138486}
     m_Modifications:
+    - target: {fileID: 696783600036344863, guid: d7610c82dd3c15649925224b00dd23fa, type: 3}
+      propertyPath: m_Volume
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4731172969254380177, guid: d7610c82dd3c15649925224b00dd23fa, type: 3}
       propertyPath: m_Name
       value: Scene1.2
@@ -162,6 +192,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8445586095587200771, guid: d7610c82dd3c15649925224b00dd23fa, type: 3}
+      propertyPath: _guideOffDuration
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -172,6 +206,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5041832885086445408, guid: d7610c82dd3c15649925224b00dd23fa, type: 3}
   m_PrefabInstance: {fileID: 6111906977478013861}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2442469205350218918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8445586095587200771, guid: d7610c82dd3c15649925224b00dd23fa, type: 3}
+  m_PrefabInstance: {fileID: 6111906977478013861}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb53fb4ec1a97da4b82cf84d7d670836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Story::Chapter
 --- !u!1001 &7359225949525618650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,6 +274,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf3c9ea17450c147afbad3c480b6152, type: 3}
+--- !u!114 &4553789480878119663 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6418604072158967093, guid: edf3c9ea17450c147afbad3c480b6152, type: 3}
+  m_PrefabInstance: {fileID: 7359225949525618650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb53fb4ec1a97da4b82cf84d7d670836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Story::Chapter
 --- !u!4 &9011637604351240623 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1958781774484457077, guid: edf3c9ea17450c147afbad3c480b6152, type: 3}
@@ -291,6 +347,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fde5fdf7a14151408315489017ebccf, type: 3}
+--- !u!114 &3669020566549065438 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6458964316389973509, guid: 6fde5fdf7a14151408315489017ebccf, type: 3}
+  m_PrefabInstance: {fileID: 7730467342233858267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb53fb4ec1a97da4b82cf84d7d670836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Story::Chapter
 --- !u!4 &7286913246573096191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1038207165024214052, guid: 6fde5fdf7a14151408315489017ebccf, type: 3}
