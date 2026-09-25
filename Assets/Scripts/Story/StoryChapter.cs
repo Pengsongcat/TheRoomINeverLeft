@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,6 +31,8 @@ public class StoryChapter : StoryPart
         [HideInInspector] public string name;
         public StoryScene scene;
         public bool included;
+        [Tooltip("Seconds to wait after this Scene's Timeline finishes before returning to the chapter.")]
+        [Min(0f)] public float endDelay;
     }
 
     [Tooltip("Untick a scene to leave it out of this chapter (development). Read when Play starts.")]
@@ -41,6 +44,8 @@ public class StoryChapter : StoryPart
     bool _activeTimelineStarted;
     bool _activeTimelineFinished;
     bool _activeGuideFaded;
+    bool _activeEndDelayElapsed;
+    Coroutine _sceneEndDelay;
 
     // Designed local positions of every scene's Trigger and Guide, restored each time the chapter opens.
     readonly Dictionary<Transform, Vector3> _designed = new();
@@ -85,7 +90,13 @@ public class StoryChapter : StoryPart
 
         var synced = new List<SceneToggle>(scenes.Length);
         foreach (var scene in scenes)
-            synced.Add(new SceneToggle { name = scene.name, scene = scene, included = IsIncluded(scene) });
+            synced.Add(new SceneToggle
+            {
+                name = scene.name,
+                scene = scene,
+                included = IsIncluded(scene),
+                endDelay = EndDelay(scene),
+            });
         _sceneToggles = synced;
     }
 
@@ -119,8 +130,21 @@ public class StoryChapter : StoryPart
     // A scene playing → skip that scene (the chapter then carries on as usual); otherwise skip the whole chapter.
     public override void Skip()
     {
-        if (_activeScene != null && !_activeScene.Done) _activeScene.Skip();
-        else RaiseFinished();
+        if (_activeScene == null)
+        {
+            RaiseFinished();
+            return;
+        }
+        if (!_activeScene.Done)
+        {
+            _activeScene.Skip();
+            return;
+        }
+
+        // The Timeline has ended and only its configured interval remains: Skip removes that interval.
+        CancelSceneEndDelay();
+        _activeEndDelayElapsed = true;
+        TryCompleteScene(_activeScene);
     }
 
     void OnSceneTriggered(StoryScene triggered)
@@ -129,6 +153,8 @@ public class StoryChapter : StoryPart
         _activeTimelineStarted = false;
         _activeTimelineFinished = false;
         _activeGuideFaded = false;
+        _activeEndDelayElapsed = false;
+        CancelSceneEndDelay();
         _pendingOtherGuides = 0;
 
         foreach (var scene in _scenes)
@@ -139,7 +165,7 @@ public class StoryChapter : StoryPart
         {
             if (_activeScene != triggered) return;
             _activeGuideFaded = true;
-            if (_activeTimelineFinished) CompleteScene(triggered);
+            TryCompleteScene(triggered);
         });
 
         foreach (var scene in _scenes)
@@ -167,11 +193,35 @@ public class StoryChapter : StoryPart
     {
         if (_activeScene != finished) return;
         _activeTimelineFinished = true;
-        if (_activeGuideFaded) CompleteScene(finished);
+        float delay = EndDelay(finished);
+        if (delay <= 0f)
+        {
+            _activeEndDelayElapsed = true;
+            TryCompleteScene(finished);
+            return;
+        }
+        _sceneEndDelay = StartCoroutine(CompleteSceneAfterDelay(finished, delay));
+    }
+
+    IEnumerator CompleteSceneAfterDelay(StoryScene finished, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        _sceneEndDelay = null;
+        if (_activeScene != finished) yield break;
+        _activeEndDelayElapsed = true;
+        TryCompleteScene(finished);
+    }
+
+    void TryCompleteScene(StoryScene finished)
+    {
+        if (_activeScene != finished || !_activeTimelineFinished || !_activeGuideFaded || !_activeEndDelayElapsed)
+            return;
+        CompleteScene(finished);
     }
 
     void CompleteScene(StoryScene finished)
     {
+        CancelSceneEndDelay();
         _activeScene = null;
         finished.gameObject.SetActive(false);
 
@@ -185,6 +235,19 @@ public class StoryChapter : StoryPart
         }
 
         if (allDone) RaiseFinished();
+    }
+
+    void CancelSceneEndDelay()
+    {
+        if (_sceneEndDelay != null) StopCoroutine(_sceneEndDelay);
+        _sceneEndDelay = null;
+    }
+
+    float EndDelay(StoryScene scene)
+    {
+        foreach (var toggle in _sceneToggles)
+            if (toggle.scene == scene) return Mathf.Max(0f, toggle.endDelay);
+        return 0f;
     }
 
     // ---- Keeping the triggers clear of the visitor when the chapter opens ----
