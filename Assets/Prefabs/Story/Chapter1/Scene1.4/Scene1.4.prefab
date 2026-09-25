@@ -171,6 +171,8 @@ MonoBehaviour:
   _trigger: {fileID: 8747340794052767072}
   _guide: {fileID: 2869678172167501735}
   _timeline: {fileID: 2574051030841867406}
+  _guideOnDuration: 0
+  _guideOffDuration: 0
 --- !u!1001 &38730708428554039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -317,6 +319,62 @@ PrefabInstance:
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: 51005ac44892e714da3d2635848f416f, type: 3}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.15217133
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
+      value: 0.28591004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].time
+      value: 0.49454957
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].value
+      value: 0.28659058
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].value
+      value: 0.09307861
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -4.4109974
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inSlope
+      value: -1.7714897
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].inSlope
+      value: -0.39249822
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -4.4109974
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outSlope
+      value: -1.7714897
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].inWeight
+      value: 0.55398387
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].outSlope
+      value: -0.39249822
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
+      value: 0.26108313
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outWeight
+      value: 0.32565507
+      objectReference: {fileID: 0}
     - target: {fileID: 4214891843865118311, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_Name
       value: Scene1.4 Guiding Sound
@@ -360,6 +418,34 @@ PrefabInstance:
     - target: {fileID: 6874077145480170851, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[1].time
+      value: 0.22902364
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[2].time
+      value: 0.41881216
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.99584424
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[1].value
+      value: 0.647768
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[2].value
+      value: 0.30066144
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869324513897021002, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: _fadeInDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869324513897021002, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: _untriggeredFadeOutDuration
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

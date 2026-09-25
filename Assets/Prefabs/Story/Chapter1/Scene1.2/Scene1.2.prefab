@@ -202,20 +202,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 5041832885086445408}
     m_Modifications:
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: 3688f642f0717cc478b71290f048b8a0, type: 3}
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
-      value: 0.12758179
+      value: 0.12582703
       objectReference: {fileID: 0}
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
-      value: 0.26833192
+      value: 0.23496094
       objectReference: {fileID: 0}
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].time
-      value: 0.5560425
+      value: 0.50333863
       objectReference: {fileID: 0}
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
@@ -223,15 +227,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].value
-      value: 0.5143738
+      value: 0.48849487
       objectReference: {fileID: 0}
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].value
-      value: 0.23544312
+      value: 0.14743042
       objectReference: {fileID: 0}
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[4].value
-      value: 0.054351807
+      value: 0.025878906
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -4.263889
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inSlope
+      value: -1.8953171
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -4.263889
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outSlope
+      value: -1.8953171
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
+      value: 0.31988913
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outWeight
+      value: 0.23399577
       objectReference: {fileID: 0}
     - target: {fileID: 4214891843865118311, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_Name
@@ -308,6 +336,14 @@ PrefabInstance:
     - target: {fileID: 6916169307032877885, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[1].outWeight
       value: 0.11226838
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869324513897021002, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: _fadeInDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869324513897021002, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: _untriggeredFadeOutDuration
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
