@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391950546158583072}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -189,7 +189,7 @@ Light:
   serializedVersion: 12
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 20
+  m_Intensity: 530.17
   m_Range: 14.482822
   m_SpotAngle: 30
   m_InnerSpotAngle: 15.285559
@@ -220,7 +220,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 8400000, guid: 00d2d42c6978bf14abbc719572a3e68d, type: 2}
+  m_Cookie: {fileID: 8400000, guid: 5bde1d4d8c8e41444a07952a83de66d2, type: 2}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 1515018764545305602}
   - component: {fileID: 2833338105388615893}
   - component: {fileID: 7063904720549020053}
+  - component: {fileID: 4382414451110017023}
   m_Layer: 0
   m_Name: BeamLeafSHadowHD
   m_TagString: Untagged
@@ -350,7 +351,7 @@ VideoPlayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6589752060570812070}
-  m_Enabled: 1
+  m_Enabled: 0
   m_VideoClip: {fileID: 32900000, guid: 46c85577dc6e6084fa57a059472de004, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
@@ -386,7 +387,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6589752060570812070}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 753bfb2a6272c234eb757da85eff9af5, type: 3}
   m_Name: 
@@ -405,7 +406,7 @@ VideoPlayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6589752060570812070}
-  m_Enabled: 1
+  m_Enabled: 0
   m_VideoClip: {fileID: 32900000, guid: 6a5e92d394f9ea7478eaf71691fa3ff8, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
@@ -432,6 +433,59 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &4382414451110017023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589752060570812070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb62b52f5059214d93f623290b8b007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TRINL.Rendering.TreeShadowCookie
+  resolution: 512
+  targetTexture: {fileID: 8400000, guid: 5bde1d4d8c8e41444a07952a83de66d2, type: 2}
+  updateRate: 30
+  lights: []
+  volumetricCookies: []
+  animateInEditMode: 1
+  seed: 84
+  leafSize: 2.43
+  canopyDensity: 0.507
+  clumping: 0.727
+  leafCount: 3462
+  leafShape: 2
+  treeLeafSize: 0.507
+  limbCount: 4
+  branchWidth: 2.228
+  treeDirection: 230
+  treeDistance: 0.527
+  depthSpread: 0.476
+  windStrength: 0
+  windRamp: 2
+  windSpeed: 1
+  windDirection: 20
+  gustiness: 0.821
+  flutter: 0.634
+  branchSway: 0.665
+  idleSway: 0.0851
+  windLean: 0.4
+  windBlurJitter: 0.224
+  windMotionBlur: 0.693
+  sunIntensity: 2.38
+  shadowBrightness: 0
+  contrast: 1.145
+  blur: 0.03
+  nearBlur: 0.0084
+  branchBlur: 0.0274
+  halation: 0.4
+  halationRadius: 3
+  edgeFade: 0
+  shader: {fileID: 4800000, guid: 05ef3ceb8e2436542a157f75f5ecc0e7, type: 3}
+  originalLightCookies: []
+  originalVolumetricCookies: []
 --- !u!1 &6859213809219518392
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +626,7 @@ Transform:
   m_GameObject: {fileID: 7431036056490920323}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.062, y: 3.6599998, z: -2.8302996}
+  m_LocalPosition: {x: -1.219, y: 3.6599998, z: -2.8302996}
   m_LocalScale: {x: 1.7425, y: 0.16083449, z: 4.410616}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -684,7 +738,7 @@ Transform:
   m_GameObject: {fileID: 7631292475593679093}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.142, y: 3.6599998, z: -2.8302996}
+  m_LocalPosition: {x: 1.327, y: 3.6599998, z: -2.8302996}
   m_LocalScale: {x: 1.7425, y: 0.16083449, z: 4.3935394}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -817,7 +871,7 @@ Light:
   serializedVersion: 12
   m_Type: 0
   m_Color: {r: 1, g: 0.9966307, b: 0.9716981, a: 1}
-  m_Intensity: 2.5
+  m_Intensity: 0.76
   m_Range: 14.23242
   m_SpotAngle: 30
   m_InnerSpotAngle: 11.55309
@@ -848,7 +902,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 8400000, guid: aea29f6188ab92d42a61594aa99c4988, type: 2}
+  m_Cookie: {fileID: 8400000, guid: 5bde1d4d8c8e41444a07952a83de66d2, type: 2}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -947,7 +1001,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   m_BlendingMode: 0
-  m_Intensity: 2.5
+  m_Intensity: 0.76
   m_IntensityMultiplier: 1
   m_HDRPExposureWeight: 0
   m_SpotAngle: 30
@@ -984,7 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Contribution: 1
-  m_CookieTexture: {fileID: 8400000, guid: aea29f6188ab92d42a61594aa99c4988, type: 2}
+  m_CookieTexture: {fileID: 8400000, guid: 5bde1d4d8c8e41444a07952a83de66d2, type: 2}
   m_Channel: 0
   m_Negative: 0
   m_Translation: {x: 0, y: 0}
