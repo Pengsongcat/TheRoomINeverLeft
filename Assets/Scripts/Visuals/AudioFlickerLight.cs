@@ -1,30 +1,25 @@
 using UnityEngine;
 
-// Put on any Light. Drives its brightness from an AudioSource in two parts, each a fraction of the light's current
-// intensity (whatever the Animator / Timeline set this frame):
-//   - Base: Base Brightness × distance level, where the distance level is the sound's own falloff at the
-//     AudioListener (its rolloff at its current, room-scaled min / max distance). 1 up close, 0 out of range.
-//   - Audio boost: Audio Boost × loudness × distance level, added on top; loudness (0..1) follows the sound's
-//     volume + spectral flux (Loudness Meter), so the light brightens as the sound gets louder.
-// intensity = animated × (Min Brightness + distance level × (Base Brightness + Audio Boost × loudness)). Out of the
-// sound's range only Min Brightness is left (black when it is 0). With Track Distance off, the distance level is
-// always 1.
-// Listen To Headset: loudness is the AudioListener's whole mix (every sound the visitor hears, after Steam Audio's
-// distance falloff) instead of one source, and the distance level is 1.
-// Runs in LateUpdate, after animation has written the intensity; if nothing wrote it this frame, the last animated
-// value is kept.
-// A Volumetric Light Beam on the same object that takes its intensity from the light is told to re-read it, since
-// it otherwise copies the unmodified value when animation writes the light.
+// Drives brightness from two independently measured sources: Source 1 contributes 70%, Source 2 30%.
+// Each source applies its own distance falloff to its base brightness and audio boost before mixing.
+// intensity = animated * (Min Brightness + 0.7 * source1Contribution + 0.3 * source2Contribution).
+// Missing sources contribute zero; weights are never redistributed. Headset mode uses the whole mix once.
+// Runs after animation, retaining the last animated intensity, and refreshes any attached VLB beam.
 [RequireComponent(typeof(Light))]
 public class AudioFlickerLight : MonoBehaviour
 {
     const string BeamReadFromLight = "AssignPropertiesFromAttachedSpotLight"; // VLB, in Assembly-CSharp so not referenced
 
-    [Tooltip("Source: the loudness of the Source below. Headset: the loudness of everything the headset hears (the " +
-             "AudioListener's mix, all sounds together, already quieter with distance); Source and Track Distance are " +
-             "then not used.")]
+    [Tooltip("Source: mix Source 1 (70%) and Source 2 (30%). Headset: use the AudioListener's whole mix; " +
+             "both source fields and Track Distance are ignored.")]
     [SerializeField] ListenTo _listenTo = ListenTo.Source;
+    // Keep the serialized field name to preserve existing scene/prefab references and overrides.
+    [InspectorName("Source 1 (70%)")]
+    [Tooltip("Contributes 70% of the audio-driven brightness. Missing sources contribute zero.")]
     [SerializeField] AudioSource _source;
+    [InspectorName("Source 2 (30%)")]
+    [Tooltip("Contributes 30% of the audio-driven brightness. Missing sources contribute zero.")]
+    [SerializeField] AudioSource _source2;
     [Tooltip("Fade with the headset's distance from the sound (black out of its range). Off: distance level is " +
              "always 1, so the light is Base Brightness + Audio Boost × loudness wherever the visitor stands.")]
     [SerializeField] bool _trackDistance = true;
@@ -49,23 +44,30 @@ public class AudioFlickerLight : MonoBehaviour
     [Min(0f)] [SerializeField] float _releaseSeconds = 0.15f;
 
     readonly LoudnessMeter _meter = new();
+    readonly LoudnessMeter _meter2 = new();
+    readonly LoudnessMeter _headsetMeter = new();
 
     Light          _light;
     AudioListener  _listener;
     AnimationCurve _customRolloff; // cached: GetCustomCurve allocates
+    AnimationCurve _customRolloff2;
+    AudioSource _cachedSource;
+    AudioSource _cachedSource2;
     float _base;     // intensity the Animator / Timeline set
     float _written;  // intensity this script wrote last frame
 
     void Awake()
     {
         _light = GetComponent<Light>();
-        _customRolloff = LoudnessMeter.CustomRolloff(_source);
+        RefreshSources();
     }
 
     void OnEnable()
     {
         _base = _written = _light.intensity;
         _meter.Reset();
+        _meter2.Reset();
+        _headsetMeter.Reset();
     }
 
     // Leave the light at its animated intensity.
@@ -76,16 +78,48 @@ public class AudioFlickerLight : MonoBehaviour
         // Changed since we wrote it → the Animator / Timeline set a new value this frame.
         if (_light.intensity != _written) _base = _light.intensity;
 
-        float loudness = _meter.Update(_listenTo, _source, _gain, _fluxWeight, _lowBandWeight, _highBandWeight,
-                                       _attackSeconds, _releaseSeconds, Time.deltaTime);
-        _written = _light.intensity =
-            _base * (_minBrightness + DistanceLevel() * (_baseBrightness + _audioBoost * loudness));
+        RefreshSources();
+        float contribution;
+        if (_listenTo == ListenTo.Headset)
+        {
+            float loudness = Measure(_headsetMeter, ListenTo.Headset, null);
+            contribution = _baseBrightness + _audioBoost * loudness;
+        }
+        else
+        {
+            contribution = 0.7f * SourceContribution(_source, _customRolloff, _meter)
+                         + 0.3f * SourceContribution(_source2, _customRolloff2, _meter2);
+        }
+        _written = _light.intensity = _base * (_minBrightness + contribution);
         SendMessage(BeamReadFromLight, SendMessageOptions.DontRequireReceiver);
     }
 
-    // 1 when Track Distance is off, or when listening to the headset, whose mix already fades with distance.
-    float DistanceLevel() =>
-        !_trackDistance || _listenTo == ListenTo.Headset
-            ? 1f
-            : LoudnessMeter.DistanceLevel(_source, _customRolloff, ref _listener);
+    float Measure(LoudnessMeter meter, ListenTo listenTo, AudioSource source) =>
+        meter.Update(listenTo, source, _gain, _fluxWeight, _lowBandWeight, _highBandWeight,
+                     _attackSeconds, _releaseSeconds, Time.deltaTime);
+
+    float SourceContribution(AudioSource source, AnimationCurve rolloff, LoudnessMeter meter)
+    {
+        if (source == null) return 0f;
+        float loudness = Measure(meter, ListenTo.Source, source);
+        float distance = _trackDistance ? LoudnessMeter.DistanceLevel(source, rolloff, ref _listener) : 1f;
+        return distance * (_baseBrightness + _audioBoost * loudness);
+    }
+
+    // Refresh cached falloff and analysis history when an Inspector/runtime source assignment changes.
+    void RefreshSources()
+    {
+        if (_cachedSource != _source)
+        {
+            _cachedSource = _source;
+            _customRolloff = LoudnessMeter.CustomRolloff(_source);
+            _meter.Reset();
+        }
+        if (_cachedSource2 != _source2)
+        {
+            _cachedSource2 = _source2;
+            _customRolloff2 = LoudnessMeter.CustomRolloff(_source2);
+            _meter2.Reset();
+        }
+    }
 }
