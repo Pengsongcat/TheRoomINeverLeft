@@ -338,14 +338,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.733
       objectReference: {fileID: 0}
-    - target: {fileID: 1901445204726843313, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
-      propertyPath: Spatialize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338284652154425744, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
-      propertyPath: Spatialize
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3775793504160895072, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
       propertyPath: m_SpotAngle
       value: 30.559029
@@ -353,6 +345,14 @@ PrefabInstance:
     - target: {fileID: 3775793504160895072, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
       propertyPath: m_InnerSpotAngle
       value: 28.575912
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969243380006643519, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378866911204231340, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4501779252112977866, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -362,12 +362,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.29
       objectReference: {fileID: 0}
-    - target: {fileID: 5776098853971720303, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
-      propertyPath: Spatialize
+    - target: {fileID: 5418745848674243770, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6267356082465097112, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
-      propertyPath: Spatialize
+    - target: {fileID: 6400638061337777111, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697210085531248382, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7010823745679028212, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
@@ -385,7 +389,7 @@ PrefabInstance:
     - target: {fileID: 7046067013972887095, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
       propertyPath: _source
       value: 
-      objectReference: {fileID: 141219823990296320}
+      objectReference: {fileID: 0}
     - target: {fileID: 7046067013972887095, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
       propertyPath: _source2
       value: 
@@ -397,6 +401,10 @@ PrefabInstance:
     - target: {fileID: 7097264338935527392, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
       propertyPath: MinDistance
       value: 2.009422
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962607474055081685, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8088241851018563885, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
       propertyPath: m_Name
@@ -442,25 +450,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8815465323698825699, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
-      propertyPath: Spatialize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8902142380729680653, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8902142380729680653, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
-      propertyPath: MaxDistance
-      value: 6.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 8902142380729680653, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
-      propertyPath: MinDistance
-      value: 2.9612055
-      objectReference: {fileID: 0}
     - target: {fileID: 9062917031967468499, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
       propertyPath: m_Volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062917031967468499, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+      propertyPath: Spatialize
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9062917031967468499, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
       propertyPath: MaxDistance
@@ -470,16 +466,16 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 3.551458
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9062917031967468499, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7504836546836601275, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
---- !u!82 &141219823990296320 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7097264338935527392, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
-  m_PrefabInstance: {fileID: 7172891697123424480}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &588842856679845217 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7755417962031240577, guid: 85e8a22b5e751494394326f43b87e21c, type: 3}
