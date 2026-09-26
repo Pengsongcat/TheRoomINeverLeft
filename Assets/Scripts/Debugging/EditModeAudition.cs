@@ -64,6 +64,13 @@ public class EditModeAudition : MonoBehaviour
 
     void OnEnable()
     {
+        // Edit-mode aid only: switch the component off for the play-mode copy of the scene. The edit-mode scene
+        // keeps it enabled, so it is back when Play stops.
+        if (Application.isPlaying)
+        {
+            enabled = false;
+            return;
+        }
         Refresh();
         EditorApplication.hierarchyChanged += Refresh;
         EditorApplication.update += Poll;
