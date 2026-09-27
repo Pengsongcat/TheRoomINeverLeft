@@ -1053,7 +1053,7 @@ MonoBehaviour:
   passthroughLayerResumed:
     m_PersistentCalls:
       m_Calls: []
-  colorMapEditorType_: 0
+  colorMapEditorType_: 4
   colorMapEditorGradient:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
@@ -1085,7 +1085,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorMapEditorContrast: 0
-  colorMapEditorBrightness: 0
+  colorMapEditorBrightness: -0.242
   colorMapEditorPosterize: 0
   colorMapEditorSaturation: 0
   _colorLutSourceTexture: {fileID: 0}
@@ -1093,10 +1093,10 @@ MonoBehaviour:
   _lutWeight: 1
   _flipLutY: 1
   serializedSurfaceGeometry: []
-  textureOpacity_: 1
+  textureOpacity_: 0.709
   edgeRenderingEnabled_: 0
   edgeColor_: {r: 1, g: 1, b: 1, a: 1}
-  colorMapType: 0
+  colorMapType: 4
 --- !u!1 &317547205
 GameObject:
   m_ObjectHideFlags: 0
@@ -4121,7 +4121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1244396926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6654,17 +6654,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene1.1Visual
       objectReference: {fileID: 0}
-    - target: {fileID: 5448385136796508032, guid: 8a0ef7f0913bdaa489b8284661722bca, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5843035879892609876, guid: 8a0ef7f0913bdaa489b8284661722bca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5843035879892609876, guid: 8a0ef7f0913bdaa489b8284661722bca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.62
       objectReference: {fileID: 0}
     - target: {fileID: 5843035879892609876, guid: 8a0ef7f0913bdaa489b8284661722bca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6676,15 +6672,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5843035879892609876, guid: 8a0ef7f0913bdaa489b8284661722bca, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5843035879892609876, guid: 8a0ef7f0913bdaa489b8284661722bca, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5843035879892609876, guid: 8a0ef7f0913bdaa489b8284661722bca, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5843035879892609876, guid: 8a0ef7f0913bdaa489b8284661722bca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6780,6 +6776,18 @@ PrefabInstance:
     - target: {fileID: 1391950546158583072, guid: ede32d3ce1bbfff40af87086a088fe44, type: 3}
       propertyPath: m_Name
       value: Scene1.3Visual BalconyTreeShadow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391950546158583072, guid: ede32d3ce1bbfff40af87086a088fe44, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108164552647808747, guid: ede32d3ce1bbfff40af87086a088fe44, type: 3}
+      propertyPath: m_Intensity
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108164552647808747, guid: ede32d3ce1bbfff40af87086a088fe44, type: 3}
+      propertyPath: m_IntensityMultiplier
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4671978714587029263, guid: ede32d3ce1bbfff40af87086a088fe44, type: 3}
       propertyPath: m_LocalPosition.x

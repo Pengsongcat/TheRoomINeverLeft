@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 1326140663703667677}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.87507623, y: 3.7867823, z: 6.08}
+  m_LocalPosition: {x: -0.87507623, y: 0.96, z: 6.08}
   m_LocalScale: {x: 0.68193, y: 0.68193, z: 1.316}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,9 +83,9 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.3
-  m_Range: 10
-  m_SpotAngle: 46.880947
-  m_InnerSpotAngle: 13.47889
+  m_Range: 5
+  m_SpotAngle: 80
+  m_InnerSpotAngle: 15
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
     m_Type: 2
@@ -215,12 +215,12 @@ MonoBehaviour:
   m_Intensity: 1.287
   m_IntensityMultiplier: 0.99
   m_HDRPExposureWeight: 0
-  m_SpotAngle: 46.880947
+  m_SpotAngle: 80
   m_SpotAngleMultiplier: 1
   m_ConeRadiusStart: 4.073179
   m_Scalable: 1
   m_FallOffStart: 4.8799996
-  m_FallOffEnd: 10
+  m_FallOffEnd: 5
   m_FallOffEndMultiplier: 1
   m_AttenuationEquation: 1
   m_SideSoftness: 1
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VLB.VolumetricCookieHD
   m_Contribution: 1
   m_CookieTexture: {fileID: 2800000, guid: a8bf1df2ea989af48a681e629cca51f0, type: 3}
-  m_Channel: 4
+  m_Channel: 3
   m_Negative: 0
   m_Translation: {x: 0, y: 0}
   m_Rotation: 0
@@ -319,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 3632397071744219051}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.87507623, y: 4.313, z: 6.08}
+  m_LocalPosition: {x: -0.87507623, y: 1.486218, z: 6.08}
   m_LocalScale: {x: 0.68193, y: 0.68193, z: 1.316}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -337,9 +337,9 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.62
-  m_Range: 10
-  m_SpotAngle: 46.880947
-  m_InnerSpotAngle: 13.47889
+  m_Range: 5
+  m_SpotAngle: 80
+  m_InnerSpotAngle: 15
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
     m_Type: 2
@@ -469,12 +469,12 @@ MonoBehaviour:
   m_Intensity: 1.6038
   m_IntensityMultiplier: 0.99
   m_HDRPExposureWeight: 0
-  m_SpotAngle: 46.880947
+  m_SpotAngle: 80
   m_SpotAngleMultiplier: 1
   m_ConeRadiusStart: 4.073179
   m_Scalable: 1
-  m_FallOffStart: 9.99
-  m_FallOffEnd: 10
+  m_FallOffStart: 4.99
+  m_FallOffEnd: 5
   m_FallOffEndMultiplier: 1
   m_AttenuationEquation: 1
   m_SideSoftness: 1
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VLB.VolumetricCookieHD
   m_Contribution: 1
   m_CookieTexture: {fileID: 2800000, guid: 502a8e926a64d7b4398de5aa62c9385c, type: 3}
-  m_Channel: 4
+  m_Channel: 3
   m_Negative: 0
   m_Translation: {x: 0, y: 0}
   m_Rotation: 0
@@ -971,7 +971,7 @@ VideoPlayer:
   m_DataSource: 0
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
+  m_AudioOutputMode: 0
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
@@ -1003,6 +1003,7 @@ MonoBehaviour:
   cookieRT: {fileID: 8400000, guid: 3cdb2ce6203cce844a3fafabb7131ae0, type: 2}
   editorPreview: 1
   editorPreviewImage: {fileID: 0}
+  additionalEditorPreviewPlayers: []
 --- !u!1 &8247178037207102896
 GameObject:
   m_ObjectHideFlags: 0
