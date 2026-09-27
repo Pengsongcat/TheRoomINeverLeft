@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 1326140663703667677}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.87507623, y: 0.96, z: 6.08}
+  m_LocalPosition: {x: -0.87507623, y: 0.44, z: 6.08}
   m_LocalScale: {x: 0.68193, y: 0.68193, z: 1.316}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82,7 +82,7 @@ Light:
   serializedVersion: 12
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.3
+  m_Intensity: 1
   m_Range: 5
   m_SpotAngle: 80
   m_InnerSpotAngle: 15
@@ -212,8 +212,8 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   m_BlendingMode: 0
-  m_Intensity: 1.287
-  m_IntensityMultiplier: 0.99
+  m_Intensity: 0.91
+  m_IntensityMultiplier: 0.91
   m_HDRPExposureWeight: 0
   m_SpotAngle: 80
   m_SpotAngleMultiplier: 1
@@ -319,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 3632397071744219051}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.87507623, y: 1.486218, z: 6.08}
+  m_LocalPosition: {x: -0.87507623, y: 0.966218, z: 6.08}
   m_LocalScale: {x: 0.68193, y: 0.68193, z: 1.316}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -336,7 +336,7 @@ Light:
   serializedVersion: 12
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.62
+  m_Intensity: 1.3
   m_Range: 5
   m_SpotAngle: 80
   m_InnerSpotAngle: 15
@@ -466,7 +466,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   m_BlendingMode: 0
-  m_Intensity: 1.6038
+  m_Intensity: 1.287
   m_IntensityMultiplier: 0.99
   m_HDRPExposureWeight: 0
   m_SpotAngle: 80
@@ -924,6 +924,7 @@ GameObject:
   - component: {fileID: 8334815531206993274}
   - component: {fileID: 2091538412473564516}
   - component: {fileID: 7433065775064227803}
+  - component: {fileID: 2593078505198277757}
   m_Layer: 0
   m_Name: fieldcross
   m_TagString: Untagged
@@ -1004,6 +1005,22 @@ MonoBehaviour:
   editorPreview: 1
   editorPreviewImage: {fileID: 0}
   additionalEditorPreviewPlayers: []
+--- !u!114 &2593078505198277757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7026838316536885655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81416062cd2ba144a2d47483597b0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Visuals::LightOnEyeHeight
+  _historySeconds: 5
+  _offThreshold: 0
+  _includeSelf: 1
+  _heightOffset: 0
 --- !u!1 &8247178037207102896
 GameObject:
   m_ObjectHideFlags: 0
