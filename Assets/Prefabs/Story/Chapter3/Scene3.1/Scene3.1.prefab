@@ -119,6 +119,8 @@ MonoBehaviour:
   _trigger: {fileID: 6962599277341327885}
   _guide: {fileID: 6878761610609120563}
   _timeline: {fileID: 7343292192202166537}
+  _guideOnDuration: 0
+  _guideOffDuration: 0
 --- !u!1 &6421796659579395118
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TRINL.Story::ChapterTrigger
   _playerTag: Player
+  _stayDuration: 0.5
 --- !u!1001 &4877291632885603401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,8 +199,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2078934438713149818, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_Resource
-      value:
+      value: 
       objectReference: {fileID: 8300000, guid: 4b2747169af21834a87d2be2a87e7f01, type: 3}
+    - target: {fileID: 4214891843865118311, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
+      propertyPath: m_Name
+      value: Scene3.1 Guiding Sound
+      objectReference: {fileID: 0}
     - target: {fileID: 6874077145480170851, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5290067
@@ -237,10 +244,6 @@ PrefabInstance:
     - target: {fileID: 6874077145480170851, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4214891843865118311, guid: 39a535831093483bb1d5f20ab830547c, type: 3}
-      propertyPath: m_Name
-      value: Scene3.1 Guiding Sound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -304,6 +307,10 @@ PrefabInstance:
     - target: {fileID: 1542168778977068448, guid: 5cd47115fc90336458a2c79baa982244, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5511967001723555766, guid: 5cd47115fc90336458a2c79baa982244, type: 3}
+      propertyPath: lowpassLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8339654972171245813, guid: 5cd47115fc90336458a2c79baa982244, type: 3}
       propertyPath: m_Name
