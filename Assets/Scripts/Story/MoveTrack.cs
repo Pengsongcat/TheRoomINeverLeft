@@ -31,6 +31,7 @@ public class MoveTrack : TrackAsset
                 Offset      = move.StartOffset,
                 MinDistance = move.MinDistanceFromVisitor,
                 IgnoreHeight = move.IgnoreHeight,
+                ArriveAtEnd  = move.ArriveAtEnd,
             });
         }
         moves.Sort((a, b) => a.Start.CompareTo(b.Start));
@@ -61,6 +62,7 @@ public class MoveMixer : PlayableBehaviour
         public Vector3   Offset;
         public float     MinDistance;
         public bool      IgnoreHeight;
+        public bool      ArriveAtEnd;
     }
 
     public List<Move> Moves;
@@ -97,8 +99,18 @@ public class MoveMixer : PlayableBehaviour
             if (move.FromHeadset) position = _froms[i] ??= AtHeadset(move.Offset);
             if (move.Target == null) continue;
             _targets[i] ??= AwayFromVisitor(move.Target.position, move.MinDistance, move.IgnoreHeight);
-            float travelled = (float)System.Math.Min(now - move.Start, move.Duration);
-            position = Vector3.MoveTowards(position, _targets[i].Value, move.Speed * travelled);
+            float elapsed = (float)System.Math.Min(now - move.Start, move.Duration);
+            float speed = move.Speed;
+            if (move.ArriveAtEnd)
+            {
+                // Wait, then walk so the target is reached as the clip ends; faster than Speed if the way is too long.
+                float distance = Vector3.Distance(position, _targets[i].Value);
+                float duration = (float)move.Duration;
+                speed = Mathf.Max(speed, distance / Mathf.Max(duration, 0.0001f));
+                float wait = speed > 0f ? duration - distance / speed : 0f;
+                elapsed = Mathf.Max(0f, elapsed - wait);
+            }
+            position = Vector3.MoveTowards(position, _targets[i].Value, speed * elapsed);
         }
         mover.position = position;
     }

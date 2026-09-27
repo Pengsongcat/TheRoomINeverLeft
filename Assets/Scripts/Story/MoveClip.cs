@@ -22,6 +22,11 @@ public class MoveClip : PlayableAsset, ITimelineClipAsset
     [Min(0f)] public float MinDistanceFromVisitor = 1f;
     [Tooltip("On: Min Distance is measured on the floor, ignoring height. Off: measured in 3D.")]
     public bool IgnoreHeight = true;
+    [Tooltip("On: the object waits where it is, then moves at Speed so it reaches the target exactly when the clip " +
+             "ends (faster than Speed if the way is too long for the clip). Use it when something on the Timeline " +
+             "must happen on arrival (e.g. a door), whatever the distance turns out to be. Off: it sets off at the " +
+             "clip's start and stops on arrival.")]
+    public bool ArriveAtEnd;
 
     public ClipCaps clipCaps => ClipCaps.None;
 
