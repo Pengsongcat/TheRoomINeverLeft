@@ -141,6 +141,12 @@ public class RoomCalibrator : MonoBehaviour
             // Not enough to rebuild the room. The saved IDs stay in the store and are marked for erase
             // when the new corners are saved.
             service.ReleaseAnchors(handles);
+            Debug.Log($"[RoomCalibrator] Saved room not found: {handles.Count} of {ids.Length} saved corners " +
+                      "loaded on this headset/runtime. Place the corners again.");
+        }
+        else
+        {
+            Debug.Log($"[RoomCalibrator] No saved room ({ids.Length} saved corner IDs). Place the corners.");
         }
 
         GoToPlacing();
@@ -211,6 +217,7 @@ public class RoomCalibrator : MonoBehaviour
             {
                 saved = false;
                 error = $"Saving timed out after {_saveTimeout:0} s. Check Spatial Data over Link and any prompt in the headset.";
+                Debug.LogWarning($"[RoomCalibrator] {error}", this);
             }
         }
         catch (Exception e)
