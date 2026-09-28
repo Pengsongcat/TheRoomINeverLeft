@@ -42,6 +42,7 @@ public sealed class DoorExitDissolve : MonoBehaviour
     Material[][] originals, copies;
     MaterialPropertyBlock block;
     float[] lightInitialIntensities;
+    float nextDiagnosticTime;
 
     void Update()
     {
@@ -49,6 +50,16 @@ public sealed class DoorExitDissolve : MonoBehaviour
         if (portal) portal.holdInsideFade = startPoint;
         var camera = Camera.main;
         if (!Triggered && camera) ObserveCamera(camera);
+        if (Application.isPlaying && !Triggered && Time.unscaledTime >= nextDiagnosticTime)
+        {
+            nextDiagnosticTime = Time.unscaledTime + 5f;
+            Vector3 offset = camera && startPoint ? camera.transform.position - startPoint.position : Vector3.zero;
+            offset.y = 0f;
+            Debug.Log($"[DoorEntry] camera={(camera ? camera.name : "missing")}; entered={entered}; " +
+                $"head={(camera ? camera.transform.position : Vector3.zero)}; " +
+                $"start={(startPoint ? startPoint.position : Vector3.zero)}; horizontalDistance={offset.magnitude:F2}; radius={startRadius:F2}; " +
+                $"portalActive={(portal && portal.isActiveAndEnabled)}", this);
+        }
         if (Triggered) Advance(Time.deltaTime);
     }
     public void ObserveCamera(Camera camera)

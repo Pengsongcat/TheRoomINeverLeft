@@ -17,6 +17,7 @@ public sealed class DoorPortalRendererFeature : ScriptableRendererFeature
     sealed class PassData { public List<Draw> draws; public RendererListHandle litDoors; }
     sealed class PortalPass : ScriptableRenderPass
     {
+        bool loggedXR;
         public override void RecordRenderGraph(RenderGraph graph, ContextContainer frame)
         {
             var resources=frame.Get<UniversalResourceData>();
@@ -51,6 +52,22 @@ public sealed class DoorPortalRendererFeature : ScriptableRendererFeature
                 builder.SetRenderAttachmentDepth(resources.activeDepthTexture,AccessFlags.ReadWrite);
                 builder.AllowPassCulling(false);
                 builder.AllowGlobalStateModification(true);
+                if (cameraData.xr.enabled)
+                {
+                    // Match URP's geometry passes. A non-foveated redraw into the XR
+                    // target does not line up with the already-rendered door/depth.
+                    bool canFoveate = resources.isActiveTargetBackBuffer ||
+                        Application.platform != RuntimePlatform.Android || UnityEngine.Experimental.Rendering.XRSystem.GetRenderViewportScale() == 1f;
+                    builder.EnableFoveatedRasterization(cameraData.xr.supportsFoveatedRendering && canFoveate);
+                    builder.SetExtendedFeatureFlags(ExtendedFeatureFlags.MultiviewRenderRegionsCompatible);
+                    if (!loggedXR)
+                    {
+                        loggedXR = true;
+                        Debug.Log($"[DoorPortalRender] version={Application.version}; camera={camera.name}; " +
+                            $"singlePass={cameraData.xr.singlePassEnabled}; foveation={cameraData.xr.supportsFoveatedRendering && canFoveate}; " +
+                            $"portals={DoorPortal.Active.Count}; draws={draws.Count}");
+                    }
+                }
                 builder.SetRenderFunc((PassData d,RasterGraphContext context)=>{
                     foreach(var draw in d.draws) if(draw.litDoors) context.cmd.DrawRendererList(d.litDoors); else if(draw.renderer && draw.material)
                     {
@@ -70,5 +87,3 @@ public sealed class DoorPortalRendererFeature : ScriptableRendererFeature
         }
     }
 }
-
-

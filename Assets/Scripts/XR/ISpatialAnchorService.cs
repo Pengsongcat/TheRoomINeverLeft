@@ -5,6 +5,7 @@ using UnityEngine;
 
 public interface ISpatialAnchorService
 {
+    string LastSaveError { get; }
     Task<IAnchorHandle> CreateAnchorAsync(Vector3 position, Quaternion rotation);
     Task<bool> SaveAnchorsAsync(IEnumerable<IAnchorHandle> anchors);
     Task<IReadOnlyList<IAnchorHandle>> LoadAnchorsAsync(IEnumerable<Guid> ids);

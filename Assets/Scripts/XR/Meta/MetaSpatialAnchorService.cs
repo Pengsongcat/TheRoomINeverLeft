@@ -21,13 +21,49 @@ public class MetaSpatialAnchorService : SpatialAnchorService
 
     public override async Task<bool> SaveAnchorsAsync(IEnumerable<IAnchorHandle> anchors)
     {
+        LastSaveError = null;
         var ovrAnchors = new List<OVRSpatialAnchor>();
         foreach (var h in anchors)
         {
-            if (h is MetaAnchorHandle meta) ovrAnchors.Add(meta.Anchor);
+            if (h is not MetaAnchorHandle meta || meta.Anchor == null || !meta.Anchor.Created)
+                return SaveFailed("Invalid or uncreated corner anchor.");
+            ovrAnchors.Add(meta.Anchor);
         }
-        var result = await OVRSpatialAnchor.SaveAnchorsAsync(ovrAnchors);
-        return result.Success;
+        if (ovrAnchors.Count == 0) return SaveFailed("No corner anchors to save.");
+
+        try
+        {
+            var result = await OVRSpatialAnchor.SaveAnchorsAsync(ovrAnchors);
+            if (result.Success) return true;
+
+            string advice = result.Status switch
+            {
+                OVRAnchor.SaveResult.FailureInsufficientView => "Look around the room to improve tracking, then try again.",
+                OVRAnchor.SaveResult.FailureTooDark => "Increase the room lighting, then try again.",
+                OVRAnchor.SaveResult.FailureTooBright => "Avoid very bright light, then try again.",
+                OVRAnchor.SaveResult.FailurePermissionInsufficient => "Check anchor permissions and Meta app/account trust. See the device log.",
+                OVRAnchor.SaveResult.FailureStorageAtCapacity => "Free up anchor storage on the headset.",
+                OVRAnchor.SaveResult.FailureRateLimited => "Wait several seconds before trying again.",
+                OVRAnchor.SaveResult.FailureUnsupported => "Check the headset OS and spatial anchor runtime support.",
+                OVRAnchor.SaveResult.FailurePersistenceNotEnabled => "Anchor persistence is not ready. Check the device log.",
+                _ => "Check the device log for details."
+            };
+            return SaveFailed($"{result.Status} ({(int)result.Status}). {advice}");
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e, this);
+            return SaveFailed($"{e.GetType().Name}: {e.Message}");
+        }
+    }
+
+    bool SaveFailed(string reason)
+    {
+        LastSaveError = reason;
+        Debug.LogError($"[MetaSpatialAnchorService] Save failed: {reason} " +
+                       $"Platform={Application.platform}; OS={SystemInfo.operatingSystem}; " +
+                       $"app={Application.identifier}; version={Application.version}", this);
+        return false;
     }
 
     public override async Task<IReadOnlyList<IAnchorHandle>> LoadAnchorsAsync(IEnumerable<Guid> ids)

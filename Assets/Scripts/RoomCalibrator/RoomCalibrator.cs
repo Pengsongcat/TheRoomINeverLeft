@@ -30,6 +30,7 @@ public class RoomCalibrator : MonoBehaviour
     public Vector3[] RawCorners  { get; private set; } // anchor positions behind Rect, for the confirm view
 
     IReadOnlyList<IAnchorHandle> _confirmedAnchors; // anchors behind the current Confirming (placed or loaded)
+    bool _savingCorners;
 
     // ─── Lifecycle ─────────────────────────────────────────────────────────────
 
@@ -83,6 +84,7 @@ public class RoomCalibrator : MonoBehaviour
     // Saved anchors are not erased here but marked, and erased once the new corners are confirmed.
     void OnRedoInput(InputAction.CallbackContext _)
     {
+        if (_savingCorners) return;
         if (CurrentState != State.Confirming && CurrentState != State.Placing) return;
         bool anchorsWereLoaded = _corners.CornerCount == 0; // Confirming came from saved anchors, not placement
         _corners.Deactivate();
@@ -179,16 +181,32 @@ public class RoomCalibrator : MonoBehaviour
 
     async void HandleCornersAccepted(RoomRect rect)
     {
+        if (_savingCorners) return;
+        _savingCorners = true;
         _corners.Deactivate();
         Log("Saving corners…");
 
         var anchors = _corners.GetAnchors();
-        bool saved  = await XRPlatformServices.Instance.AnchorService.SaveAnchorsAsync(anchors);
+        var service = XRPlatformServices.Instance.AnchorService;
+        bool saved;
+        string error;
+        try
+        {
+            saved = await service.SaveAnchorsAsync(anchors);
+            error = service.LastSaveError;
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e, this);
+            saved = false;
+            error = e.Message;
+        }
+        finally { _savingCorners = false; }
         if (!saved)
         {
             _corners.ClearAnchors();
             GoToPlacing();
-            ShowError("Could not save the corners. Place them again.");
+            ShowError($"Could not save the corners.\n{error}\nPlace them again after resolving the issue.");
             return;
         }
 

@@ -32,6 +32,7 @@ public class CalibrationFlow : MonoBehaviour
     Vector3[]  _rawCorners; // placed anchor positions, for debug view
     IReadOnlyList<IAnchorHandle> _confirmedAnchors; // anchors behind the current Confirm (placed or loaded)
     bool       _visualizerOn;
+    bool       _savingCorners;
 
     // ─── Lifecycle ─────────────────────────────────────────────────────────────
 
@@ -205,6 +206,7 @@ public class CalibrationFlow : MonoBehaviour
     // Saved anchors are not erased here but marked, and erased once the new corners are confirmed.
     void OnRecalibrateInput(InputAction.CallbackContext _)
     {
+        if (_savingCorners) return;
         if (CurrentState != State.Confirming && CurrentState != State.Calibrating) return;
         bool anchorsWereLoaded = _calibrator.CornerCount == 0; // Confirm came from saved anchors, not placement
         _calibrator.Deactivate();
@@ -225,16 +227,32 @@ public class CalibrationFlow : MonoBehaviour
 
     async void HandleCornersAccepted(RoomRect rect)
     {
+        if (_savingCorners) return;
+        _savingCorners = true;
         _calibrator.Deactivate();
         Log("Saving corners…");
 
         var anchors = _calibrator.GetAnchors();
-        bool saved  = await XRPlatformServices.Instance.AnchorService.SaveAnchorsAsync(anchors);
+        var service = XRPlatformServices.Instance.AnchorService;
+        bool saved;
+        string error;
+        try
+        {
+            saved = await service.SaveAnchorsAsync(anchors);
+            error = service.LastSaveError;
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e, this);
+            saved = false;
+            error = e.Message;
+        }
+        finally { _savingCorners = false; }
         if (!saved)
         {
             _calibrator.ClearAnchors();
             GoToCalibrating();
-            ShowError("Could not save the corners. Place them again.");
+            ShowError($"Could not save the corners.\n{error}\nPlace them again after resolving the issue.");
             return;
         }
 
