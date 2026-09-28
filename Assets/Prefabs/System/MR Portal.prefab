@@ -783,6 +783,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5422278844203034291, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
+      propertyPath: crossfade
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422278844203034291, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
+      propertyPath: fullVolume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422278844203034291, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
+      propertyPath: firstVolume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5909657744380343769, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
       propertyPath: outsideOpacity
       value: 0.7
@@ -834,6 +846,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5017184122705993991, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 598728587151215810}
+    - targetCorrespondingSourceObject: {fileID: 5685090485624179302, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5331356322408919017}
   m_SourcePrefab: {fileID: 100100000, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
 --- !u!4 &1215657147446994962 stripped
 Transform:
@@ -872,3 +887,33 @@ MonoBehaviour:
   _dissolve: {fileID: 5014899353663828828}
   _experience: {fileID: 0}
   _hideWhenDone: {fileID: 0}
+--- !u!1 &7783742464187371761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5685090485624179302, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
+  m_PrefabInstance: {fileID: 2513034065634269847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!169 &5331356322408919017
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783742464187371761}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.06775807
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
