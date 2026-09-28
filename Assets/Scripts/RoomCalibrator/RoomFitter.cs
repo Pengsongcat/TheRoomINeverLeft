@@ -2,11 +2,12 @@ using System;
 using UnityEngine;
 
 // Sits on Room. When the Room Calibrator has the room's corners, moves Room to the measured room's centre on
-// its floor, turns it to face the front wall (corner 1 → 2) and scales it evenly on X/Z so the design space
-// fits inside. Height scale stays 1. Without calibration Room stays where it is (the tracking origin), unscaled.
+// its floor and turns it to face the front wall (corner 1 → 2). No resizing for now: Room stays at scale 1, so
+// everything that follows the room scale stays at its authored size. Without calibration Room stays where it is
+// (the tracking origin).
 public class RoomFitter : MonoBehaviour
 {
-    public const string ScaleMethod = "Even";
+    public const string ScaleMethod = "None";
 
     [SerializeField] RoomCalibrator _calibrator;
 
@@ -38,12 +39,12 @@ public class RoomFitter : MonoBehaviour
     {
         Calibrated   = true;
         MeasuredSize = new Vector2(rect.width, rect.length);
-        Scale = Mathf.Min(rect.width / _designSize.x, rect.length / _designSize.y);
+        Scale = 1f;
         transform.SetPositionAndRotation(
             new Vector3(rect.centre.x, rect.floorY, rect.centre.z),
             Quaternion.LookRotation(rect.forward, Vector3.up));
-        transform.localScale = new Vector3(Scale, 1f, Scale);
-        Debug.Log($"[RoomFitter] Room {rect.width:F2} × {rect.length:F2} m → scale {Scale:F2}");
+        transform.localScale = Vector3.one;
+        Debug.Log($"[RoomFitter] Room {rect.width:F2} × {rect.length:F2} m → placed and turned, not scaled");
         Fitted?.Invoke(this);
     }
 }

@@ -22,6 +22,9 @@ public sealed class DoorPortal : MonoBehaviour
     [Tooltip("Start the transition just before the camera near plane clips the doorway.")]
     [Min(0f)] public float entryPadding = 0.02f;
     [Header("Inside Passthrough")]
+    [Tooltip("Room opacity seen through the door from outside: 1 hides the real world behind it, 0 shows it fully. " +
+             "The inside fade starts from this value.")]
+    [Range(0f,1f)] public float outsideOpacity = 1f;
     [Tooltip("Virtual wall opacity after entering: 1 hides passthrough, 0 reveals it fully.")]
     [Range(0f,1f)] public float insideWallOpacity = 0.7f;
     [Min(0f)] public float insideFadeDuration = 1f;
@@ -37,9 +40,9 @@ public sealed class DoorPortal : MonoBehaviour
         if (!camera || !cameraStates.TryGetValue(camera, out var state) || !state.inside) return 1f;
         if (insideOpacityOverride >= 0f) return Mathf.Clamp01(insideOpacityOverride);
         double start = holdInsideFade ? System.Math.Max(state.enteredAt, fadeStartedAt) : state.enteredAt;
-        if (double.IsPositiveInfinity(start)) return 1f;
+        if (double.IsPositiveInfinity(start)) return outsideOpacity;
         float t = insideFadeDuration <= 0f ? 1f : Mathf.Clamp01((float)(Time.realtimeSinceStartupAsDouble - start) / insideFadeDuration);
-        return Mathf.Lerp(1f, insideWallOpacity, t*t*(3f-2f*t));
+        return Mathf.Lerp(outsideOpacity, insideWallOpacity, t*t*(3f-2f*t));
     }
     readonly System.Collections.Generic.Dictionary<Camera, CameraState> cameraStates = new System.Collections.Generic.Dictionary<Camera, CameraState>();
     bool lastPlayState;

@@ -108,12 +108,12 @@ public class ExperienceManager : MonoBehaviour
 
     // ─── Experience steps ──────────────────────────────────────────────────────
 
-    // Passthrough stays on; the VR world is shown again but masked, so it is only visible through the portal.
+    // Passthrough stays on; the VR world is shown again. Pure MR for now: no Passthrough Mask, so nothing is limited
+    // to the portal.
     void StartMRExperience()
     {
         SetState(State.MRExperience);
         SetVRContentHidden(false);
-        _mask.ShowMask();
         _story.ShowFirst();
         _portal.gameObject.SetActive(true);
         Debug.Log("[ExperienceManager] MR experience: portal open.");

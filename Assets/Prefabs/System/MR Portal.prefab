@@ -784,6 +784,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5909657744380343769, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
+      propertyPath: outsideOpacity
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909657744380343769, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
       propertyPath: whiteEmission.b
       value: 0.07169801
       objectReference: {fileID: 0}
@@ -804,9 +808,13 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7455875550178044363, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
+      propertyPath: delay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455875550178044363, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
       propertyPath: startPoint
       value: 
-      objectReference: {fileID: 7329254036287490839}
+      objectReference: {fileID: 0}
     - target: {fileID: 7455875550178044363, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
       propertyPath: startRadius
       value: 0.3
@@ -843,11 +851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bc77f61a2e2874d97a7aa2a0c8b117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.Visuals::DoorExitDissolve
---- !u!4 &7329254036287490839 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5140483619249557888, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}
-  m_PrefabInstance: {fileID: 2513034065634269847}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7440097542182337424 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5017184122705993991, guid: 6a76cb602df635741a64a4d0a3874dc9, type: 3}

@@ -118,8 +118,13 @@ public class RoomCalibrator : MonoBehaviour
             var handles = await service.LoadAnchorsAsync(ids);
             if (handles.Count == 4)
             {
-                GoToConfirming(Positions(handles), handles);
-                return;
+                // Anchors load in any order; corner order is what says which wall is the front.
+                var ordered = InSavedOrder(handles, ids);
+                if (ordered != null)
+                {
+                    GoToConfirming(Positions(ordered), ordered);
+                    return;
+                }
             }
             if (handles.Count == 3)
             {
@@ -277,6 +282,20 @@ public class RoomCalibrator : MonoBehaviour
         var pos = new Vector3[handles.Count];
         for (int i = 0; i < handles.Count; i++) pos[i] = handles[i].Position;
         return pos;
+    }
+
+    // The loaded anchors in saved ID order, or null if they don't match the saved IDs.
+    static IReadOnlyList<IAnchorHandle> InSavedOrder(IReadOnlyList<IAnchorHandle> handles, Guid[] savedIds)
+    {
+        if (handles.Count != savedIds.Length) return null;
+        var ordered = new IAnchorHandle[handles.Count];
+        foreach (var h in handles)
+        {
+            int i = Array.IndexOf(savedIds, h.Uuid);
+            if (i < 0 || ordered[i] != null) return null;
+            ordered[i] = h;
+        }
+        return ordered;
     }
 
     // Rebuilds a missing 4th anchor using the parallelogram property.

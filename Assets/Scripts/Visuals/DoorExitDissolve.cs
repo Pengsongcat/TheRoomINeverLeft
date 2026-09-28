@@ -24,7 +24,7 @@ public sealed class DoorExitDissolve : MonoBehaviour
     [Min(0.1f)] public float noiseScale = 12f;
     [Tooltip("Lights that fade to black in sync with the door dissolve.")]
     public Light[] lightsToFade;
-    [Tooltip("On Room. Told to start, with the door room's opacity, when the dissolve begins: it fades the door " +
+    [Tooltip("On Room. Told to start, with the door room's opacity, as soon as the visitor walks through the door: it fades the door " +
              "room out while the passthrough turns dark grey, then turns the MR Portal off. Empty: nothing else fades.")]
     public RoomPassthroughTransition roomTransition;
     public bool Triggered { get; private set; }
@@ -67,6 +67,8 @@ public sealed class DoorExitDissolve : MonoBehaviour
         if (!camera || !portal || Triggered) return;
         if (trackedCamera != camera) { trackedCamera = camera; sampled = false; entered = false; }
         entered |= portal.IsCameraInside(camera);
+        // The passthrough change starts as soon as the visitor has walked through the door, not at the Start Point.
+        if (entered) BeginRoomTransition();
         if (startPoint)
         {
             // Only after walking through the door, so reaching the point some other way does not count.
@@ -121,7 +123,10 @@ public sealed class DoorExitDissolve : MonoBehaviour
             for(int i=0;i<lightsToFade.Length;i++)lightInitialIntensities[i]=lightsToFade[i]?lightsToFade[i].intensity:0f;
         }
         elapsed=0;Progress=0;completed=false;Triggered=true;
-        // Hand the door room's current opacity to Room so it can fade the room and the passthrough together.
+    }
+    // Hand the door room's current opacity to Room so it can fade the room and the passthrough together.
+    void BeginRoomTransition()
+    {
         if(roomTransition && Application.isPlaying && portal)
             roomTransition.Begin(portal,portal.GetInsideWallOpacity(trackedCamera?trackedCamera:Camera.main),this);
     }

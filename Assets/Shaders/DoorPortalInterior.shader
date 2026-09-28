@@ -26,6 +26,7 @@ Shader "TRINL/Door Portal Interior"
    CBUFFER_START(UnityPerMaterial)
     half4 _BaseColor; float4 _PortalPlane; float _SurfaceDefinition; float _InteriorBaseBrightness; float4 _InteriorLightPositionRange; half4 _InteriorLightColor;
    CBUFFER_END
+   float _DoorPortalCameraOpacity;
    struct A { float4 positionOS:POSITION; float3 normalOS:NORMAL; UNITY_VERTEX_INPUT_INSTANCE_ID };
    struct V { float4 positionCS:SV_POSITION; float3 normalWS:TEXCOORD0; float3 positionWS:TEXCOORD1; UNITY_VERTEX_OUTPUT_STEREO };
    V vert(A a) { V o; UNITY_SETUP_INSTANCE_ID(a); UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);o.positionWS=TransformObjectToWorld(a.positionOS.xyz);o.positionCS=TransformWorldToHClip(o.positionWS);o.normalWS=TransformObjectToWorldNormal(a.normalOS);return o; }
@@ -42,7 +43,9 @@ Shader "TRINL/Door Portal Interior"
     // Two-sided room shell: support imported meshes with inward or outward normals.
     float diffuse = abs(dot(normalize(i.normalWS),toLight*rsqrt(max(distanceSquared,0.0001))));
     half3 lighting = _InteriorLightColor.rgb * (diffuse*falloff/(1.0+distanceSquared));
-    return half4(_BaseColor.rgb*(definition*_InteriorBaseBrightness+lighting),1);
+    half opacity = saturate(_DoorPortalCameraOpacity);
+    // Same as inside: premultiplied colour, alpha left for the passthrough underlay, so the real world shows through.
+    return half4(_BaseColor.rgb*(definition*_InteriorBaseBrightness+lighting)*opacity,opacity);
    }
    ENDHLSL
   }

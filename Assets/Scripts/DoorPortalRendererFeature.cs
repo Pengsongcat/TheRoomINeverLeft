@@ -37,7 +37,7 @@ public sealed class DoorPortalRendererFeature : ScriptableRendererFeature
                 Add(draws,portal.aperture);Add(draws,portal.depthReset);
                 // A door swinging behind the aperture must be restored into the cleared depth.
                 if(portal.retainedRenderers!=null && portal.retainedRenderers.Length>0) draws.Add(new Draw { litDoors=true });
-                if(portal.interiorRenderers!=null)foreach(var item in portal.interiorRenderers)Add(draws,item);
+                if(portal.interiorRenderers!=null)foreach(var item in portal.interiorRenderers)Add(draws,item,0,portal.outsideOpacity);
             }
             if(draws.Count==0)return;
             var renderingData=frame.Get<UniversalRenderingData>();
