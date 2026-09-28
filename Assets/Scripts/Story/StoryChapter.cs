@@ -38,6 +38,10 @@ public class StoryChapter : StoryPart
     [Tooltip("Untick a scene to leave it out of this chapter (development). Read when Play starts.")]
     [SerializeField] List<SceneToggle> _sceneToggles = new();
 
+    [Tooltip("Optional. Hidden while the chapter plays, turned on once every scene has finished. The chapter then " +
+             "finishes as usual, so it stays up for this chapter's End Delay on the Story Director.")]
+    [SerializeField] GameObject _end;
+
     StoryScene[] _scenes;
     StoryScene _activeScene;
     int _pendingOtherGuides;
@@ -52,6 +56,8 @@ public class StoryChapter : StoryPart
 
     void Awake()
     {
+        if (_end != null) _end.SetActive(false);
+
         var included = new List<StoryScene>();
         foreach (var scene in GetComponentsInChildren<StoryScene>(includeInactive: true))
         {
@@ -109,10 +115,11 @@ public class StoryChapter : StoryPart
     public override void Begin()
     {
         _activeScene = null;
+        if (_end != null) _end.SetActive(false);
         if (_scenes.Length == 0)
         {
             Debug.LogWarning($"[Story] {name} has no scenes.");
-            RaiseFinished();
+            Finish();
             return;
         }
 
@@ -132,7 +139,7 @@ public class StoryChapter : StoryPart
     {
         if (_activeScene == null)
         {
-            RaiseFinished();
+            Finish();
             return;
         }
         if (!_activeScene.Done)
@@ -234,7 +241,18 @@ public class StoryChapter : StoryPart
             else scene.gameObject.SetActive(true);
         }
 
-        if (allDone) RaiseFinished();
+        if (allDone) Finish();
+    }
+
+    // Shows the End object (if any) before handing back to the Story Director.
+    void Finish()
+    {
+        if (_end != null)
+        {
+            _end.SetActive(true);
+            Debug.Log($"[Story] {name}: {_end.name} shown.");
+        }
+        RaiseFinished();
     }
 
     void CancelSceneEndDelay()
