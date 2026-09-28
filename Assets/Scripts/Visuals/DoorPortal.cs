@@ -26,10 +26,19 @@ public sealed class DoorPortal : MonoBehaviour
     [Range(0f,1f)] public float insideWallOpacity = 0.7f;
     [Min(0f)] public float insideFadeDuration = 1f;
     sealed class CameraState { public Vector3 previous; public bool inside; public double enteredAt; }
+    // Set by DoorExitDissolve when it has a Start Point: the inside fade then waits for StartInsideFade().
+    [System.NonSerialized] public bool holdInsideFade;
+    double fadeStartedAt = double.PositiveInfinity;
+    public void StartInsideFade() { if (double.IsPositiveInfinity(fadeStartedAt)) fadeStartedAt = Time.realtimeSinceStartupAsDouble; }
+    // Set by RoomPassthroughTransition while it fades the room out (0..1); negative = the door's own fade.
+    [System.NonSerialized] public float insideOpacityOverride = -1f;
     public float GetInsideWallOpacity(Camera camera)
     {
         if (!camera || !cameraStates.TryGetValue(camera, out var state) || !state.inside) return 1f;
-        float t = insideFadeDuration <= 0f ? 1f : Mathf.Clamp01((float)(Time.realtimeSinceStartupAsDouble - state.enteredAt) / insideFadeDuration);
+        if (insideOpacityOverride >= 0f) return Mathf.Clamp01(insideOpacityOverride);
+        double start = holdInsideFade ? System.Math.Max(state.enteredAt, fadeStartedAt) : state.enteredAt;
+        if (double.IsPositiveInfinity(start)) return 1f;
+        float t = insideFadeDuration <= 0f ? 1f : Mathf.Clamp01((float)(Time.realtimeSinceStartupAsDouble - start) / insideFadeDuration);
         return Mathf.Lerp(1f, insideWallOpacity, t*t*(3f-2f*t));
     }
     readonly System.Collections.Generic.Dictionary<Camera, CameraState> cameraStates = new System.Collections.Generic.Dictionary<Camera, CameraState>();
@@ -85,7 +94,7 @@ public sealed class DoorPortal : MonoBehaviour
         return state.inside;
     }
     [ContextMenu("Reset Camera Entry State")]
-    public void ResetCameraEntryState() { cameraStates.Clear(); }
+    public void ResetCameraEntryState() { cameraStates.Clear(); fadeStartedAt = double.PositiveInfinity; }
     // Reserved rendering-layer bit for the portal's lit door redraw. Keep ordinary light layers intact.
     public const uint RetainedRenderingLayer = 1u << 31;
     readonly System.Collections.Generic.HashSet<Renderer> markedRenderers = new System.Collections.Generic.HashSet<Renderer>();
@@ -102,7 +111,7 @@ public sealed class DoorPortal : MonoBehaviour
     MaterialPropertyBlock block;
     public static readonly System.Collections.Generic.List<DoorPortal> Active = new System.Collections.Generic.List<DoorPortal>();
     void OnEnable() { if (!Active.Contains(this)) Active.Add(this); Refresh(); }
-    void OnDisable() { Active.Remove(this); cameraStates.Clear(); foreach (var item in markedRenderers) if(item) item.renderingLayerMask &= ~RetainedRenderingLayer; markedRenderers.Clear(); }
+    void OnDisable() { Active.Remove(this); cameraStates.Clear(); fadeStartedAt = double.PositiveInfinity;foreach (var item in markedRenderers) if(item) item.renderingLayerMask &= ~RetainedRenderingLayer; markedRenderers.Clear(); }
     void LateUpdate() { Refresh(); }
     void OnValidate() { Refresh(); }
     public void Refresh()

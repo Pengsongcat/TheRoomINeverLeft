@@ -65,7 +65,8 @@ public sealed class DoorPortalRendererFeature : ScriptableRendererFeature
         {
             if(!renderer||!renderer.enabled||!renderer.gameObject.activeInHierarchy)return;
             var materials=renderer.sharedMaterials;
-            for(int i=0;i<materials.Length;i++)if(materials[i])draws.Add(new Draw{renderer=renderer,material=materials[i],submesh=i,pass=passIndex,opacity=opacity});
+            // Skip materials without this pass, e.g. the MR Portal's stencil mark added by PortalDissolve.
+            for(int i=0;i<materials.Length;i++)if(materials[i]&&passIndex<materials[i].passCount)draws.Add(new Draw{renderer=renderer,material=materials[i],submesh=i,pass=passIndex,opacity=opacity});
         }
     }
 }

@@ -209,6 +209,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1374121155928576271, guid: c286fc89c0e8f8542b480d57a14b6c0a, type: 3}
   m_PrefabInstance: {fileID: 4889968062923897799}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &192927906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8119724594872620526, guid: 802cd3cc0830ee14dbadd8e876e71d21, type: 3}
+  m_PrefabInstance: {fileID: 2004905199}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c13159a0d04324a8f693cab0efa5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Experience::ExperienceManager
 --- !u!1001 &355452930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -643,6 +654,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1984207414}
     m_Modifications:
+    - target: {fileID: 598728587151215810, guid: c6e4c927f85113c44b57f972bf662b91, type: 3}
+      propertyPath: _experience
+      value: 
+      objectReference: {fileID: 192927906}
+    - target: {fileID: 5014899353663828828, guid: c6e4c927f85113c44b57f972bf662b91, type: 3}
+      propertyPath: roomTransition
+      value: 
+      objectReference: {fileID: 1984207417}
     - target: {fileID: 5034661720808165149, guid: c6e4c927f85113c44b57f972bf662b91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -653,7 +672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5034661720808165149, guid: c6e4c927f85113c44b57f972bf662b91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.082
       objectReference: {fileID: 0}
     - target: {fileID: 5034661720808165149, guid: c6e4c927f85113c44b57f972bf662b91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -687,10 +706,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MR Portal
       objectReference: {fileID: 0}
-    - target: {fileID: 5092124850121255072, guid: c6e4c927f85113c44b57f972bf662b91, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -706,8 +721,8 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8626128155043377636, guid: c6e4c927f85113c44b57f972bf662b91, type: 3}
   m_PrefabInstance: {fileID: 1714894009}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_GameObject: {fileID: 1961286005}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0b5b97ce1bd27d4b914b07363ba8af7, type: 3}
   m_Name: 
@@ -722,6 +737,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1240209528928654020, guid: 3b5dc7eaa898c3d448e268752725826f, type: 3}
   m_PrefabInstance: {fileID: 70773600}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1961286005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5092124850121255072, guid: c6e4c927f85113c44b57f972bf662b91, type: 3}
+  m_PrefabInstance: {fileID: 1714894009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1984207413
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +753,7 @@ GameObject:
   - component: {fileID: 1984207414}
   - component: {fileID: 1984207415}
   - component: {fileID: 1984207416}
+  - component: {fileID: 1984207417}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -787,6 +808,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae20fd7963ebbef48ac7c346815e700c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.RoomCalibrator::RoomScaledRanges
+--- !u!114 &1984207417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984207413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfb2cd9718815440a88f66a60727b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Visuals::RoomPassthroughTransition
+  _mrPortal: {fileID: 1961286005}
+  _duration: 3
+  _curve: 1
+  _matchStrength: 1
+  _endBrightness: -0.098
+  _endContrast: 0
+  _endSaturation: -0.634
+  _endOpacity: 0.732
 --- !u!1001 &2004905199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -811,6 +852,10 @@ PrefabInstance:
       propertyPath: _calibrator
       value: 
       objectReference: {fileID: 355452931}
+    - target: {fileID: 8119724594872620526, guid: 802cd3cc0830ee14dbadd8e876e71d21, type: 3}
+      propertyPath: _roomTransition
+      value: 
+      objectReference: {fileID: 1984207417}
     - target: {fileID: 8119724594872620526, guid: 802cd3cc0830ee14dbadd8e876e71d21, type: 3}
       propertyPath: _hideInPassthrough.Array.size
       value: 1
@@ -875,6 +920,10 @@ PrefabInstance:
     - target: {fileID: 3132332659812558361, guid: 5931f1251a289a24e8238b603f096b7e, type: 3}
       propertyPath: m_Name
       value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281865355015978121, guid: 5931f1251a289a24e8238b603f096b7e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5371551288231267659, guid: 5931f1251a289a24e8238b603f096b7e, type: 3}
       propertyPath: m_LocalPosition.x
