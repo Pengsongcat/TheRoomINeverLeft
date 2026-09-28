@@ -22,6 +22,9 @@ public class RoomCalibrator : MonoBehaviour
     [SerializeField] InputActionReference _confirmAction; // A: accept the corners
     [SerializeField] InputActionReference _redoAction;    // hold B: redo the corners / start over
 
+    [Tooltip("Seconds to wait for the headset to save the corners before giving up and placing them again.")]
+    [SerializeField, Min(1f)] float _saveTimeout = 15f;
+
     public event Action<RoomRect> LayoutReady; // corners accepted or loaded; fit the room now
     public event Action<RoomRect> Completed;   // staff accepted the corners; calibration is over
 
@@ -197,8 +200,18 @@ public class RoomCalibrator : MonoBehaviour
         string error;
         try
         {
-            saved = await service.SaveAnchorsAsync(anchors);
-            error = service.LastSaveError;
+            // The headset may never answer (e.g. spatial data over Link off, or a prompt waiting in the headset).
+            var save = service.SaveAnchorsAsync(anchors);
+            if (await Task.WhenAny(save, Task.Delay(TimeSpan.FromSeconds(_saveTimeout))) == save)
+            {
+                saved = await save;
+                error = service.LastSaveError;
+            }
+            else
+            {
+                saved = false;
+                error = $"Saving timed out after {_saveTimeout:0} s. Check Spatial Data over Link and any prompt in the headset.";
+            }
         }
         catch (Exception e)
         {
