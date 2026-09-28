@@ -37,8 +37,13 @@ public class PortalDissolve : MonoBehaviour
 
     public void SetCut(float worldY)
     {
-        _block.SetFloat(CutYId, worldY);
+        // Read first: other scripts (DoorPortal, DoorExitDissolve) keep their own values in the same block.
         foreach (var r in _renderers)
-            if (r != null) r.SetPropertyBlock(_block);
+        {
+            if (r == null) continue;
+            r.GetPropertyBlock(_block);
+            _block.SetFloat(CutYId, worldY);
+            r.SetPropertyBlock(_block);
+        }
     }
 }

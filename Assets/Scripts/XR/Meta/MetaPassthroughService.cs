@@ -19,6 +19,13 @@ public class MetaPassthroughService : PassthroughService
         set { if (_passthroughLayer != null) _passthroughLayer.SetBrightnessContrastSaturation(Mathf.Clamp(value, -1f, 1f)); }
     }
 
+    public override void SetColorAdjustment(float brightness, float contrast, float saturation)
+    {
+        if (_passthroughLayer == null) return;
+        _passthroughLayer.SetBrightnessContrastSaturation(
+            Mathf.Clamp(brightness, -1f, 1f), Mathf.Clamp(contrast, -1f, 1f), Mathf.Clamp(saturation, -1f, 1f));
+    }
+
     public override void Enable()
     {
         if (_passthroughLayer == null) return;

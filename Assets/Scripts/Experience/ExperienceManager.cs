@@ -21,6 +21,9 @@ public class ExperienceManager : MonoBehaviour
     [SerializeField] RoomCalibrator _calibrator;
     [Tooltip("Set on the scene instance.")]
     [SerializeField] MRPortal _portal;
+    [Tooltip("On Room. When it has faded the door room and turned the MR Portal off, the Passthrough Mask is " +
+             "hidden so the VR world shows. Set on the scene instance.")]
+    [SerializeField] RoomPassthroughTransition _roomTransition;
 
     [Header("Story")]
     [Tooltip("Set on the scene instance.")]
@@ -48,6 +51,7 @@ public class ExperienceManager : MonoBehaviour
         _calibrator.Completed += OnCalibrationCompleted;
         _portal.Entered += FinishMRExperience;
         _portal.Closed  += OnPortalClosed;
+        if (_roomTransition != null) _roomTransition.Finished += OnRoomTransitionFinished;
     }
 
     void OnDisable()
@@ -57,6 +61,7 @@ public class ExperienceManager : MonoBehaviour
         _calibrator.Completed -= OnCalibrationCompleted;
         _portal.Entered -= FinishMRExperience;
         _portal.Closed  -= OnPortalClosed;
+        if (_roomTransition != null) _roomTransition.Finished -= OnRoomTransitionFinished;
     }
 
     void Start()
@@ -138,6 +143,25 @@ public class ExperienceManager : MonoBehaviour
         }
 
         Debug.Log("[ExperienceManager] VR experience.");
+    }
+
+    // Called by a door that runs its own walk-through and dissolve (TRINL_Door's DoorGameStart) instead of the MR
+    // Portal. The door handles passthrough itself, so passthrough stays on and the mask is left as it is; only the
+    // story begins.
+    public void CompleteMRFromDoor()
+    {
+        if (CurrentState != State.MRExperience) return;
+        SetState(State.VRExperience);
+        Debug.Log("[ExperienceManager] Door: VR experience, passthrough kept on.");
+        _story.Begin();
+    }
+
+    // The MR Portal is off, so nothing marks the portal any more: with the mask still up the whole view would be
+    // passthrough and the VR world would vanish. Passthrough itself stays on (dark grey, from the transition).
+    void OnRoomTransitionFinished()
+    {
+        _mask.Hide();
+        Debug.Log("[ExperienceManager] Room transition finished: passthrough mask hidden.");
     }
 
     void OnPortalClosed()
