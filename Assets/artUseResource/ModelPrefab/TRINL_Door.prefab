@@ -965,7 +965,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5774981803127093846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d094576575d4cd3438efad48e1b36ea9, type: 3}
   m_Name: 
@@ -975,6 +975,7 @@ MonoBehaviour:
   source: {fileID: 4719921458104595427}
   firstVolume: 0.7
   fullVolume: 0.8
+  crossfade: 0
   playSoundInPreview: 1
 --- !u!114 &7455875550178044363
 MonoBehaviour:
@@ -989,6 +990,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TRINL.Visuals::DoorExitDissolve
   portal: {fileID: 5909657744380343769}
+  startPoint: {fileID: 0}
+  startRadius: 0.5
+  triggerOnEnter: 1
   exitPlane: {fileID: 4681321959019185307}
   exitHalfSize: {x: 2.3052385, y: 1.8965099}
   doorRenderers:
@@ -1005,6 +1009,7 @@ MonoBehaviour:
   - {fileID: 5452986965740136142}
   - {fileID: 1632371815286973886}
   - {fileID: 8907192952168666370}
+  roomTransition: {fileID: 0}
 --- !u!4 &6588497934630543596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a72d2fb989dec264e963370587c8cbfd, type: 3}
@@ -1153,6 +1158,7 @@ MonoBehaviour:
   interiorBaseBrightness: 0.2
   allowEntry: 1
   entryPadding: 0.02
+  outsideOpacity: 1
   insideWallOpacity: 0.7
   insideFadeDuration: 1
 --- !u!1001 &8617216930052061678

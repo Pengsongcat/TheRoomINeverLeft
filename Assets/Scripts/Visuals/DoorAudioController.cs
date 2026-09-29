@@ -22,6 +22,7 @@ public sealed class DoorAudioController : MonoBehaviour
     public void BeginAudioPreview()
     {
         EndAudioPreview();
+        if (!isActiveAndEnabled) return;
         door = GetComponent<DoorOpeningController>();
         door.OpeningStarted -= PlayOpening;
         door.OpeningStarted += PlayOpening;
@@ -52,6 +53,7 @@ public sealed class DoorAudioController : MonoBehaviour
     }
     void PlayOpening(int stage)
     {
+        if (!isActiveAndEnabled) return;
         AudioClip clip = stage == 1 ? firstOpening : fullOpening;
         float volume = stage == 1 ? firstVolume : fullVolume;
 #if UNITY_EDITOR
