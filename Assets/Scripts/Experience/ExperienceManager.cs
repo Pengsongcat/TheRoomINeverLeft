@@ -14,6 +14,11 @@ public class ExperienceManager : MonoBehaviour
     public enum Mode  { None, VR, MR }
     public enum State { Choosing, Calibrating, MRExperience, VRExperience }
 
+    [Header("Debug")]
+    [Tooltip("Skip the VR / MR question and the room calibration: start the VR experience (passthrough off, " +
+             "the story begins) as soon as the scene loads.")]
+    [SerializeField] bool _skipSetup;
+
     [Header("Components")]
     [SerializeField] CalibrationHud  _hud;
     [SerializeField] PassthroughMask _mask;
@@ -70,6 +75,15 @@ public class ExperienceManager : MonoBehaviour
         _mask.Hide();
 
         SetPassthrough(false);
+        if (_skipSetup)
+        {
+            CurrentMode = Mode.VR;
+            _hud.SetVisible(false);
+            Debug.Log("[ExperienceManager] Setup skipped: VR.");
+            StartVRExperience();
+            return;
+        }
+
         SetState(State.Choosing);
         _hud.SetVisible(true);
         _hud.SetMessage("VR or MR experience?\n<size=75%>A = MR · B = VR</size>");
