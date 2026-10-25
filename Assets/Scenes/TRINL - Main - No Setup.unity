@@ -174,8 +174,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8985285512817944702, guid: 3b5dc7eaa898c3d448e268752725826f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 70773603}
+    - targetCorrespondingSourceObject: {fileID: 8985285512817944702, guid: 3b5dc7eaa898c3d448e268752725826f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 70773602}
   m_SourcePrefab: {fileID: 100100000, guid: 3b5dc7eaa898c3d448e268752725826f, type: 3}
+--- !u!1 &70773601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8985285512817944702, guid: 3b5dc7eaa898c3d448e268752725826f, type: 3}
+  m_PrefabInstance: {fileID: 70773600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &70773602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70773601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee166e5f6cb354c3d918c3359255cfdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkAudioListener
+  isDefaultListener: 1
+  bOverrideScalingFactor: 0
+  scalingFactor: -1
+  listenerId: 0
+--- !u!114 &70773603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70773601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acfabc9295354f87884c3bcc511c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkGameObj
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!114 &192927906 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8119724594872620526, guid: 802cd3cc0830ee14dbadd8e876e71d21, type: 3}
@@ -353,6 +404,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b5b97ce1bd27d4b914b07363ba8af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.Experience::MRPortal
+--- !u!1 &1856414056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1856414058}
+  - component: {fileID: 1856414057}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1856414057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856414056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2ed23084d734a7fa2b134824e8501e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkInitializer
+  InitializationSettings: {fileID: 11400000, guid: fd1164986473e408a85517722d95206e, type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
+--- !u!4 &1856414058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856414056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1984207414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3603749990056679844, guid: 617fc2f59d1fdb842b6346ea4b0cfafa, type: 3}
@@ -951,3 +1059,4 @@ SceneRoots:
   - {fileID: 7250759972189369469}
   - {fileID: 1370786403}
   - {fileID: 5862148419506118839}
+  - {fileID: 1856414058}
