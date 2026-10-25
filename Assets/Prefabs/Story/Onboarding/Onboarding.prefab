@@ -155,11 +155,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: Onboarding Sound
       objectReference: {fileID: 0}
+    - target: {fileID: 9090009390954720675, guid: 0bd777959026602479063953dcffc6c7, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090009390954720675, guid: 0bd777959026602479063953dcffc6c7, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: 2372621804478505466, guid: a4d421c9178a7a441b09c4a0c7953e04, type: 2}
+    - target: {fileID: 9090009390954720675, guid: 0bd777959026602479063953dcffc6c7, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 385582373298324367}
+    - target: {fileID: 9090009390954720675, guid: 0bd777959026602479063953dcffc6c7, type: 3}
+      propertyPath: m_ExposedReferences.m_References.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090009390954720675, guid: 0bd777959026602479063953dcffc6c7, type: 3}
+      propertyPath: m_ExposedReferences.m_References.Array.data[0].first
+      value: 44fc8217fa094cafa2593dde085bdbf6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090009390954720675, guid: 0bd777959026602479063953dcffc6c7, type: 3}
+      propertyPath: m_ExposedReferences.m_References.Array.data[0].second
+      value: 
+      objectReference: {fileID: 385582373298324367}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bd777959026602479063953dcffc6c7, type: 3}
+--- !u!1 &385582373298324367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2650434686000119588, guid: 0bd777959026602479063953dcffc6c7, type: 3}
+  m_PrefabInstance: {fileID: 2418962336622607531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &2593593137734487186 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 175546215859908665, guid: 0bd777959026602479063953dcffc6c7, type: 3}
@@ -519,7 +548,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183567a7e7838ad4fa513711e3bfec09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TRINL.Visuals::AudioFlickerLight
+  _listenTo: 0
   _source: {fileID: 2593593137734487186}
+  _source2: {fileID: 0}
+  _trackDistance: 1
+  _minBrightness: 0
   _baseBrightness: 0.3
   _audioBoost: 0.7
   _gain: 4

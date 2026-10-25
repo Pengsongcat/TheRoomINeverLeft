@@ -1,0 +1,66 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2463695280",
+    "Type": "Event",
+    "GUID": "{F98F9991-7F3D-4146-9584-1827C3DCE1B6}",
+    "Language": "SFX",
+    "Hash": "{736DA46A-46FF-1366-CBE6-847FFD744B99}",
+    "ObjectPath": "Play_S13_NarratorSteps_1",
+    "ShortName": "Play_S13_NarratorSteps_1",
+    "Path": "Event/Play_S13_NarratorSteps_1.bnk",
+    "Media": [
+     {
+      "Id": "927071886",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "concretefootstep.wav",
+      "Path": "Media/927071886.wem",
+      "CachePath": "27/{2753DDC0-A56C-7246-41C7-2BDB6D16EEC5}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2463695280",
+      "Name": "Play_S13_NarratorSteps_1",
+      "ObjectPath": "\\Events\\Scene 1_3\\Play_S13_NarratorSteps_1",
+      "GUID": "{F98F9991-7F3D-4146-9584-1827C3DCE1B6}",
+      "MaxAttenuation": "4.1",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "927071886"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{8ADA1552-031B-6684-A2C9-DDA7D7BCAF99}"
+ }
+}

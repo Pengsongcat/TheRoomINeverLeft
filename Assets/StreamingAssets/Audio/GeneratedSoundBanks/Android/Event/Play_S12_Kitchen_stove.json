@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3542739375",
+    "Type": "Event",
+    "GUID": "{A7FD4CA7-784C-4A75-AA44-C734F687B525}",
+    "Language": "SFX",
+    "Hash": "{75324A55-F7BF-CB11-4E5A-A20DFD264339}",
+    "ObjectPath": "Play_S12_Kitchen_stove",
+    "ShortName": "Play_S12_Kitchen_stove",
+    "Path": "Event/Play_S12_Kitchen_stove.bnk",
+    "Media": [
+     {
+      "Id": "1063863360",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "stove.wav",
+      "Path": "Media/1063863360.wem",
+      "CachePath": "3C/{3C8BC313-9949-C9A9-2BEB-0D6EE30BB8E5}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3542739375",
+      "Name": "Play_S12_Kitchen_stove",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Kitchen_stove",
+      "GUID": "{A7FD4CA7-784C-4A75-AA44-C734F687B525}",
+      "MaxAttenuation": "5.2",
+      "DurationType": "OneShot",
+      "DurationMin": "8.424",
+      "DurationMax": "8.424",
+      "MediaRefs": [
+       {
+        "Id": "1063863360"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2005218386",
+      "Name": "S12_Kitchen_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Kitchen_Gain",
+      "GUID": "{77059C6F-0811-4055-8BF1-9764AC1F7E2F}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{32147591-C767-B112-C2F1-C36D87E886E6}"
+ }
+}

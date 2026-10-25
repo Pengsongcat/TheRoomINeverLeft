@@ -1,0 +1,68 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2464962179",
+    "Type": "Event",
+    "GUID": "{5269E87D-9FED-4AF6-AF71-74073D475B57}",
+    "Language": "SFX",
+    "Hash": "{89D5A6D2-E380-B0AD-4EBA-75F3B4F02107}",
+    "ObjectPath": "Play_S12_Table3_2",
+    "ShortName": "Play_S12_Table3_2",
+    "Path": "Event/Play_S12_Table3_2.bnk",
+    "Media": [
+     {
+      "Id": "579573520",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "aunt_shenshen.wav",
+      "Path": "Media/579573520.wem",
+      "CachePath": "DA/{DAB45E45-CE7E-5A1C-E2A0-2261B651CE6C}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2464962179",
+      "Name": "Play_S12_Table3_2",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Table3_2",
+      "GUID": "{5269E87D-9FED-4AF6-AF71-74073D475B57}",
+      "MaxAttenuation": "5",
+      "DurationType": "OneShot",
+      "DurationMin": "58.11125",
+      "DurationMax": "58.11125",
+      "MediaRefs": [
+       {
+        "Id": "579573520"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{78AC0A0D-5E87-6747-61B7-14D8AD5CFFBF}"
+ }
+}

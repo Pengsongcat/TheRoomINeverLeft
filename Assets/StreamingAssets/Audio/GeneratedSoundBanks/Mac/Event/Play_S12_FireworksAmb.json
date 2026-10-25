@@ -1,0 +1,68 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "429689217",
+    "Type": "Event",
+    "GUID": "{E67A6269-B732-41C1-8B99-30FB1855D9E0}",
+    "Language": "SFX",
+    "Hash": "{75F37743-5A51-3FD0-DFF8-D8156FCA7BF5}",
+    "ObjectPath": "Play_S12_FireworksAmb",
+    "ShortName": "Play_S12_FireworksAmb",
+    "Path": "Event/Play_S12_FireworksAmb.bnk",
+    "Media": [
+     {
+      "Id": "187991784",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "fireworks2.wav",
+      "Path": "Media/187991784.wem",
+      "CachePath": "2C/{2CD0C659-F100-A506-39E3-7B6D836999D0}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "429689217",
+      "Name": "Play_S12_FireworksAmb",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_FireworksAmb",
+      "GUID": "{E67A6269-B732-41C1-8B99-30FB1855D9E0}",
+      "MaxAttenuation": "8.33",
+      "DurationType": "OneShot",
+      "DurationMin": "92.601494",
+      "DurationMax": "92.601494",
+      "MediaRefs": [
+       {
+        "Id": "187991784"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{9824F6F3-3AC7-7ED1-BBC7-78A4F332EAAE}"
+ }
+}

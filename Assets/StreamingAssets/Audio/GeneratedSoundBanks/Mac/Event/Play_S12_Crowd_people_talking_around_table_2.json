@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1822790651",
+    "Type": "Event",
+    "GUID": "{FD4B0901-0D64-4247-AA92-824048D451D6}",
+    "Language": "SFX",
+    "Hash": "{D8DB20F1-F3AA-89F0-6DCB-62BE967E2D3D}",
+    "ObjectPath": "Play_S12_Crowd_people_talking_around_table_2",
+    "ShortName": "Play_S12_Crowd_people_talking_around_table_2",
+    "Path": "Event/Play_S12_Crowd_people_talking_around_table_2.bnk",
+    "Media": [
+     {
+      "Id": "709088308",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "people_talking_around_table.wav",
+      "Path": "Media/709088308.wem",
+      "CachePath": "3E/{3E461A29-7299-15DF-1453-E38181F8A1E2}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1822790651",
+      "Name": "Play_S12_Crowd_people_talking_around_table_2",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Crowd_people_talking_around_table_2",
+      "GUID": "{FD4B0901-0D64-4247-AA92-824048D451D6}",
+      "MaxAttenuation": "8.33",
+      "DurationType": "OneShot",
+      "DurationMin": "63.972584",
+      "DurationMax": "63.972584",
+      "MediaRefs": [
+       {
+        "Id": "709088308"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2875816095",
+      "Name": "S12_Crowd_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Crowd_Gain",
+      "GUID": "{2D92DF84-C06B-43BB-A353-89206EAC62AC}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{95F5F4A4-621A-9D83-4BAF-E32F3FB65612}"
+ }
+}

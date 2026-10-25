@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3068485907",
+    "Type": "Event",
+    "GUID": "{00DF23AC-2EC2-4DF2-86FC-AB745A107E9F}",
+    "Language": "SFX",
+    "Hash": "{5E27F699-8408-D0A1-2D83-1E1CC88DB5AF}",
+    "ObjectPath": "Play_S12_TV_3",
+    "ShortName": "Play_S12_TV_3",
+    "Path": "Event/Play_S12_TV_3.bnk",
+    "Media": [
+     {
+      "Id": "683814046",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "spring_gala_tv.wav",
+      "Path": "Media/683814046.wem",
+      "CachePath": "E4/{E492A805-B5BD-9ECC-BEAA-692BE7778841}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3068485907",
+      "Name": "Play_S12_TV_3",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_TV_3",
+      "GUID": "{00DF23AC-2EC2-4DF2-86FC-AB745A107E9F}",
+      "MaxAttenuation": "5",
+      "DurationType": "OneShot",
+      "DurationMin": "129.37817",
+      "DurationMax": "129.37817",
+      "MediaRefs": [
+       {
+        "Id": "683814046"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2100205116",
+      "Name": "S12_TV_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_TV_Gain",
+      "GUID": "{48A4F8AE-F4B0-44FB-BCDB-48F78586A4E6}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{A13259DF-5418-A113-14B6-426BD55C78B7}"
+ }
+}

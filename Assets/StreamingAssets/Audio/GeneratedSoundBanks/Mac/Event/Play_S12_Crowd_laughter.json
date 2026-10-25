@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3798677509",
+    "Type": "Event",
+    "GUID": "{36BFCE31-F327-44C3-9A4C-CD5BCF2B14F0}",
+    "Language": "SFX",
+    "Hash": "{5F911E9C-8756-9310-0165-DC1A801EA458}",
+    "ObjectPath": "Play_S12_Crowd_laughter",
+    "ShortName": "Play_S12_Crowd_laughter",
+    "Path": "Event/Play_S12_Crowd_laughter.bnk",
+    "Media": [
+     {
+      "Id": "193349380",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "laughter.wav",
+      "Path": "Media/193349380.wem",
+      "CachePath": "6F/{6F122BE6-1DE2-4DF9-450C-DEA6CB210854}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3798677509",
+      "Name": "Play_S12_Crowd_laughter",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Crowd_laughter",
+      "GUID": "{36BFCE31-F327-44C3-9A4C-CD5BCF2B14F0}",
+      "MaxAttenuation": "8.33",
+      "DurationType": "OneShot",
+      "DurationMin": "23.14",
+      "DurationMax": "23.14",
+      "MediaRefs": [
+       {
+        "Id": "193349380"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2875816095",
+      "Name": "S12_Crowd_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Crowd_Gain",
+      "GUID": "{2D92DF84-C06B-43BB-A353-89206EAC62AC}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{08FE50E1-B0DA-CFF6-D4FE-C9C4B33C9797}"
+ }
+}

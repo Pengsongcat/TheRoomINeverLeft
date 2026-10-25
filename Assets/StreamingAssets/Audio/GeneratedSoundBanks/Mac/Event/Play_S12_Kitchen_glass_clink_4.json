@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1656651103",
+    "Type": "Event",
+    "GUID": "{21231C62-B5DC-474D-9F5F-E7FEDB6A8AF9}",
+    "Language": "SFX",
+    "Hash": "{AFB2C9F9-92B1-AF13-4146-11B699D4C9EF}",
+    "ObjectPath": "Play_S12_Kitchen_glass_clink_4",
+    "ShortName": "Play_S12_Kitchen_glass_clink_4",
+    "Path": "Event/Play_S12_Kitchen_glass_clink_4.bnk",
+    "Media": [
+     {
+      "Id": "820814171",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "glass_clink.wav",
+      "Path": "Media/820814171.wem",
+      "CachePath": "E0/{E0BDB3BF-B03C-EBB2-A33F-0A035B3417A4}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1656651103",
+      "Name": "Play_S12_Kitchen_glass_clink_4",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Kitchen_glass_clink_4",
+      "GUID": "{21231C62-B5DC-474D-9F5F-E7FEDB6A8AF9}",
+      "MaxAttenuation": "5.2",
+      "DurationType": "OneShot",
+      "DurationMin": "30.278",
+      "DurationMax": "30.278",
+      "MediaRefs": [
+       {
+        "Id": "820814171"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2005218386",
+      "Name": "S12_Kitchen_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Kitchen_Gain",
+      "GUID": "{77059C6F-0811-4055-8BF1-9764AC1F7E2F}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{69689948-F12A-A8DB-1283-EAF47055F195}"
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "458192298",
+    "Type": "Event",
+    "GUID": "{0C02E0B1-B942-422E-85E3-7C57C134FCF5}",
+    "Language": "SFX",
+    "Hash": "{FE7E7C3F-FBD0-5857-8BE4-67BF9DF4923A}",
+    "ObjectPath": "Play_S12_Kitchen_kitchen2",
+    "ShortName": "Play_S12_Kitchen_kitchen2",
+    "Path": "Event/Play_S12_Kitchen_kitchen2.bnk",
+    "Media": [
+     {
+      "Id": "461254580",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "kitchen2.wav",
+      "Path": "Media/461254580.wem",
+      "CachePath": "87/{875F764F-7ACE-C598-B3D9-A46AD83002BC}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "458192298",
+      "Name": "Play_S12_Kitchen_kitchen2",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Kitchen_kitchen2",
+      "GUID": "{0C02E0B1-B942-422E-85E3-7C57C134FCF5}",
+      "MaxAttenuation": "5.2",
+      "DurationType": "OneShot",
+      "DurationMin": "30",
+      "DurationMax": "30",
+      "MediaRefs": [
+       {
+        "Id": "461254580"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2005218386",
+      "Name": "S12_Kitchen_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Kitchen_Gain",
+      "GUID": "{77059C6F-0811-4055-8BF1-9764AC1F7E2F}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{CAE3571A-7DC1-DECB-7574-F7A88361E775}"
+ }
+}

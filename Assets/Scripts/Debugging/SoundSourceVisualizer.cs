@@ -11,6 +11,9 @@ using UnityEngine;
 // Each sound gets its own colour, hues spread evenly within its scene in hierarchy order, so a marker and its
 // range ring are read as a pair and neighbours never look alike. Only a sound that is playing shows its colour;
 // a silent one washes out to white at the dim trigger alpha, so what is sounding stands out at a glance.
+// A sound counts as playing when its AudioSource plays or when Wwise plays anything on the same object (the
+// Wwise Timeline tracks and the guide post their events there, while the AudioSource stays idle). Once Wwise has
+// played a sound, its ring and label show the Wwise attenuation radius instead of the AudioSource's max distance.
 // Follows the sources every frame, so it shows their placement and the room calibration, at the range heard.
 public class SoundSourceVisualizer : DebugVisualizer
 {
@@ -57,6 +60,7 @@ public class SoundSourceVisualizer : DebugVisualizer
         public bool         WasPlaying;
         public bool         HasAuthored;
         public float        AuthoredMin, AuthoredMax;
+        public float        WwiseRadius = -1f; // last attenuation radius Wwise reported; kept once the sound stops
         public string       LastText;
     }
 
@@ -133,14 +137,21 @@ public class SoundSourceVisualizer : DebugVisualizer
             e.Root.SetActive(Shows(e));
             if (!e.Root.activeSelf) continue;
 
-            bool playing = e.Source.isPlaying;
+            bool wwise = IsPlayingInWwise(e.Source.gameObject);
+            bool playing = e.Source.isPlaying || wwise;
             if (playing != e.WasPlaying) Tint(e, playing);
+            if (wwise)
+            {
+                float radius = AkUnitySoundEngine.GetMaxRadius(e.Source.gameObject);
+                if (radius > 0f) e.WwiseRadius = radius;
+            }
             var centre = e.Source.transform.position;
 
             e.Marker.transform.SetPositionAndRotation(centre, Quaternion.identity);
             e.Marker.transform.localScale = Vector3.one * _markerSize; // the built-in sphere is 1 m across
 
-            UpdateRing(e, new Vector3(centre.x, floorY, centre.z), e.Source.maxDistance);
+            UpdateRing(e, new Vector3(centre.x, floorY, centre.z),
+                       e.WwiseRadius > 0f ? e.WwiseRadius : e.Source.maxDistance);
 
             var text = LabelText(e);
             if (text != e.LastText) { e.Label.text = text; e.LastText = text; }
@@ -151,10 +162,23 @@ public class SoundSourceVisualizer : DebugVisualizer
         }
     }
 
+    static readonly uint[] PlayingIds = new uint[16];
+
+    static bool IsPlayingInWwise(GameObject go)
+    {
+        if (!AkUnitySoundEngine.IsInitialized()) return false;
+        uint count = (uint)PlayingIds.Length;
+        return AkUnitySoundEngine.GetPlayingIDsFromGameObject(go, ref count, PlayingIds) == AKRESULT.AK_Success
+               && count > 0;
+    }
+
     // The sound's name, then its range: authored > current where the room has scaled it, plain values where
-    // it has not (an uncalibrated VR run, or a room the same size as the design space).
+    // it has not (an uncalibrated VR run, or a room the same size as the design space). A sound heard through
+    // Wwise shows the radius of its Wwise attenuation instead: the shape of the fall-off lives in the curve,
+    // so there is no min distance to show.
     static string LabelText(Entry e)
     {
+        if (e.WwiseRadius > 0f) return $"{e.Source.name}\nWwise max {e.WwiseRadius:0.0} m";
         float min = e.Source.minDistance, max = e.Source.maxDistance;
         bool scaled = e.HasAuthored &&
                       (!Mathf.Approximately(min, e.AuthoredMin) || !Mathf.Approximately(max, e.AuthoredMax));

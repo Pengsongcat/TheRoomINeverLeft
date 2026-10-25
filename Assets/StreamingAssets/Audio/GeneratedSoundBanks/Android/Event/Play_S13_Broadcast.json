@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "513860829",
+    "Type": "Event",
+    "GUID": "{1AC7BFCF-6C84-419D-8712-0FB7304DA9A4}",
+    "Language": "SFX",
+    "Hash": "{0E44A067-5C76-A28B-D05D-673C1DFE4198}",
+    "ObjectPath": "Play_S13_Broadcast",
+    "ShortName": "Play_S13_Broadcast",
+    "Path": "Event/Play_S13_Broadcast.bnk",
+    "Media": [
+     {
+      "Id": "174721656",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "radio.wav",
+      "Path": "Media/174721656.wem",
+      "CachePath": "43/{43AAF267-F38D-2AC2-EC85-C8990A2380B0}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "513860829",
+      "Name": "Play_S13_Broadcast",
+      "ObjectPath": "\\Events\\Scene 1_3\\Play_S13_Broadcast",
+      "GUID": "{1AC7BFCF-6C84-419D-8712-0FB7304DA9A4}",
+      "MaxAttenuation": "8.68",
+      "DurationType": "OneShot",
+      "DurationMin": "109.27631",
+      "DurationMax": "109.27631",
+      "MediaRefs": [
+       {
+        "Id": "174721656"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1101013426",
+      "Name": "S13_Broadcast_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S13_Broadcast_Gain",
+      "GUID": "{CCAA8F9E-7326-4FC6-95A8-82AC4D92F1C0}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{19C5689C-B50A-04BB-660B-5B76581CE837}"
+ }
+}

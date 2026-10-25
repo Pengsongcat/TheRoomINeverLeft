@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1707275831",
+    "Type": "Event",
+    "GUID": "{B60A5CA2-EED1-465E-84F9-E50271465796}",
+    "Language": "SFX",
+    "Hash": "{BCAA6B17-C1FB-5E0A-F229-F0B81EF9FA96}",
+    "ObjectPath": "Play_S12_Fireworks",
+    "ShortName": "Play_S12_Fireworks",
+    "Path": "Event/Play_S12_Fireworks.bnk",
+    "Media": [
+     {
+      "Id": "175141155",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "fireworks_1.wav",
+      "Path": "Media/175141155.wem",
+      "CachePath": "51/{51D3CA4C-702A-855B-E6C7-EC6B60E3EA3B}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1707275831",
+      "Name": "Play_S12_Fireworks",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Fireworks",
+      "GUID": "{B60A5CA2-EED1-465E-84F9-E50271465796}",
+      "MaxAttenuation": "5.2",
+      "DurationType": "OneShot",
+      "DurationMin": "266.77405",
+      "DurationMax": "266.77405",
+      "MediaRefs": [
+       {
+        "Id": "175141155"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2500334196",
+      "Name": "S12_Fireworks_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Fireworks_Gain",
+      "GUID": "{A3E144FE-20D2-45E1-80A8-025243ED2F1F}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{1D0B5811-2409-4239-5EF6-1E40C7182F69}"
+ }
+}

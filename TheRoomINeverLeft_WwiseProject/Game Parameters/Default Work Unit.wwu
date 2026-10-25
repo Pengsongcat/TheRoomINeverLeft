@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E47BB2C1-73ED-48CE-B128-5460B50CFBB0}" SchemaVersion="123">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{E47BB2C1-73ED-48CE-B128-5460B50CFBB0}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E47BB2C1-73ED-48CE-B128-5460B50CFBB0}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="S12_Kitchen_Gain" ID="{77059C6F-0811-4055-8BF1-9764AC1F7E2F}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="S12_Fireworks_Gain" ID="{A3E144FE-20D2-45E1-80A8-025243ED2F1F}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="S12_Crowd_Gain" ID="{2D92DF84-C06B-43BB-A353-89206EAC62AC}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="S12_TV_Gain" ID="{48A4F8AE-F4B0-44FB-BCDB-48F78586A4E6}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="S13_Amb3_Gain" ID="{0DADB74F-0313-4365-8E16-257AF578D8DA}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="S13_Amb5_Gain" ID="{F46415AE-8408-49D5-B5A5-0411BADFBBBF}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="S13_Broadcast_Gain" ID="{CCAA8F9E-7326-4FC6-95A8-82AC4D92F1C0}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>
