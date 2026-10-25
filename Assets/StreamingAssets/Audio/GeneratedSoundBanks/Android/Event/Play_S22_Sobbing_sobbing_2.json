@@ -1,0 +1,74 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3426609378",
+    "Type": "Event",
+    "GUID": "{C9FC4C6C-D30B-4CCB-8AC0-2F6840DF5304}",
+    "Language": "SFX",
+    "Hash": "{0789DAFC-8287-02E8-2785-1CBF28C826C2}",
+    "ObjectPath": "Play_S22_Sobbing_sobbing_2",
+    "ShortName": "Play_S22_Sobbing_sobbing_2",
+    "Path": "Event/Play_S22_Sobbing_sobbing_2.bnk",
+    "Media": [
+     {
+      "Id": "911896896",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "sobbing.wav",
+      "Path": "Media/911896896.wem",
+      "CachePath": "A6/{A6DDD13A-B3BF-0C54-334A-5A57BF0A6B26}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3426609378",
+      "Name": "Play_S22_Sobbing_sobbing_2",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Sobbing_sobbing_2",
+      "GUID": "{C9FC4C6C-D30B-4CCB-8AC0-2F6840DF5304}",
+      "MaxAttenuation": "8.33",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "911896896"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1636923008",
+      "Name": "S22_Sobbing_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_Sobbing_Level",
+      "GUID": "{2CB39E3E-CF33-4296-BB53-63E10C95B2C4}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{183B5B57-D458-DBDA-8B88-A0B679ACA5A4}"
+ }
+}

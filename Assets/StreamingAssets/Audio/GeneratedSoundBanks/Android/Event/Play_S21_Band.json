@@ -1,0 +1,117 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1944523496",
+    "Type": "Event",
+    "GUID": "{FBA8A803-D201-4B44-8BEF-1B25FFD08760}",
+    "Language": "SFX",
+    "Hash": "{B2302E4A-B8BF-4B8D-228B-86DC9A1D9213}",
+    "ObjectPath": "Play_S21_Band",
+    "ShortName": "Play_S21_Band",
+    "Path": "Event/Play_S21_Band.bnk",
+    "Media": [
+     {
+      "Id": "1037609364",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "C_est_Magnifique_Live_Avalon_Jazz_Band.wav",
+      "Path": "Media/1037609364.wem",
+      "CachePath": "6F/{6F8F432B-18CA-1157-29B7-69179636C9E9}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "826461293",
+       "Name": "Steam Audio Spatializer",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_1\\Band\\[Effect Slot [1]: (Steam Audio Spatializer)]\\Steam Audio Spatializer",
+       "GUID": "{F4D3046B-8F44-4DA1-A7F8-B3B776001698}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "1403631118",
+       "Name": "RV_S21_Band",
+       "ObjectPath": "\\Effects\\Default Work Unit\\RV_S21_Band",
+       "GUID": "{157A72A6-B56C-428F-B9E8-30FF7F037904}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1944523496",
+      "Name": "Play_S21_Band",
+      "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_Band",
+      "GUID": "{FBA8A803-D201-4B44-8BEF-1B25FFD08760}",
+      "MaxAttenuation": "20",
+      "DurationType": "OneShot",
+      "DurationMin": "155.9532",
+      "DurationMax": "155.9532",
+      "MediaRefs": [
+       {
+        "Id": "1037609364"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "826461293"
+        }
+       ],
+       "ShareSets": [
+        {
+         "Id": "1403631118"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "346825472",
+      "Name": "S21_Band_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S21_Band_Level",
+      "GUID": "{CA92102F-EDA6-4256-AC4A-2514EF388D77}"
+     },
+     {
+      "Id": "2693826935",
+      "Name": "S21_Band_RevWet",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S21_Band_RevWet",
+      "GUID": "{B5AE2F3D-C472-498B-91EF-0B073940D444}"
+     },
+     {
+      "Id": "2809151524",
+      "Name": "S21_Band_RevDry",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S21_Band_RevDry",
+      "GUID": "{1851F2F2-8338-45DB-98D8-E3E5EB865DB3}"
+     },
+     {
+      "Id": "2864425688",
+      "Name": "S21_Band_RevER",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S21_Band_RevER",
+      "GUID": "{02489D38-7DFF-408C-8728-665D1FA15E53}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{AE9E8100-66CE-6981-851F-621676DF9760}"
+ }
+}

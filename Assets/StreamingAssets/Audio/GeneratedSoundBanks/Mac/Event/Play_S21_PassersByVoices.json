@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1772315732",
+    "Type": "Event",
+    "GUID": "{DBA27857-D62C-4242-96C9-00EF2AFDCB90}",
+    "Language": "SFX",
+    "Hash": "{C9E2581E-363A-D2D0-5B3C-18D5721523AF}",
+    "ObjectPath": "Play_S21_PassersByVoices",
+    "ShortName": "Play_S21_PassersByVoices",
+    "Path": "Event/Play_S21_PassersByVoices.bnk",
+    "Media": [
+     {
+      "Id": "364317475",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "crowd2.wav",
+      "Path": "Media/364317475.wem",
+      "CachePath": "A4/{A4BA9C60-E84C-A381-156C-8B45E728A53E}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "1029143990",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_1\\PassersByVoices\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{E5E68101-DDC4-47FF-B1B5-6280DF789FFA}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1772315732",
+      "Name": "Play_S21_PassersByVoices",
+      "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_PassersByVoices",
+      "GUID": "{DBA27857-D62C-4242-96C9-00EF2AFDCB90}",
+      "MaxAttenuation": "12",
+      "DurationType": "OneShot",
+      "DurationMin": "10",
+      "DurationMax": "10",
+      "MediaRefs": [
+       {
+        "Id": "364317475"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1029143990"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{3F572E9E-6D8D-1A68-4F49-47DED7C74980}"
+ }
+}

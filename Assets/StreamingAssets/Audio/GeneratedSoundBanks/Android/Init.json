@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{7C1E32F3-4494-E442-EFB6-F546975F04A8}",
+    "Hash": "{27ECD91A-CAA4-AB2D-76B2-9F972270F083}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -68,16 +68,52 @@
     ],
     "GameParameters": [
      {
+      "Id": "19866496",
+      "Name": "S23_ClockBackground_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S23_ClockBackground_Gain",
+      "GUID": "{CB34D658-E73C-4CD5-9C62-878209E5703A}"
+     },
+     {
+      "Id": "346825472",
+      "Name": "S21_Band_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S21_Band_Level",
+      "GUID": "{CA92102F-EDA6-4256-AC4A-2514EF388D77}"
+     },
+     {
+      "Id": "849075090",
+      "Name": "S22_PhoneBeeps_RevWet",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_PhoneBeeps_RevWet",
+      "GUID": "{02EB4348-862D-488B-BE0B-EAA9B596CD3A}"
+     },
+     {
+      "Id": "924751858",
+      "Name": "S24_InflowBack_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S24_InflowBack_Level",
+      "GUID": "{A63A0A30-05B8-4D43-AC9C-57912F892F8E}"
+     },
+     {
       "Id": "1101013426",
       "Name": "S13_Broadcast_Gain",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\S13_Broadcast_Gain",
       "GUID": "{CCAA8F9E-7326-4FC6-95A8-82AC4D92F1C0}"
      },
      {
+      "Id": "1266102801",
+      "Name": "S22_PhoneBeeps_RevDry",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_PhoneBeeps_RevDry",
+      "GUID": "{9EC62B18-87FC-46DC-85B2-CE351117C8D0}"
+     },
+     {
       "Id": "1295170276",
       "Name": "S13_Amb5_Gain",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\S13_Amb5_Gain",
       "GUID": "{F46415AE-8408-49D5-B5A5-0411BADFBBBF}"
+     },
+     {
+      "Id": "1636923008",
+      "Name": "S22_Sobbing_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_Sobbing_Level",
+      "GUID": "{2CB39E3E-CF33-4296-BB53-63E10C95B2C4}"
      },
      {
       "Id": "2005218386",
@@ -98,20 +134,110 @@
       "GUID": "{0DADB74F-0313-4365-8E16-257AF578D8DA}"
      },
      {
+      "Id": "2302902257",
+      "Name": "S22_Traffic_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_Traffic_Level",
+      "GUID": "{28782CAB-5274-45CC-BDA7-FD6E48574C50}"
+     },
+     {
       "Id": "2500334196",
       "Name": "S12_Fireworks_Gain",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Fireworks_Gain",
       "GUID": "{A3E144FE-20D2-45E1-80A8-025243ED2F1F}"
      },
      {
+      "Id": "2599364207",
+      "Name": "S22_PhoneBeeps_RevER",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_PhoneBeeps_RevER",
+      "GUID": "{709AE33C-0D75-42C3-8986-C33B30417C10}"
+     },
+     {
+      "Id": "2693826935",
+      "Name": "S21_Band_RevWet",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S21_Band_RevWet",
+      "GUID": "{B5AE2F3D-C472-498B-91EF-0B073940D444}"
+     },
+     {
+      "Id": "2809151524",
+      "Name": "S21_Band_RevDry",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S21_Band_RevDry",
+      "GUID": "{1851F2F2-8338-45DB-98D8-E3E5EB865DB3}"
+     },
+     {
+      "Id": "2864425688",
+      "Name": "S21_Band_RevER",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S21_Band_RevER",
+      "GUID": "{02489D38-7DFF-408C-8728-665D1FA15E53}"
+     },
+     {
       "Id": "2875816095",
       "Name": "S12_Crowd_Gain",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Crowd_Gain",
       "GUID": "{2D92DF84-C06B-43BB-A353-89206EAC62AC}"
+     },
+     {
+      "Id": "2882525742",
+      "Name": "S22_CrowdLeft_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_CrowdLeft_Level",
+      "GUID": "{DF3536AC-ED21-410D-AA6C-8E194896BEFC}"
+     },
+     {
+      "Id": "3136980988",
+      "Name": "S24_StruggleAbove_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S24_StruggleAbove_Level",
+      "GUID": "{91163B29-6EE6-450D-A209-64B7F9D4125B}"
+     },
+     {
+      "Id": "3341327153",
+      "Name": "S24_InflowRight_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S24_InflowRight_Level",
+      "GUID": "{A5360BED-F911-4DFD-ADA8-949F47727703}"
+     },
+     {
+      "Id": "3563429303",
+      "Name": "S24_Underwater2_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S24_Underwater2_Level",
+      "GUID": "{1E648B14-43DB-40A6-8441-B777CC9EAC97}"
+     },
+     {
+      "Id": "3665850871",
+      "Name": "S22_PhoneBeeps_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_PhoneBeeps_Level",
+      "GUID": "{0FC922AB-89E5-4AAD-B683-1EAB57A9D12A}"
+     },
+     {
+      "Id": "4057865028",
+      "Name": "S24_InflowLeft_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S24_InflowLeft_Level",
+      "GUID": "{C6A4CD5B-6585-467B-A4C9-A42CB1BD74FB}"
+     },
+     {
+      "Id": "4097161280",
+      "Name": "S24_Underwater1_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S24_Underwater1_Level",
+      "GUID": "{539810AF-D58B-48C8-BED0-A0050903A761}"
+     },
+     {
+      "Id": "4165044443",
+      "Name": "S22_CrowdRight_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_CrowdRight_Level",
+      "GUID": "{81A0CE8A-0E6C-4DC5-9928-F0FC31F02DCA}"
+     },
+     {
+      "Id": "4206488142",
+      "Name": "S23_Sigh_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S23_Sigh_Level",
+      "GUID": "{A8E80CF0-DE8B-4FFE-85F7-2184FC8B9190}"
+     },
+     {
+      "Id": "4286194062",
+      "Name": "S24_InflowFront_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S24_InflowFront_Level",
+      "GUID": "{A4A73C1C-03EB-40D7-A376-E8F64936EC4B}"
      }
     ]
    }
   ],
-  "FileHash": "{3FDA3FEE-6F16-3D7F-D967-D1D95ABB20FD}"
+  "FileHash": "{C2384D09-1A4D-7516-99AF-A3060E4804A5}"
  }
 }

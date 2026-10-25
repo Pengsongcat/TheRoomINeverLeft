@@ -1,0 +1,74 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2768475278",
+    "Type": "Event",
+    "GUID": "{47081D2E-AF3C-4689-A198-2260354BFFF6}",
+    "Language": "SFX",
+    "Hash": "{77F6FC27-7004-9ACA-E0E4-D6D83808101F}",
+    "ObjectPath": "Play_S24_SurfaceWater_swimmingpool",
+    "ShortName": "Play_S24_SurfaceWater_swimmingpool",
+    "Path": "Event/Play_S24_SurfaceWater_swimmingpool.bnk",
+    "Media": [
+     {
+      "Id": "775749875",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "swimmingpool.wav",
+      "Path": "Media/775749875.wem",
+      "CachePath": "F7/{F7EB7099-0B63-E890-11FD-7BC15C09113B}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "1028774994",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_4\\SurfaceWater\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{7B04E28E-53BD-49EC-8A5B-5D570C6BF137}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2768475278",
+      "Name": "Play_S24_SurfaceWater_swimmingpool",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_SurfaceWater_swimmingpool",
+      "GUID": "{47081D2E-AF3C-4689-A198-2260354BFFF6}",
+      "MaxAttenuation": "20",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "775749875"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1028774994"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{D538C7B0-2ECC-147A-0060-9ED1A765A507}"
+ }
+}

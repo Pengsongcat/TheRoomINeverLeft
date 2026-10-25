@@ -23,25 +23,63 @@ public class RandomOneShots : MonoBehaviour
     [Tooltip("Overall loudness, applied live (also to a piece already playing). Animate it from a Timeline " +
              "Animation track for a swell or a fade.")]
     [SerializeField, Range(0f, 1f)] float _level = 1f;
+    [Tooltip("Optional. When set, the pieces play through Wwise: this event (a Random Container of the pieces, " +
+             "with the pitch and volume jitter) is posted on the source's object, and the AudioSource stays silent.")]
+    [SerializeField] AK.Wwise.Event _wwiseEvent;
+    [Tooltip("With the Wwise event: the Game Parameter that Level drives (0-1).")]
+    [SerializeField] AK.Wwise.RTPC _wwiseLevel;
 
     float _fullVolume;
     float _pieceVolume = 1f;
     int _lastPiece = -1;
     Coroutine _run;
+    uint _wwisePlayingId = AkUnitySoundEngine.AK_INVALID_PLAYING_ID;
+
+    bool UsesWwise => _wwiseEvent != null && _wwiseEvent.IsValid();
 
     void Awake() => _fullVolume = _source.volume;
 
-    void Update() => _source.volume = _fullVolume * _level * _pieceVolume;
+    void Update()
+    {
+        if (!UsesWwise) _source.volume = _fullVolume * _level * _pieceVolume;
+        else if (_wwiseLevel != null && _wwiseLevel.IsValid()) _wwiseLevel.SetValue(_source.gameObject, _level);
+    }
 
-    void OnEnable() => _run = StartCoroutine(Run());
+    void OnEnable() => _run = StartCoroutine(UsesWwise ? RunWwise() : Run());
 
     void OnDisable()
     {
         if (_run != null) StopCoroutine(_run);
         _run = null;
+        if (UsesWwise)
+        {
+            _wwiseEvent.Stop(_source.gameObject);
+            _wwisePlayingId = AkUnitySoundEngine.AK_INVALID_PLAYING_ID;
+            return;
+        }
         _source.Stop();
         _source.volume = _fullVolume;
         _source.pitch = 1f;
+    }
+
+    // Wwise picks the piece and its pitch and volume; this only keeps the gaps.
+    IEnumerator RunWwise()
+    {
+        yield return new WaitForSeconds(Random.Range(_firstDelay.x, _firstDelay.y));
+        while (true)
+        {
+            _wwisePlayingId = _wwiseEvent.Post(_source.gameObject, (uint)AkCallbackType.AK_EndOfEvent, OnWwisePieceEnd);
+            if (_wwisePlayingId == AkUnitySoundEngine.AK_INVALID_PLAYING_ID) yield break;
+            while (_wwisePlayingId != AkUnitySoundEngine.AK_INVALID_PLAYING_ID) yield return null;
+            yield return new WaitForSeconds(Random.Range(_gap.x, _gap.y));
+        }
+    }
+
+    // Ignores the end of an earlier piece that was already stopped.
+    void OnWwisePieceEnd(object cookie, AkCallbackType type, AkCallbackInfo info)
+    {
+        if (info is AkEventCallbackInfo e && e.playingID == _wwisePlayingId)
+            _wwisePlayingId = AkUnitySoundEngine.AK_INVALID_PLAYING_ID;
     }
 
     IEnumerator Run()

@@ -1,0 +1,74 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3827013483",
+    "Type": "Event",
+    "GUID": "{16B7F35C-9BC3-4F31-8407-5F6952E9E823}",
+    "Language": "SFX",
+    "Hash": "{629A0FCC-B9AB-EB34-81BA-A4C99C279C67}",
+    "ObjectPath": "Play_S21_Glasses2_1",
+    "ShortName": "Play_S21_Glasses2_1",
+    "Path": "Event/Play_S21_Glasses2_1.bnk",
+    "Media": [
+     {
+      "Id": "394572288",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "glass_clink.wav",
+      "Path": "Media/394572288.wem",
+      "CachePath": "8A/{8AF9AE8D-5BEC-6E3F-8FAF-EF18CCB193FB}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "280770743",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_1\\Glasses2\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{85894834-9DE8-44DD-A108-8887619CE45B}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3827013483",
+      "Name": "Play_S21_Glasses2_1",
+      "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_Glasses2_1",
+      "GUID": "{16B7F35C-9BC3-4F31-8407-5F6952E9E823}",
+      "MaxAttenuation": "5",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "394572288"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "280770743"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{81E21EAB-C417-0D49-7E38-75422DF31BF5}"
+ }
+}

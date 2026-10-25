@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2564941676",
+    "Type": "Event",
+    "GUID": "{54D585FD-FC85-47A8-A1D7-2A186EFF8D20}",
+    "Language": "SFX",
+    "Hash": "{CDEB1A53-2E9D-B8B4-AF48-050563EDE770}",
+    "ObjectPath": "Play_S24_Breathing",
+    "ShortName": "Play_S24_Breathing",
+    "Path": "Event/Play_S24_Breathing.bnk",
+    "Media": [
+     {
+      "Id": "1031468564",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "heavy_breathing_girl.wav",
+      "Path": "Media/1031468564.wem",
+      "CachePath": "6D/{6DF54CA0-B071-A909-7C54-739157AA33A5}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "180760473",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_4\\Breathing\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{15D85D0A-2A4A-4BBE-A2E3-EEB554E3C304}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2564941676",
+      "Name": "Play_S24_Breathing",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_Breathing",
+      "GUID": "{54D585FD-FC85-47A8-A1D7-2A186EFF8D20}",
+      "MaxAttenuation": "20",
+      "DurationType": "OneShot",
+      "DurationMin": "14.7",
+      "DurationMax": "14.7",
+      "MediaRefs": [
+       {
+        "Id": "1031468564"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "180760473"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{DACC5B57-0641-99E2-D6E2-4A369C7B577A}"
+ }
+}

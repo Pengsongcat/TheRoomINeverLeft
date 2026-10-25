@@ -1,0 +1,115 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "929886155",
+    "Type": "Event",
+    "GUID": "{EF01C9FA-B83C-49D5-9CCF-68FA46B3DD7C}",
+    "Language": "SFX",
+    "Hash": "{072686E3-70F9-129E-4698-FBB88AD22FF8}",
+    "ObjectPath": "Play_S22_PhoneBeeps",
+    "ShortName": "Play_S22_PhoneBeeps",
+    "Path": "Event/Play_S22_PhoneBeeps.bnk",
+    "Media": [
+     {
+      "Id": "442470684",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "phone_hang_up.wav",
+      "Path": "Media/442470684.wem",
+      "CachePath": "59/{5982E895-0CA9-7864-0057-9A35DED89219}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "117006851",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_2\\PhoneBeeps\\[Effect Slot [1]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{1BE588AB-320F-498E-B522-DD529F691801}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "3568895717",
+       "Name": "RV_S22_PhoneBeeps",
+       "ObjectPath": "\\Effects\\Default Work Unit\\RV_S22_PhoneBeeps",
+       "GUID": "{749DCB8F-9435-4D14-A8B3-A3AA90CC552B}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "929886155",
+      "Name": "Play_S22_PhoneBeeps",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_PhoneBeeps",
+      "GUID": "{EF01C9FA-B83C-49D5-9CCF-68FA46B3DD7C}",
+      "MaxAttenuation": "10",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "442470684"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "117006851"
+        }
+       ],
+       "ShareSets": [
+        {
+         "Id": "3568895717"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "849075090",
+      "Name": "S22_PhoneBeeps_RevWet",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_PhoneBeeps_RevWet",
+      "GUID": "{02EB4348-862D-488B-BE0B-EAA9B596CD3A}"
+     },
+     {
+      "Id": "1266102801",
+      "Name": "S22_PhoneBeeps_RevDry",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_PhoneBeeps_RevDry",
+      "GUID": "{9EC62B18-87FC-46DC-85B2-CE351117C8D0}"
+     },
+     {
+      "Id": "2599364207",
+      "Name": "S22_PhoneBeeps_RevER",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_PhoneBeeps_RevER",
+      "GUID": "{709AE33C-0D75-42C3-8986-C33B30417C10}"
+     },
+     {
+      "Id": "3665850871",
+      "Name": "S22_PhoneBeeps_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_PhoneBeeps_Level",
+      "GUID": "{0FC922AB-89E5-4AAD-B683-1EAB57A9D12A}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{AC31C685-A45B-559C-8C28-8F7B3CD09A6F}"
+ }
+}

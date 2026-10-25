@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "271655988",
+    "Type": "Event",
+    "GUID": "{BCBB2F79-82D2-4A5B-A4DD-6966D9305B70}",
+    "Language": "SFX",
+    "Hash": "{924C928E-0EF7-7E79-8152-6DF34EF1980A}",
+    "ObjectPath": "Play_S21_PassersBy2Voices",
+    "ShortName": "Play_S21_PassersBy2Voices",
+    "Path": "Event/Play_S21_PassersBy2Voices.bnk",
+    "Media": [
+     {
+      "Id": "257118962",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "chinese_crowd.wav",
+      "Path": "Media/257118962.wem",
+      "CachePath": "53/{538E9626-37A2-D685-02B6-4C9ED870CE6A}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "70399512",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_1\\PassersBy2Voices\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{50812E4F-B2CD-4A33-B3FC-D4701CE27931}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "271655988",
+      "Name": "Play_S21_PassersBy2Voices",
+      "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_PassersBy2Voices",
+      "GUID": "{BCBB2F79-82D2-4A5B-A4DD-6966D9305B70}",
+      "MaxAttenuation": "12",
+      "DurationType": "OneShot",
+      "DurationMin": "30",
+      "DurationMax": "30",
+      "MediaRefs": [
+       {
+        "Id": "257118962"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "70399512"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{25A8DEAB-284D-5E70-31E3-5F3FFCF774B5}"
+ }
+}

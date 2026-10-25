@@ -1,6 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{FE9EB547-A2B5-4B1D-B7B0-16C2B7AFD88B}" SchemaVersion="123">
 	<Effects>
-		<WorkUnit Name="Default Work Unit" ID="{FE9EB547-A2B5-4B1D-B7B0-16C2B7AFD88B}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{FE9EB547-A2B5-4B1D-B7B0-16C2B7AFD88B}" PersistMode="Standalone">
+			<ChildrenList>
+				<Effect Name="RV_S21_Band" ID="{157A72A6-B56C-428F-B9E8-30FF7F037904}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+					<PropertyList>
+						<Property Name="DecayTime" Type="Real32" Value="5"/>
+						<Property Name="DryLevel" Type="Real32" Value="0"/>
+						<Property Name="ERLevel" Type="Real32" Value="0"/>
+						<Property Name="PreDelay" Type="Real32" Value="40"/>
+						<Property Name="ReverbLevel" Type="Real32" Value="0"/>
+					</PropertyList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{4C3D6904-BF83-4AED-AA9C-8D97AAE81BCD}" ShortID="793002973">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="DryLevel"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="S21_Band_RevDry" ID="{1851F2F2-8338-45DB-98D8-E3E5EB865DB3}" WorkUnitID="{E47BB2C1-73ED-48CE-B128-5460B50CFBB0}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{3C48C0CE-0227-4C0D-BFB7-EEE086292F06}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>-96.3</XPos>
+																<YPos>-96.3</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{6FA512AC-857D-4002-9D46-58722F6E6A5E}" ShortID="593896780">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="ERLevel"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="S21_Band_RevER" ID="{02489D38-7DFF-408C-8728-665D1FA15E53}" WorkUnitID="{E47BB2C1-73ED-48CE-B128-5460B50CFBB0}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{23AD8E1B-F06E-437C-88AA-1B8550935B29}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>-96.3</XPos>
+																<YPos>-96.3</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{31235178-B31F-4FCD-B756-934A3DF0710C}" ShortID="776458497">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="ReverbLevel"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="S21_Band_RevWet" ID="{B5AE2F3D-C472-498B-91EF-0B073940D444}" WorkUnitID="{E47BB2C1-73ED-48CE-B128-5460B50CFBB0}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{E64F5BF2-B94B-482E-8FD2-E60D72964CB7}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>-96.3</XPos>
+																<YPos>-96.3</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</Effect>
+				<Effect Name="RV_S22_PhoneRing" ID="{2103F5D7-00A8-4494-AB18-E9710C87A50A}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+					<PropertyList>
+						<Property Name="DecayTime" Type="Real32" Value="0.4"/>
+						<Property Name="DryLevel" Type="Real32" Value="0"/>
+						<Property Name="ERLevel" Type="Real32" Value="-26.46"/>
+						<Property Name="PreDelay" Type="Real32" Value="3"/>
+						<Property Name="ReverbLevel" Type="Real32" Value="-9.47"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="RV_S22_PhoneBeeps" ID="{749DCB8F-9435-4D14-A8B3-A3AA90CC552B}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+					<PropertyList>
+						<Property Name="DecayTime" Type="Real32" Value="3.5"/>
+						<Property Name="DryLevel" Type="Real32" Value="0"/>
+						<Property Name="ERLevel" Type="Real32" Value="0"/>
+						<Property Name="PreDelay" Type="Real32" Value="30"/>
+						<Property Name="ReverbLevel" Type="Real32" Value="0"/>
+					</PropertyList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{6F71AF47-8713-42EE-89A2-7588A01372EE}" ShortID="449618549">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="DryLevel"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="S22_PhoneBeeps_RevDry" ID="{9EC62B18-87FC-46DC-85B2-CE351117C8D0}" WorkUnitID="{E47BB2C1-73ED-48CE-B128-5460B50CFBB0}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{A41254FB-1767-4BB3-A500-D6EEFBF54C66}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>-96.3</XPos>
+																<YPos>-96.3</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{42CB6FE5-40B5-493E-B4AE-182BD508C050}" ShortID="719817259">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="ERLevel"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="S22_PhoneBeeps_RevER" ID="{709AE33C-0D75-42C3-8986-C33B30417C10}" WorkUnitID="{E47BB2C1-73ED-48CE-B128-5460B50CFBB0}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{419FFE5B-551D-47C2-9D13-AF345924E6E3}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>-96.3</XPos>
+																<YPos>-96.3</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{55A8DE03-65E6-42FF-B18F-12897E18BC87}" ShortID="488096991">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="ReverbLevel"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="S22_PhoneBeeps_RevWet" ID="{02EB4348-862D-488B-BE0B-EAA9B596CD3A}" WorkUnitID="{E47BB2C1-73ED-48CE-B128-5460B50CFBB0}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{297B49E5-08F0-45CB-AC27-7EF1E1D4C696}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>-96.3</XPos>
+																<YPos>-96.3</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</Effect>
+				<Effect Name="RV_S24_GateFar" ID="{79D6E9DC-648C-48A7-8818-F6049F011062}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+					<PropertyList>
+						<Property Name="DecayTime" Type="Real32" Value="1.49"/>
+						<Property Name="DryLevel" Type="Real32" Value="0"/>
+						<Property Name="ERLevel" Type="Real32" Value="-22.19"/>
+						<Property Name="PreDelay" Type="Real32" Value="11"/>
+						<Property Name="ReverbLevel" Type="Real32" Value="-5.59"/>
+					</PropertyList>
+				</Effect>
+			</ChildrenList>
+		</WorkUnit>
 	</Effects>
 </WwiseDocument>

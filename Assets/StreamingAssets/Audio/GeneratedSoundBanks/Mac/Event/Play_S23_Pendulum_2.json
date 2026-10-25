@@ -1,0 +1,68 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2686397366",
+    "Type": "Event",
+    "GUID": "{B39BD4D2-0644-4767-99B4-45ACC2F7D412}",
+    "Language": "SFX",
+    "Hash": "{CEB053FF-CA40-D3D5-FC58-F86FF6D3E1ED}",
+    "ObjectPath": "Play_S23_Pendulum_2",
+    "ShortName": "Play_S23_Pendulum_2",
+    "Path": "Event/Play_S23_Pendulum_2.bnk",
+    "Media": [
+     {
+      "Id": "404519183",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "2_3scene_clock.wav",
+      "Path": "Media/404519183.wem",
+      "CachePath": "E9/{E95B4C50-732F-4213-7EA9-A3A93557109E}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2686397366",
+      "Name": "Play_S23_Pendulum_2",
+      "ObjectPath": "\\Events\\Scene 2_3\\Play_S23_Pendulum_2",
+      "GUID": "{B39BD4D2-0644-4767-99B4-45ACC2F7D412}",
+      "MaxAttenuation": "5.2",
+      "DurationType": "OneShot",
+      "DurationMin": "9.060604",
+      "DurationMax": "9.060604",
+      "MediaRefs": [
+       {
+        "Id": "404519183"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{758EBACB-8464-3BBD-77B7-32DE94CC142C}"
+ }
+}

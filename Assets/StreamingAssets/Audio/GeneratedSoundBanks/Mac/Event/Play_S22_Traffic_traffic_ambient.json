@@ -1,0 +1,66 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3685176624",
+    "Type": "Event",
+    "GUID": "{391FD57D-99E9-44D1-ADB3-E51B98937985}",
+    "Language": "SFX",
+    "Hash": "{EFEDFB8C-CC88-2955-466B-21747002C6C2}",
+    "ObjectPath": "Play_S22_Traffic_traffic_ambient",
+    "ShortName": "Play_S22_Traffic_traffic_ambient",
+    "Path": "Event/Play_S22_Traffic_traffic_ambient.bnk",
+    "Media": [
+     {
+      "Id": "1060053188",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "traffic_ambient.wav",
+      "Path": "Media/1060053188.wem",
+      "CachePath": "E3/{E30D8AAF-1D22-DE73-81D2-1EF605C0D624}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3685176624",
+      "Name": "Play_S22_Traffic_traffic_ambient",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Traffic_traffic_ambient",
+      "GUID": "{391FD57D-99E9-44D1-ADB3-E51B98937985}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "1060053188"
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2302902257",
+      "Name": "S22_Traffic_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_Traffic_Level",
+      "GUID": "{28782CAB-5274-45CC-BDA7-FD6E48574C50}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{1A7A2EF9-FF22-5A16-56CA-13AA49D97722}"
+ }
+}

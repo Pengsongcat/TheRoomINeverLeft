@@ -1,0 +1,68 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1424794774",
+    "Type": "Event",
+    "GUID": "{1F1FC767-626A-4570-B996-D63376A5824F}",
+    "Language": "SFX",
+    "Hash": "{D034D716-3011-00CE-4070-EBD8EE34F7E0}",
+    "ObjectPath": "Play_S24_Narration_2_4_underwater_1",
+    "ShortName": "Play_S24_Narration_2_4_underwater_1",
+    "Path": "Event/Play_S24_Narration_2_4_underwater_1.bnk",
+    "Media": [
+     {
+      "Id": "273429128",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "2_4_underwater.wav",
+      "Path": "Media/273429128.wem",
+      "CachePath": "BE/{BE15960F-256F-A575-247C-F914297913B4}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1424794774",
+      "Name": "Play_S24_Narration_2_4_underwater_1",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_Narration_2_4_underwater_1",
+      "GUID": "{1F1FC767-626A-4570-B996-D63376A5824F}",
+      "MaxAttenuation": "20",
+      "DurationType": "OneShot",
+      "DurationMin": "35.048187",
+      "DurationMax": "35.048187",
+      "MediaRefs": [
+       {
+        "Id": "273429128"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{73EF9EBF-3BCC-8FB6-A0CE-F29E88B4E2E7}"
+ }
+}

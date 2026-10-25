@@ -1,0 +1,89 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "4116582802",
+    "Type": "Event",
+    "GUID": "{2C2E6882-2FB1-4004-83E2-B40F2FDDFEC7}",
+    "Language": "SFX",
+    "Hash": "{6D93ACCC-036C-DB76-F943-27F355392EDD}",
+    "ObjectPath": "Play_S22_PhoneRing",
+    "ShortName": "Play_S22_PhoneRing",
+    "Path": "Event/Play_S22_PhoneRing.bnk",
+    "Media": [
+     {
+      "Id": "28037354",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "ring.wav",
+      "Path": "Media/28037354.wem",
+      "CachePath": "4D/{4D1EDE36-6125-5E88-563F-B0FFDC0AA4D1}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "749670080",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_2\\PhoneRing\\[Effect Slot [1]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{FF836706-502F-4A6B-80CF-70AE856D3FD3}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "3088708492",
+       "Name": "RV_S22_PhoneRing",
+       "ObjectPath": "\\Effects\\Default Work Unit\\RV_S22_PhoneRing",
+       "GUID": "{2103F5D7-00A8-4494-AB18-E9710C87A50A}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "4116582802",
+      "Name": "Play_S22_PhoneRing",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_PhoneRing",
+      "GUID": "{2C2E6882-2FB1-4004-83E2-B40F2FDDFEC7}",
+      "MaxAttenuation": "10",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "28037354"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "749670080"
+        }
+       ],
+       "ShareSets": [
+        {
+         "Id": "3088708492"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{F9B15662-572A-5BBB-2D39-E658BC38215B}"
+ }
+}

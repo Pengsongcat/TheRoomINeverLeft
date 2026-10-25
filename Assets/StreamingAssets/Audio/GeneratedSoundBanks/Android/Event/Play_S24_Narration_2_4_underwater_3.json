@@ -1,0 +1,68 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1424794772",
+    "Type": "Event",
+    "GUID": "{3EE6DC8B-204F-4795-A359-B54E7D8D7F52}",
+    "Language": "SFX",
+    "Hash": "{9823BEBD-631F-1577-EC75-5D4D725A8890}",
+    "ObjectPath": "Play_S24_Narration_2_4_underwater_3",
+    "ShortName": "Play_S24_Narration_2_4_underwater_3",
+    "Path": "Event/Play_S24_Narration_2_4_underwater_3.bnk",
+    "Media": [
+     {
+      "Id": "639118864",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "2_4_underwater.wav",
+      "Path": "Media/639118864.wem",
+      "CachePath": "C6/{C68DEE5C-2010-6793-B5FD-28C10970339B}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1424794772",
+      "Name": "Play_S24_Narration_2_4_underwater_3",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_Narration_2_4_underwater_3",
+      "GUID": "{3EE6DC8B-204F-4795-A359-B54E7D8D7F52}",
+      "MaxAttenuation": "20",
+      "DurationType": "OneShot",
+      "DurationMin": "22.338188",
+      "DurationMax": "22.338188",
+      "MediaRefs": [
+       {
+        "Id": "639118864"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{E343D38D-A9E5-9283-A748-D32BB3B67AF4}"
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3642345197",
+    "Type": "Event",
+    "GUID": "{61D3D6FE-6541-4930-8A78-693CDFEBE40A}",
+    "Language": "SFX",
+    "Hash": "{D51C3EE9-F5ED-3068-38CD-0E866B6F8CA3}",
+    "ObjectPath": "Play_S22_Gate",
+    "ShortName": "Play_S22_Gate",
+    "Path": "Event/Play_S22_Gate.bnk",
+    "Media": [
+     {
+      "Id": "1002153660",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "gate_open.wav",
+      "Path": "Media/1002153660.wem",
+      "CachePath": "B5/{B545746B-B21A-8FF7-7E79-7415B64E4E0B}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "747834814",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_2\\Gate\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{66905F94-D5C0-445C-BDA1-427D065F892C}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3642345197",
+      "Name": "Play_S22_Gate",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Gate",
+      "GUID": "{61D3D6FE-6541-4930-8A78-693CDFEBE40A}",
+      "MaxAttenuation": "15",
+      "DurationType": "OneShot",
+      "DurationMin": "3",
+      "DurationMax": "3",
+      "MediaRefs": [
+       {
+        "Id": "1002153660"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "747834814"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{6119B765-0A4B-E374-3565-6D3E75AD3C5A}"
+ }
+}

@@ -12,6 +12,9 @@ public class StrideStepSound : MonoBehaviour
     [SerializeField] float _stride = 0.65f;
     [SerializeField] float _pitchJitter = 0.05f;
     [SerializeField] float _volumeJitter = 0.1f;
+    [Tooltip("Optional. When set, each step posts this Wwise event on the foot's object instead of playing its " +
+             "AudioSource; the pitch and volume jitter live in Wwise.")]
+    [SerializeField] AK.Wwise.Event _wwiseStep;
 
     Vector3 _last;
     float _travelled;
@@ -47,7 +50,13 @@ public class StrideStepSound : MonoBehaviour
 
     void Step(AudioSource source)
     {
-        if (source == null || source.clip == null) return;
+        if (source == null) return;
+        if (_wwiseStep != null && _wwiseStep.IsValid())
+        {
+            _wwiseStep.Post(source.gameObject);
+            return;
+        }
+        if (source.clip == null) return;
 
         source.pitch = 1f + Random.Range(-_pitchJitter, _pitchJitter);
         source.PlayOneShot(source.clip, 1f - Random.Range(0f, _volumeJitter));

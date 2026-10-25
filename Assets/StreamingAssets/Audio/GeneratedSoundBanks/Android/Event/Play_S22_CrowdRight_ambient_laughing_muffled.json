@@ -1,0 +1,74 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1014395492",
+    "Type": "Event",
+    "GUID": "{3BB98AE2-FA74-41D5-B233-1EB69CF1854F}",
+    "Language": "SFX",
+    "Hash": "{C222384A-F3A6-8A37-3D6D-065BB39AA482}",
+    "ObjectPath": "Play_S22_CrowdRight_ambient_laughing_muffled",
+    "ShortName": "Play_S22_CrowdRight_ambient_laughing_muffled",
+    "Path": "Event/Play_S22_CrowdRight_ambient_laughing_muffled.bnk",
+    "Media": [
+     {
+      "Id": "995287120",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "ambient_laughing_muffled.wav",
+      "Path": "Media/995287120.wem",
+      "CachePath": "C7/{C7A44A58-D5FA-64FE-CCA1-4589A29A036D}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1014395492",
+      "Name": "Play_S22_CrowdRight_ambient_laughing_muffled",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_CrowdRight_ambient_laughing_muffled",
+      "GUID": "{3BB98AE2-FA74-41D5-B233-1EB69CF1854F}",
+      "MaxAttenuation": "8.33",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "995287120"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "4165044443",
+      "Name": "S22_CrowdRight_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_CrowdRight_Level",
+      "GUID": "{81A0CE8A-0E6C-4DC5-9928-F0FC31F02DCA}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{045B38DE-9173-4EFB-14D9-97173EBFA319}"
+ }
+}

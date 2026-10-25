@@ -1,0 +1,68 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3125748651",
+    "Type": "Event",
+    "GUID": "{47980C9A-AC6A-4CAD-ACD0-D25FD220FC90}",
+    "Language": "SFX",
+    "Hash": "{3781646D-B7FF-4EE2-6E64-6DF53BBC8194}",
+    "ObjectPath": "Play_S22_Narration_2_2_8",
+    "ShortName": "Play_S22_Narration_2_2_8",
+    "Path": "Event/Play_S22_Narration_2_2_8.bnk",
+    "Media": [
+     {
+      "Id": "964901742",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "2_2.wav",
+      "Path": "Media/964901742.wem",
+      "CachePath": "F1/{F14F4037-C7CB-671E-B4DB-71CB643A2AB3}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3125748651",
+      "Name": "Play_S22_Narration_2_2_8",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Narration_2_2_8",
+      "GUID": "{47980C9A-AC6A-4CAD-ACD0-D25FD220FC90}",
+      "MaxAttenuation": "5",
+      "DurationType": "OneShot",
+      "DurationMin": "26.133791",
+      "DurationMax": "26.133791",
+      "MediaRefs": [
+       {
+        "Id": "964901742"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{67E1B50B-83EA-31A4-6243-74C7ECF5D9DE}"
+ }
+}

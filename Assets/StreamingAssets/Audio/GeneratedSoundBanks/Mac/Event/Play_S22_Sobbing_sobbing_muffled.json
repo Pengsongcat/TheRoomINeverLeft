@@ -1,0 +1,74 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2403314265",
+    "Type": "Event",
+    "GUID": "{B2A9C8E1-5D6A-4F97-B536-466D3C9C771A}",
+    "Language": "SFX",
+    "Hash": "{2A400C61-5C22-7613-4CA3-3C73CF43A60D}",
+    "ObjectPath": "Play_S22_Sobbing_sobbing_muffled",
+    "ShortName": "Play_S22_Sobbing_sobbing_muffled",
+    "Path": "Event/Play_S22_Sobbing_sobbing_muffled.bnk",
+    "Media": [
+     {
+      "Id": "715168717",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "sobbing_muffled.wav",
+      "Path": "Media/715168717.wem",
+      "CachePath": "E7/{E76568AA-8A00-20E1-8950-9FB9EC22A57D}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2403314265",
+      "Name": "Play_S22_Sobbing_sobbing_muffled",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Sobbing_sobbing_muffled",
+      "GUID": "{B2A9C8E1-5D6A-4F97-B536-466D3C9C771A}",
+      "MaxAttenuation": "8.33",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "715168717"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1636923008",
+      "Name": "S22_Sobbing_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_Sobbing_Level",
+      "GUID": "{2CB39E3E-CF33-4296-BB53-63E10C95B2C4}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{A0B045F5-0E7B-4E2E-B852-7A8C326D115C}"
+ }
+}

@@ -1,0 +1,68 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3125748644",
+    "Type": "Event",
+    "GUID": "{E8FE93ED-06DA-4426-9025-9606CB9EED85}",
+    "Language": "SFX",
+    "Hash": "{A2AD0925-5D89-A448-6955-308658024AAE}",
+    "ObjectPath": "Play_S22_Narration_2_2_7",
+    "ShortName": "Play_S22_Narration_2_2_7",
+    "Path": "Event/Play_S22_Narration_2_2_7.bnk",
+    "Media": [
+     {
+      "Id": "363943756",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "2_2.wav",
+      "Path": "Media/363943756.wem",
+      "CachePath": "26/{267570C9-DD31-3955-8477-89EF3ABC5AD7}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3125748644",
+      "Name": "Play_S22_Narration_2_2_7",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Narration_2_2_7",
+      "GUID": "{E8FE93ED-06DA-4426-9025-9606CB9EED85}",
+      "MaxAttenuation": "5",
+      "DurationType": "OneShot",
+      "DurationMin": "8.813791",
+      "DurationMax": "8.813791",
+      "MediaRefs": [
+       {
+        "Id": "363943756"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{7D8E5EAD-2D62-94B5-76F2-0201669564A3}"
+ }
+}

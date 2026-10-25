@@ -1,0 +1,91 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3438719810",
+    "Type": "Event",
+    "GUID": "{877A2FE6-5309-4110-8297-E5EB69EC8B28}",
+    "Language": "SFX",
+    "Hash": "{087B9E6E-1E8E-2F5A-8074-1A16AB3DB68E}",
+    "ObjectPath": "Play_S24_GateFar",
+    "ShortName": "Play_S24_GateFar",
+    "Path": "Event/Play_S24_GateFar.bnk",
+    "Media": [
+     {
+      "Id": "1002153660",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "gate_open.wav",
+      "Path": "Media/1002153660.wem",
+      "CachePath": "B5/{B545746B-B21A-8FF7-7E79-7415B64E4E0B}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "272181227",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_4\\GateFar\\[Effect Slot [1]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{6B0B909B-25C9-4382-9E76-B08514B83361}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "3275841272",
+       "Name": "RV_S24_GateFar",
+       "ObjectPath": "\\Effects\\Default Work Unit\\RV_S24_GateFar",
+       "GUID": "{79D6E9DC-648C-48A7-8818-F6049F011062}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3438719810",
+      "Name": "Play_S24_GateFar",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_GateFar",
+      "GUID": "{877A2FE6-5309-4110-8297-E5EB69EC8B28}",
+      "MaxAttenuation": "30",
+      "DurationType": "OneShot",
+      "DurationMin": "3",
+      "DurationMax": "3",
+      "MediaRefs": [
+       {
+        "Id": "1002153660"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "272181227"
+        }
+       ],
+       "ShareSets": [
+        {
+         "Id": "3275841272"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{543EA7CA-D723-38E3-2A23-FB18D51867ED}"
+ }
+}

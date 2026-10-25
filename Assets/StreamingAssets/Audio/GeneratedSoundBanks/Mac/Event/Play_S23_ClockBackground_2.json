@@ -1,0 +1,68 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1049891440",
+    "Type": "Event",
+    "GUID": "{47C66356-33C3-434A-BD2C-7C159A0AF5AA}",
+    "Language": "SFX",
+    "Hash": "{68CAF871-36D7-8487-6152-ACD73AD2FA6C}",
+    "ObjectPath": "Play_S23_ClockBackground_2",
+    "ShortName": "Play_S23_ClockBackground_2",
+    "Path": "Event/Play_S23_ClockBackground_2.bnk",
+    "Media": [
+     {
+      "Id": "838410404",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "2_3scene_clockBack.wav",
+      "Path": "Media/838410404.wem",
+      "CachePath": "F5/{F5A866F2-240E-4AF2-0386-3A73F7800612}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1049891440",
+      "Name": "Play_S23_ClockBackground_2",
+      "ObjectPath": "\\Events\\Scene 2_3\\Play_S23_ClockBackground_2",
+      "GUID": "{47C66356-33C3-434A-BD2C-7C159A0AF5AA}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.9987917",
+      "DurationMax": "3.9987917",
+      "MediaRefs": [
+       {
+        "Id": "838410404"
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "19866496",
+      "Name": "S23_ClockBackground_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S23_ClockBackground_Gain",
+      "GUID": "{CB34D658-E73C-4CD5-9C62-878209E5703A}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{640214A9-C1A1-1352-1531-F506CBE57B07}"
+ }
+}

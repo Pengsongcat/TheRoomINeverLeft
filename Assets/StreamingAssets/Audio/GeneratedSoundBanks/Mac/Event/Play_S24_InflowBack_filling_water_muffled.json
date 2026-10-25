@@ -1,0 +1,82 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3401308046",
+    "Type": "Event",
+    "GUID": "{6DFBAB6C-5CDB-4B64-9AF1-C4A865CD58E9}",
+    "Language": "SFX",
+    "Hash": "{35318DAE-9C26-ED8F-BE27-519C811B6C16}",
+    "ObjectPath": "Play_S24_InflowBack_filling_water_muffled",
+    "ShortName": "Play_S24_InflowBack_filling_water_muffled",
+    "Path": "Event/Play_S24_InflowBack_filling_water_muffled.bnk",
+    "Media": [
+     {
+      "Id": "580943894",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "filling_water_muffled.wav",
+      "Path": "Media/580943894.wem",
+      "CachePath": "E8/{E838380E-F301-4FA4-3189-882D5B6A3257}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "607071605",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_4\\InflowBack\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{4CF2181F-8BA8-48EE-B0EB-2F0F270C2116}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3401308046",
+      "Name": "Play_S24_InflowBack_filling_water_muffled",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_InflowBack_filling_water_muffled",
+      "GUID": "{6DFBAB6C-5CDB-4B64-9AF1-C4A865CD58E9}",
+      "MaxAttenuation": "10",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "580943894"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "607071605"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "924751858",
+      "Name": "S24_InflowBack_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S24_InflowBack_Level",
+      "GUID": "{A63A0A30-05B8-4D43-AC9C-57912F892F8E}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{502CD7E0-8FC4-23D8-5953-87FEE0ACDA1D}"
+ }
+}

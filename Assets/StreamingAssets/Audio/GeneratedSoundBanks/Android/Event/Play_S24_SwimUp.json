@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2939134665",
+    "Type": "Event",
+    "GUID": "{04E01CF4-DA82-4D15-8FC8-B791C355F1E7}",
+    "Language": "SFX",
+    "Hash": "{C649BDF3-E79C-FA28-E29D-A411E29EC95F}",
+    "ObjectPath": "Play_S24_SwimUp",
+    "ShortName": "Play_S24_SwimUp",
+    "Path": "Event/Play_S24_SwimUp.bnk",
+    "Media": [
+     {
+      "Id": "639418131",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "swim_up_surface.wav",
+      "Path": "Media/639418131.wem",
+      "CachePath": "AD/{ADFFF1AE-C752-259B-E061-64033900C5DC}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "1030542237",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_4\\SwimUp\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{348E1A8D-79BF-45F6-893C-776D9EED7E8F}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2939134665",
+      "Name": "Play_S24_SwimUp",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_SwimUp",
+      "GUID": "{04E01CF4-DA82-4D15-8FC8-B791C355F1E7}",
+      "MaxAttenuation": "20",
+      "DurationType": "OneShot",
+      "DurationMin": "2",
+      "DurationMax": "2",
+      "MediaRefs": [
+       {
+        "Id": "639418131"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1030542237"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{B5671979-93C1-3058-D7F0-9EB67C212520}"
+ }
+}

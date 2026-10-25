@@ -1,0 +1,74 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2636307253",
+    "Type": "Event",
+    "GUID": "{80D8219F-1051-4F52-856D-BB970B661AE0}",
+    "Language": "SFX",
+    "Hash": "{D7741F37-06FB-ABD1-8FEE-FA88D1990BCA}",
+    "ObjectPath": "Play_S22_CrowdLeft_ambient_walking",
+    "ShortName": "Play_S22_CrowdLeft_ambient_walking",
+    "Path": "Event/Play_S22_CrowdLeft_ambient_walking.bnk",
+    "Media": [
+     {
+      "Id": "961299630",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "ambient_walking.wav",
+      "Path": "Media/961299630.wem",
+      "CachePath": "91/{91290972-B312-19DE-1DFB-9DDFD7710E1D}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2636307253",
+      "Name": "Play_S22_CrowdLeft_ambient_walking",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_CrowdLeft_ambient_walking",
+      "GUID": "{80D8219F-1051-4F52-856D-BB970B661AE0}",
+      "MaxAttenuation": "8.33",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "961299630"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2882525742",
+      "Name": "S22_CrowdLeft_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_CrowdLeft_Level",
+      "GUID": "{DF3536AC-ED21-410D-AA6C-8E194896BEFC}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{E5BCC8CE-20B9-34A4-65BB-E461CF02672C}"
+ }
+}

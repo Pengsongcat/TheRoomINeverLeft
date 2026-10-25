@@ -1,0 +1,68 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3859023688",
+    "Type": "Event",
+    "GUID": "{FD54E803-A855-47CD-B006-13C4F1C0E360}",
+    "Language": "SFX",
+    "Hash": "{EBB39199-77B8-393F-20A8-0837CB68BEA1}",
+    "ObjectPath": "Play_S21_BarDoor",
+    "ShortName": "Play_S21_BarDoor",
+    "Path": "Event/Play_S21_BarDoor.bnk",
+    "Media": [
+     {
+      "Id": "739095774",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "door_with_bell.wav",
+      "Path": "Media/739095774.wem",
+      "CachePath": "CD/{CD93B4C2-4CD1-9441-9823-398513F91208}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3859023688",
+      "Name": "Play_S21_BarDoor",
+      "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_BarDoor",
+      "GUID": "{FD54E803-A855-47CD-B006-13C4F1C0E360}",
+      "MaxAttenuation": "5",
+      "DurationType": "OneShot",
+      "DurationMin": "12.226553",
+      "DurationMax": "12.226553",
+      "MediaRefs": [
+       {
+        "Id": "739095774"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "495173723"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{B2FD7DEE-61F9-04E4-66F2-AE50D279BC87}"
+ }
+}

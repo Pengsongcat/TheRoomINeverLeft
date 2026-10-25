@@ -1,0 +1,82 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2901109632",
+    "Type": "Event",
+    "GUID": "{1CF19D9C-C435-4B74-A0E9-09178528A993}",
+    "Language": "SFX",
+    "Hash": "{00159E01-A338-43CB-1F78-EB2F805AA8BB}",
+    "ObjectPath": "Play_S24_InflowLeft_filling_water_muffled",
+    "ShortName": "Play_S24_InflowLeft_filling_water_muffled",
+    "Path": "Event/Play_S24_InflowLeft_filling_water_muffled.bnk",
+    "Media": [
+     {
+      "Id": "580943894",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "filling_water_muffled.wav",
+      "Path": "Media/580943894.wem",
+      "CachePath": "E8/{E838380E-F301-4FA4-3189-882D5B6A3257}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "272669780",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_4\\InflowLeft\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{556C1D56-503C-42FE-9807-556A907E610D}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2901109632",
+      "Name": "Play_S24_InflowLeft_filling_water_muffled",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_InflowLeft_filling_water_muffled",
+      "GUID": "{1CF19D9C-C435-4B74-A0E9-09178528A993}",
+      "MaxAttenuation": "10",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "580943894"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "272669780"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "4057865028",
+      "Name": "S24_InflowLeft_Level",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S24_InflowLeft_Level",
+      "GUID": "{C6A4CD5B-6585-467B-A4C9-A42CB1BD74FB}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{E331497B-457B-7E54-3170-54CFA0A8D1BB}"
+ }
+}

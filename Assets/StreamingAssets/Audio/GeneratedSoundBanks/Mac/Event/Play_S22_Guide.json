@@ -1,0 +1,74 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "4042951080",
+    "Type": "Event",
+    "GUID": "{1CD6386D-4B30-4FFC-B6CE-72FB242C9D79}",
+    "Language": "SFX",
+    "Hash": "{8096C61D-1D41-1CF2-ABAA-690F73340162}",
+    "ObjectPath": "Play_S22_Guide",
+    "ShortName": "Play_S22_Guide",
+    "Path": "Event/Play_S22_Guide.bnk",
+    "Media": [
+     {
+      "Id": "28037354",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "ring.wav",
+      "Path": "Media/28037354.wem",
+      "CachePath": "4D/{4D1EDE36-6125-5E88-563F-B0FFDC0AA4D1}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "1042526694",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_2\\Guide\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{20E6D000-3673-4CBB-B77E-88773EDD3A93}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "4042951080",
+      "Name": "Play_S22_Guide",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Guide",
+      "GUID": "{1CD6386D-4B30-4FFC-B6CE-72FB242C9D79}",
+      "MaxAttenuation": "5",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "28037354"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1042526694"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{854DCCD2-39EF-FA40-36FD-BEF464D1EA2C}"
+ }
+}

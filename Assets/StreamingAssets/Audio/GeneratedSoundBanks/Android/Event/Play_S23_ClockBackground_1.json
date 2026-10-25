@@ -1,0 +1,68 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1049891443",
+    "Type": "Event",
+    "GUID": "{F6222D1C-B59A-423B-A496-F5960F253220}",
+    "Language": "SFX",
+    "Hash": "{CAA21B3C-1E91-BBF3-4C58-62EF1BEA6B6D}",
+    "ObjectPath": "Play_S23_ClockBackground_1",
+    "ShortName": "Play_S23_ClockBackground_1",
+    "Path": "Event/Play_S23_ClockBackground_1.bnk",
+    "Media": [
+     {
+      "Id": "808094078",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "2_3scene_clockBack.wav",
+      "Path": "Media/808094078.wem",
+      "CachePath": "82/{82945924-0827-F08B-4CD6-6796633E2758}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1049891443",
+      "Name": "Play_S23_ClockBackground_1",
+      "ObjectPath": "\\Events\\Scene 2_3\\Play_S23_ClockBackground_1",
+      "GUID": "{F6222D1C-B59A-423B-A496-F5960F253220}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.138792",
+      "DurationMax": "9.138792",
+      "MediaRefs": [
+       {
+        "Id": "808094078"
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "19866496",
+      "Name": "S23_ClockBackground_Gain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S23_ClockBackground_Gain",
+      "GUID": "{CB34D658-E73C-4CD5-9C62-878209E5703A}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{43CB877E-2719-2BB2-141C-D614A18BB7B0}"
+ }
+}

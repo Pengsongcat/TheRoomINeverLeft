@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3124847758776159665}
   - component: {fileID: 4409197312426014368}
   - component: {fileID: 2118496778553641196}
+  - component: {fileID: 3636615925757675560}
   m_Layer: 0
   m_Name: Scene2.3 Sound
   m_TagString: Untagged
@@ -145,6 +146,112 @@ MonoBehaviour:
   _playingAlpha: 0.6
   _silentColour: {r: 0.7, g: 0.7, b: 0.7, a: 0.25}
   _size: 0.15
+--- !u!114 &3636615925757675560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921566191172954395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155a060a4c5ef4bd7ad508e5535a2d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TRINL.Story::WwiseRtpcCurves
+  _curves:
+  - Track: {fileID: -7526895287834723590, guid: 5060530fef0cd6a4cb2e2363773da6ba, type: 2}
+    Rtpc:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 60e6ee78e48c9486aa5880935631c7ff, type: 2}
+    Start: 0
+    Values:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.87962264
+        outSlope: 0.87962264
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.2720971
+      - serializedVersion: 3
+        time: 0.55
+        value: 0.38192558
+        inSlope: 0.03960522
+        outSlope: 0.03960522
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 7.0666666
+        value: 0.4518948
+        inSlope: -0.010872522
+        outSlope: -0.010872522
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.39639464
+      - serializedVersion: 3
+        time: 19.566668
+        value: 0.4285711
+        inSlope: -0.00040643098
+        outSlope: -0.00040643098
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 1
+      - serializedVersion: 3
+        time: 20.516666
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 23.933332
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 24.733334
+        value: 0.24052131
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 26.766666
+        value: 0.26530623
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 28.783333
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!1 &1999666148320427906
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +401,14 @@ MonoBehaviour:
   _pitchJitter: 0.06
   _volumeJitter: 0.1
   _level: 1
+  _wwiseEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8799538a4b83b426bae3734b0c3d9e17, type: 2}
+  _wwiseLevel:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 34e36a3ffc1ac42c8b888779cda6061f, type: 2}
 --- !u!95 &1948927895095224500
 Animator:
   serializedVersion: 7
@@ -367,6 +482,10 @@ MonoBehaviour:
   _stride: 0.5
   _pitchJitter: 0.05
   _volumeJitter: 0.1
+  _wwiseStep:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 7d7eb95356d6344138ec824bd29e9268, type: 2}
 --- !u!1 &4500116548726719981
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +608,7 @@ GameObject:
   - component: {fileID: 3284042137566265984}
   - component: {fileID: 455258984509155508}
   - component: {fileID: 6037782241706562382}
+  - component: {fileID: 1488820189474861157}
   m_Layer: 0
   m_Name: Audio Clock
   m_TagString: Untagged
@@ -719,6 +839,30 @@ AudioHighPassFilter:
   m_Enabled: 1
   m_CutoffFrequency: 1000
   m_HighpassResonanceQ: 1
+--- !u!114 &1488820189474861157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490091733935203157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acfabc9295354f87884c3bcc511c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkGameObj
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &6844744687982543558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1195,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6740061526136598905, guid: bc6dbee8b00c86041b9418c2ac23ffe2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4585907697687070894}
   m_SourcePrefab: {fileID: 100100000, guid: bc6dbee8b00c86041b9418c2ac23ffe2, type: 3}
 --- !u!4 &1625758159164277982 stripped
 Transform:
@@ -1063,6 +1210,35 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 8876054081638071908, guid: bc6dbee8b00c86041b9418c2ac23ffe2, type: 3}
   m_PrefabInstance: {fileID: 3323011263150669475}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8328342204868300762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6740061526136598905, guid: bc6dbee8b00c86041b9418c2ac23ffe2, type: 3}
+  m_PrefabInstance: {fileID: 3323011263150669475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4585907697687070894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328342204868300762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acfabc9295354f87884c3bcc511c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkGameObj
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1001 &4926148269531097546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1198,6 +1374,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6290184248395528238, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 79327741803211488}
+    - targetCorrespondingSourceObject: {fileID: 6290184248395528238, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4406247431989122755}
   m_SourcePrefab: {fileID: 100100000, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
 --- !u!1 &1375296627871388132 stripped
 GameObject:
@@ -1274,6 +1453,30 @@ AudioLowPassFilter:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4406247431989122755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375296627871388132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acfabc9295354f87884c3bcc511c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkGameObj
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!82 &3869048276833951481 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8209128810542020403, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
@@ -1620,6 +1823,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6290184248395528238, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3109358223064882888}
+    - targetCorrespondingSourceObject: {fileID: 6290184248395528238, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6231236829172253106}
   m_SourcePrefab: {fileID: 100100000, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
 --- !u!1 &1807940284343156509 stripped
 GameObject:
@@ -1696,6 +1902,30 @@ AudioLowPassFilter:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6231236829172253106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807940284343156509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acfabc9295354f87884c3bcc511c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkGameObj
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!82 &4589324200836280320 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8209128810542020403, guid: 2c7ba7f199d8b394aab431ccacb0597f, type: 3}
@@ -1992,6 +2222,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5002510627178393574, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 664074622735552651}
+    - targetCorrespondingSourceObject: {fileID: 5002510627178393574, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4511286231760339379}
   m_SourcePrefab: {fileID: 100100000, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
 --- !u!82 &613918428564912772 stripped
 AudioSource:
@@ -2013,6 +2246,30 @@ AudioHighPassFilter:
   m_Enabled: 1
   m_CutoffFrequency: 1000
   m_HighpassResonanceQ: 1
+--- !u!114 &4511286231760339379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3324366368559216025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acfabc9295354f87884c3bcc511c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkGameObj
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!4 &5420478988995116701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
@@ -2414,6 +2671,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5002510627178393574, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6059820533210114237}
+    - targetCorrespondingSourceObject: {fileID: 5002510627178393574, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6806939081386798626}
   m_SourcePrefab: {fileID: 100100000, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}
 --- !u!82 &1065703703982936666 stripped
 AudioSource:
@@ -2435,6 +2695,30 @@ AudioHighPassFilter:
   m_Enabled: 1
   m_CutoffFrequency: 80
   m_HighpassResonanceQ: 1
+--- !u!114 &6806939081386798626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2913184408287567175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acfabc9295354f87884c3bcc511c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AK.Wwise.Unity.MonoBehaviour::AkGameObj
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!4 &5581746345729873475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2339498628641072354, guid: bc91d4ec3433ba24cbcfffd8a5ea1a2d, type: 3}

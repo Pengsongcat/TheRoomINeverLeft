@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3429564900",
+    "Type": "Event",
+    "GUID": "{E92E6D29-9027-41A3-8C44-CA9FE083AE57}",
+    "Language": "SFX",
+    "Hash": "{1D552B65-420B-D383-D791-9583C98A7C49}",
+    "ObjectPath": "Play_S21_Bicycle",
+    "ShortName": "Play_S21_Bicycle",
+    "Path": "Event/Play_S21_Bicycle.bnk",
+    "Media": [
+     {
+      "Id": "851531718",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "cycle_bell.wav",
+      "Path": "Media/851531718.wem",
+      "CachePath": "81/{8182CA81-E3B4-7E16-7077-6EE1566EFD23}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "415662755",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_1\\Bicycle\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{98B0AE73-77EA-4F55-842B-D0632F6BAC48}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      },
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3429564900",
+      "Name": "Play_S21_Bicycle",
+      "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_Bicycle",
+      "GUID": "{E92E6D29-9027-41A3-8C44-CA9FE083AE57}",
+      "MaxAttenuation": "15",
+      "DurationType": "OneShot",
+      "DurationMin": "1.4771656",
+      "DurationMax": "1.4771656",
+      "MediaRefs": [
+       {
+        "Id": "851531718"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "415662755"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{66CB485B-457B-7A39-44E4-68703E54ABE7}"
+ }
+}

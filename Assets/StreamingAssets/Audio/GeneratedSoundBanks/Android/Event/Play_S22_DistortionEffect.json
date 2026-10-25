@@ -1,0 +1,60 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1132227246",
+    "Type": "Event",
+    "GUID": "{BCBEF608-263E-4226-9B1F-008D9B7BA526}",
+    "Language": "SFX",
+    "Hash": "{963B0B17-2C28-11A7-30B5-B00ACC510765}",
+    "ObjectPath": "Play_S22_DistortionEffect",
+    "ShortName": "Play_S22_DistortionEffect",
+    "Path": "Event/Play_S22_DistortionEffect.bnk",
+    "Media": [
+     {
+      "Id": "679235210",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "distortion_effect.wav",
+      "Path": "Media/679235210.wem",
+      "CachePath": "3E/{3E2BE31C-41DD-0864-8BD7-1511D6C84A06}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "495173723",
+       "Name": "Steam Audio Spatializer (HRTF)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
+       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1132227246",
+      "Name": "Play_S22_DistortionEffect",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_DistortionEffect",
+      "GUID": "{BCBEF608-263E-4226-9B1F-008D9B7BA526}",
+      "DurationType": "OneShot",
+      "DurationMin": "30",
+      "DurationMax": "30",
+      "MediaRefs": [
+       {
+        "Id": "679235210"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{9EE79A55-A221-0552-132F-DCE5B784E516}"
+ }
+}
