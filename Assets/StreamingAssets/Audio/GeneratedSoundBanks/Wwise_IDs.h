@@ -21,6 +21,12 @@ namespace AK
         static const AkUniqueID PLAY_S11_GUIDE = 2040783566U;
         static const AkUniqueID PLAY_S11_NARRATION = 4052039844U;
         static const AkUniqueID PLAY_S11_NARRATORSTEPS = 3347888462U;
+        static const AkUniqueID PLAY_S11_NEW_BREEZE = 2864213206U;
+        static const AkUniqueID PLAY_S11_NEW_CAR = 1117389079U;
+        static const AkUniqueID PLAY_S11_NEW_DOG = 1688269527U;
+        static const AkUniqueID PLAY_S11_NEW_FOOTSTEPS = 192623436U;
+        static const AkUniqueID PLAY_S11_NEW_INSECTSBIRDSRIVER = 2524163228U;
+        static const AkUniqueID PLAY_S11_NEW_RUNNINGGRASSBREATH = 1232456012U;
         static const AkUniqueID PLAY_S11_RURAL = 949566550U;
         static const AkUniqueID PLAY_S11_RURAL2 = 1866070864U;
         static const AkUniqueID PLAY_S11_RURALSONG = 1268140281U;
