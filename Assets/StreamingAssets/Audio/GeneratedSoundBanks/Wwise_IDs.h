@@ -88,6 +88,15 @@ namespace AK
         static const AkUniqueID PLAY_S13_NARRATION_2 = 4267531825U;
         static const AkUniqueID PLAY_S13_NARRATORSTEPS_1 = 2463695280U;
         static const AkUniqueID PLAY_S13_NARRATORSTEPS_2 = 2463695283U;
+        static const AkUniqueID PLAY_S13_NEW_AMBIENCE = 1157668969U;
+        static const AkUniqueID PLAY_S13_NEW_BIRDS = 149549959U;
+        static const AkUniqueID PLAY_S13_NEW_DISTORTS = 2418849749U;
+        static const AkUniqueID PLAY_S13_NEW_INSECTS = 1492226532U;
+        static const AkUniqueID PLAY_S13_NEW_RADIONOTSPATIALIZED = 3858026249U;
+        static const AkUniqueID PLAY_S13_NEW_RADIOSPATIALIZED = 3380638088U;
+        static const AkUniqueID PLAY_S13_NEW_SNORE = 307014454U;
+        static const AkUniqueID PLAY_S13_NEW_SONG = 142870330U;
+        static const AkUniqueID PLAY_S13_NEW_TREES = 1679357632U;
         static const AkUniqueID PLAY_S21_BAND = 1944523496U;
         static const AkUniqueID PLAY_S21_BARCROWD = 5048555U;
         static const AkUniqueID PLAY_S21_BARCROWD2 = 1682246083U;
