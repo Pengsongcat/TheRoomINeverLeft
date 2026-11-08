@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{AB7CF6A4-CF0B-46D9-B3C6-6D5324D3F69A}",
     "Language": "SFX",
-    "Hash": "{FF388F5F-A3D3-687F-C00B-44FDF1318F41}",
+    "Hash": "{16FC4C1E-7D30-3CCB-8BC6-8104975CABC5}",
     "ObjectPath": "Play_S11_Dog",
     "ShortName": "Play_S11_Dog",
     "Path": "Event/Play_S11_Dog.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S11_Dog",
       "ObjectPath": "\\Events\\Scene 1_1\\Play_S11_Dog",
       "GUID": "{AB7CF6A4-CF0B-46D9-B3C6-6D5324D3F69A}",
-      "MaxAttenuation": "10",
       "DurationType": "OneShot",
       "DurationMin": "4.55",
       "DurationMax": "4.55",
@@ -53,9 +52,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -63,6 +62,6 @@
     ]
    }
   ],
-  "FileHash": "{2898D5FB-A31E-F2F1-4BB5-C94F0578C36E}"
+  "FileHash": "{16FEE267-BE8C-C05E-0EEA-2E923B3C1BF0}"
  }
 }

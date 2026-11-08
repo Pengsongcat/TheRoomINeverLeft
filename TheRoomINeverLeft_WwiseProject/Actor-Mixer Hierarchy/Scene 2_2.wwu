@@ -1,0 +1,1236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{5F71C262-12EF-449C-874A-C596237E62A5}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Scene 2_2" ID="{5F71C262-12EF-449C-874A-C596237E62A5}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="Scene 2_2" ID="{3C214596-CE38-4C0F-8413-26F55C4D75A0}" ShortID="588044839">
+					<PropertyList>
+						<Property Name="OverrideEffect" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<ActorMixer Name="Phone" ID="{18D6BB7E-569C-4AFF-8CB9-553D3D33ED11}" ShortID="1027938350">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>43</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{4BCA2604-656A-4D9C-886A-FEE65423CED3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_Phone_iphoneUIClick" ID="{35F728C6-BA3C-4B44-B255-951BE25D3ECE}" ShortID="822376959">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10.5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="iphoneUIClick" ID="{D2376EF9-3BD3-40E7-871A-E57876557678}">
+											<Language>SFX</Language>
+											<AudioFile>iphoneUIClick.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="118671009"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="iphoneUIClick" ID="{D2376EF9-3BD3-40E7-871A-E57876557678}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Phone_phone_call_bad_signal" ID="{AF9D8399-AAC5-48B4-B9B3-7E03F39A0F6F}" ShortID="28502942">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10.5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="phone_call_bad_signal" ID="{828414E6-CF6B-465F-96D0-AF19DD41423C}">
+											<Language>SFX</Language>
+											<AudioFile>phone_call_bad_signal.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="579124425"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="phone_call_bad_signal" ID="{828414E6-CF6B-465F-96D0-AF19DD41423C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Narration" ID="{4B1F2C9A-8F7B-49BB-8BA3-F24E87107209}" ShortID="665711131">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Narration" ID="{0A1406FA-952D-4852-8B75-9E33F1B8C96F}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_Narration_2_2_1" ID="{1C080754-0F33-465D-B2E8-97E95DD55D30}" ShortID="1034851144">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_2" ID="{B8F38F3D-F764-458A-AE06-CEDBB60E46DA}">
+											<Language>SFX</Language>
+											<AudioFile>2_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="204131412"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_2" ID="{B8F38F3D-F764-458A-AE06-CEDBB60E46DA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Narration_2_2_2" ID="{D33A4F38-C817-4828-8602-B7A50DAB07F5}" ShortID="981760590">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_2" ID="{CCF33EDF-DA9A-4C25-BED8-6E6749211BE5}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="3.78"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="661794111"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_2" ID="{CCF33EDF-DA9A-4C25-BED8-6E6749211BE5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Narration_2_2_3" ID="{16EAF085-897A-43FE-9217-E99C9065EAAE}" ShortID="272628869">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_2" ID="{6EEFF0C6-4CF4-4F4A-85B6-0608CFF649EB}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="7.6"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="432886698"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_2" ID="{6EEFF0C6-4CF4-4F4A-85B6-0608CFF649EB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Narration_2_2_4" ID="{1A8C0EEA-EF28-4200-98C7-E4D6269F6F8B}" ShortID="916843949">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_2" ID="{10B27DA7-3A37-4E2A-BB10-CB14B3729336}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="13.63"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="74213176"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_2" ID="{10B27DA7-3A37-4E2A-BB10-CB14B3729336}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Narration_2_2_5" ID="{008D484F-5EBC-4AE9-BE4F-8E84F26666C1}" ShortID="143046508">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_2" ID="{3A76FB0B-C3A1-40FD-937C-84F49B6AC034}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="17.03"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1005005877"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_2" ID="{3A76FB0B-C3A1-40FD-937C-84F49B6AC034}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Narration_2_2_6" ID="{3D0CC672-F4E5-44A5-BF64-BCD9C9F9B6FB}" ShortID="322490150">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_2" ID="{35638260-A3F5-4FCB-94F2-C5732A28CFA8}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="20.92"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="987752719"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_2" ID="{35638260-A3F5-4FCB-94F2-C5732A28CFA8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Narration_2_2_7" ID="{52F9AD88-4D39-4AC7-A3BF-0EAE15220AB5}" ShortID="993301294">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_2" ID="{B4350E5B-42D2-4063-AD78-5A6583D5DAA3}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="44.17"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="363943756"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_2" ID="{B4350E5B-42D2-4063-AD78-5A6583D5DAA3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Narration_2_2_8" ID="{3D581E5C-57A9-49F7-B664-60B88F8023C4}" ShortID="592494623">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_2" ID="{62EA9F30-94C9-467D-9BAA-75D3BEC2135A}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="26.85"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="964901742"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_2" ID="{62EA9F30-94C9-467D-9BAA-75D3BEC2135A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Narration_narration_2_2_n7_ending_louder_reverb" ID="{6E705B72-78CB-411B-9E41-2434C09BDFAF}" ShortID="608362000">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="narration_2_2_n7_ending_louder_reverb" ID="{B7FFCFB5-1550-4A27-B380-7A998AEEC4DA}">
+											<Language>SFX</Language>
+											<AudioFile>narration_2_2_n7_ending_louder_reverb.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1040872296"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="narration_2_2_n7_ending_louder_reverb" ID="{B7FFCFB5-1550-4A27-B380-7A998AEEC4DA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="CrowdLeft" ID="{A858F985-B749-4400-BDAF-1E4E24222F9F}" ShortID="247991154">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_CrowdLeft_ambient_walking" ID="{80259978-BA36-4768-8DA6-1B77C403CFD6}" ShortID="484570032">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ambient_walking" ID="{EF766EF1-B568-45FC-A8AA-6D0F68FB94B7}">
+											<Language>SFX</Language>
+											<AudioFile>ambient_walking.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="961299630"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ambient_walking" ID="{EF766EF1-B568-45FC-A8AA-6D0F68FB94B7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_CrowdLeft_ambient_walking_muffled" ID="{D86D8807-B02A-4F77-9442-DCF78D8909F3}" ShortID="795334536">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ambient_walking_muffled" ID="{4BC49A01-E72D-4AE6-9FC5-4B816258770E}">
+											<Language>SFX</Language>
+											<AudioFile>ambient_walking_muffled.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="772464282"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ambient_walking_muffled" ID="{4BC49A01-E72D-4AE6-9FC5-4B816258770E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="CrowdRight" ID="{01B3A7AD-E318-4207-9A60-451745FFAE4F}" ShortID="365345800">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_CrowdRight_ambient_laughing" ID="{0DE91844-6053-4606-913A-98F11A31373B}" ShortID="263400796">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ambient_laughing" ID="{CBE95024-685A-43E9-B191-61BC08BD3640}">
+											<Language>SFX</Language>
+											<AudioFile>ambient_laughing.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="721786983"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ambient_laughing" ID="{CBE95024-685A-43E9-B191-61BC08BD3640}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_CrowdRight_ambient_laughing_muffled" ID="{DF0648E0-00E7-44E9-AF38-38912A2E6039}" ShortID="898891402">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ambient_laughing_muffled" ID="{A1CFE38D-F66D-4C0D-91FC-AF4E49B38F82}">
+											<Language>SFX</Language>
+											<AudioFile>ambient_laughing_muffled.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="995287120"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ambient_laughing_muffled" ID="{A1CFE38D-F66D-4C0D-91FC-AF4E49B38F82}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Traffic" ID="{009ED54D-3773-415C-96FC-6F172894A26F}" ShortID="692689191">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_Traffic_traffic_ambient" ID="{292B4889-7D3F-4A60-BFC6-1CE98B974265}" ShortID="433105294">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="traffic_ambient" ID="{63F5EC6A-2FA8-485A-9A59-A3B30B61BC26}">
+											<Language>SFX</Language>
+											<AudioFile>traffic_ambient.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1060053188"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="traffic_ambient" ID="{63F5EC6A-2FA8-485A-9A59-A3B30B61BC26}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Traffic_traffic_ambient_muffled" ID="{AC05E4FB-5A08-4551-9CC9-B726BFCF081C}" ShortID="40552815">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="traffic_ambient_muffled" ID="{88200269-A859-4B9B-BC00-BE18BB42937D}">
+											<Language>SFX</Language>
+											<AudioFile>traffic_ambient_muffled.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="546867198"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="traffic_ambient_muffled" ID="{88200269-A859-4B9B-BC00-BE18BB42937D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Sobbing" ID="{CFDE7678-4FAF-46B7-AF88-9EDAE15EFCF0}" ShortID="173126809">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>43</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_Sobbing_sobbing_1" ID="{969834CF-9CF8-407C-A738-D5C05BD7F57D}" ShortID="410461758">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sobbing" ID="{0969904A-D511-407A-BFA6-83E4C6DA29C1}">
+											<Language>SFX</Language>
+											<AudioFile>sobbing.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="911896896"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sobbing" ID="{0969904A-D511-407A-BFA6-83E4C6DA29C1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Sobbing_sobbing_2" ID="{2ACDB38A-C680-4350-85BF-0A0F7B54187B}" ShortID="718724192">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sobbing" ID="{32743AE8-0FC6-4541-BE99-05948740921E}">
+											<Language>SFX</Language>
+											<AudioFile>sobbing.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="911896896"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sobbing" ID="{32743AE8-0FC6-4541-BE99-05948740921E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S22_Sobbing_sobbing_muffled" ID="{D027FAF5-0CD4-4536-A8E7-E1FA3212E7AD}" ShortID="1027602150">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sobbing_muffled" ID="{76C284A0-93E8-4044-A46C-877444530815}">
+											<Language>SFX</Language>
+											<AudioFile>sobbing_muffled.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="715168717"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sobbing_muffled" ID="{76C284A0-93E8-4044-A46C-877444530815}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="RoomTone" ID="{0B6E25C5-2CB3-40A9-ABD5-66039AA19A70}" ShortID="496511444">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_RoomTone" ID="{E8D89BB9-B3B5-4D97-A86F-8CE9C90C9D6A}" ShortID="386661146">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="room_tone_2_2" ID="{4989F4B2-69CE-4382-9729-941BA3B913C8}">
+											<Language>SFX</Language>
+											<AudioFile>room_tone_2_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="523662430"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="room_tone_2_2" ID="{4989F4B2-69CE-4382-9729-941BA3B913C8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="PhoneRing" ID="{50F16907-E761-4768-93FC-40F2FF172CD4}" ShortID="837298091">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_PhoneRing" ID="{927E79D1-590E-4C9E-968B-0093B8DFD033}" ShortID="387433801">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ring" ID="{96957A1D-02FF-4799-A495-6DF817EE18BC}">
+											<Language>SFX</Language>
+											<AudioFile>ring.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="28037354"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ring" ID="{96957A1D-02FF-4799-A495-6DF817EE18BC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{F282FFE7-F6EC-4F1F-B41A-FABD1BE3E001}" ShortID="113695490">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Steam Audio Spatializer (HRTF + air)" ID="{FF836706-502F-4A6B-80CF-70AE856D3FD3}" ShortID="749670080" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+																<PropertyList>
+																	<Property Name="AirAbsorption" Type="bool" Value="True"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</ActorMixer>
+						<ActorMixer Name="PhoneBeeps" ID="{2217EA36-4540-4C42-9B15-0BF904323D8E}" ShortID="170341790">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_PhoneBeeps" ID="{07E3CF91-A494-4E73-A8EF-21C740874B08}" ShortID="294967084">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="phone_hang_up" ID="{F923717E-CF1E-4DD3-AEEB-C371B617144C}">
+											<Language>SFX</Language>
+											<AudioFile>phone_hang_up.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="442470684"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="phone_hang_up" ID="{F923717E-CF1E-4DD3-AEEB-C371B617144C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{BB85D41C-5AF4-4D6B-9667-737995C4B0BD}" ShortID="382043975">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Steam Audio Spatializer (HRTF + air)" ID="{1BE588AB-320F-498E-B522-DD529F691801}" ShortID="117006851" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+																<PropertyList>
+																	<Property Name="AirAbsorption" Type="bool" Value="True"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</ActorMixer>
+						<ActorMixer Name="Gate" ID="{7703CBEA-71CC-477A-BA13-A5CE7B1C1C13}" ShortID="416308554">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_Gate" ID="{A1126B1D-984F-499F-AF0E-769776A2659E}" ShortID="259785606">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="gate_open" ID="{40C4CD5C-5E7A-47FB-9EB0-11BC9C14678C}">
+											<Language>SFX</Language>
+											<AudioFile>gate_open.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1002153660"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="gate_open" ID="{40C4CD5C-5E7A-47FB-9EB0-11BC9C14678C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{B102EAAA-DFB9-4683-8026-50C4F90909DF}" ShortID="508401341">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Steam Audio Spatializer (HRTF + air)" ID="{66905F94-D5C0-445C-BDA1-427D065F892C}" ShortID="747834814" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+																<PropertyList>
+																	<Property Name="AirAbsorption" Type="bool" Value="True"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</ActorMixer>
+						<ActorMixer Name="FinalBeep" ID="{91C1DE6E-40F9-4047-ACFA-41263BBA1B18}" ShortID="129590312">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_FinalBeep" ID="{FAE689BD-E32E-4D7E-9C37-DFB9F98D2883}" ShortID="601072433">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="tinnitus_beep" ID="{3BDBC1D1-B165-4A9C-A940-6AA22BF20D3C}">
+											<Language>SFX</Language>
+											<AudioFile>tinnitus_beep.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="462391715"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="tinnitus_beep" ID="{3BDBC1D1-B165-4A9C-A940-6AA22BF20D3C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="DistortionEffect" ID="{F99DC9BE-9575-4042-BE20-A601EDD71D3F}" ShortID="265184989">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_DistortionEffect" ID="{4BF270D3-586F-421E-A5FE-5DAC5FEBA8BB}" ShortID="285127458">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="distortion_effect" ID="{C36B875E-6906-4445-A7E8-F944D7D83C5C}">
+											<Language>SFX</Language>
+											<AudioFile>distortion_effect.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="679235210"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="distortion_effect" ID="{C36B875E-6906-4445-A7E8-F944D7D83C5C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="VoicesSurge" ID="{0A9B79C3-F8DF-42D2-8423-75742F53739B}" ShortID="724727859">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_VoicesSurge" ID="{A5E5D329-B743-46F6-B60C-29720754DE41}" ShortID="137363462">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1.4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="crowd2" ID="{F71544E9-4294-4B1C-8A44-CB41BA06051F}">
+											<Language>SFX</Language>
+											<AudioFile>crowd2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="749386765"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="crowd2" ID="{F71544E9-4294-4B1C-8A44-CB41BA06051F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Guide" ID="{EA8D2FC7-3886-47B0-977E-E4012F880F31}" ShortID="970165535">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Guide" ID="{D815F364-9E11-4C01-A638-AA722937F46E}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_Guide" ID="{8E7A5E68-5E9C-4C26-A111-702963587742}" ShortID="375794298">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ring" ID="{666261DC-3407-4C43-B61C-249C5A4AF5F4}">
+											<Language>SFX</Language>
+											<AudioFile>ring.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="28037354"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ring" ID="{666261DC-3407-4C43-B61C-249C5A4AF5F4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{225A1EF5-7E78-4580-AF37-0FD7A0C6256B}" ShortID="751411455">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Steam Audio Spatializer (HRTF + air)" ID="{20E6D000-3673-4CBB-B77E-88773EDD3A93}" ShortID="1042526694" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+																<PropertyList>
+																	<Property Name="AirAbsorption" Type="bool" Value="True"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</ActorMixer>
+						<ActorMixer Name="Steps" ID="{DB82C91E-29A1-49E0-B7C1-CDDF553ACDE0}" ShortID="506679463">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{4BCA2604-656A-4D9C-886A-FEE65423CED3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S22_Steps" ID="{B071EB30-00DB-417D-B462-4ED10F367E34}" ShortID="719033817">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{8A5F1D01-017F-4374-B2D8-04D76483307E}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="84"/>
+															<Property Name="Min" Type="Real64" Value="-84"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-24.4</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{2C3C83AA-4A84-4753-A49A-1DA39CCE0F5E}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Min" Type="Real64" Value="-0.92"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="step_on_floor" ID="{8EC071A2-22AF-4D8F-B371-40C731115D0E}">
+											<Language>SFX</Language>
+											<AudioFile>step_on_floor.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1055088710"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="step_on_floor" ID="{8EC071A2-22AF-4D8F-B371-40C731115D0E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{484C92F2-AEC5-4597-A6AA-52262F3E23CF}" ShortID="531601212">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+												<ObjectRef Name="Steam_HRTF" ID="{876E804C-3C6A-4599-9975-E1176A8C1BBE}" WorkUnitID="{D09A4589-8A95-4EB4-82BB-56AA7D3C7C16}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

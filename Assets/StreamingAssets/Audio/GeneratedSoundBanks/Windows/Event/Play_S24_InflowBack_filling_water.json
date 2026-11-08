@@ -1,0 +1,75 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "4123649994",
+    "Type": "Event",
+    "GUID": "{1FA46ECE-6B02-47B5-8541-5F0DCC3633E8}",
+    "Language": "SFX",
+    "Hash": "{FEA699BC-5289-DDC3-095C-65725D4024E1}",
+    "ObjectPath": "Play_S24_InflowBack_filling_water",
+    "ShortName": "Play_S24_InflowBack_filling_water",
+    "Path": "Event/Play_S24_InflowBack_filling_water.bnk",
+    "Media": [
+     {
+      "Id": "980648589",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "filling_water.wav",
+      "Path": "Media/980648589.wem",
+      "CachePath": "51/{513B5074-036F-60E7-D560-968FC9D5BF2D}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "607071605",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_4\\Scene 2_4\\InflowBack\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{4CF2181F-8BA8-48EE-B0EB-2F0F270C2116}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "4123649994",
+      "Name": "Play_S24_InflowBack_filling_water",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_InflowBack_filling_water",
+      "GUID": "{1FA46ECE-6B02-47B5-8541-5F0DCC3633E8}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "980648589"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "607071605"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{48041604-CCA6-D984-0B31-58668A14434A}"
+ }
+}

@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{0C02E0B1-B942-422E-85E3-7C57C134FCF5}",
     "Language": "SFX",
-    "Hash": "{FE7E7C3F-FBD0-5857-8BE4-67BF9DF4923A}",
+    "Hash": "{C8C661B0-C312-E1DE-A6D2-A1E84DB4F1B3}",
     "ObjectPath": "Play_S12_Kitchen_kitchen2",
     "ShortName": "Play_S12_Kitchen_kitchen2",
     "Path": "Event/Play_S12_Kitchen_kitchen2.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S12_Kitchen_kitchen2",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Kitchen_kitchen2",
       "GUID": "{0C02E0B1-B942-422E-85E3-7C57C134FCF5}",
-      "MaxAttenuation": "5.2",
       "DurationType": "OneShot",
       "DurationMin": "30",
       "DurationMax": "30",
@@ -53,24 +52,16 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
      }
-    ],
-    "GameParameters": [
-     {
-      "Id": "2005218386",
-      "Name": "S12_Kitchen_Gain",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Kitchen_Gain",
-      "GUID": "{77059C6F-0811-4055-8BF1-9764AC1F7E2F}"
-     }
     ]
    }
   ],
-  "FileHash": "{35970AEC-A5C0-1589-81FF-D0D7D50FD695}"
+  "FileHash": "{7C9DCF80-BD6B-0397-8785-EC4A20F8E911}"
  }
 }

@@ -1,0 +1,65 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1400641090",
+    "Type": "Event",
+    "GUID": "{5AB66A78-3F62-43C8-B59A-1D780D8E7D85}",
+    "Language": "SFX",
+    "Hash": "{8AFF39FA-A3F7-0A40-E8E1-3739EE0165CA}",
+    "ObjectPath": "Play_S24_Underwater1",
+    "ShortName": "Play_S24_Underwater1",
+    "Path": "Event/Play_S24_Underwater1.bnk",
+    "Media": [
+     {
+      "Id": "714241461",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "UnderWater_1.wav",
+      "Path": "Media/714241461.wem",
+      "CachePath": "51/{51BB51F0-B9D8-A907-AED0-FC93DB6FFCE8}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1400641090",
+      "Name": "Play_S24_Underwater1",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_Underwater1",
+      "GUID": "{5AB66A78-3F62-43C8-B59A-1D780D8E7D85}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "714241461"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{E7220D31-4DB5-F5A0-2713-DCB40A80F286}"
+ }
+}

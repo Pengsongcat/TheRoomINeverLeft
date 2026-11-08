@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{63BA27FB-950D-4469-A6A2-790B288B32B5}",
     "Language": "SFX",
-    "Hash": "{965B11BB-AAEA-53E4-3875-E58574F678DE}",
+    "Hash": "{C37D4739-8B0B-E8F1-8B18-D45A2050956B}",
     "ObjectPath": "Play_S22_CrowdLeft_ambient_walking_muffled",
     "ShortName": "Play_S22_CrowdLeft_ambient_walking_muffled",
     "Path": "Event/Play_S22_CrowdLeft_ambient_walking_muffled.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S22_CrowdLeft_ambient_walking_muffled",
       "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_CrowdLeft_ambient_walking_muffled",
       "GUID": "{63BA27FB-950D-4469-A6A2-790B288B32B5}",
-      "MaxAttenuation": "8.33",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -51,24 +50,16 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
      }
-    ],
-    "GameParameters": [
-     {
-      "Id": "2882525742",
-      "Name": "S22_CrowdLeft_Level",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_CrowdLeft_Level",
-      "GUID": "{DF3536AC-ED21-410D-AA6C-8E194896BEFC}"
-     }
     ]
    }
   ],
-  "FileHash": "{9A841B45-2FDB-740A-48A2-32E82EC097A2}"
+  "FileHash": "{539311CB-BC30-EB51-139C-FC8F9F636944}"
  }
 }

@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{76D46FEE-81F1-4D18-A95F-3F425A66E2CD}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Scene 2_3" ID="{76D46FEE-81F1-4D18-A95F-3F425A66E2CD}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="Scene 2_3" ID="{6BC5FC28-A0F0-4EB2-8D77-0D6B120AB455}" ShortID="444724219">
+					<PropertyList>
+						<Property Name="OverrideEffect" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<ActorMixer Name="Narration" ID="{EA370DD3-0720-498A-AD70-D952BD3A3BD4}" ShortID="276812566">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Narration" ID="{0A1406FA-952D-4852-8B75-9E33F1B8C96F}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S23_Narration_1" ID="{C4F2881B-B20D-4722-A8D2-C10B0AAEF0D2}" ShortID="842092017">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_3" ID="{581B8965-5018-4D3A-B978-73F1686919EE}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="16.17"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1004948174"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_3" ID="{581B8965-5018-4D3A-B978-73F1686919EE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S23_Narration_2" ID="{6EB9A6EE-DCDC-4F19-85D7-6EB48E3D053B}" ShortID="924630881">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_3" ID="{9BF54E31-5E28-49F1-88A7-7AF44E92808F}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="5.44"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="8020960"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_3" ID="{9BF54E31-5E28-49F1-88A7-7AF44E92808F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S23_Narration_3" ID="{0895B60A-C5D1-4EC1-B4EF-0C243D5E771C}" ShortID="296770892">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_3" ID="{377CF35C-60B5-4FA8-93C8-C2703B6ADD6F}">
+											<Language>SFX</Language>
+											<AudioFile>2_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="387261779"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_3" ID="{377CF35C-60B5-4FA8-93C8-C2703B6ADD6F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="ClockBackground" ID="{B6EDB2F6-6FBA-437A-90E6-8AAAF93B426C}" ShortID="250453283">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>56</Value>
+									</ValueList>
+								</Property>
+								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S23_ClockBackground_1" ID="{C0412948-5721-4BCD-B579-9905C81AB2B2}" ShortID="492204986">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_3scene_clockBack" ID="{E2512798-6D6E-4A77-87ED-C1071722D06C}">
+											<Language>SFX</Language>
+											<AudioFile>2_3scene_clockBack.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="808094078"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_3scene_clockBack" ID="{E2512798-6D6E-4A77-87ED-C1071722D06C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S23_ClockBackground_2" ID="{87A188CD-1C9D-4DA3-8075-017DDC405EB8}" ShortID="992740097">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_3scene_clockBack" ID="{950C0043-04F3-48A4-89A3-6B64ADAFE636}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="5.14"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_3scene_clockBack.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="838410404"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_3scene_clockBack" ID="{950C0043-04F3-48A4-89A3-6B64ADAFE636}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Pendulum" ID="{F9CFA0A8-4D89-4E28-BEDF-BD6C288B44F1}" ShortID="276603698">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>56</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{4BCA2604-656A-4D9C-886A-FEE65423CED3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S23_Pendulum_1" ID="{6678E411-4A5C-412C-9D9B-60B56C72AAC5}" ShortID="197584087">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_3scene_clock" ID="{68BB0944-C945-4A24-BBA6-E4EBD6F2D482}">
+											<Language>SFX</Language>
+											<AudioFile>2_3scene_clock.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="404519183"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_3scene_clock" ID="{68BB0944-C945-4A24-BBA6-E4EBD6F2D482}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S23_Pendulum_2" ID="{86A9601C-16AD-4748-88F6-9C66D0E52FB0}" ShortID="534585606">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_3scene_clock" ID="{6955E355-5814-4024-BFBA-FECEEB277025}">
+											<Language>SFX</Language>
+											<AudioFile>2_3scene_clock.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="404519183"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_3scene_clock" ID="{6955E355-5814-4024-BFBA-FECEEB277025}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="S23_Pendulum_3" ID="{58625961-FA3B-4579-B6E8-4474CAEE9FB4}" ShortID="161366078">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_3scene_clock" ID="{9AF272AA-2729-4CB6-A709-47B046634CDB}">
+											<PropertyList>
+												<Property Name="TrimBegin" Type="Real64" Value="5.06"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2_3scene_clock.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="925303467"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_3scene_clock" ID="{9AF272AA-2729-4CB6-A709-47B046634CDB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Guide" ID="{1D77783B-6A4D-4293-821B-856A5A05128E}" ShortID="170603591">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Guide" ID="{D815F364-9E11-4C01-A638-AA722937F46E}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S23_Guide" ID="{AA023441-ED39-47AE-BA3F-948574034AAD}" ShortID="977094676">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="clock_ticking_4" ID="{4566AAC3-3CF3-4FD3-AB01-34A89FE8AEA0}">
+											<Language>SFX</Language>
+											<AudioFile>clock_ticking_4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1039645188"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="clock_ticking_4" ID="{4566AAC3-3CF3-4FD3-AB01-34A89FE8AEA0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{C95E48EB-E02A-4BA6-8E98-76C448579C7F}" ShortID="916811418">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Steam Audio Spatializer (HRTF + air)" ID="{EB1C7DB5-0536-41A9-9BE2-05EBC37A8B75}" ShortID="488853561" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+																<PropertyList>
+																	<Property Name="AirAbsorption" Type="bool" Value="True"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</ActorMixer>
+						<ActorMixer Name="Steps" ID="{BE7941EC-AD49-438F-B3E0-43CB4769D50F}" ShortID="239400082">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="S23_Steps" ID="{A84124A4-3328-4FB8-B35F-637D82DEFC0A}" ShortID="954885820">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{B8855C13-C110-4934-AA05-892151364DE9}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="84"/>
+															<Property Name="Min" Type="Real64" Value="-84"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-24.4</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F7AF354A-A467-4050-B4C3-330ABF154874}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Min" Type="Real64" Value="-0.92"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="step_on_floor" ID="{EB2A6C32-42F5-4CB9-9773-8B8C5E52335F}">
+											<Language>SFX</Language>
+											<AudioFile>step_on_floor.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1055088710"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="step_on_floor" ID="{EB2A6C32-42F5-4CB9-9773-8B8C5E52335F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Sigh" ID="{B064219F-BFD7-4760-B56E-AEBC19B3C73D}" ShortID="559226134">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>20</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="S23_Sigh" ID="{24D13F08-3802-41E3-AC38-39CF00922653}" ShortID="111022067">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{ED3EB786-CB4A-4886-9D61-B76C23CDD97D}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="101"/>
+															<Property Name="Min" Type="Real64" Value="-101"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F1233D0A-E6F8-45B7-9376-6D87CE3340DA}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Min" Type="Real64" Value="-0.92"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="S23_Sigh_1" ID="{38D721F0-BA08-4B73-9C0F-B1DF48E00245}" ShortID="724828324">
+											<PropertyList>
+												<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="2_3_sigh" ID="{A90A0C29-7E3B-4570-8152-4CE7245712A9}">
+													<PropertyList>
+														<Property Name="TrimBegin" Type="Real64" Value="0.3"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.15"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>2_3_sigh.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="565268383"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="2_3_sigh" ID="{A90A0C29-7E3B-4570-8152-4CE7245712A9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="S23_Sigh_2" ID="{18C1CE9A-CB51-4A78-8074-1F6C11B4BD83}" ShortID="497391565">
+											<PropertyList>
+												<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="2_3_sigh" ID="{77D7B157-FF44-4C9A-82D5-C0A7D9083182}">
+													<PropertyList>
+														<Property Name="TrimBegin" Type="Real64" Value="1.75"/>
+														<Property Name="TrimEnd" Type="Real64" Value="3.45"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>2_3_sigh.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1012415734"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="2_3_sigh" ID="{77D7B157-FF44-4C9A-82D5-C0A7D9083182}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="S23_Sigh_3" ID="{25D993E7-9DAF-4CE6-8783-6792563C47E1}" ShortID="637232576">
+											<PropertyList>
+												<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="2_3_sigh" ID="{17C59057-BDCD-41D1-A56A-4806BD7E61C0}">
+													<PropertyList>
+														<Property Name="TrimBegin" Type="Real64" Value="3.9"/>
+														<Property Name="TrimEnd" Type="Real64" Value="5.1"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>2_3_sigh.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="131141985"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="2_3_sigh" ID="{17C59057-BDCD-41D1-A56A-4806BD7E61C0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="S23_Sigh_4" ID="{63DDB9B2-B1E2-472A-8455-E2540BB6CCBF}" ShortID="83392123">
+											<PropertyList>
+												<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="2_3_sigh" ID="{C2D63E27-D4AC-42B3-8883-A9CFDA835EDA}">
+													<PropertyList>
+														<Property Name="TrimBegin" Type="Real64" Value="6.1"/>
+														<Property Name="TrimEnd" Type="Real64" Value="7.1"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>2_3_sigh.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="569723481"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="2_3_sigh" ID="{C2D63E27-D4AC-42B3-8883-A9CFDA835EDA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="S23_Sigh_5" ID="{46E90D6A-4065-4026-B9D5-2C5827084346}" ShortID="332808448">
+											<PropertyList>
+												<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="2_3_sigh" ID="{C243A564-5A7F-4130-9876-54FEA5751B3F}">
+													<PropertyList>
+														<Property Name="TrimBegin" Type="Real64" Value="7.7"/>
+														<Property Name="TrimEnd" Type="Real64" Value="8.6"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>2_3_sigh.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="278387975"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="2_3_sigh" ID="{C243A564-5A7F-4130-9876-54FEA5751B3F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+						</ActorMixer>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{FF3CD2A2-8874-45FF-9C9A-38C02F8F6D84}" ShortID="603080479">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+												<ObjectRef Name="Steam_HRTF" ID="{876E804C-3C6A-4599-9975-E1176A8C1BBE}" WorkUnitID="{D09A4589-8A95-4EB4-82BB-56AA7D3C7C16}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

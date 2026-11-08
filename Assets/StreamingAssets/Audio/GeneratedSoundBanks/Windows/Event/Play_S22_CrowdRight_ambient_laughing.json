@@ -1,0 +1,65 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "639251644",
+    "Type": "Event",
+    "GUID": "{E0709F7F-9213-4903-A917-BC1652745385}",
+    "Language": "SFX",
+    "Hash": "{F0633C0F-300C-30A4-4B3A-C170D1F0EA68}",
+    "ObjectPath": "Play_S22_CrowdRight_ambient_laughing",
+    "ShortName": "Play_S22_CrowdRight_ambient_laughing",
+    "Path": "Event/Play_S22_CrowdRight_ambient_laughing.bnk",
+    "Media": [
+     {
+      "Id": "721786983",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "ambient_laughing.wav",
+      "Path": "Media/721786983.wem",
+      "CachePath": "BA/{BA650653-7489-7D40-BBB5-5CC9A9637DE0}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "639251644",
+      "Name": "Play_S22_CrowdRight_ambient_laughing",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_CrowdRight_ambient_laughing",
+      "GUID": "{E0709F7F-9213-4903-A917-BC1652745385}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "721786983"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{9D1B75A3-A350-A185-4A0A-669CB9769EC3}"
+ }
+}

@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{36BFCE31-F327-44C3-9A4C-CD5BCF2B14F0}",
     "Language": "SFX",
-    "Hash": "{5F911E9C-8756-9310-0165-DC1A801EA458}",
+    "Hash": "{3A8752D4-26D0-DD2B-3244-13762AF4FBDA}",
     "ObjectPath": "Play_S12_Crowd_laughter",
     "ShortName": "Play_S12_Crowd_laughter",
     "Path": "Event/Play_S12_Crowd_laughter.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S12_Crowd_laughter",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Crowd_laughter",
       "GUID": "{36BFCE31-F327-44C3-9A4C-CD5BCF2B14F0}",
-      "MaxAttenuation": "8.33",
       "DurationType": "OneShot",
       "DurationMin": "23.14",
       "DurationMax": "23.14",
@@ -53,24 +52,16 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
      }
-    ],
-    "GameParameters": [
-     {
-      "Id": "2875816095",
-      "Name": "S12_Crowd_Gain",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Crowd_Gain",
-      "GUID": "{2D92DF84-C06B-43BB-A353-89206EAC62AC}"
-     }
     ]
    }
   ],
-  "FileHash": "{0FA30766-375D-AAFB-C2FC-F8020DA0F9DB}"
+  "FileHash": "{13CF20C3-2894-E46D-F15A-3E0F64376A49}"
  }
 }

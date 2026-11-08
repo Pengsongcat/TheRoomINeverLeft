@@ -1,0 +1,65 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1268140281",
+    "Type": "Event",
+    "GUID": "{EFBC1C11-4366-4CEA-BD83-7EDBB0911406}",
+    "Language": "SFX",
+    "Hash": "{4C1BF559-EFCB-9A95-8CB4-E5B17A4D4D71}",
+    "ObjectPath": "Play_S11_RuralSong",
+    "ShortName": "Play_S11_RuralSong",
+    "Path": "Event/Play_S11_RuralSong.bnk",
+    "Media": [
+     {
+      "Id": "376618804",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "S11_RuralSong.wav",
+      "Path": "Media/376618804.wem",
+      "CachePath": "15/{1525069F-9592-311B-388A-0BEB17E52ADF}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1268140281",
+      "Name": "Play_S11_RuralSong",
+      "ObjectPath": "\\Events\\Scene 1_1\\Play_S11_RuralSong",
+      "GUID": "{EFBC1C11-4366-4CEA-BD83-7EDBB0911406}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "376618804"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{1D9C974A-CF98-8EB9-D814-644BA40F746B}"
+ }
+}

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Scene 1_1" ID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="Scene 1_1" ID="{930ABDA0-025F-415C-A949-22435E936E88}" ShortID="56668162">
+					<PropertyList>
+						<Property Name="OverrideEffect" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="S11_Guide" ID="{118797E5-D8C0-4B39-AAC7-18470A39CBBC}" ShortID="895181958">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Guide" ID="{D815F364-9E11-4C01-A638-AA722937F46E}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="S11_Guide" ID="{5C70C99D-E81C-4CEA-A9C5-DB5BB0B423D6}">
+									<Language>SFX</Language>
+									<AudioFile>S11_Guide.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="739091366"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{3F32D4CC-5C6D-46A8-8A3F-2ECEBD369F39}" ShortID="162340720">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Steam Audio Spatializer (HRTF + air)" ID="{B1983CB9-35E5-4ABD-A86D-ADA856DF0CB8}" ShortID="1065808497" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+																<PropertyList>
+																	<Property Name="AirAbsorption" Type="bool" Value="True"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="S11_Guide" ID="{5C70C99D-E81C-4CEA-A9C5-DB5BB0B423D6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="S11_Narration" ID="{8C05A4E9-416C-4944-ACA6-CBCA05A45C72}" ShortID="84632320">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Narration" ID="{0A1406FA-952D-4852-8B75-9E33F1B8C96F}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="S11_Narration" ID="{3F802947-F762-4B78-A51D-17BF0239D84F}">
+									<Language>SFX</Language>
+									<AudioFile>S11_Narration.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="610761145"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="S11_Narration" ID="{3F802947-F762-4B78-A51D-17BF0239D84F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="S11_NarratorSteps" ID="{B5843392-3B08-4765-8FF5-4AF3CC36F0E7}" ShortID="953153844">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{4BCA2604-656A-4D9C-886A-FEE65423CED3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="S11_NarratorSteps" ID="{0DD4D021-AD01-48DD-B1C9-2982B5000BFD}">
+									<Language>SFX</Language>
+									<AudioFile>S11_NarratorSteps.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="3225928"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="S11_NarratorSteps" ID="{0DD4D021-AD01-48DD-B1C9-2982B5000BFD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="S11_Rural2" ID="{AD7FECDA-72FA-4509-B9B6-905376354962}" ShortID="145170826">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="S11_Rural2" ID="{8A47CFA7-2945-4745-BA70-6D4A83D2CE85}">
+									<Language>SFX</Language>
+									<AudioFile>S11_Rural2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1016544259"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="S11_Rural2" ID="{8A47CFA7-2945-4745-BA70-6D4A83D2CE85}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="S11_Rural" ID="{930820FD-C23E-4174-92F9-BE81CE48A50E}" ShortID="921398267">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9.3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="S11_Rural" ID="{9C81B2B9-7D7F-45BB-8668-C368E05FD95B}">
+									<Language>SFX</Language>
+									<AudioFile>S11_Rural.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="321227859"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="S11_Rural" ID="{9C81B2B9-7D7F-45BB-8668-C368E05FD95B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="S11_RuralSong" ID="{B2A7826D-C202-4DB5-B7B9-2C4CACA8374C}" ShortID="586206377">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-34.1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{B0787DC0-4C4A-45CC-984B-9DF1E824483A}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="S11_RuralSong" ID="{61ED4633-870E-4BDA-A0AB-193F63637D22}">
+									<Language>SFX</Language>
+									<AudioFile>S11_RuralSong.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="376618804"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="S11_RuralSong" ID="{61ED4633-870E-4BDA-A0AB-193F63637D22}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="S11_Dog" ID="{EC97F569-0831-4C26-ABAE-08EF2A6A2500}" ShortID="76809460">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6.1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{4BCA2604-656A-4D9C-886A-FEE65423CED3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="S11_Dog" ID="{D68F5972-F66F-4523-BBFA-58C1F4C87A58}">
+									<PropertyList>
+										<Property Name="TrimBegin" Type="Real64" Value="0.45"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>S11_Dog.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="806223487"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="S11_Dog" ID="{D68F5972-F66F-4523-BBFA-58C1F4C87A58}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="S11_Farm" ID="{22BF8A48-8533-431C-A1AB-741A7E4EA439}" ShortID="86026693">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-23.5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{4BCA2604-656A-4D9C-886A-FEE65423CED3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="S11_Farm" ID="{3F0B7DF1-72F8-4706-B4E9-DE226C2183C5}">
+									<Language>SFX</Language>
+									<AudioFile>S11_Farm.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="131538003"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="S11_Farm" ID="{3F0B7DF1-72F8-4706-B4E9-DE226C2183C5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="S11_Bird" ID="{60CD2B74-8AE8-45FF-8869-A859A05B8994}" ShortID="85580963">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{4BCA2604-656A-4D9C-886A-FEE65423CED3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="S11_Bird" ID="{F732AD93-E820-41FA-930E-A2662DAEA869}">
+									<Language>SFX</Language>
+									<AudioFile>S11_Bird.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="307762032"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="S11_Bird" ID="{F732AD93-E820-41FA-930E-A2662DAEA869}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="S11_Duck" ID="{59E2BB0F-BAAC-4103-9A97-E525041760C4}" ShortID="645902589">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-19.3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{4BCA2604-656A-4D9C-886A-FEE65423CED3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="S11_Duck" ID="{8DE3B5D4-957A-4CB7-A134-D48D7ECDB7C0}">
+									<Language>SFX</Language>
+									<AudioFile>S11_Duck.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="133646890"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="S11_Duck" ID="{8DE3B5D4-957A-4CB7-A134-D48D7ECDB7C0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{3D40BED8-F251-4D08-86B2-3B7C17D501AF}" ShortID="529080215">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+												<ObjectRef Name="Steam_HRTF" ID="{876E804C-3C6A-4599-9975-E1176A8C1BBE}" WorkUnitID="{D09A4589-8A95-4EB4-82BB-56AA7D3C7C16}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

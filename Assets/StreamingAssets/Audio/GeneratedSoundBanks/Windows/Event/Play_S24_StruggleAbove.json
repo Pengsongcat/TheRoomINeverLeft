@@ -1,0 +1,77 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1969395586",
+    "Type": "Event",
+    "GUID": "{BDB57D42-7A7D-4255-BBD4-21FA30E62CA6}",
+    "Language": "SFX",
+    "Hash": "{17CF70EC-9676-8542-3629-B0E81E1CEE6B}",
+    "ObjectPath": "Play_S24_StruggleAbove",
+    "ShortName": "Play_S24_StruggleAbove",
+    "Path": "Event/Play_S24_StruggleAbove.bnk",
+    "Media": [
+     {
+      "Id": "514948261",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "water_splash_struggle_far_above.wav",
+      "Path": "Media/514948261.wem",
+      "CachePath": "1B/{1B77167B-F4F1-70AC-B25D-4CC997203791}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "99621071",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_4\\Scene 2_4\\StruggleAbove\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{0964D062-ED0D-4C3E-AD69-51E49A493D3C}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1969395586",
+      "Name": "Play_S24_StruggleAbove",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_StruggleAbove",
+      "GUID": "{BDB57D42-7A7D-4255-BBD4-21FA30E62CA6}",
+      "DurationType": "OneShot",
+      "DurationMin": "16",
+      "DurationMax": "16",
+      "MediaRefs": [
+       {
+        "Id": "514948261"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "99621071"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{05D3B1D0-EE59-1F86-1C9C-6F67BB449FF9}"
+ }
+}

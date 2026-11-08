@@ -197,38 +197,6 @@ namespace AK
         static const AkUniqueID STOP_S11_GUIDE = 128891308U;
     } // namespace EVENTS
 
-    namespace GAME_PARAMETERS
-    {
-        static const AkUniqueID S12_CROWD_GAIN = 2875816095U;
-        static const AkUniqueID S12_FIREWORKS_GAIN = 2500334196U;
-        static const AkUniqueID S12_KITCHEN_GAIN = 2005218386U;
-        static const AkUniqueID S12_TV_GAIN = 2100205116U;
-        static const AkUniqueID S13_AMB3_GAIN = 2221042542U;
-        static const AkUniqueID S13_AMB5_GAIN = 1295170276U;
-        static const AkUniqueID S13_BROADCAST_GAIN = 1101013426U;
-        static const AkUniqueID S21_BAND_LEVEL = 346825472U;
-        static const AkUniqueID S21_BAND_REVDRY = 2809151524U;
-        static const AkUniqueID S21_BAND_REVER = 2864425688U;
-        static const AkUniqueID S21_BAND_REVWET = 2693826935U;
-        static const AkUniqueID S22_CROWDLEFT_LEVEL = 2882525742U;
-        static const AkUniqueID S22_CROWDRIGHT_LEVEL = 4165044443U;
-        static const AkUniqueID S22_PHONEBEEPS_LEVEL = 3665850871U;
-        static const AkUniqueID S22_PHONEBEEPS_REVDRY = 1266102801U;
-        static const AkUniqueID S22_PHONEBEEPS_REVER = 2599364207U;
-        static const AkUniqueID S22_PHONEBEEPS_REVWET = 849075090U;
-        static const AkUniqueID S22_SOBBING_LEVEL = 1636923008U;
-        static const AkUniqueID S22_TRAFFIC_LEVEL = 2302902257U;
-        static const AkUniqueID S23_CLOCKBACKGROUND_GAIN = 19866496U;
-        static const AkUniqueID S23_SIGH_LEVEL = 4206488142U;
-        static const AkUniqueID S24_INFLOWBACK_LEVEL = 924751858U;
-        static const AkUniqueID S24_INFLOWFRONT_LEVEL = 4286194062U;
-        static const AkUniqueID S24_INFLOWLEFT_LEVEL = 4057865028U;
-        static const AkUniqueID S24_INFLOWRIGHT_LEVEL = 3341327153U;
-        static const AkUniqueID S24_STRUGGLEABOVE_LEVEL = 3136980988U;
-        static const AkUniqueID S24_UNDERWATER1_LEVEL = 4097161280U;
-        static const AkUniqueID S24_UNDERWATER2_LEVEL = 3563429303U;
-    } // namespace GAME_PARAMETERS
-
     namespace BUSSES
     {
         static const AkUniqueID AMBIENCE = 85412153U;

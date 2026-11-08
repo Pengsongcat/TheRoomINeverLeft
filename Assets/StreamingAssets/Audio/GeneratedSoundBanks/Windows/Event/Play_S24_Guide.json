@@ -1,0 +1,75 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2651853686",
+    "Type": "Event",
+    "GUID": "{6F4C92F8-8B0B-412C-B861-2D0EB57D880A}",
+    "Language": "SFX",
+    "Hash": "{2AD2D769-B048-5A73-E602-8CC783A5729D}",
+    "ObjectPath": "Play_S24_Guide",
+    "ShortName": "Play_S24_Guide",
+    "Path": "Event/Play_S24_Guide.bnk",
+    "Media": [
+     {
+      "Id": "152538089",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "bubble.wav",
+      "Path": "Media/152538089.wem",
+      "CachePath": "73/{73819816-32DF-6F17-2C25-DDE7C847A1E0}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "252626360",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_4\\Scene 2_4\\Guide\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{AA9742EB-5BE8-4A4B-8B9A-7FC7EEA9F438}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2651853686",
+      "Name": "Play_S24_Guide",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_Guide",
+      "GUID": "{6F4C92F8-8B0B-412C-B861-2D0EB57D880A}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "152538089"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "252626360"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{CB87129E-D5C7-DC27-949E-37293FFC9EBE}"
+ }
+}

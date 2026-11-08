@@ -1,0 +1,67 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2564356753",
+    "Type": "Event",
+    "GUID": "{F22DCA4F-B6EC-41FB-9E28-5929B583AE13}",
+    "Language": "SFX",
+    "Hash": "{EBF5C496-0BA0-CB7B-1555-68995E6467D0}",
+    "ObjectPath": "Play_S22_Steps",
+    "ShortName": "Play_S22_Steps",
+    "Path": "Event/Play_S22_Steps.bnk",
+    "Media": [
+     {
+      "Id": "1055088710",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "step_on_floor.wav",
+      "Path": "Media/1055088710.wem",
+      "CachePath": "F9/{F99B2469-E393-5E9B-E8A8-2BD8D2A3D46B}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2564356753",
+      "Name": "Play_S22_Steps",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Steps",
+      "GUID": "{F22DCA4F-B6EC-41FB-9E28-5929B583AE13}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.028849",
+      "DurationMax": "1.133694",
+      "MediaRefs": [
+       {
+        "Id": "1055088710"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{5A76B76D-94E1-1A3E-49C1-2AA022A50EE2}"
+ }
+}

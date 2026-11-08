@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{C293B328-52D5-43A4-B3E8-11B11278B29B}",
     "Language": "SFX",
-    "Hash": "{F3937EAA-37C3-F152-1846-5F9D107CDE91}",
+    "Hash": "{6D31FA0D-9FD4-5650-B711-76A923E819E0}",
     "ObjectPath": "Play_S12_TV_2",
     "ShortName": "Play_S12_TV_2",
     "Path": "Event/Play_S12_TV_2.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S12_TV_2",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_TV_2",
       "GUID": "{C293B328-52D5-43A4-B3E8-11B11278B29B}",
-      "MaxAttenuation": "5",
       "DurationType": "OneShot",
       "DurationMin": "179.15817",
       "DurationMax": "179.15817",
@@ -53,24 +52,16 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
      }
-    ],
-    "GameParameters": [
-     {
-      "Id": "2100205116",
-      "Name": "S12_TV_Gain",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_TV_Gain",
-      "GUID": "{48A4F8AE-F4B0-44FB-BCDB-48F78586A4E6}"
-     }
     ]
    }
   ],
-  "FileHash": "{BCF9F773-E116-DAE9-CCA8-66D03B947038}"
+  "FileHash": "{BF594125-C769-0538-31FB-223C2A6909E9}"
  }
 }

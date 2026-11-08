@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{5C5B9F15-41C1-4E33-A131-D19082D1E8B7}",
     "Language": "SFX",
-    "Hash": "{FD2BCADA-467D-46B9-F0E3-1017ABA11FC1}",
+    "Hash": "{3A39E7ED-B535-E24A-A227-40A88A12D20E}",
     "ObjectPath": "Play_S24_Narration_2_4_underwater_2",
     "ShortName": "Play_S24_Narration_2_4_underwater_2",
     "Path": "Event/Play_S24_Narration_2_4_underwater_2.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S24_Narration_2_4_underwater_2",
       "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_Narration_2_4_underwater_2",
       "GUID": "{5C5B9F15-41C1-4E33-A131-D19082D1E8B7}",
-      "MaxAttenuation": "20",
       "DurationType": "OneShot",
       "DurationMin": "30.148188",
       "DurationMax": "30.148188",
@@ -53,9 +52,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -63,6 +62,6 @@
     ]
    }
   ],
-  "FileHash": "{56C7D22A-0898-4FCD-99F0-574E7AAFB62D}"
+  "FileHash": "{39C94853-EC3D-68CE-B161-18BC3DF306E5}"
  }
 }

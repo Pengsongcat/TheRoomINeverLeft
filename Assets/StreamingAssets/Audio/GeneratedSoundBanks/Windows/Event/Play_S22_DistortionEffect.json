@@ -1,0 +1,60 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1132227246",
+    "Type": "Event",
+    "GUID": "{BCBEF608-263E-4226-9B1F-008D9B7BA526}",
+    "Language": "SFX",
+    "Hash": "{23B263E9-E97D-3017-E049-1298E08AA053}",
+    "ObjectPath": "Play_S22_DistortionEffect",
+    "ShortName": "Play_S22_DistortionEffect",
+    "Path": "Event/Play_S22_DistortionEffect.bnk",
+    "Media": [
+     {
+      "Id": "679235210",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "distortion_effect.wav",
+      "Path": "Media/679235210.wem",
+      "CachePath": "3E/{3E2BE31C-41DD-0864-8BD7-1511D6C84A06}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1132227246",
+      "Name": "Play_S22_DistortionEffect",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_DistortionEffect",
+      "GUID": "{BCBEF608-263E-4226-9B1F-008D9B7BA526}",
+      "DurationType": "OneShot",
+      "DurationMin": "30",
+      "DurationMax": "30",
+      "MediaRefs": [
+       {
+        "Id": "679235210"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{B4101B9A-9B1C-90B9-2896-10A159645187}"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "4116582802",
+    "Type": "Event",
+    "GUID": "{2C2E6882-2FB1-4004-83E2-B40F2FDDFEC7}",
+    "Language": "SFX",
+    "Hash": "{65D100F6-6ABD-CF79-84F4-EADF3E63E703}",
+    "ObjectPath": "Play_S22_PhoneRing",
+    "ShortName": "Play_S22_PhoneRing",
+    "Path": "Event/Play_S22_PhoneRing.bnk",
+    "Media": [
+     {
+      "Id": "28037354",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "ring.wav",
+      "Path": "Media/28037354.wem",
+      "CachePath": "4D/{4D1EDE36-6125-5E88-563F-B0FFDC0AA4D1}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "749670080",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_2\\Scene 2_2\\PhoneRing\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{FF836706-502F-4A6B-80CF-70AE856D3FD3}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "4116582802",
+      "Name": "Play_S22_PhoneRing",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_PhoneRing",
+      "GUID": "{2C2E6882-2FB1-4004-83E2-B40F2FDDFEC7}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "28037354"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "749670080"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{044D27A9-04FF-A1A3-3502-85F22AAB6C32}"
+ }
+}

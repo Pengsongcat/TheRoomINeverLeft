@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{41C11B2E-B8DC-479B-9B78-7F483D6338A2}",
     "Language": "SFX",
-    "Hash": "{744E10DB-2AB2-7B9D-A950-A3007B78F1CF}",
+    "Hash": "{DC6492BF-FC0E-33AE-B4B2-615CDFA5537A}",
     "ObjectPath": "Play_S13_Amb5",
     "ShortName": "Play_S13_Amb5",
     "Path": "Event/Play_S13_Amb5.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S13_Amb5",
       "ObjectPath": "\\Events\\Scene 1_3\\Play_S13_Amb5",
       "GUID": "{41C11B2E-B8DC-479B-9B78-7F483D6338A2}",
-      "MaxAttenuation": "8.33",
       "DurationType": "OneShot",
       "DurationMin": "30",
       "DurationMax": "30",
@@ -53,24 +52,16 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
      }
-    ],
-    "GameParameters": [
-     {
-      "Id": "1295170276",
-      "Name": "S13_Amb5_Gain",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S13_Amb5_Gain",
-      "GUID": "{F46415AE-8408-49D5-B5A5-0411BADFBBBF}"
-     }
     ]
    }
   ],
-  "FileHash": "{5834D525-549E-DB38-3E95-C37C9B8661AB}"
+  "FileHash": "{65396ECC-7EC3-8C6D-4A5A-60E09390EC81}"
  }
 }

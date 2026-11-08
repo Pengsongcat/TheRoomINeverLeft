@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3AE9A1F8-4966-4F4F-B49F-795D55B9AE91}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Onboarding" ID="{3AE9A1F8-4966-4F4F-B49F-795D55B9AE91}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="Onboarding" ID="{2C534B80-B4E2-4BC8-80BB-31922A30EDCD}" ShortID="50615190">
+					<PropertyList>
+						<Property Name="OverrideEffect" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<ActorMixer Name="Voice" ID="{833156B5-1940-42A4-84E7-8CD20917E4AA}" ShortID="592112805">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Narration" ID="{0A1406FA-952D-4852-8B75-9E33F1B8C96F}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="OB_Voice" ID="{AA0BE89B-2F33-4778-B4E3-7283AE72CFDD}" ShortID="530530613">
+									<PropertyList>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{034C4DF1-7534-4951-9B8B-9297CCE9B731}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="onboarding" ID="{57742003-82E5-4BCD-9A8B-EFA4B17336DF}">
+											<Language>SFX</Language>
+											<AudioFile>onboarding.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="577553938"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="onboarding" ID="{57742003-82E5-4BCD-9A8B-EFA4B17336DF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{641ED9B8-07DB-47DF-8F56-C5EEBEB2DE46}" ShortID="6331389">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Steam Audio Spatializer (HRTF + air)" ID="{1BBD3238-78EF-4389-95E1-57319B8F5B5A}" ShortID="426955272" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+																<PropertyList>
+																	<Property Name="AirAbsorption" Type="bool" Value="True"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</ActorMixer>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{132B2D9E-F23D-4559-B388-64E084E31CE5}" ShortID="954475043">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+												<ObjectRef Name="Steam_HRTF" ID="{876E804C-3C6A-4599-9975-E1176A8C1BBE}" WorkUnitID="{D09A4589-8A95-4EB4-82BB-56AA7D3C7C16}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

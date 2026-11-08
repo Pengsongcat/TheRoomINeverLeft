@@ -1,0 +1,77 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1944523496",
+    "Type": "Event",
+    "GUID": "{FBA8A803-D201-4B44-8BEF-1B25FFD08760}",
+    "Language": "SFX",
+    "Hash": "{B63C016C-ACEA-A198-0D77-3748E9F06D01}",
+    "ObjectPath": "Play_S21_Band",
+    "ShortName": "Play_S21_Band",
+    "Path": "Event/Play_S21_Band.bnk",
+    "Media": [
+     {
+      "Id": "1037609364",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "C_est_Magnifique_Live_Avalon_Jazz_Band.wav",
+      "Path": "Media/1037609364.wem",
+      "CachePath": "6F/{6F8F432B-18CA-1157-29B7-69179636C9E9}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "826461293",
+       "Name": "Steam Audio Spatializer",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_1\\Scene 2_1\\Band\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer",
+       "GUID": "{F4D3046B-8F44-4DA1-A7F8-B3B776001698}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1944523496",
+      "Name": "Play_S21_Band",
+      "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_Band",
+      "GUID": "{FBA8A803-D201-4B44-8BEF-1B25FFD08760}",
+      "DurationType": "OneShot",
+      "DurationMin": "155.9532",
+      "DurationMax": "155.9532",
+      "MediaRefs": [
+       {
+        "Id": "1037609364"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "826461293"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{8A9B501C-EB0B-FC3C-7260-07656636E6EF}"
+ }
+}

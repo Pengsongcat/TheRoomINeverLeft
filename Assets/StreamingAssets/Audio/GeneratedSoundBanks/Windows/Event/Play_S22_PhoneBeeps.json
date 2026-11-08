@@ -1,0 +1,75 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "929886155",
+    "Type": "Event",
+    "GUID": "{EF01C9FA-B83C-49D5-9CCF-68FA46B3DD7C}",
+    "Language": "SFX",
+    "Hash": "{E9140C5B-9144-6F16-AABB-1DA5D7613940}",
+    "ObjectPath": "Play_S22_PhoneBeeps",
+    "ShortName": "Play_S22_PhoneBeeps",
+    "Path": "Event/Play_S22_PhoneBeeps.bnk",
+    "Media": [
+     {
+      "Id": "442470684",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "phone_hang_up.wav",
+      "Path": "Media/442470684.wem",
+      "CachePath": "59/{5982E895-0CA9-7864-0057-9A35DED89219}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "117006851",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_2\\Scene 2_2\\PhoneBeeps\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{1BE588AB-320F-498E-B522-DD529F691801}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "929886155",
+      "Name": "Play_S22_PhoneBeeps",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_PhoneBeeps",
+      "GUID": "{EF01C9FA-B83C-49D5-9CCF-68FA46B3DD7C}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "442470684"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "117006851"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{6615ECB1-DA28-D123-3E4E-73FA2BE0A195}"
+ }
+}

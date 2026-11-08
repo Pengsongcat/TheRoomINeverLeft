@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{1F797527-7E6E-4DEE-A722-14D8FB3A5DA1}",
     "Language": "SFX",
-    "Hash": "{56308178-9BA1-C895-63BE-701022B7DF82}",
+    "Hash": "{681C37F1-6B80-872A-DBB5-9FAF22DF2BA0}",
     "ObjectPath": "Play_S12_Table1_aunt_bomu",
     "ShortName": "Play_S12_Table1_aunt_bomu",
     "Path": "Event/Play_S12_Table1_aunt_bomu.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S12_Table1_aunt_bomu",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Table1_aunt_bomu",
       "GUID": "{1F797527-7E6E-4DEE-A722-14D8FB3A5DA1}",
-      "MaxAttenuation": "5",
       "DurationType": "OneShot",
       "DurationMin": "14.693104",
       "DurationMax": "14.693104",
@@ -53,9 +52,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -63,6 +62,6 @@
     ]
    }
   ],
-  "FileHash": "{E9F3640C-1AE3-AC49-82AE-E31440E8B8A3}"
+  "FileHash": "{2A3527D6-F07C-0642-7977-B712B7AA8EED}"
  }
 }

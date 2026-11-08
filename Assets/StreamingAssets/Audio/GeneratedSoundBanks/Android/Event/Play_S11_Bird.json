@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{55FB0CC5-08E5-4398-A73A-81C5BD1B247F}",
     "Language": "SFX",
-    "Hash": "{4469C65F-33A3-B263-F65E-76EADDAC37F3}",
+    "Hash": "{90FC965A-752C-3AB2-54FB-335863BDFC1A}",
     "ObjectPath": "Play_S11_Bird",
     "ShortName": "Play_S11_Bird",
     "Path": "Event/Play_S11_Bird.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S11_Bird",
       "ObjectPath": "\\Events\\Scene 1_1\\Play_S11_Bird",
       "GUID": "{55FB0CC5-08E5-4398-A73A-81C5BD1B247F}",
-      "MaxAttenuation": "5.2",
       "DurationType": "OneShot",
       "DurationMin": "2.88",
       "DurationMax": "2.88",
@@ -53,9 +52,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -63,6 +62,6 @@
     ]
    }
   ],
-  "FileHash": "{09E29D01-45F1-7BC3-EFB7-BCE714B27BF3}"
+  "FileHash": "{A6BA6FE8-C81C-5221-0FCF-E0736AC9B2C9}"
  }
 }

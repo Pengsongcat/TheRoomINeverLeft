@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{5503DD8F-2A46-4951-A549-EAFCDBCBD347}",
     "Language": "SFX",
-    "Hash": "{0FF7821D-FD84-4970-1373-8C161B757289}",
+    "Hash": "{E15B4C9D-1A24-8259-7E82-11514442FBAA}",
     "ObjectPath": "Play_S22_Narration_2_2_5",
     "ShortName": "Play_S22_Narration_2_2_5",
     "Path": "Event/Play_S22_Narration_2_2_5.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S22_Narration_2_2_5",
       "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Narration_2_2_5",
       "GUID": "{5503DD8F-2A46-4951-A549-EAFCDBCBD347}",
-      "MaxAttenuation": "5",
       "DurationType": "OneShot",
       "DurationMin": "35.953793",
       "DurationMax": "35.953793",
@@ -53,9 +52,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -63,6 +62,6 @@
     ]
    }
   ],
-  "FileHash": "{4C19982F-167E-E107-79BB-FF8516AFFF8C}"
+  "FileHash": "{4B751C00-FC77-6904-1ADB-C158CC98BEBC}"
  }
 }

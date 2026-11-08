@@ -1,0 +1,65 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3426609377",
+    "Type": "Event",
+    "GUID": "{B17BB589-535A-4A66-91B8-7E77365D6255}",
+    "Language": "SFX",
+    "Hash": "{A3F40891-B4AA-4F39-24A2-2E7FDC8AEDB6}",
+    "ObjectPath": "Play_S22_Sobbing_sobbing_1",
+    "ShortName": "Play_S22_Sobbing_sobbing_1",
+    "Path": "Event/Play_S22_Sobbing_sobbing_1.bnk",
+    "Media": [
+     {
+      "Id": "911896896",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "sobbing.wav",
+      "Path": "Media/911896896.wem",
+      "CachePath": "A6/{A6DDD13A-B3BF-0C54-334A-5A57BF0A6B26}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3426609377",
+      "Name": "Play_S22_Sobbing_sobbing_1",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Sobbing_sobbing_1",
+      "GUID": "{B17BB589-535A-4A66-91B8-7E77365D6255}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "911896896"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{44439BA7-EB46-BF28-902B-7FF901286055}"
+ }
+}

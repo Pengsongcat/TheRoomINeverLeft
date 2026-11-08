@@ -1,0 +1,65 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3114007449",
+    "Type": "Event",
+    "GUID": "{63BA27FB-950D-4469-A6A2-790B288B32B5}",
+    "Language": "SFX",
+    "Hash": "{C37D4739-8B0B-E8F1-8B18-D45A2050956B}",
+    "ObjectPath": "Play_S22_CrowdLeft_ambient_walking_muffled",
+    "ShortName": "Play_S22_CrowdLeft_ambient_walking_muffled",
+    "Path": "Event/Play_S22_CrowdLeft_ambient_walking_muffled.bnk",
+    "Media": [
+     {
+      "Id": "772464282",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "ambient_walking_muffled.wav",
+      "Path": "Media/772464282.wem",
+      "CachePath": "52/{52850112-45F0-7446-97DC-5FA2A712D29C}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3114007449",
+      "Name": "Play_S22_CrowdLeft_ambient_walking_muffled",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_CrowdLeft_ambient_walking_muffled",
+      "GUID": "{63BA27FB-950D-4469-A6A2-790B288B32B5}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "772464282"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{A959B675-602A-824D-A38A-193443503CFB}"
+ }
+}

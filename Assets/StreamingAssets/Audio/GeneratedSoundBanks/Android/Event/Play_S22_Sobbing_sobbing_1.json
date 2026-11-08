@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{B17BB589-535A-4A66-91B8-7E77365D6255}",
     "Language": "SFX",
-    "Hash": "{F64FC3D0-CD0E-C2C8-6BE0-8C09B173A22B}",
+    "Hash": "{A3F40891-B4AA-4F39-24A2-2E7FDC8AEDB6}",
     "ObjectPath": "Play_S22_Sobbing_sobbing_1",
     "ShortName": "Play_S22_Sobbing_sobbing_1",
     "Path": "Event/Play_S22_Sobbing_sobbing_1.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S22_Sobbing_sobbing_1",
       "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Sobbing_sobbing_1",
       "GUID": "{B17BB589-535A-4A66-91B8-7E77365D6255}",
-      "MaxAttenuation": "8.33",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -51,24 +50,16 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
      }
-    ],
-    "GameParameters": [
-     {
-      "Id": "1636923008",
-      "Name": "S22_Sobbing_Level",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S22_Sobbing_Level",
-      "GUID": "{2CB39E3E-CF33-4296-BB53-63E10C95B2C4}"
-     }
     ]
    }
   ],
-  "FileHash": "{35503EE5-9FF5-2BD3-49C1-55E968174B31}"
+  "FileHash": "{C7C03FBD-E588-AC85-5FE6-F05DB606CA66}"
  }
 }

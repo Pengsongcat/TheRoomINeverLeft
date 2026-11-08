@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{22E6CE6A-F69F-459D-BA2D-C7800C21F61C}",
     "Language": "SFX",
-    "Hash": "{CA458CF5-58CB-7E8D-ACCD-3A40527B4750}",
+    "Hash": "{EE45A958-EE19-06F6-CBB1-1E134AD0B75C}",
     "ObjectPath": "Play_S12_Crowd_people_talking_around_table_1",
     "ShortName": "Play_S12_Crowd_people_talking_around_table_1",
     "Path": "Event/Play_S12_Crowd_people_talking_around_table_1.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S12_Crowd_people_talking_around_table_1",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Crowd_people_talking_around_table_1",
       "GUID": "{22E6CE6A-F69F-459D-BA2D-C7800C21F61C}",
-      "MaxAttenuation": "8.33",
       "DurationType": "OneShot",
       "DurationMin": "17.142584",
       "DurationMax": "17.142584",
@@ -53,24 +52,16 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
      }
-    ],
-    "GameParameters": [
-     {
-      "Id": "2875816095",
-      "Name": "S12_Crowd_Gain",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Crowd_Gain",
-      "GUID": "{2D92DF84-C06B-43BB-A353-89206EAC62AC}"
-     }
     ]
    }
   ],
-  "FileHash": "{F858085C-E1A5-C520-4B22-354F03AFA25B}"
+  "FileHash": "{46D4D868-15E7-D60C-7ED0-CB271F8BCAB0}"
  }
 }

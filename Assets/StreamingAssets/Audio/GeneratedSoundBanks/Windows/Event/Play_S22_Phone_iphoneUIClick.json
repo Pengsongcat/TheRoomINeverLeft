@@ -1,0 +1,67 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3019889442",
+    "Type": "Event",
+    "GUID": "{1CE7CB53-CE94-4036-86B3-7B6C942AB9B8}",
+    "Language": "SFX",
+    "Hash": "{4220F585-8572-B77C-F090-BB62A361753A}",
+    "ObjectPath": "Play_S22_Phone_iphoneUIClick",
+    "ShortName": "Play_S22_Phone_iphoneUIClick",
+    "Path": "Event/Play_S22_Phone_iphoneUIClick.bnk",
+    "Media": [
+     {
+      "Id": "118671009",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "iphoneUIClick.wav",
+      "Path": "Media/118671009.wem",
+      "CachePath": "16/{164B4C29-F9D4-A016-D7F4-757DC0E8AA44}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3019889442",
+      "Name": "Play_S22_Phone_iphoneUIClick",
+      "ObjectPath": "\\Events\\Scene 2_2\\Play_S22_Phone_iphoneUIClick",
+      "GUID": "{1CE7CB53-CE94-4036-86B3-7B6C942AB9B8}",
+      "DurationType": "OneShot",
+      "DurationMin": "1",
+      "DurationMax": "1",
+      "MediaRefs": [
+       {
+        "Id": "118671009"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{4FFE5DB1-50BC-661B-402D-A6F41A836828}"
+ }
+}

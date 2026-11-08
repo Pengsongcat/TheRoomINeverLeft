@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{C2B89FCF-0591-4410-9921-8D669F5999D1}",
     "Language": "SFX",
-    "Hash": "{F23ECDCC-DA40-3158-4648-8436F0613671}",
+    "Hash": "{9650629E-EB94-286C-91E5-4B5FD15F1B72}",
     "ObjectPath": "Play_S12_Guide",
     "ShortName": "Play_S12_Guide",
     "Path": "Event/Play_S12_Guide.bnk",
@@ -28,18 +28,20 @@
     "Plugins": {
      "Custom": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
-       "LibName": "Steam Audio Spatializer",
-       "LibId": "1987253171"
-      },
-      {
        "Id": "687795393",
        "Name": "Steam Audio Spatializer (HRTF + air)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 1_2\\Guide\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 1_2\\Scene 1_2\\Guide\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
        "GUID": "{407F7301-8AAD-4C47-BAD3-A6D98822F95B}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -51,7 +53,6 @@
       "Name": "Play_S12_Guide",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Guide",
       "GUID": "{C2B89FCF-0591-4410-9921-8D669F5999D1}",
-      "MaxAttenuation": "5",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -69,6 +70,6 @@
     ]
    }
   ],
-  "FileHash": "{33E04BD0-D06B-2D61-C4C2-DE08DFD7108A}"
+  "FileHash": "{A7FC4C56-8BB4-7D99-32ED-7329E06D1A51}"
  }
 }

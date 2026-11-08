@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{31D537BC-8070-4D0E-B357-69F5C729B056}",
     "Language": "SFX",
-    "Hash": "{F250D222-CDEF-A75F-E7A6-C9745FD8F72D}",
+    "Hash": "{04B9AC3D-003B-24A0-A70E-67573BA70D75}",
     "ObjectPath": "Play_S21_BarCrowd",
     "ShortName": "Play_S21_BarCrowd",
     "Path": "Event/Play_S21_BarCrowd.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S21_BarCrowd",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_BarCrowd",
       "GUID": "{31D537BC-8070-4D0E-B357-69F5C729B056}",
-      "MaxAttenuation": "5",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -51,9 +50,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -61,6 +60,6 @@
     ]
    }
   ],
-  "FileHash": "{DEDEEA11-8A18-F170-752E-F40B9601646A}"
+  "FileHash": "{B3369677-9CD1-CCC3-1D0F-44C247A959FA}"
  }
 }

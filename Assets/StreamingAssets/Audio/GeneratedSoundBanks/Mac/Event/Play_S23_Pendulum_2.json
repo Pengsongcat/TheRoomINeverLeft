@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{B39BD4D2-0644-4767-99B4-45ACC2F7D412}",
     "Language": "SFX",
-    "Hash": "{CEB053FF-CA40-D3D5-FC58-F86FF6D3E1ED}",
+    "Hash": "{A292E82B-B07C-EF6A-FC23-2E2B6D6D45EA}",
     "ObjectPath": "Play_S23_Pendulum_2",
     "ShortName": "Play_S23_Pendulum_2",
     "Path": "Event/Play_S23_Pendulum_2.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S23_Pendulum_2",
       "ObjectPath": "\\Events\\Scene 2_3\\Play_S23_Pendulum_2",
       "GUID": "{B39BD4D2-0644-4767-99B4-45ACC2F7D412}",
-      "MaxAttenuation": "5.2",
       "DurationType": "OneShot",
       "DurationMin": "9.060604",
       "DurationMax": "9.060604",
@@ -53,9 +52,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -63,6 +62,6 @@
     ]
    }
   ],
-  "FileHash": "{758EBACB-8464-3BBD-77B7-32DE94CC142C}"
+  "FileHash": "{B5F22B68-6016-83EF-748C-9C3D36E783B2}"
  }
 }

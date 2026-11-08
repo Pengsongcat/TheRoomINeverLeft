@@ -1,0 +1,67 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2686397365",
+    "Type": "Event",
+    "GUID": "{C4E00B08-26DE-49EB-A749-30BB89F99EBF}",
+    "Language": "SFX",
+    "Hash": "{3C34DF8D-9533-7FC5-B3B9-B5EF747AD40A}",
+    "ObjectPath": "Play_S23_Pendulum_1",
+    "ShortName": "Play_S23_Pendulum_1",
+    "Path": "Event/Play_S23_Pendulum_1.bnk",
+    "Media": [
+     {
+      "Id": "404519183",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "2_3scene_clock.wav",
+      "Path": "Media/404519183.wem",
+      "CachePath": "E9/{E95B4C50-732F-4213-7EA9-A3A93557109E}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2686397365",
+      "Name": "Play_S23_Pendulum_1",
+      "ObjectPath": "\\Events\\Scene 2_3\\Play_S23_Pendulum_1",
+      "GUID": "{C4E00B08-26DE-49EB-A749-30BB89F99EBF}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.060604",
+      "DurationMax": "9.060604",
+      "MediaRefs": [
+       {
+        "Id": "404519183"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{29FC9011-50DB-1A0C-4DCF-DFB7000DA7C6}"
+ }
+}

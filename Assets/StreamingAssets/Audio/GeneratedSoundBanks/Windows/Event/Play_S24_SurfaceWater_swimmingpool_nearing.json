@@ -1,0 +1,77 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2189739861",
+    "Type": "Event",
+    "GUID": "{E45968E5-196E-4AC5-9934-1BF3A8884BB8}",
+    "Language": "SFX",
+    "Hash": "{57858546-F399-A1B8-1777-AD87080E3383}",
+    "ObjectPath": "Play_S24_SurfaceWater_swimmingpool_nearing",
+    "ShortName": "Play_S24_SurfaceWater_swimmingpool_nearing",
+    "Path": "Event/Play_S24_SurfaceWater_swimmingpool_nearing.bnk",
+    "Media": [
+     {
+      "Id": "177720940",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "swimmingpool_nearing.wav",
+      "Path": "Media/177720940.wem",
+      "CachePath": "20/{20147A85-9159-04BA-EEE4-F6FE0D02CE89}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "1028774994",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_4\\Scene 2_4\\SurfaceWater\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{7B04E28E-53BD-49EC-8A5B-5D570C6BF137}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2189739861",
+      "Name": "Play_S24_SurfaceWater_swimmingpool_nearing",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_SurfaceWater_swimmingpool_nearing",
+      "GUID": "{E45968E5-196E-4AC5-9934-1BF3A8884BB8}",
+      "DurationType": "OneShot",
+      "DurationMin": "12.17",
+      "DurationMax": "12.17",
+      "MediaRefs": [
+       {
+        "Id": "177720940"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1028774994"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{CEFEA481-81E7-4B76-D43E-C3C1195C34BF}"
+ }
+}

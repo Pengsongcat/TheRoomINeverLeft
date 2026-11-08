@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{DC0AB6EF-9BDC-458C-A5F0-212A9CD8599C}",
     "Language": "SFX",
-    "Hash": "{5AE58B21-4010-B42B-C968-1132AE4F02B1}",
+    "Hash": "{6B64DF7D-ED60-6AC5-B7E3-DB06104345FD}",
     "ObjectPath": "Play_S23_Sigh",
     "ShortName": "Play_S23_Sigh",
     "Path": "Event/Play_S23_Sigh.bnk",
@@ -62,12 +62,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -79,7 +79,6 @@
       "Name": "Play_S23_Sigh",
       "ObjectPath": "\\Events\\Scene 2_3\\Play_S23_Sigh",
       "GUID": "{DC0AB6EF-9BDC-458C-A5F0-212A9CD8599C}",
-      "MaxAttenuation": "6",
       "DurationType": "OneShot",
       "DurationMin": "0.8018299",
       "DurationMax": "1.8021281",
@@ -101,24 +100,16 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
      }
-    ],
-    "GameParameters": [
-     {
-      "Id": "4206488142",
-      "Name": "S23_Sigh_Level",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S23_Sigh_Level",
-      "GUID": "{A8E80CF0-DE8B-4FFE-85F7-2184FC8B9190}"
-     }
     ]
    }
   ],
-  "FileHash": "{B02E2B52-B80C-A53A-41DA-ED06FD50B433}"
+  "FileHash": "{CD938750-8BAC-0E83-6A93-FDAA51252BDF}"
  }
 }

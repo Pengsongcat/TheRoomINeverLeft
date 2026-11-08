@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{BEABDDEB-1543-42D0-A3D4-BE29700CF044}",
     "Language": "SFX",
-    "Hash": "{95D51A8B-1A36-1A0E-16C5-2A282BFC292D}",
+    "Hash": "{583D3E10-2E48-8ECF-0641-F11D287D890F}",
     "ObjectPath": "Play_S13_Narration_1",
     "ShortName": "Play_S13_Narration_1",
     "Path": "Event/Play_S13_Narration_1.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S13_Narration_1",
       "ObjectPath": "\\Events\\Scene 1_3\\Play_S13_Narration_1",
       "GUID": "{BEABDDEB-1543-42D0-A3D4-BE29700CF044}",
-      "MaxAttenuation": "5",
       "DurationType": "OneShot",
       "DurationMin": "61.049793",
       "DurationMax": "61.049793",
@@ -53,9 +52,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -63,6 +62,6 @@
     ]
    }
   ],
-  "FileHash": "{B63ACB2D-1F2A-BFB3-0975-DFC91B1C5E8E}"
+  "FileHash": "{14EB2CB3-3CFA-3487-1CBC-26823F315CA9}"
  }
 }

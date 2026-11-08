@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{FD54E803-A855-47CD-B006-13C4F1C0E360}",
     "Language": "SFX",
-    "Hash": "{EBB39199-77B8-393F-20A8-0837CB68BEA1}",
+    "Hash": "{1D602C6E-00F2-B671-9446-B11DF8EAE7A6}",
     "ObjectPath": "Play_S21_BarDoor",
     "ShortName": "Play_S21_BarDoor",
     "Path": "Event/Play_S21_BarDoor.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S21_BarDoor",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_BarDoor",
       "GUID": "{FD54E803-A855-47CD-B006-13C4F1C0E360}",
-      "MaxAttenuation": "5",
       "DurationType": "OneShot",
       "DurationMin": "12.226553",
       "DurationMax": "12.226553",
@@ -53,9 +52,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -63,6 +62,6 @@
     ]
    }
   ],
-  "FileHash": "{5620F5E1-9FEE-CC59-C172-05650495DD33}"
+  "FileHash": "{2F79E06F-01C9-7309-CC46-8984358894BC}"
  }
 }

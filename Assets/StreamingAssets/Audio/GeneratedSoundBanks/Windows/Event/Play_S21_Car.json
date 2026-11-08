@@ -1,0 +1,77 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "4079076693",
+    "Type": "Event",
+    "GUID": "{18B57CB9-814E-44F1-B4C6-5224A41AB146}",
+    "Language": "SFX",
+    "Hash": "{A636F0CD-03D0-8347-F229-C3C533D74AAB}",
+    "ObjectPath": "Play_S21_Car",
+    "ShortName": "Play_S21_Car",
+    "Path": "Event/Play_S21_Car.bnk",
+    "Media": [
+     {
+      "Id": "1052759219",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "car_horn.wav",
+      "Path": "Media/1052759219.wem",
+      "CachePath": "66/{6697CFC5-4B22-C21F-C08A-B4E21FCEF04E}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "592539553",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_1\\Scene 2_1\\Car\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{97A744F0-5111-480E-B8C3-84F928F5A9FF}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "4079076693",
+      "Name": "Play_S21_Car",
+      "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_Car",
+      "GUID": "{18B57CB9-814E-44F1-B4C6-5224A41AB146}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.944708",
+      "DurationMax": "8.944708",
+      "MediaRefs": [
+       {
+        "Id": "1052759219"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "592539553"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{DDEDA165-4FEF-4ADA-8FE6-BC77A2C19461}"
+ }
+}

@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{E45968E5-196E-4AC5-9934-1BF3A8884BB8}",
     "Language": "SFX",
-    "Hash": "{D35180C1-FAF8-2D15-D0FD-6900E48567A9}",
+    "Hash": "{57858546-F399-A1B8-1777-AD87080E3383}",
     "ObjectPath": "Play_S24_SurfaceWater_swimmingpool_nearing",
     "ShortName": "Play_S24_SurfaceWater_swimmingpool_nearing",
     "Path": "Event/Play_S24_SurfaceWater_swimmingpool_nearing.bnk",
@@ -28,18 +28,20 @@
     "Plugins": {
      "Custom": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
-       "LibName": "Steam Audio Spatializer",
-       "LibId": "1987253171"
-      },
-      {
        "Id": "1028774994",
        "Name": "Steam Audio Spatializer (HRTF + air)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_4\\SurfaceWater\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_4\\Scene 2_4\\SurfaceWater\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
        "GUID": "{7B04E28E-53BD-49EC-8A5B-5D570C6BF137}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -51,7 +53,6 @@
       "Name": "Play_S24_SurfaceWater_swimmingpool_nearing",
       "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_SurfaceWater_swimmingpool_nearing",
       "GUID": "{E45968E5-196E-4AC5-9934-1BF3A8884BB8}",
-      "MaxAttenuation": "20",
       "DurationType": "OneShot",
       "DurationMin": "12.17",
       "DurationMax": "12.17",
@@ -71,6 +72,6 @@
     ]
    }
   ],
-  "FileHash": "{9F6DD36F-FBCF-DE82-E5E4-7A5E9FDDFCC9}"
+  "FileHash": "{F8291D4F-4C64-E331-58E6-D6682C2E5F59}"
  }
 }

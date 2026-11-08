@@ -1,0 +1,65 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "5048555",
+    "Type": "Event",
+    "GUID": "{31D537BC-8070-4D0E-B357-69F5C729B056}",
+    "Language": "SFX",
+    "Hash": "{04B9AC3D-003B-24A0-A70E-67573BA70D75}",
+    "ObjectPath": "Play_S21_BarCrowd",
+    "ShortName": "Play_S21_BarCrowd",
+    "Path": "Event/Play_S21_BarCrowd.bnk",
+    "Media": [
+     {
+      "Id": "107458969",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "crowd.wav",
+      "Path": "Media/107458969.wem",
+      "CachePath": "EA/{EAD509B6-84A4-3388-B7BF-A7566646193B}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "5048555",
+      "Name": "Play_S21_BarCrowd",
+      "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_BarCrowd",
+      "GUID": "{31D537BC-8070-4D0E-B357-69F5C729B056}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "107458969"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{14FEC05A-0CEC-9AD3-92FF-8FB6F30B7F20}"
+ }
+}

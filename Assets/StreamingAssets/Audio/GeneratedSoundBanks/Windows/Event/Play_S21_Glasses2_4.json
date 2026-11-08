@@ -1,0 +1,75 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3827013486",
+    "Type": "Event",
+    "GUID": "{476C4608-749A-41DB-ADBD-542947092759}",
+    "Language": "SFX",
+    "Hash": "{28D99900-211F-62B7-DAFD-E068A7844EE7}",
+    "ObjectPath": "Play_S21_Glasses2_4",
+    "ShortName": "Play_S21_Glasses2_4",
+    "Path": "Event/Play_S21_Glasses2_4.bnk",
+    "Media": [
+     {
+      "Id": "394572288",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "glass_clink.wav",
+      "Path": "Media/394572288.wem",
+      "CachePath": "8A/{8AF9AE8D-5BEC-6E3F-8FAF-EF18CCB193FB}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "280770743",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_1\\Scene 2_1\\Glasses2\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{85894834-9DE8-44DD-A108-8887619CE45B}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3827013486",
+      "Name": "Play_S21_Glasses2_4",
+      "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_Glasses2_4",
+      "GUID": "{476C4608-749A-41DB-ADBD-542947092759}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "394572288"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "280770743"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{6A23BE03-AD62-0021-5819-6AF0EFE8598F}"
+ }
+}

@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{EA912514-448F-4F32-981A-77326FB98013}",
     "Language": "SFX",
-    "Hash": "{52481B97-A0A1-1384-7644-D33F06FA938F}",
+    "Hash": "{FED35D2D-16A4-4714-6A66-4CFC6122464E}",
     "ObjectPath": "Play_S12_Table2_uncle_dabo",
     "ShortName": "Play_S12_Table2_uncle_dabo",
     "Path": "Event/Play_S12_Table2_uncle_dabo.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S12_Table2_uncle_dabo",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Table2_uncle_dabo",
       "GUID": "{EA912514-448F-4F32-981A-77326FB98013}",
-      "MaxAttenuation": "5",
       "DurationType": "OneShot",
       "DurationMin": "42.33927",
       "DurationMax": "42.33927",
@@ -53,9 +52,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -63,6 +62,6 @@
     ]
    }
   ],
-  "FileHash": "{059CE54B-B0D9-C874-0913-F2D0D99489AF}"
+  "FileHash": "{847C9376-4649-D443-1309-2CEC37860110}"
  }
 }

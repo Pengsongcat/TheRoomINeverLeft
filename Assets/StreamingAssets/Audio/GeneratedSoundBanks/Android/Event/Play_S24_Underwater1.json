@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{5AB66A78-3F62-43C8-B59A-1D780D8E7D85}",
     "Language": "SFX",
-    "Hash": "{6E5130A8-BC94-3328-267D-C6B323A03814}",
+    "Hash": "{8AFF39FA-A3F7-0A40-E8E1-3739EE0165CA}",
     "ObjectPath": "Play_S24_Underwater1",
     "ShortName": "Play_S24_Underwater1",
     "Path": "Event/Play_S24_Underwater1.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S24_Underwater1",
       "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_Underwater1",
       "GUID": "{5AB66A78-3F62-43C8-B59A-1D780D8E7D85}",
-      "MaxAttenuation": "8.33",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -51,24 +50,16 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
      }
-    ],
-    "GameParameters": [
-     {
-      "Id": "4097161280",
-      "Name": "S24_Underwater1_Level",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S24_Underwater1_Level",
-      "GUID": "{539810AF-D58B-48C8-BED0-A0050903A761}"
-     }
     ]
    }
   ],
-  "FileHash": "{DE211BC7-CC55-4F07-4E59-4702228EA9BA}"
+  "FileHash": "{C234C79F-8B8D-DDCC-33D8-E8622207FA50}"
  }
 }

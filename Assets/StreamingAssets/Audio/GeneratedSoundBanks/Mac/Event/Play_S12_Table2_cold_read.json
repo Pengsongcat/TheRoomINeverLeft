@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{91AF5F42-9D72-44F6-8C9B-BFB2193A2446}",
     "Language": "SFX",
-    "Hash": "{1B0BC956-5210-5581-87A8-713224E3350D}",
+    "Hash": "{7DFEE924-DDB0-B090-AD0D-530F9F9972AB}",
     "ObjectPath": "Play_S12_Table2_cold_read",
     "ShortName": "Play_S12_Table2_cold_read",
     "Path": "Event/Play_S12_Table2_cold_read.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S12_Table2_cold_read",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Table2_cold_read",
       "GUID": "{91AF5F42-9D72-44F6-8C9B-BFB2193A2446}",
-      "MaxAttenuation": "5",
       "DurationType": "OneShot",
       "DurationMin": "34.822",
       "DurationMax": "34.822",
@@ -53,9 +52,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -63,6 +62,6 @@
     ]
    }
   ],
-  "FileHash": "{52BB4B97-8F36-5186-37D0-78DFE690613B}"
+  "FileHash": "{AEE57C2F-BBD4-447B-D18A-FCF5AD1C93DE}"
  }
 }

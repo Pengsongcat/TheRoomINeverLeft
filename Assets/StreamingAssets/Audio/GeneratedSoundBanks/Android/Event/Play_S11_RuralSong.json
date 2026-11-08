@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{EFBC1C11-4366-4CEA-BD83-7EDBB0911406}",
     "Language": "SFX",
-    "Hash": "{DA698988-E7B0-CDB6-740E-D1C3FF8DF958}",
+    "Hash": "{4C1BF559-EFCB-9A95-8CB4-E5B17A4D4D71}",
     "ObjectPath": "Play_S11_RuralSong",
     "ShortName": "Play_S11_RuralSong",
     "Path": "Event/Play_S11_RuralSong.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S11_RuralSong",
       "ObjectPath": "\\Events\\Scene 1_1\\Play_S11_RuralSong",
       "GUID": "{EFBC1C11-4366-4CEA-BD83-7EDBB0911406}",
-      "MaxAttenuation": "8.33",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -51,9 +50,9 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
@@ -61,6 +60,6 @@
     ]
    }
   ],
-  "FileHash": "{2B9A3024-8757-DE2E-594F-F726A146FC2D}"
+  "FileHash": "{09335DD7-30EB-8F14-0479-AD620FCFA7E3}"
  }
 }

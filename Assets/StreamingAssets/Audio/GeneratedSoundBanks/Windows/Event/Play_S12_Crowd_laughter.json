@@ -1,0 +1,67 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3798677509",
+    "Type": "Event",
+    "GUID": "{36BFCE31-F327-44C3-9A4C-CD5BCF2B14F0}",
+    "Language": "SFX",
+    "Hash": "{3A8752D4-26D0-DD2B-3244-13762AF4FBDA}",
+    "ObjectPath": "Play_S12_Crowd_laughter",
+    "ShortName": "Play_S12_Crowd_laughter",
+    "Path": "Event/Play_S12_Crowd_laughter.bnk",
+    "Media": [
+     {
+      "Id": "193349380",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "laughter.wav",
+      "Path": "Media/193349380.wem",
+      "CachePath": "6F/{6F122BE6-1DE2-4DF9-450C-DEA6CB210854}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3798677509",
+      "Name": "Play_S12_Crowd_laughter",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Crowd_laughter",
+      "GUID": "{36BFCE31-F327-44C3-9A4C-CD5BCF2B14F0}",
+      "DurationType": "OneShot",
+      "DurationMin": "23.14",
+      "DurationMax": "23.14",
+      "MediaRefs": [
+       {
+        "Id": "193349380"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{89C6F507-94E5-EC56-FE21-1AD0E462223E}"
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "225239965",
+    "Type": "Event",
+    "GUID": "{D9B58EC8-1851-4B07-9A78-1CA5BAC57ED0}",
+    "Language": "SFX",
+    "Hash": "{2AB15486-86D7-F049-A976-01F332E5D110}",
+    "ObjectPath": "Play_S23_Narration_3",
+    "ShortName": "Play_S23_Narration_3",
+    "Path": "Event/Play_S23_Narration_3.bnk",
+    "Media": [
+     {
+      "Id": "387261779",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "2_3.wav",
+      "Path": "Media/387261779.wem",
+      "CachePath": "C2/{C2BF5BE7-E53E-0CC9-57A8-6D6E278E15B0}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "225239965",
+      "Name": "Play_S23_Narration_3",
+      "ObjectPath": "\\Events\\Scene 2_3\\Play_S23_Narration_3",
+      "GUID": "{D9B58EC8-1851-4B07-9A78-1CA5BAC57ED0}",
+      "DurationType": "OneShot",
+      "DurationMin": "25.510897",
+      "DurationMax": "25.510897",
+      "MediaRefs": [
+       {
+        "Id": "387261779"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{141F9640-DC2B-E9F3-1F34-A388988A1A92}"
+ }
+}

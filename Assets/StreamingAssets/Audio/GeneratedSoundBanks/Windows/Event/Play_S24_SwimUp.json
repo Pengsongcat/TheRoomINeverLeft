@@ -1,0 +1,77 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2939134665",
+    "Type": "Event",
+    "GUID": "{04E01CF4-DA82-4D15-8FC8-B791C355F1E7}",
+    "Language": "SFX",
+    "Hash": "{C702C91C-2FFF-F107-1028-85CB1806E8E1}",
+    "ObjectPath": "Play_S24_SwimUp",
+    "ShortName": "Play_S24_SwimUp",
+    "Path": "Event/Play_S24_SwimUp.bnk",
+    "Media": [
+     {
+      "Id": "639418131",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "swim_up_surface.wav",
+      "Path": "Media/639418131.wem",
+      "CachePath": "AD/{ADFFF1AE-C752-259B-E061-64033900C5DC}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "1030542237",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_4\\Scene 2_4\\SwimUp\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{348E1A8D-79BF-45F6-893C-776D9EED7E8F}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2939134665",
+      "Name": "Play_S24_SwimUp",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_SwimUp",
+      "GUID": "{04E01CF4-DA82-4D15-8FC8-B791C355F1E7}",
+      "DurationType": "OneShot",
+      "DurationMin": "2",
+      "DurationMax": "2",
+      "MediaRefs": [
+       {
+        "Id": "639418131"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1030542237"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{9375681E-A8D0-B17E-6428-697255E5A307}"
+ }
+}

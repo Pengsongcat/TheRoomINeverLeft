@@ -1,0 +1,75 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3401308046",
+    "Type": "Event",
+    "GUID": "{6DFBAB6C-5CDB-4B64-9AF1-C4A865CD58E9}",
+    "Language": "SFX",
+    "Hash": "{2637D361-8EC9-38F9-EE59-2D8C0B95037C}",
+    "ObjectPath": "Play_S24_InflowBack_filling_water_muffled",
+    "ShortName": "Play_S24_InflowBack_filling_water_muffled",
+    "Path": "Event/Play_S24_InflowBack_filling_water_muffled.bnk",
+    "Media": [
+     {
+      "Id": "580943894",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "filling_water_muffled.wav",
+      "Path": "Media/580943894.wem",
+      "CachePath": "E8/{E838380E-F301-4FA4-3189-882D5B6A3257}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "607071605",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_4\\Scene 2_4\\InflowBack\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{4CF2181F-8BA8-48EE-B0EB-2F0F270C2116}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3401308046",
+      "Name": "Play_S24_InflowBack_filling_water_muffled",
+      "ObjectPath": "\\Events\\Scene 2_4\\Play_S24_InflowBack_filling_water_muffled",
+      "GUID": "{6DFBAB6C-5CDB-4B64-9AF1-C4A865CD58E9}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "580943894"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "607071605"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{413C5C1B-9234-CA81-904C-3E2EB8258701}"
+ }
+}

@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{DBA27857-D62C-4242-96C9-00EF2AFDCB90}",
     "Language": "SFX",
-    "Hash": "{C9E2581E-363A-D2D0-5B3C-18D5721523AF}",
+    "Hash": "{280EB20F-DDC1-89EA-C9DC-0F4076346BE3}",
     "ObjectPath": "Play_S21_PassersByVoices",
     "ShortName": "Play_S21_PassersByVoices",
     "Path": "Event/Play_S21_PassersByVoices.bnk",
@@ -28,18 +28,20 @@
     "Plugins": {
      "Custom": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
-       "LibName": "Steam Audio Spatializer",
-       "LibId": "1987253171"
-      },
-      {
        "Id": "1029143990",
        "Name": "Steam Audio Spatializer (HRTF + air)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\Scene 2_1\\PassersByVoices\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 2_1\\Scene 2_1\\PassersByVoices\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
        "GUID": "{E5E68101-DDC4-47FF-B1B5-6280DF789FFA}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -51,7 +53,6 @@
       "Name": "Play_S21_PassersByVoices",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_PassersByVoices",
       "GUID": "{DBA27857-D62C-4242-96C9-00EF2AFDCB90}",
-      "MaxAttenuation": "12",
       "DurationType": "OneShot",
       "DurationMin": "10",
       "DurationMax": "10",
@@ -71,6 +72,6 @@
     ]
    }
   ],
-  "FileHash": "{D2DB0223-CE22-1A4B-9FB0-479761DD3479}"
+  "FileHash": "{EF384D00-106D-CB12-C2B5-D5C031588681}"
  }
 }

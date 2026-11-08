@@ -21,13 +21,11 @@ public class RandomOneShots : MonoBehaviour
     [Tooltip("How much quieter than the source's Volume a piece may be: 0.3 = anywhere from 70% to 100%.")]
     [SerializeField, Range(0f, 1f)] float _volumeJitter = 0.3f;
     [Tooltip("Overall loudness, applied live (also to a piece already playing). Animate it from a Timeline " +
-             "Animation track for a swell or a fade.")]
+             "Animation track for a swell or a fade. Unity audio only: ignored when the Wwise event is set.")]
     [SerializeField, Range(0f, 1f)] float _level = 1f;
     [Tooltip("Optional. When set, the pieces play through Wwise: this event (a Random Container of the pieces, " +
              "with the pitch and volume jitter) is posted on the source's object, and the AudioSource stays silent.")]
     [SerializeField] AK.Wwise.Event _wwiseEvent;
-    [Tooltip("With the Wwise event: the Game Parameter that Level drives (0-1).")]
-    [SerializeField] AK.Wwise.RTPC _wwiseLevel;
 
     float _fullVolume;
     float _pieceVolume = 1f;
@@ -42,7 +40,6 @@ public class RandomOneShots : MonoBehaviour
     void Update()
     {
         if (!UsesWwise) _source.volume = _fullVolume * _level * _pieceVolume;
-        else if (_wwiseLevel != null && _wwiseLevel.IsValid()) _wwiseLevel.SetValue(_source.gameObject, _level);
     }
 
     void OnEnable() => _run = StartCoroutine(UsesWwise ? RunWwise() : Run());

@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{E320AFFA-C2CC-4460-B736-E8AD2F8243EE}",
     "Language": "SFX",
-    "Hash": "{11ECCF1D-1D50-A1A1-E0A0-00B8AA0FFDA5}",
+    "Hash": "{E7D9BCFF-0E76-11B2-7C23-3D3EC1958E33}",
     "ObjectPath": "Play_S12_Kitchen_glass_clink_2",
     "ShortName": "Play_S12_Kitchen_glass_clink_2",
     "Path": "Event/Play_S12_Kitchen_glass_clink_2.bnk",
@@ -26,12 +26,12 @@
      }
     ],
     "Plugins": {
-     "Custom": [
+     "ShareSets": [
       {
-       "Id": "495173723",
-       "Name": "Steam Audio Spatializer (HRTF)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\World\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF)",
-       "GUID": "{C1199E13-B155-4E72-9AE9-BA7C549D4A55}",
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
        "LibName": "Steam Audio Spatializer",
        "LibId": "1987253171"
       }
@@ -43,7 +43,6 @@
       "Name": "Play_S12_Kitchen_glass_clink_2",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Kitchen_glass_clink_2",
       "GUID": "{E320AFFA-C2CC-4460-B736-E8AD2F8243EE}",
-      "MaxAttenuation": "5.2",
       "DurationType": "OneShot",
       "DurationMin": "27.898",
       "DurationMax": "27.898",
@@ -53,24 +52,16 @@
        }
       ],
       "PluginRefs": {
-       "Custom": [
+       "ShareSets": [
         {
-         "Id": "495173723"
+         "Id": "942886362"
         }
        ]
       }
      }
-    ],
-    "GameParameters": [
-     {
-      "Id": "2005218386",
-      "Name": "S12_Kitchen_Gain",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\S12_Kitchen_Gain",
-      "GUID": "{77059C6F-0811-4055-8BF1-9764AC1F7E2F}"
-     }
     ]
    }
   ],
-  "FileHash": "{0B1DEA14-D189-AAFE-F783-7F126F38C1B1}"
+  "FileHash": "{C07D5F3F-4972-D505-A26E-04B5C6900193}"
  }
 }
