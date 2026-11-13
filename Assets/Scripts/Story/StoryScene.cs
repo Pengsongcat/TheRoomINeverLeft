@@ -26,7 +26,17 @@ public class StoryScene : MonoBehaviour
     // Set by the chapter: asked before this scene triggers; false = another scene is under way, so the entry is ignored.
     public Func<StoryScene, bool> CanTrigger;
 
+    // True once the Timeline has run to its end at least once since the chapter began (the chapter counts these).
     public bool Done { get; private set; }
+
+    // Set by the chapter (Allow Retrigger): once finished, the scene waits again and replays from the start.
+    public bool AllowRetrigger { get; set; }
+
+    // Whether the scene should be waiting (guide on, trigger armed) when nothing else is under way.
+    public bool CanWait => !_triggered && (!Done || AllowRetrigger);
+
+    // The current run's Timeline has ended (for a replay, Done is already true from the first run).
+    public bool Ended => _ended;
 
     // For the Debugger: which sound leads to this scene, and whether its Timeline is running now.
     // Trigger and Guide are also moved by the chapter to keep them clear of the visitor.
@@ -36,6 +46,7 @@ public class StoryScene : MonoBehaviour
 
     bool _playing;
     bool _triggered;
+    bool _ended;
     GuideSoundFader _guideFader;
     Coroutine _pulse;
 
@@ -51,7 +62,7 @@ public class StoryScene : MonoBehaviour
     void OnEnable()
     {
         _timeline.stopped += OnStopped;
-        if (!Done && !_triggered) Wait();
+        if (CanWait) Wait();
     }
 
     void OnDisable()
@@ -64,7 +75,7 @@ public class StoryScene : MonoBehaviour
     }
 
     // Called by the chapter when it begins, so the scene can play again.
-    public void ResetProgress() { Done = false; _triggered = false; }
+    public void ResetProgress() { Done = false; _triggered = false; _ended = false; }
 
     void Wait()
     {
@@ -109,37 +120,60 @@ public class StoryScene : MonoBehaviour
         else onComplete?.Invoke();
     }
 
-    public void ResumeWaiting() { if (!Done && !_triggered) Wait(); }
+    public void ResumeWaiting() { if (CanWait) Wait(); }
 
     public void StartTimeline()
     {
-        if (!_triggered || _playing || Done || !isActiveAndEnabled) return;
+        if (!_triggered || _playing || _ended || !isActiveAndEnabled) return;
+        if (Done) StopWwiseEvents(); // a replay: silence what the earlier run left sounding (tails, unstopped clips)
         _playing = true;
         _timeline.time = 0;
         _timeline.Play();
+    }
+
+    // Stops every Wwise event on the objects this scene's Timelines post to: each director under the scene (the scene
+    // Timeline and the Sound / Visual directors it controls) and each of their track bindings. The guide is left alone.
+    void StopWwiseEvents()
+    {
+        var emitters = new System.Collections.Generic.HashSet<GameObject>();
+        foreach (var director in GetComponentsInChildren<PlayableDirector>(includeInactive: true))
+        {
+            emitters.Add(director.gameObject);
+            if (director.playableAsset == null) continue;
+            foreach (var output in director.playableAsset.outputs)
+            {
+                if (output.sourceObject == null) continue;
+                var binding = director.GetGenericBinding(output.sourceObject);
+                if (binding is GameObject go) emitters.Add(go);
+                else if (binding is Component c) emitters.Add(c.gameObject);
+            }
+        }
+        foreach (var emitter in emitters) AkUnitySoundEngine.StopAll(emitter);
     }
 
     // Development shortcut: ends a triggered scene as if its Timeline had run to its end, starting it first if the
     // other guides are still fading.
     public void Skip()
     {
-        if (!_triggered || Done || !isActiveAndEnabled) return;
+        if (!_triggered || _ended || !isActiveAndEnabled) return;
         _playing = true;
         StoryPart.JumpToEnd(_timeline);
     }
 
     void OnEntered()
     {
-        if (_triggered || Done) return;
+        if (!CanWait) return;
         if (CanTrigger != null && !CanTrigger(this))
         {
             Debug.Log($"[Story] {name} entered, but another scene is under way; ignored.");
             return;
         }
+        bool replay = Done;
         _triggered = true;
+        _ended = false;
         StopPulse();
         _trigger.gameObject.SetActive(false);
-        Debug.Log($"[Story] {name} triggered.");
+        Debug.Log($"[Story] {name} {(replay ? "retriggered" : "triggered")}.");
         Triggered?.Invoke(this);
     }
 
@@ -148,6 +182,7 @@ public class StoryScene : MonoBehaviour
         // Also raised when the director is disabled with the scene; only a Timeline that ran to its end counts.
         if (!_playing || !isActiveAndEnabled) return;
         _playing = false;
+        _ended = true;
         Done = true;
         Debug.Log($"[Story] {name} finished.");
         Finished?.Invoke(this);

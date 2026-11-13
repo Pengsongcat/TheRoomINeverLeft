@@ -33,6 +33,9 @@ public class StoryChapter : StoryPart
         public bool included;
         [Tooltip("Seconds to wait after this Scene's Timeline finishes before returning to the chapter.")]
         [Min(0f)] public float endDelay;
+        [Tooltip("Once finished, the scene's guide and trigger come back, and entering again replays it from the " +
+                 "start. The chapter still ends when every scene has played once.")]
+        public bool allowRetrigger;
     }
 
     [Tooltip("Untick a scene to leave it out of this chapter (development). Read when Play starts.")]
@@ -71,6 +74,7 @@ public class StoryChapter : StoryPart
             scene.Triggered += OnSceneTriggered;
             scene.Finished  += OnSceneFinished;
             scene.CanTrigger = _ => _activeScene == null;
+            scene.AllowRetrigger = AllowRetrigger(scene);
             foreach (var spot in Spot(scene))
                 if (spot != null) _designed[spot] = spot.localPosition;
         }
@@ -102,6 +106,7 @@ public class StoryChapter : StoryPart
                 scene = scene,
                 included = IsIncluded(scene),
                 endDelay = EndDelay(scene),
+                allowRetrigger = AllowRetrigger(scene),
             });
         _sceneToggles = synced;
     }
@@ -142,7 +147,7 @@ public class StoryChapter : StoryPart
             Finish();
             return;
         }
-        if (!_activeScene.Done)
+        if (!_activeScene.Ended)
         {
             _activeScene.Skip();
             return;
@@ -165,7 +170,7 @@ public class StoryChapter : StoryPart
         _pendingOtherGuides = 0;
 
         foreach (var scene in _scenes)
-            if (scene != triggered && !scene.Done && scene.gameObject.activeInHierarchy)
+            if (scene != triggered && scene.CanWait && scene.gameObject.activeInHierarchy)
                 _pendingOtherGuides++;
 
         triggered.FadeOutGuide(true, () =>
@@ -177,7 +182,7 @@ public class StoryChapter : StoryPart
 
         foreach (var scene in _scenes)
         {
-            if (scene == triggered || scene.Done || !scene.gameObject.activeInHierarchy) continue;
+            if (scene == triggered || !scene.CanWait || !scene.gameObject.activeInHierarchy) continue;
             scene.FadeOutGuide(false, () =>
             {
                 if (_activeScene != triggered) return;
@@ -234,14 +239,20 @@ public class StoryChapter : StoryPart
 
         bool allDone = true;
         foreach (var scene in _scenes)
+            if (!scene.Done) allDone = false;
+        if (allDone)
         {
-            if (scene.Done) continue;
-            allDone = false;
+            Finish();
+            return;
+        }
+
+        // Scenes still to play, and finished scenes that allow a retrigger, wait again.
+        foreach (var scene in _scenes)
+        {
+            if (!scene.CanWait) continue;
             if (scene.gameObject.activeSelf) scene.ResumeWaiting();
             else scene.gameObject.SetActive(true);
         }
-
-        if (allDone) Finish();
     }
 
     // Shows the End object (if any) before handing back to the Story Director.
@@ -266,6 +277,13 @@ public class StoryChapter : StoryPart
         foreach (var toggle in _sceneToggles)
             if (toggle.scene == scene) return Mathf.Max(0f, toggle.endDelay);
         return 0f;
+    }
+
+    bool AllowRetrigger(StoryScene scene)
+    {
+        foreach (var toggle in _sceneToggles)
+            if (toggle.scene == scene) return toggle.allowRetrigger;
+        return false;
     }
 
     // ---- Keeping the triggers clear of the visitor when the chapter opens ----
