@@ -14,11 +14,6 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_OB_VOICE = 375159154U;
-        static const AkUniqueID PLAY_S11_BIRD = 1934990199U;
-        static const AkUniqueID PLAY_S11_DOG = 648623912U;
-        static const AkUniqueID PLAY_S11_DUCK = 676528753U;
-        static const AkUniqueID PLAY_S11_FARM = 1078094730U;
-        static const AkUniqueID PLAY_S11_GUIDE = 2040783566U;
         static const AkUniqueID PLAY_S11_NARRATION = 4052039844U;
         static const AkUniqueID PLAY_S11_NARRATORSTEPS = 3347888462U;
         static const AkUniqueID PLAY_S11_NEW_BREEZE = 2864213206U;
@@ -27,9 +22,6 @@ namespace AK
         static const AkUniqueID PLAY_S11_NEW_FOOTSTEPS = 192623436U;
         static const AkUniqueID PLAY_S11_NEW_INSECTSBIRDSRIVER = 2524163228U;
         static const AkUniqueID PLAY_S11_NEW_RUNNINGGRASSBREATH = 1232456012U;
-        static const AkUniqueID PLAY_S11_RURAL = 949566550U;
-        static const AkUniqueID PLAY_S11_RURAL2 = 1866070864U;
-        static const AkUniqueID PLAY_S11_RURALSONG = 1268140281U;
         static const AkUniqueID PLAY_S12_CROWD_LAUGHTER = 3798677509U;
         static const AkUniqueID PLAY_S12_CROWD_PEOPLE_TALKING_AROUND_TABLE_1 = 1822790648U;
         static const AkUniqueID PLAY_S12_CROWD_PEOPLE_TALKING_AROUND_TABLE_2 = 1822790651U;
@@ -205,6 +197,11 @@ namespace AK
         static const AkUniqueID NARRATION = 930427193U;
         static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
+
+    namespace AUX_BUSSES
+    {
+        static const AkUniqueID REFLECTION = 1523149678U;
+    } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
     {

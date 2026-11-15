@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{B8B29DA9-9096-4847-8BFC-E4C7688100E6}",
     "Language": "SFX",
-    "Hash": "{55155134-AC79-B40F-AFD6-F2D90E222128}",
+    "Hash": "{AE1C511D-EFBF-3038-CE6F-762F9AD9928E}",
     "ObjectPath": "Play_S11_New_Car",
     "ShortName": "Play_S11_New_Car",
     "Path": "Event/Play_S11_New_Car.bnk",
+    "Media": [
+     {
+      "Id": "251915374",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "vr_s11_car.wav",
+      "Path": "Media/251915374.wem",
+      "CachePath": "28/{284A0F78-6FA4-79EA-602D-27A8ACF7FD29}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "1117389079",
       "Name": "Play_S11_New_Car",
       "ObjectPath": "\\Events\\Scene 1_1\\Play_S11_New_Car",
       "GUID": "{B8B29DA9-9096-4847-8BFC-E4C7688100E6}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "30",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "80",
+      "DurationMax": "80",
+      "MediaRefs": [
+       {
+        "Id": "251915374"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{704CCFF4-3E8A-C3F1-1FE5-60C66026F8CA}"
+  "FileHash": "{F712503F-49EC-72EB-3171-F3A5FEFBF95D}"
  }
 }

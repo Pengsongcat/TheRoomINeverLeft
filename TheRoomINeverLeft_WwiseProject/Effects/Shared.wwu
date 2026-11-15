@@ -3,7 +3,12 @@
 	<Effects>
 		<WorkUnit Name="Shared" ID="{D09A4589-8A95-4EB4-82BB-56AA7D3C7C16}" PersistMode="Standalone">
 			<ChildrenList>
-				<Effect Name="Steam_HRTF" ID="{876E804C-3C6A-4599-9975-E1176A8C1BBE}" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3"/>
+				<Effect Name="Steam_HRTF" ID="{876E804C-3C6A-4599-9975-E1176A8C1BBE}" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
+					<PropertyList>
+						<Property Name="Reflections" Type="bool" Value="True"/>
+						<Property Name="ReflectionsMixLevel" Type="Real32" Value="0.7"/>
+					</PropertyList>
+				</Effect>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>

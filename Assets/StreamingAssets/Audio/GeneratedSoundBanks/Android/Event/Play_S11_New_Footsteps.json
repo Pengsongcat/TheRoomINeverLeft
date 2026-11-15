@@ -10,24 +10,71 @@
     "Type": "Event",
     "GUID": "{9D7C3527-BCAD-41C0-8A4F-DC16A8A1C251}",
     "Language": "SFX",
-    "Hash": "{9238DE89-FE3F-F24D-529E-0017AC110363}",
+    "Hash": "{5D5A343B-7410-E4CD-54CE-09FBEF54BE65}",
     "ObjectPath": "Play_S11_New_Footsteps",
     "ShortName": "Play_S11_New_Footsteps",
     "Path": "Event/Play_S11_New_Footsteps.bnk",
+    "Media": [
+     {
+      "Id": "932362763",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "vr_s11_q4_stonebridge.wav",
+      "Path": "Media/932362763.wem",
+      "CachePath": "48/{48B57BAB-E77E-3C1D-02D9-1E66CFA85545}.wem"
+     },
+     {
+      "Id": "937258345",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "vr_s11_duck.wav",
+      "Path": "Media/937258345.wem",
+      "CachePath": "DF/{DFCA19FE-59A0-0470-0904-0EAE00F85A66}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "192623436",
       "Name": "Play_S11_New_Footsteps",
       "ObjectPath": "\\Events\\Scene 1_1\\Play_S11_New_Footsteps",
       "GUID": "{9D7C3527-BCAD-41C0-8A4F-DC16A8A1C251}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "30",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "80",
+      "DurationMax": "80",
+      "MediaRefs": [
+       {
+        "Id": "932362763"
+       },
+       {
+        "Id": "937258345"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{C41DA5DC-61BD-5DF1-ADCE-26679FF34EBF}"
+  "FileHash": "{8D3038A5-D404-6FFA-9ADC-C67EA995618D}"
  }
 }

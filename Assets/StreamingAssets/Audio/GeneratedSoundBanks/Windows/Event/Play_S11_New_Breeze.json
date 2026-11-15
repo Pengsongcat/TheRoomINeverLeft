@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{31287D73-197D-442A-9B00-B74187318CD4}",
     "Language": "SFX",
-    "Hash": "{49ACF04A-4A97-8B0C-DF0B-1BF70CC0B4DE}",
+    "Hash": "{A6295FC6-F525-DB54-13FD-CF1A04593760}",
     "ObjectPath": "Play_S11_New_Breeze",
     "ShortName": "Play_S11_New_Breeze",
     "Path": "Event/Play_S11_New_Breeze.bnk",
+    "Media": [
+     {
+      "Id": "316217139",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "vr_s11_breeze.wav",
+      "Path": "Media/316217139.wem",
+      "CachePath": "A2/{A2C19A63-5C18-E9AF-9A2E-C51AFBD07A52}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "2864213206",
       "Name": "Play_S11_New_Breeze",
       "ObjectPath": "\\Events\\Scene 1_1\\Play_S11_New_Breeze",
       "GUID": "{31287D73-197D-442A-9B00-B74187318CD4}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "30",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "80",
+      "DurationMax": "80",
+      "MediaRefs": [
+       {
+        "Id": "316217139"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{278D1833-7802-494E-1860-0199DD17CEB8}"
+  "FileHash": "{14A1BC30-9D9F-BD63-3A42-585F7B1AA622}"
  }
 }

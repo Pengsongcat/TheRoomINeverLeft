@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics/Default Work Unit
     guid: 6fe2d15d599d504ba9b94f445689e16d
     GuidInternal: 
-    m_lastTime: -8584087158648260567
+    m_lastTime: -8584078079049016046
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy/Default Work Unit
     guid: f14d4c03347551499b8b9297cce9b731
     GuidInternal: 
-    m_lastTime: -8584087096275016699
+    m_lastTime: -8584068821901929773
     List:
     - name: Ambience
       guid: c07d78b04a4ccc45984b9df1e824483a
@@ -105,6 +105,23 @@ MonoBehaviour:
         ObjectType: 2
         guid: fa06140a2d9552488b759e33f1b8c96f
       Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/Narration
+    - name: Reflection
+      guid: 4c880bdb02dc6e40a49e0dba91edc2c9
+      id: 1523149678
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f14d4c03347551499b8b9297cce9b731
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Reflection
+        ObjectType: 1
+        guid: 4c880bdb02dc6e40a49e0dba91edc2c9
+      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/Reflection
     - name: SFX
       guid: 0426ca4b6a659c4d886afee65423ced3
       id: 393239870
@@ -134,7 +151,7 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: 1d7b951f14672b4da06afad62c1b9cf4
     GuidInternal: 
-    m_lastTime: -8584087158648418919
+    m_lastTime: -8584078079049025645
     List: []
   EventWwu:
   - PhysicalPath: Events/Default Work Unit.wwu
@@ -148,7 +165,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 667af3097c5b9841a2904e6222affc98
     GuidInternal: 
-    m_lastTime: -8584087158648452726
+    m_lastTime: -8584078079064400909
     List: []
   - PhysicalPath: Events/Onboarding.wwu
     PathAndIcons:
@@ -161,7 +178,7 @@ MonoBehaviour:
     ParentPath: Events/Onboarding
     guid: 710ae80d533fff45913ae45f2ee151d3
     GuidInternal: 
-    m_lastTime: -8584074513767829324
+    m_lastTime: -8584068912682709607
     List:
     - name: Play_OB_Voice
       guid: e4967429485339429fe82e566efd6643
@@ -191,7 +208,7 @@ MonoBehaviour:
     ParentPath: Events/Scene 1_1
     guid: 8a130078e70d30479103ab60d0c3b725
     GuidInternal: 
-    m_lastTime: -8584074513767843997
+    m_lastTime: -8584068805677776855
     List:
     - name: Play_S11_Bird
       guid: c50cfb55e5089843a73a81c5bd1b247f
@@ -208,8 +225,8 @@ MonoBehaviour:
         guid: c50cfb55e5089843a73a81c5bd1b247f
       Path: Events/Scene 1_1/Play_S11_Bird
       maxAttenuation: 0
-      maxDuration: 2.88
-      minDuration: 2.88
+      maxDuration: -1
+      minDuration: -1
     - name: Play_S11_Dog
       guid: a4f67cab0bcfd946b3c66d5324d3f69a
       id: 648623912
@@ -225,8 +242,8 @@ MonoBehaviour:
         guid: a4f67cab0bcfd946b3c66d5324d3f69a
       Path: Events/Scene 1_1/Play_S11_Dog
       maxAttenuation: 0
-      maxDuration: 4.55
-      minDuration: 4.55
+      maxDuration: -1
+      minDuration: -1
     - name: Play_S11_Duck
       guid: 09905e3dae1b3a48be20e52d887a6afc
       id: 676528753
@@ -242,8 +259,8 @@ MonoBehaviour:
         guid: 09905e3dae1b3a48be20e52d887a6afc
       Path: Events/Scene 1_1/Play_S11_Duck
       maxAttenuation: 0
-      maxDuration: 10
-      minDuration: 10
+      maxDuration: -1
+      minDuration: -1
     - name: Play_S11_Farm
       guid: 4f691443e83fb449a16f2330dd15b180
       id: 1078094730
@@ -259,8 +276,8 @@ MonoBehaviour:
         guid: 4f691443e83fb449a16f2330dd15b180
       Path: Events/Scene 1_1/Play_S11_Farm
       maxAttenuation: 0
-      maxDuration: 7.48
-      minDuration: 7.48
+      maxDuration: -1
+      minDuration: -1
     - name: Play_S11_Guide
       guid: bc1d30f42965cd4a88bed00d26dad0bf
       id: 2040783566
@@ -276,8 +293,8 @@ MonoBehaviour:
         guid: bc1d30f42965cd4a88bed00d26dad0bf
       Path: Events/Scene 1_1/Play_S11_Guide
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_S11_Narration
       guid: 3c123ef02b66954ea397883554ebd7ae
       id: 4052039844
@@ -326,9 +343,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: 737d28317d192a449b00b74187318cd4
       Path: Events/Scene 1_1/Play_S11_New_Breeze
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 30
+      maxDuration: 80
+      minDuration: 80
     - name: Play_S11_New_Car
       guid: a99db2b8969047488bfce4c7688100e6
       id: 1117389079
@@ -343,9 +360,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: a99db2b8969047488bfce4c7688100e6
       Path: Events/Scene 1_1/Play_S11_New_Car
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 30
+      maxDuration: 80
+      minDuration: 80
     - name: Play_S11_New_Dog
       guid: 4412431cf4ac85438316a4677cde06f1
       id: 1688269527
@@ -360,9 +377,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: 4412431cf4ac85438316a4677cde06f1
       Path: Events/Scene 1_1/Play_S11_New_Dog
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 30
+      maxDuration: 80
+      minDuration: 80
     - name: Play_S11_New_Footsteps
       guid: 27357c9dadbcc0418a4fdc16a8a1c251
       id: 192623436
@@ -377,9 +394,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: 27357c9dadbcc0418a4fdc16a8a1c251
       Path: Events/Scene 1_1/Play_S11_New_Footsteps
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 30
+      maxDuration: 80
+      minDuration: 80
     - name: Play_S11_New_InsectsBirdsRiver
       guid: a1f7208903b68f409dd71dc7ce71750f
       id: 2524163228
@@ -394,9 +411,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: a1f7208903b68f409dd71dc7ce71750f
       Path: Events/Scene 1_1/Play_S11_New_InsectsBirdsRiver
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 30
+      maxDuration: 80
+      minDuration: 80
     - name: Play_S11_New_RunningGrassBreath
       guid: cb80d5ffea6bc54eaf81b23304f4883c
       id: 1232456012
@@ -411,9 +428,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: cb80d5ffea6bc54eaf81b23304f4883c
       Path: Events/Scene 1_1/Play_S11_New_RunningGrassBreath
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 30
+      maxDuration: 80
+      minDuration: 80
     - name: Play_S11_Rural
       guid: 9cfb883635acf744a107c2560cbc4b40
       id: 949566550
@@ -429,8 +446,8 @@ MonoBehaviour:
         guid: 9cfb883635acf744a107c2560cbc4b40
       Path: Events/Scene 1_1/Play_S11_Rural
       maxAttenuation: 0
-      maxDuration: 46.92
-      minDuration: 46.92
+      maxDuration: -1
+      minDuration: -1
     - name: Play_S11_Rural2
       guid: 93a05f4215bdc942a70f8f37a6bb5269
       id: 1866070864
@@ -446,8 +463,8 @@ MonoBehaviour:
         guid: 93a05f4215bdc942a70f8f37a6bb5269
       Path: Events/Scene 1_1/Play_S11_Rural2
       maxAttenuation: 0
-      maxDuration: 112.248
-      minDuration: 112.248
+      maxDuration: -1
+      minDuration: -1
     - name: Play_S11_RuralSong
       guid: 111cbcef6643ea4cbd837edbb0911406
       id: 1268140281
@@ -463,8 +480,8 @@ MonoBehaviour:
         guid: 111cbcef6643ea4cbd837edbb0911406
       Path: Events/Scene 1_1/Play_S11_RuralSong
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Stop_S11_Guide
       guid: 5cc7e99aeb3d3d4ea9d8f3cb3b174ae2
       id: 128891308
@@ -493,7 +510,7 @@ MonoBehaviour:
     ParentPath: Events/Scene 1_2
     guid: 1ab38c6721e1ce40b3951bd56b177e93
     GuidInternal: 
-    m_lastTime: -8584074513767785316
+    m_lastTime: -8584068912682706191
     List:
     - name: Play_S12_Crowd_laughter
       guid: 31cebf3627f3c3449a4ccd5bcf2b14f0
@@ -1305,7 +1322,7 @@ MonoBehaviour:
     ParentPath: Events/Scene 1_3
     guid: a2ec74c662344848a09f4fff99082472
     GuidInternal: 
-    m_lastTime: -8584074513767772507
+    m_lastTime: -8584068912682704486
     List:
     - name: Play_S13_Amb1
       guid: 9e3ae8039a6dc14aae81d17915138ade
@@ -1658,7 +1675,7 @@ MonoBehaviour:
     ParentPath: Events/Scene 2_1
     guid: 346663fb936c8b4b924d11a03f913ff8
     GuidInternal: 
-    m_lastTime: -8584074513767944554
+    m_lastTime: -8584068912682702960
     List:
     - name: Play_S21_Band
       guid: 03a8a8fb01d2444b8bef1b25ffd08760
@@ -2147,7 +2164,7 @@ MonoBehaviour:
     ParentPath: Events/Scene 2_2
     guid: 45d59bfcb322a84bab974fcc9f2cc011
     GuidInternal: 
-    m_lastTime: -8584074513767957858
+    m_lastTime: -8584068912682701497
     List:
     - name: Play_S22_CrowdLeft_ambient_walking
       guid: 9f21d8805110524f856dbb970b661ae0
@@ -2653,7 +2670,7 @@ MonoBehaviour:
     ParentPath: Events/Scene 2_3
     guid: 305304356fa582478174f5cd970d4fce
     GuidInternal: 
-    m_lastTime: -8584074513767976891
+    m_lastTime: -8584068912682699592
     List:
     - name: Play_S23_ClockBackground_1
       guid: 1c2d22f69ab53b42a496f5960f253220
@@ -2853,7 +2870,7 @@ MonoBehaviour:
     ParentPath: Events/Scene 2_4
     guid: 9383dccf3f8d52488547db5adc4b2c2b
     GuidInternal: 
-    m_lastTime: -8584074513767993128
+    m_lastTime: -8584068912682698043
     List:
     - name: Play_S24_Breathing
       guid: fd85d55485fca847a1d72a186eff8d20
@@ -3360,7 +3377,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit
     guid: c1b27be4ed73ce48b1285460b50cfbb0
     GuidInternal: 
-    m_lastTime: -8584075137695038639
+    m_lastTime: -8584068912682696871
     List: []
   StateWwu:
   - PhysicalPath: States/Default Work Unit.wwu
@@ -3374,7 +3391,7 @@ MonoBehaviour:
     ParentPath: States/Default Work Unit
     guid: 9f4f2a3cac96a64b8d13687f6aacc233
     GuidInternal: 
-    m_lastTime: -8584087158648429309
+    m_lastTime: -8584078079049023308
     List: []
   SwitchWwu:
   - PhysicalPath: Switches/Default Work Unit.wwu
@@ -3388,7 +3405,7 @@ MonoBehaviour:
     ParentPath: Switches/Default Work Unit
     guid: f09f1235a7e4a84c945303fef504b003
     GuidInternal: 
-    m_lastTime: -8584087158648441067
+    m_lastTime: -8584078079049022110
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers/Default Work Unit.wwu
@@ -3402,7 +3419,7 @@ MonoBehaviour:
     ParentPath: Triggers/Default Work Unit
     guid: 35498980f65a894c8cf9b8545a24f981
     GuidInternal: 
-    m_lastTime: -8584087158648344111
+    m_lastTime: -8584078079049018666
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 

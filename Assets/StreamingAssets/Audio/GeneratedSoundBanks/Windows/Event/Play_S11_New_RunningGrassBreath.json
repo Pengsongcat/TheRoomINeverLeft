@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{FFD580CB-6BEA-4EC5-AF81-B23304F4883C}",
     "Language": "SFX",
-    "Hash": "{9473F3EC-9C88-8D62-B2A8-D97BCFF7C30C}",
+    "Hash": "{1DC83B8C-4BF7-4DA0-B4DC-CB699C5DC802}",
     "ObjectPath": "Play_S11_New_RunningGrassBreath",
     "ShortName": "Play_S11_New_RunningGrassBreath",
     "Path": "Event/Play_S11_New_RunningGrassBreath.bnk",
+    "Media": [
+     {
+      "Id": "843569735",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "vr_s11_breath.wav",
+      "Path": "Media/843569735.wem",
+      "CachePath": "5E/{5E221252-7C50-0231-A559-815798EA7D23}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "1232456012",
       "Name": "Play_S11_New_RunningGrassBreath",
       "ObjectPath": "\\Events\\Scene 1_1\\Play_S11_New_RunningGrassBreath",
       "GUID": "{FFD580CB-6BEA-4EC5-AF81-B23304F4883C}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "30",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "80",
+      "DurationMax": "80",
+      "MediaRefs": [
+       {
+        "Id": "843569735"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{23732534-A60E-2F2C-E203-4E59101A02D4}"
+  "FileHash": "{043D365F-F210-8065-6617-9757799E4828}"
  }
 }

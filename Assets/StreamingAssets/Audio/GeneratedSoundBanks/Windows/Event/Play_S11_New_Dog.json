@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{1C431244-ACF4-4385-8316-A4677CDE06F1}",
     "Language": "SFX",
-    "Hash": "{E4117494-18AC-4000-DD13-0E0338478862}",
+    "Hash": "{5FC2DE82-3276-EFE0-560B-ED4F6038EA24}",
     "ObjectPath": "Play_S11_New_Dog",
     "ShortName": "Play_S11_New_Dog",
     "Path": "Event/Play_S11_New_Dog.bnk",
+    "Media": [
+     {
+      "Id": "890940054",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "vr_s11_dogs.wav",
+      "Path": "Media/890940054.wem",
+      "CachePath": "CE/{CE66D6D9-73E4-2B6E-8E48-F5EFB8124F02}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "1688269527",
       "Name": "Play_S11_New_Dog",
       "ObjectPath": "\\Events\\Scene 1_1\\Play_S11_New_Dog",
       "GUID": "{1C431244-ACF4-4385-8316-A4677CDE06F1}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "30",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "80",
+      "DurationMax": "80",
+      "MediaRefs": [
+       {
+        "Id": "890940054"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{14CDD65F-918F-CA3B-A273-B1B1A0CB995F}"
+  "FileHash": "{CED58B4D-D23D-A93B-BCA0-5F15A053C134}"
  }
 }

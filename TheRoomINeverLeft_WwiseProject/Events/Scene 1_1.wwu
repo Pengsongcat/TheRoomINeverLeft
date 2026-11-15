@@ -4,6 +4,9 @@
 		<WorkUnit Name="Scene 1_1" ID="{7800138A-0DE7-4730-9103-AB60D0C3B725}" PersistMode="Standalone">
 			<ChildrenList>
 				<Event Name="Play_S11_Guide" ID="{F4301DBC-6529-4ACD-88BE-D00D26DAD0BF}">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool" Value="False"/>
+					</PropertyList>
 					<ChildrenList>
 						<Action Name="" ID="{21198DF8-6FBD-41B6-9126-82EF7CC34A4E}" ShortID="668727211">
 							<ReferenceList>
@@ -37,6 +40,9 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_Rural2" ID="{425FA093-BD15-42C9-A70F-8F37A6BB5269}">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool" Value="False"/>
+					</PropertyList>
 					<ChildrenList>
 						<Action Name="" ID="{61E9AD1E-DA60-4738-9057-A1D80CA79CBE}" ShortID="846869271">
 							<ReferenceList>
@@ -48,6 +54,9 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_Rural" ID="{3688FB9C-AC35-44F7-A107-C2560CBC4B40}">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool" Value="False"/>
+					</PropertyList>
 					<ChildrenList>
 						<Action Name="" ID="{D27E3662-C274-416F-A96E-9D31CA7FFBBB}" ShortID="948637292">
 							<ReferenceList>
@@ -59,6 +68,9 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_RuralSong" ID="{EFBC1C11-4366-4CEA-BD83-7EDBB0911406}">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool" Value="False"/>
+					</PropertyList>
 					<ChildrenList>
 						<Action Name="" ID="{58A504FB-7751-458A-9EEA-FE9A30B7D4AC}" ShortID="157384883">
 							<ReferenceList>
@@ -70,6 +82,9 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_Dog" ID="{AB7CF6A4-CF0B-46D9-B3C6-6D5324D3F69A}">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool" Value="False"/>
+					</PropertyList>
 					<ChildrenList>
 						<Action Name="" ID="{8751E313-A430-4D24-A20C-C98F14B3A8AF}" ShortID="61644243">
 							<ReferenceList>
@@ -81,6 +96,9 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_Farm" ID="{4314694F-3FE8-49B4-A16F-2330DD15B180}">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool" Value="False"/>
+					</PropertyList>
 					<ChildrenList>
 						<Action Name="" ID="{ED6069FA-BD9E-46E3-8B74-DE60D5C0ABA6}" ShortID="327597371">
 							<ReferenceList>
@@ -92,6 +110,9 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_Bird" ID="{55FB0CC5-08E5-4398-A73A-81C5BD1B247F}">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool" Value="False"/>
+					</PropertyList>
 					<ChildrenList>
 						<Action Name="" ID="{1F993871-7A22-472D-8A46-CAEAAF89C62B}" ShortID="333969693">
 							<ReferenceList>
@@ -103,6 +124,9 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_Duck" ID="{3D5E9009-1BAE-483A-BE20-E52D887A6AFC}">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool" Value="False"/>
+					</PropertyList>
 					<ChildrenList>
 						<Action Name="" ID="{31274B87-31CC-449D-A3A0-21C376B1233E}" ShortID="836744760">
 							<ReferenceList>
@@ -129,21 +153,99 @@
 				</Event>
 				<Event Name="Play_S11_New_InsectsBirdsRiver" ID="{8920F7A1-B603-408F-9DD7-1DC7CE71750F}">
 					<Comment>Placeholder for the sound team: add audio here. Loop, not spatialized.</Comment>
+					<ChildrenList>
+						<Action Name="" ID="{807327A3-B086-438C-A89D-E4A4D97326B8}" ShortID="16733826">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="vr_s11_river" ID="{D4969FCC-4436-4211-B46C-96362ABA6AE7}" WorkUnitID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{E17DA5F0-D9AE-42DF-97EF-C8B5D1B15365}" ShortID="143767156">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="vr_s11_q2_ambienceBirds" ID="{BD7B5A64-7799-4F4E-BEBF-2AE3FEB2388D}" WorkUnitID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_New_Breeze" ID="{31287D73-197D-442A-9B00-B74187318CD4}">
 					<Comment>Placeholder for the sound team: add audio here. Loop, not spatialized.</Comment>
+					<ChildrenList>
+						<Action Name="" ID="{7D580F7B-3977-4B13-852A-B7F734D85A9C}" ShortID="386750276">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="vr_s11_breeze" ID="{E89895EF-7C26-4181-B806-7128FE9FC5B9}" WorkUnitID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_New_Footsteps" ID="{9D7C3527-BCAD-41C0-8A4F-DC16A8A1C251}">
 					<Comment>Placeholder for the sound team: add audio here. Spatialized; the object is in the Scene1.1 Sound prefab.</Comment>
+					<ChildrenList>
+						<Action Name="" ID="{D51A9110-9B65-48D6-8EB1-3B6A28F1B977}" ShortID="908702768">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="vr_s11_q4_stonebridge" ID="{627FA7A8-7918-4554-9455-571CC15775D1}" WorkUnitID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{631C7CA4-DE0B-492A-93EE-78F9CE1934CC}" ShortID="332792793">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="vr_s11_duck" ID="{870E7E39-0CB2-4FD4-9DEB-FEBA81D6EA21}" WorkUnitID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_New_Car" ID="{B8B29DA9-9096-4847-8BFC-E4C7688100E6}">
 					<Comment>Placeholder for the sound team: add audio here. Spatialized; the object is in the Scene1.1 Sound prefab.</Comment>
+					<ChildrenList>
+						<Action Name="" ID="{EEB7F47A-314E-45A9-A404-6001378ABD36}" ShortID="390983045">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="vr_s11_car" ID="{0A5458A3-7B37-4B59-88AF-64994633FBA2}" WorkUnitID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_New_Dog" ID="{1C431244-ACF4-4385-8316-A4677CDE06F1}">
 					<Comment>Placeholder for the sound team: add audio here. Spatialized; the object is in the Scene1.1 Sound prefab.</Comment>
+					<ChildrenList>
+						<Action Name="" ID="{15286F7D-5E17-4996-B16A-B25054B79D06}" ShortID="207947400">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="vr_s11_dogs" ID="{B2E3A5D9-D3EC-4F82-8BCF-7959ABD4AEDF}" WorkUnitID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
 				</Event>
 				<Event Name="Play_S11_New_RunningGrassBreath" ID="{FFD580CB-6BEA-4EC5-AF81-B23304F4883C}">
 					<Comment>Placeholder for the sound team: add audio here. Spatialized; the object is in the Scene1.1 Sound prefab.</Comment>
+					<ChildrenList>
+						<Action Name="" ID="{FB09074A-0152-426F-B556-0B8306FC090B}" ShortID="861561514">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RunningField" ID="{08270291-1A31-4D9B-82CD-9C1FA9AAB44C}" WorkUnitID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{B086DE2F-578D-4C4E-B583-F738E8F98A82}" ShortID="520435797">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="vr_s11_breath" ID="{1FC8B89E-9DB8-4AD4-AEF9-C690D8867A45}" WorkUnitID="{C6BFF224-D63F-4F7E-B239-57F9F2A1A0F0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
 				</Event>
 			</ChildrenList>
 		</WorkUnit>
