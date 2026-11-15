@@ -18,6 +18,8 @@ public class ExperienceManager : MonoBehaviour
     [Tooltip("Skip the VR / MR question and the room calibration: start the VR experience (passthrough off, " +
              "the story begins) as soon as the scene loads.")]
     [SerializeField] bool _skipSetup;
+    [Tooltip("With Skip Setup on, turn passthrough on at start.")]
+    [SerializeField] bool _passthroughWhenSkipped = true;
 
     [Header("Components")]
     [SerializeField] CalibrationHud  _hud;
@@ -81,6 +83,7 @@ public class ExperienceManager : MonoBehaviour
             _hud.SetVisible(false);
             Debug.Log("[ExperienceManager] Setup skipped: VR.");
             StartVRExperience();
+            if (_passthroughWhenSkipped) SetPassthrough(true);
             return;
         }
 
