@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{442CF1A7-FDED-43A1-BEA5-7DCDD13AD7F0}",
     "Language": "SFX",
-    "Hash": "{D3A91809-D8B3-D489-AEC0-1558F61FCF10}",
+    "Hash": "{B51DC4E5-4ED3-E733-E3A7-A0C74F6B38FD}",
     "ObjectPath": "Play_S12_New_Dad",
     "ShortName": "Play_S12_New_Dad",
     "Path": "Event/Play_S12_New_Dad.bnk",
+    "Media": [
+     {
+      "Id": "993402446",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Uncle.wav",
+      "Path": "Media/993402446.wem",
+      "CachePath": "39/{39F0A523-FD55-B4FA-2AB8-381EC4383CD8}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "250435813",
       "Name": "Play_S12_New_Dad",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_New_Dad",
       "GUID": "{442CF1A7-FDED-43A1-BEA5-7DCDD13AD7F0}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "7",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "63.95",
+      "DurationMax": "63.95",
+      "MediaRefs": [
+       {
+        "Id": "993402446"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{EDFA4EE5-C87F-632B-BDAB-D5FEBA1CCE5B}"
+  "FileHash": "{EBAEC0F6-7EAD-A0C3-E0DF-B44CF19E4004}"
  }
 }

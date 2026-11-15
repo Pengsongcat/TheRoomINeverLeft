@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{61886307-EF4D-E177-4126-2D2E2FEC0C76}",
+    "Hash": "{F6F61885-48BD-B665-FFB6-A09CC7E94F2E}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -21,6 +21,14 @@
        "Name": "New_Steam_Audio_Mix_Return",
        "ObjectPath": "\\Effects\\Default Work Unit\\New_Steam_Audio_Mix_Return",
        "GUID": "{B83CE74F-6358-4FFB-BE30-0446CE37BD66}",
+       "LibName": "Steam Audio Mix Return",
+       "LibId": "1987318707"
+      },
+      {
+       "Id": "947465690",
+       "Name": "New_Steam_Audio_Mix_Return_Scene1_2",
+       "ObjectPath": "\\Effects\\Default Work Unit\\New_Steam_Audio_Mix_Return_Scene1_2",
+       "GUID": "{377CE8D1-B4B1-46F5-B7B1-45905513357C}",
        "LibName": "Steam Audio Mix Return",
        "LibId": "1987318707"
       }
@@ -78,9 +86,9 @@
     ],
     "AuxBusses": [
      {
-      "Id": "1523149678",
-      "Name": "Reflection",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Reflection",
+      "Id": "397595872",
+      "Name": "Reflection_Scene1_1",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Reflection_Scene1_1",
       "GUID": "{DB0B884C-DC02-406E-A49E-0DBA91EDC2C9}",
       "PluginRefs": {
        "ShareSets": [
@@ -89,10 +97,23 @@
         }
        ]
       }
+     },
+     {
+      "Id": "397595875",
+      "Name": "Reflection_Scene1_2",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\Reflection_Scene1_2",
+      "GUID": "{593B0A4B-A4BD-49A7-B227-0C8822C411C7}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "947465690"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{545076D5-7D40-2351-A79F-DDF1BA15A7C3}"
+  "FileHash": "{90AC3756-FA78-5CA0-9625-B8A70ACF15A1}"
  }
 }

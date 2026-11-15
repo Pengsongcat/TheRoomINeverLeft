@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{65E5FD2B-CA3B-4FAE-A7B9-76359F208483}",
     "Language": "SFX",
-    "Hash": "{E982CCD5-EA6B-1E4D-03CB-030B56BC7A20}",
+    "Hash": "{353C5D9C-7911-1180-BD83-B6B1944542C9}",
     "ObjectPath": "Play_S12_New_CounterTop",
     "ShortName": "Play_S12_New_CounterTop",
     "Path": "Event/Play_S12_New_CounterTop.bnk",
+    "Media": [
+     {
+      "Id": "237161851",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Chop vegitable_01.wav",
+      "Path": "Media/237161851.wem",
+      "CachePath": "4C/{4C144342-DD08-013E-6DC3-2128D5C4C374}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "271405951",
       "Name": "Play_S12_New_CounterTop",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_New_CounterTop",
       "GUID": "{65E5FD2B-CA3B-4FAE-A7B9-76359F208483}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "7",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "63.95",
+      "DurationMax": "63.95",
+      "MediaRefs": [
+       {
+        "Id": "237161851"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{6699674A-C5B6-7F8A-708A-F6D22C3755F8}"
+  "FileHash": "{43BEC36B-6DA3-5FE7-8C5E-C9E373C6192D}"
  }
 }

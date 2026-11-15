@@ -10,24 +10,83 @@
     "Type": "Event",
     "GUID": "{21CFBD23-51E4-49A9-AA13-67F67F65EECB}",
     "Language": "SFX",
-    "Hash": "{6A021064-2A63-CB6A-66CA-CB20117E5139}",
+    "Hash": "{F1D1FDB0-3B92-DE8E-B842-40830C2C0BEB}",
     "ObjectPath": "Play_S12_New_Stove",
     "ShortName": "Play_S12_New_Stove",
     "Path": "Event/Play_S12_New_Stove.bnk",
+    "Media": [
+     {
+      "Id": "724926904",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "sizzle while frying_01.wav",
+      "Path": "Media/724926904.wem",
+      "CachePath": "B2/{B2D631A5-A154-8769-356D-5709571B387B}.wem"
+     },
+     {
+      "Id": "916358941",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Boil water_01.wav",
+      "Path": "Media/916358941.wem",
+      "CachePath": "05/{05CC5A66-4BDA-9C6E-E6CF-0138F1786180}.wem"
+     },
+     {
+      "Id": "1018126971",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Stove light up_01.wav",
+      "Path": "Media/1018126971.wem",
+      "CachePath": "28/{28491A3E-0EFC-D1F0-0BB2-1D27C29CFC8E}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "832372789",
       "Name": "Play_S12_New_Stove",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_New_Stove",
       "GUID": "{21CFBD23-51E4-49A9-AA13-67F67F65EECB}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "7",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "63.95",
+      "DurationMax": "63.95",
+      "MediaRefs": [
+       {
+        "Id": "724926904"
+       },
+       {
+        "Id": "916358941"
+       },
+       {
+        "Id": "1018126971"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{9289740C-6C11-3548-7CC0-F9BC84B817F9}"
+  "FileHash": "{DF46CEDD-6EBC-A28A-F190-A5F55C297EAB}"
  }
 }

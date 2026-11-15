@@ -10,24 +10,71 @@
     "Type": "Event",
     "GUID": "{87C8CD04-44D7-4CAB-86E4-BED94F923ABA}",
     "Language": "SFX",
-    "Hash": "{459DBC27-3A30-4D1A-5077-0BBEE0647273}",
+    "Hash": "{F53B4357-3547-034B-C913-21AA1FEE9337}",
     "ObjectPath": "Play_S12_New_Firework2",
     "ShortName": "Play_S12_New_Firework2",
     "Path": "Event/Play_S12_New_Firework2.bnk",
+    "Media": [
+     {
+      "Id": "918200020",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Firework 4_01.wav",
+      "Path": "Media/918200020.wem",
+      "CachePath": "56/{568E2CC0-A49B-B557-B7A0-F5B45DA2771D}.wem"
+     },
+     {
+      "Id": "1002961107",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Firework 5_01.wav",
+      "Path": "Media/1002961107.wem",
+      "CachePath": "D0/{D053B9E4-6938-CAA1-7175-1B5BCEA6E00E}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "106038545",
       "Name": "Play_S12_New_Firework2",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_New_Firework2",
       "GUID": "{87C8CD04-44D7-4CAB-86E4-BED94F923ABA}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "20",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "63.95",
+      "DurationMax": "63.95",
+      "MediaRefs": [
+       {
+        "Id": "918200020"
+       },
+       {
+        "Id": "1002961107"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{8F808FBE-DB95-4A1E-7D73-D918B320F6BA}"
+  "FileHash": "{B7B35475-04B4-3767-9291-814F4182091A}"
  }
 }

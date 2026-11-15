@@ -10,24 +10,95 @@
     "Type": "Event",
     "GUID": "{5E5F3120-21D7-47EA-8D19-121D81761198}",
     "Language": "SFX",
-    "Hash": "{7CDF9616-B425-6068-50B1-19F71C2AFD41}",
+    "Hash": "{C2624689-2575-ECCF-A62F-9D7BEA4BC2AF}",
     "ObjectPath": "Play_S12_New_Hotpot",
     "ShortName": "Play_S12_New_Hotpot",
     "Path": "Event/Play_S12_New_Hotpot.bnk",
+    "Media": [
+     {
+      "Id": "50427277",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "people talking around table_01.wav",
+      "Path": "Media/50427277.wem",
+      "CachePath": "EE/{EEBCBCAD-1F7F-B3FB-857E-E23BA95DC11A}.wem"
+     },
+     {
+      "Id": "495359101",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BoilWater_01.wav",
+      "Path": "Media/495359101.wem",
+      "CachePath": "0E/{0E0D5152-C299-0824-4333-0532763B1996}.wem"
+     },
+     {
+      "Id": "511478254",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "end_01.wav",
+      "Path": "Media/511478254.wem",
+      "CachePath": "FA/{FA153910-FC4A-1C11-929F-EE3A8F71B8F3}.wem"
+     },
+     {
+      "Id": "942771046",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "cold_read_01.wav",
+      "Path": "Media/942771046.wem",
+      "CachePath": "B7/{B7B07CD6-7AD1-1064-C7D2-F60846CB3C65}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "1081394204",
       "Name": "Play_S12_New_Hotpot",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_New_Hotpot",
       "GUID": "{5E5F3120-21D7-47EA-8D19-121D81761198}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "7",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "63.980583",
+      "DurationMax": "63.980583",
+      "MediaRefs": [
+       {
+        "Id": "50427277"
+       },
+       {
+        "Id": "495359101"
+       },
+       {
+        "Id": "511478254"
+       },
+       {
+        "Id": "942771046"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{BF492B7D-B970-18BE-D392-5E084A28CB98}"
+  "FileHash": "{9DBB2A44-3A9F-7764-8DA3-EA480B740B88}"
  }
 }

@@ -10,24 +10,83 @@
     "Type": "Event",
     "GUID": "{2ED7CFED-4F22-4EA2-AC9E-E1C26E18BE0E}",
     "Language": "SFX",
-    "Hash": "{3FC02C97-ADFE-C06B-A167-776C40C14EE8}",
+    "Hash": "{B9D1243E-3B5B-7C34-4D01-A386EE39E654}",
     "ObjectPath": "Play_S12_New_Firework1",
     "ShortName": "Play_S12_New_Firework1",
     "Path": "Event/Play_S12_New_Firework1.bnk",
+    "Media": [
+     {
+      "Id": "15168080",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Firework 1_01.wav",
+      "Path": "Media/15168080.wem",
+      "CachePath": "9F/{9F432004-9B57-1074-1E44-654E76B7336F}.wem"
+     },
+     {
+      "Id": "176680167",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Firework 3_01.wav",
+      "Path": "Media/176680167.wem",
+      "CachePath": "E9/{E9E39AC2-8102-976B-15B7-0E044990A814}.wem"
+     },
+     {
+      "Id": "278621436",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Firework 2_01.wav",
+      "Path": "Media/278621436.wem",
+      "CachePath": "64/{6467B003-23F5-C90D-7955-B16FA7604C26}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "106038546",
       "Name": "Play_S12_New_Firework1",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_New_Firework1",
       "GUID": "{2ED7CFED-4F22-4EA2-AC9E-E1C26E18BE0E}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "20",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "63.95",
+      "DurationMax": "63.95",
+      "MediaRefs": [
+       {
+        "Id": "15168080"
+       },
+       {
+        "Id": "176680167"
+       },
+       {
+        "Id": "278621436"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{C8AE01F4-09FF-7A03-8B36-A33B3F254D4D}"
+  "FileHash": "{5AD6464D-C065-0D83-89A7-58AAAB7BD264}"
  }
 }

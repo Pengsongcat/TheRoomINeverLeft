@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{999FE2FC-CE07-4D9F-AFB6-073BB3CF5E84}",
     "Language": "SFX",
-    "Hash": "{65E583A8-0868-9C1A-C0D7-6B590D3258EE}",
+    "Hash": "{8F2E4A01-D916-1C29-1A7E-2B528F8CEA82}",
     "ObjectPath": "Play_S12_New_Heater",
     "ShortName": "Play_S12_New_Heater",
     "Path": "Event/Play_S12_New_Heater.bnk",
+    "Media": [
+     {
+      "Id": "1059414567",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Heater_01.wav",
+      "Path": "Media/1059414567.wem",
+      "CachePath": "E7/{E7679C14-F50A-43AD-817B-DA13CD10B7BE}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "331766433",
       "Name": "Play_S12_New_Heater",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_New_Heater",
       "GUID": "{999FE2FC-CE07-4D9F-AFB6-073BB3CF5E84}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "7",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "63.95",
+      "DurationMax": "63.95",
+      "MediaRefs": [
+       {
+        "Id": "1059414567"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{09519AED-74F2-6460-8E3A-D2F855835F47}"
+  "FileHash": "{078F695D-B030-7E9D-AC8A-99EC46231D9B}"
  }
 }

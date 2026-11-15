@@ -10,24 +10,71 @@
     "Type": "Event",
     "GUID": "{309329DF-CA53-4260-8023-5D3053D2BD76}",
     "Language": "SFX",
-    "Hash": "{ECF1D380-2F81-0E15-E8F9-0470BD283BC3}",
+    "Hash": "{9E9032F1-47F9-AA65-E527-757777F498C2}",
     "ObjectPath": "Play_S12_New_AncestorTable",
     "ShortName": "Play_S12_New_AncestorTable",
     "Path": "Event/Play_S12_New_AncestorTable.bnk",
+    "Media": [
+     {
+      "Id": "117487420",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Chanting_01.wav",
+      "Path": "Media/117487420.wem",
+      "CachePath": "12/{125120A9-615C-20F0-03AF-3413FBED29B0}.wem"
+     },
+     {
+      "Id": "995306256",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Incense_01.wav",
+      "Path": "Media/995306256.wem",
+      "CachePath": "FF/{FF943BE5-4DE1-7942-0DC9-EFC94737F13D}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "316782835",
       "Name": "Play_S12_New_AncestorTable",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_New_AncestorTable",
       "GUID": "{309329DF-CA53-4260-8023-5D3053D2BD76}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "7",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "63.95",
+      "DurationMax": "63.95",
+      "MediaRefs": [
+       {
+        "Id": "117487420"
+       },
+       {
+        "Id": "995306256"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{27E361B9-33BF-81B5-A927-7849FD22A075}"
+  "FileHash": "{1496BB04-B9CE-DA05-F249-2A9E5BEA3991}"
  }
 }

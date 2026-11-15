@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{0328268A-94E1-4919-ADBC-C54B2BC497C3}",
     "Language": "SFX",
-    "Hash": "{EE54BF2F-F6EB-FDFB-88DF-4E6F2358414A}",
+    "Hash": "{00EA4676-AE0E-3033-3AA6-C993830B6887}",
     "ObjectPath": "Play_S12_New_Extractor",
     "ShortName": "Play_S12_New_Extractor",
     "Path": "Event/Play_S12_New_Extractor.bnk",
+    "Media": [
+     {
+      "Id": "559183867",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Kitchen extractor_01.wav",
+      "Path": "Media/559183867.wem",
+      "CachePath": "1A/{1AEE4E18-F020-EC97-9EF2-FBF090244CC0}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "2349740978",
       "Name": "Play_S12_New_Extractor",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_New_Extractor",
       "GUID": "{0328268A-94E1-4919-ADBC-C54B2BC497C3}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "7",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "63.95",
+      "DurationMax": "63.95",
+      "MediaRefs": [
+       {
+        "Id": "559183867"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{DF504976-8788-BB64-C18A-36B10CFE8573}"
+  "FileHash": "{578C56A3-7E58-0D67-1BFA-91955D8B8485}"
  }
 }

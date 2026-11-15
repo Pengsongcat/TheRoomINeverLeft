@@ -5,7 +5,10 @@
 			<ChildrenList>
 				<Effect Name="Steam_HRTF" ID="{876E804C-3C6A-4599-9975-E1176A8C1BBE}" PluginName="Steam Audio Spatializer" CompanyID="315" PluginID="30323" PluginType="3">
 					<PropertyList>
+						<Property Name="AirAbsorption" Type="bool" Value="True"/>
+						<Property Name="Occlusion" Type="int16" Value="2"/>
 						<Property Name="Reflections" Type="bool" Value="True"/>
+						<Property Name="ReflectionsBinaural" Type="bool" Value="True"/>
 						<Property Name="ReflectionsMixLevel" Type="Real32" Value="0.7"/>
 					</PropertyList>
 				</Effect>

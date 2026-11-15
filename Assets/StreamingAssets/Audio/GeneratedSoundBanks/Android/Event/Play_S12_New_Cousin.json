@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{8B2B5172-18DC-49F4-820B-86BCBAE4F74E}",
     "Language": "SFX",
-    "Hash": "{3141B7FF-FFC4-FA9A-5F87-A487BB98AFB4}",
+    "Hash": "{F1EE7306-A907-70B1-FABD-5EA6AFFDFAFB}",
     "ObjectPath": "Play_S12_New_Cousin",
     "ShortName": "Play_S12_New_Cousin",
     "Path": "Event/Play_S12_New_Cousin.bnk",
+    "Media": [
+     {
+      "Id": "306416684",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "cousin.wav",
+      "Path": "Media/306416684.wem",
+      "CachePath": "D1/{D19CC40E-8A2E-9A4C-9F5E-676B0CE90A1D}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "2265910589",
       "Name": "Play_S12_New_Cousin",
       "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_New_Cousin",
       "GUID": "{8B2B5172-18DC-49F4-820B-86BCBAE4F74E}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "7",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "63.95",
+      "DurationMax": "63.95",
+      "MediaRefs": [
+       {
+        "Id": "306416684"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{81E098E3-0A1D-03B5-AD28-E1E1DB742F84}"
+  "FileHash": "{9C4A4682-A244-BDD4-5CC3-7A36C0F94226}"
  }
 }
