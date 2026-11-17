@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_MX_THEME = 4224048659U;
         static const AkUniqueID PLAY_OB_VOICE = 375159154U;
         static const AkUniqueID PLAY_S11_NARRATION = 4052039844U;
         static const AkUniqueID PLAY_S11_NARRATORSTEPS = 3347888462U;
@@ -163,14 +164,34 @@ namespace AK
         static const AkUniqueID PLAY_S24_SWIMUP = 2939134665U;
         static const AkUniqueID PLAY_S24_UNDERWATER1 = 1400641090U;
         static const AkUniqueID PLAY_S24_UNDERWATER2 = 1400641089U;
+        static const AkUniqueID STOP_MX_THEME = 3037305421U;
         static const AkUniqueID STOP_S11_GUIDE = 128891308U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace THEME_MUSIC_PROGRESS
+        {
+            static const AkUniqueID GROUP = 832263142U;
+
+            namespace STATE
+            {
+                static const AkUniqueID CH1_0 = 760825936U;
+                static const AkUniqueID CH1_1 = 760825937U;
+                static const AkUniqueID CH1_2 = 760825938U;
+                static const AkUniqueID CH2_0 = 3982275847U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace THEME_MUSIC_PROGRESS
+
+    } // namespace STATES
 
     namespace BUSSES
     {
         static const AkUniqueID AMBIENCE = 85412153U;
         static const AkUniqueID GUIDE = 842837903U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID NARRATION = 930427193U;
         static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES

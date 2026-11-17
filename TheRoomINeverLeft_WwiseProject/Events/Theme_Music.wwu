@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{66F674F8-69DB-40C4-9EA2-91116861B769}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="Theme_Music" ID="{66F674F8-69DB-40C4-9EA2-91116861B769}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_MX_Theme" ID="{E047C0C8-F961-48A1-97EF-AE9E743CB457}">
+					<ChildrenList>
+						<Action Name="" ID="{AA243218-9C05-4441-9713-D66F46AD5118}" ShortID="735872761">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MX_Theme" ID="{B98B03C1-AC43-43DE-8097-5C7FB381BDAC}" WorkUnitID="{165495E2-6DC8-4F49-8267-B92B968FD51F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_MX_Theme" ID="{70836C73-E990-4299-9050-5DCCA2FFFF18}">
+					<ChildrenList>
+						<Action Name="" ID="{6179116E-A0DC-4B39-87DC-100C78EF28CE}" ShortID="921864236">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="1"/>
+								<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MX_Theme" ID="{B98B03C1-AC43-43DE-8097-5C7FB381BDAC}" WorkUnitID="{165495E2-6DC8-4F49-8267-B92B968FD51F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
