@@ -1,12 +1,13 @@
 #!/bin/bash
 # Sync your work with the team. Double-click to run.
+# On Windows, double-click Sync.bat instead (it runs this file with Git Bash).
 #
 # Before running: commit your work in GitHub Desktop, then save and close Wwise.
 #
 # What it does:
 #   1. Downloads teammates' work and merges it with yours.
 #   2. Soundbank conflicts are resolved automatically (banks get rebuilt anyway).
-#   3. Any other conflict cancels the merge and leaves your work exactly as it was.
+#   3. Any other conflict cancels the merge and leaves your committed work exactly as it was.
 #   4. Rebuilds all soundbanks with Wwise and saves them.
 #
 # After it finishes: press "Push origin" in GitHub Desktop to upload.
@@ -18,11 +19,15 @@ cd "$(dirname "$0")" || exit 1
 # ---------------------------------------------------------------- Settings
 BRANCH="${SYNC_BRANCH:-wwise-integration}"
 BANKS="Assets/StreamingAssets/Audio/GeneratedSoundBanks"
-# Files that tools rebuild on every Mac. Local changes to them are thrown away
+# Files that tools rebuild on every computer. Local changes to them are thrown away
 # and conflicts in them are resolved automatically.
 REBUILT=("$BANKS" "Assets/Wwise/Editor/ProjectData")
 WPROJ="TheRoomINeverLeft_WwiseProject/TheRoomINeverLeft_WwiseProject.wproj"
 HELP_CONTACT="Hubert"
+case "$(uname -s)" in
+  MINGW*|MSYS*|CYGWIN*) IS_WINDOWS=1; COMPUTER="PC";  SETUP_NAME="Setup.bat" ;;
+  *)                    IS_WINDOWS="";  COMPUTER="Mac"; SETUP_NAME="Setup.command" ;;
+esac
 
 # ----------------------------------------------------------------- Output
 step() { printf '\n\033[1m== %s\033[0m\n' "$1"; }
@@ -42,7 +47,7 @@ die() {
 step "Checking your setup"
 
 command -v git >/dev/null 2>&1 && git lfs version >/dev/null 2>&1 \
-  || die "Git or Git LFS is not installed." "Double-click Setup.command first, then run Sync again."
+  || die "Git or Git LFS is not installed." "Double-click $SETUP_NAME first, then run Sync again."
 
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || die "This file must stay inside the project folder."
 cd "$ROOT" || exit 1
@@ -60,15 +65,24 @@ CURRENT="$(git branch --show-current)"
 
 for marker in MERGE_HEAD CHERRY_PICK_HEAD REVERT_HEAD rebase-merge rebase-apply; do
   [ -e "$GIT_DIR_PATH/$marker" ] && die \
-    "An earlier merge was left unfinished on this Mac." \
+    "An earlier merge was left unfinished on this $COMPUTER." \
     "Do not commit or pull. Ask $HELP_CONTACT to look at it."
 done
 
 if [ -z "${SYNC_SKIP_APP_CHECK:-}" ]; then
-  if pgrep -if 'Wwise\.app/Contents/MacOS/|[\\/]Wwise\.exe' >/dev/null 2>&1; then
+  if [ -n "$IS_WINDOWS" ]; then
+    # Double slashes stop Git Bash from turning /NH into a file path.
+    PROCS="$(tasklist //NH //FO CSV 2>/dev/null)"
+    wwise_open() { printf '%s\n' "$PROCS" | grep -qi '^"Wwise\.exe"'; }
+    unity_open() { printf '%s\n' "$PROCS" | grep -qi '^"Unity\.exe"'; }
+  else
+    wwise_open() { pgrep -if 'Wwise\.app/Contents/MacOS/|[\\/]Wwise\.exe' >/dev/null 2>&1; }
+    unity_open() { pgrep -x Unity >/dev/null 2>&1; }
+  fi
+  if wwise_open; then
     die "Wwise is open." "Save your project, quit Wwise, then run Sync again."
   fi
-  if pgrep -x Unity >/dev/null 2>&1; then
+  if unity_open; then
     note "Unity is open. Save your scene and prefabs in Unity now (File > Save)."
     [ -z "${SYNC_NO_PAUSE:-}" ] && read -r -p "   Press Return once Unity is saved. " _
   fi
@@ -78,12 +92,20 @@ fi
 CONSOLE="${SYNC_WWISE_CONSOLE:-}"
 if [ -z "$CONSOLE" ]; then
   WWISE_VERSION="$(sed -n 's/.*WwiseVersion="v\([0-9.]*\)".*/\1/p' "$WPROJ" | head -1)"
-  for c in /Applications/Audiokinetic/*/Wwise.app/Contents/Tools/WwiseConsole.sh; do
+  if [ -n "$IS_WINDOWS" ]; then
+    WWISE_DIRS="C:\\Program Files\\Audiokinetic"
+    CANDIDATES=("/c/Program Files/Audiokinetic/"*/Authoring/x64/Release/bin/WwiseConsole.exe
+                "/c/Program Files (x86)/Audiokinetic/"*/Authoring/x64/Release/bin/WwiseConsole.exe)
+  else
+    WWISE_DIRS="/Applications/Audiokinetic"
+    CANDIDATES=(/Applications/Audiokinetic/*/Wwise.app/Contents/Tools/WwiseConsole.sh)
+  fi
+  for c in "${CANDIDATES[@]}"; do
     [ -f "$c" ] || continue
     case "$c" in *"$WWISE_VERSION"*) CONSOLE="$c"; break ;; esac
   done
   [ -n "$CONSOLE" ] || die \
-    "Wwise $WWISE_VERSION was not found in /Applications/Audiokinetic." \
+    "Wwise $WWISE_VERSION was not found in $WWISE_DIRS." \
     "Install that exact version with the Audiokinetic Launcher, then run Sync again."
 fi
 
@@ -99,17 +121,6 @@ if [ -n "$DIRTY" ]; then
       "Commit them in GitHub Desktop first (do not press Push or Pull), then run Sync again."
 fi
 note "Ready."
-
-# Leftover changes to rebuilt files would block the merge. They are rebuilt below.
-if [ -n "$(git status --porcelain -- "${REBUILT[@]}")" ]; then
-  step "Clearing old soundbank files (they are rebuilt below)"
-  for r in "${REBUILT[@]}"; do
-    git reset -q HEAD -- "$r" 2>/dev/null
-    git checkout -q HEAD -- "$r" 2>/dev/null
-    git clean -fdq -- "$r"
-  done
-  note "Done."
-fi
 
 # -------------------------------------------------------- Merge + rebuild
 resolve_bank_conflicts() {
@@ -128,7 +139,11 @@ resolve_bank_conflicts() {
 
 generate_banks() {
   : > "$WWISE_LOG"
-  /bin/sh "$CONSOLE" generate-soundbank "$ROOT/$WPROJ" >"$WWISE_LOG" 2>&1
+  if [ -n "$IS_WINDOWS" ]; then
+    "$CONSOLE" generate-soundbank "$(cygpath -w "$ROOT/$WPROJ")" >"$WWISE_LOG" 2>&1
+  else
+    /bin/sh "$CONSOLE" generate-soundbank "$ROOT/$WPROJ" >"$WWISE_LOG" 2>&1
+  fi
   if grep -q "Process completed successfully" "$WWISE_LOG"; then
     return 0
   elif grep -q "Process completed with warning" "$WWISE_LOG"; then
@@ -139,6 +154,8 @@ generate_banks() {
 }
 
 PULLED=0
+# What to tell the user when a merge is cancelled. Replaced below if soundbanks get cleared.
+UNTOUCHED="Nothing was changed on your $COMPUTER. Your work is safe and still committed."
 step "Downloading teammates' work"
 git fetch --progress origin "$BRANCH" || die \
   "Could not reach GitHub." \
@@ -149,7 +166,24 @@ INCOMING="$(git rev-list --count "HEAD..$REMOTE")"
 if [ "$INCOMING" -eq 0 ]; then
   note "Nothing new from teammates."
 else
-  note "$INCOMING new save(s) from teammates. Merging with yours..."
+  note "$INCOMING new save(s) from teammates. Downloading their audio files..."
+  # Download the large files now, with progress, so the merge below is quick.
+  git lfs fetch origin "$REMOTE" || die \
+    "Could not download your teammates' audio files." \
+    "Nothing was changed on your $COMPUTER. Check your internet connection, then run Sync again."
+
+  # Leftover changes to rebuilt files would block the merge. They are rebuilt below.
+  if [ -n "$(git status --porcelain -- "${REBUILT[@]}")" ]; then
+    note "Clearing old soundbank files (they are rebuilt below)..."
+    for r in "${REBUILT[@]}"; do
+      git reset -q HEAD -- "$r" 2>/dev/null
+      git checkout -q HEAD -- "$r" 2>/dev/null
+      git clean -fdq -- "$r"
+    done
+    UNTOUCHED="Your work is safe and still committed."$'\n'"Only soundbanks you built but had not committed were reset. Press Generate All in Wwise to get them back."
+  fi
+
+  note "Merging with yours..."
   BEFORE="$(git rev-parse HEAD)"
   if ! git merge --no-edit -X no-renames "$REMOTE" >/dev/null 2>"$GIT_DIR_PATH/sync-merge.log"; then
     OTHER="$(git diff --name-only --diff-filter=U -- "${REAL_WORK[@]}")"
@@ -170,19 +204,19 @@ else
         die "You and a teammate changed the same file(s):" \
             "${LIST%$'\n'}" \
             "" \
-            "Nothing was changed on your Mac. Your work is safe and still committed." \
+            "$UNTOUCHED" \
             "Do not press Pull in GitHub Desktop." \
             "" \
             "Ask in the group chat what ${NAMES:-your teammate} changed in the file(s) above," \
             "and discuss together how to resolve the conflict."
       fi
       die "The merge could not start:" "$(sed 's/^/   /' "$GIT_DIR_PATH/sync-merge.log")" \
-          "" "Nothing was changed on your Mac. Send a screenshot to $HELP_CONTACT."
+          "" "$UNTOUCHED" "Send a screenshot to $HELP_CONTACT."
     fi
     note "Resolving $BANK_CONFLICTS soundbank conflict(s) automatically..."
     resolve_bank_conflicts && git commit -q --no-edit || {
       git merge --abort 2>/dev/null || git reset -q --merge "$BEFORE"
-      die "Could not finish the merge. Nothing was changed on your Mac." \
+      die "Could not finish the merge." "$UNTOUCHED" \
           "Send a screenshot to $HELP_CONTACT."
     }
   fi
@@ -193,7 +227,7 @@ fi
 step "Rebuilding soundbanks with Wwise (this can take a few minutes)"
 if ! generate_banks; then
   die "Wwise could not rebuild the soundbanks." \
-      "Your work and your teammates' work are merged and safe on this Mac. Do not push yet." \
+      "Your work and your teammates' work are merged and safe on this $COMPUTER. Do not push yet." \
       "Open Wwise, press Generate All, and if that works run Sync again." \
       "If it does not, send $HELP_CONTACT this file: $WWISE_LOG"
 fi
