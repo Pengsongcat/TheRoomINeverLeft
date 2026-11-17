@@ -176,9 +176,9 @@ WPROJ="$(ls TheRoomINeverLeft_WwiseProject/*.wproj 2>/dev/null | head -1)"
 WWISE_VERSION="$(sed -n 's/.*WwiseVersion="v\([0-9.]*\)".*/\1/p' "$WPROJ" 2>/dev/null | head -1)"
 CONSOLE=""
 if [ -n "$IS_WINDOWS" ]; then
-  WWISE_DIRS="C:\\Program Files\\Audiokinetic or C:\\Program Files (x86)\\Audiokinetic"
-  CANDIDATES=("/c/Program Files/Audiokinetic/"*/Authoring/x64/Release/bin/WwiseConsole.exe
-              "/c/Program Files (x86)/Audiokinetic/"*/Authoring/x64/Release/bin/WwiseConsole.exe)
+  WWISE_DIRS="C:\\Audiokinetic or C:\\Program Files (x86)\\Audiokinetic"
+  CANDIDATES=("/c/Audiokinetic/"*/Authoring/x64/Release/bin/WwiseConsole.exe
+              "/c/Audiokinetic/"*/Authoring/x64/Release/bin/WwiseConsole.exe)
 else
   WWISE_DIRS="/Applications/Audiokinetic"
   CANDIDATES=(/Applications/Audiokinetic/*/Wwise.app/Contents/Tools/WwiseConsole.sh)
