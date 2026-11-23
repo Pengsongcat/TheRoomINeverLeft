@@ -502,10 +502,20 @@
 								</ActorMixer>
 								<ActorMixer Name="Narration" ID="{8665F1F1-F24B-40EE-BFE4-B1C6C3AFE85B}" ShortID="755762788">
 									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverrideOutput" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="80"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Narrator_Close" ID="{99F64AA9-B251-4F52-94A6-BACFD52B53BC}" WorkUnitID="{35D54D1D-AF3C-4A24-9C01-5A3036D0538E}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
 										</Reference>
