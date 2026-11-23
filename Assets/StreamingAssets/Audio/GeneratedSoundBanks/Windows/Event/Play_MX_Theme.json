@@ -10,7 +10,7 @@
     "Type": "Event",
     "GUID": "{E047C0C8-F961-48A1-97EF-AE9E743CB457}",
     "Language": "SFX",
-    "Hash": "{2C3B5130-C5D4-3266-3AA7-9B63D85FF35E}",
+    "Hash": "{4D65D9D3-A6DC-290D-69DD-2DBAEB7255FF}",
     "ObjectPath": "Play_MX_Theme",
     "ShortName": "Play_MX_Theme",
     "Path": "Event/Play_MX_Theme.bnk",
@@ -34,6 +34,15 @@
       "CachePath": "26/{264F3FE7-D70B-DC89-B25F-91B6EBB24A14}.wem"
      },
      {
+      "Id": "544261755",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Music\\Theme\\MX_Theme_Ch2_3.wav",
+      "Path": "Media/544261755.wem",
+      "CachePath": "E4/{E4E5F1BD-1312-29AA-FB25-F764B5296F53}.wem"
+     },
+     {
       "Id": "593653532",
       "Language": "SFX",
       "Streaming": "false",
@@ -41,6 +50,15 @@
       "ShortName": "Music\\Theme\\MX_Theme_Ch2_0_Swell.wav",
       "Path": "Media/593653532.wem",
       "CachePath": "C7/{C7DCD1F9-00F9-6940-ADB5-E2F712D9E81F}.wem"
+     },
+     {
+      "Id": "634190450",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Music\\Theme\\MX_Theme_Ch2_1.wav",
+      "Path": "Media/634190450.wem",
+      "CachePath": "54/{54989E65-2C91-E470-2DD7-DA648D82B851}.wem"
      },
      {
       "Id": "652376351",
@@ -68,6 +86,24 @@
       "ShortName": "Music\\Theme\\MX_Theme_Ch1_2.wav",
       "Path": "Media/769072109.wem",
       "CachePath": "9E/{9E68FA8E-8578-70EF-BC5D-017F024735F4}.wem"
+     },
+     {
+      "Id": "951044946",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Music\\Theme\\MX_Theme_Ch3_0.wav",
+      "Path": "Media/951044946.wem",
+      "CachePath": "C3/{C3DEFAAD-8AD2-B6F9-E71F-CD37A41886C8}.wem"
+     },
+     {
+      "Id": "990537506",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Music\\Theme\\MX_Theme_Ch2_2.wav",
+      "Path": "Media/990537506.wem",
+      "CachePath": "1D/{1DCE3AA8-43A1-13A4-6EE3-0DF29CFBD1B9}.wem"
      }
     ],
     "Events": [
@@ -137,6 +173,58 @@
           "Id": "312265775"
          }
         ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "832263142",
+         "Id": "3982275846",
+         "GUID": "{16BD7BF4-6CD5-4162-8867-34778B85D5A5}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "634190450"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "832263142",
+         "Id": "3982275845",
+         "GUID": "{E6DECA19-29F7-46EA-881B-73F2A24823C4}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "990537506"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "832263142",
+         "Id": "3982275844",
+         "GUID": "{F210E548-1536-4366-BAA1-7840DC762C7A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "544261755"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "832263142",
+         "Id": "761223358",
+         "GUID": "{F571597F-934F-4CCE-B138-D7F76BF7805A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "951044946"
+         }
+        ]
        }
       ]
      }
@@ -173,6 +261,30 @@
         "GUID": "{4F99E0D6-65AC-4D3E-9F51-87C2DC3D6286}"
        },
        {
+        "Id": "761223358",
+        "Name": "Ch3_0",
+        "ObjectPath": "\\States\\Default Work Unit\\Theme_Music_Progress\\Ch3_0",
+        "GUID": "{F571597F-934F-4CCE-B138-D7F76BF7805A}"
+       },
+       {
+        "Id": "3982275844",
+        "Name": "Ch2_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Theme_Music_Progress\\Ch2_3",
+        "GUID": "{F210E548-1536-4366-BAA1-7840DC762C7A}"
+       },
+       {
+        "Id": "3982275845",
+        "Name": "Ch2_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Theme_Music_Progress\\Ch2_2",
+        "GUID": "{E6DECA19-29F7-46EA-881B-73F2A24823C4}"
+       },
+       {
+        "Id": "3982275846",
+        "Name": "Ch2_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Theme_Music_Progress\\Ch2_1",
+        "GUID": "{16BD7BF4-6CD5-4162-8867-34778B85D5A5}"
+       },
+       {
         "Id": "3982275847",
         "Name": "Ch2_0",
         "ObjectPath": "\\States\\Default Work Unit\\Theme_Music_Progress\\Ch2_0",
@@ -183,6 +295,6 @@
     ]
    }
   ],
-  "FileHash": "{927847F5-AE9F-94C5-FDE9-91EB115236C9}"
+  "FileHash": "{ABAF4FBB-6638-7F6A-8D73-EB14E44E6790}"
  }
 }

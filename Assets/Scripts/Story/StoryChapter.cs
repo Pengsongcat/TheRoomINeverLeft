@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // A chapter made of scenes the visitor can play in any order. All scenes wait (guide sounds loop) until one is
 // triggered; all guide sounds fade out and other triggers disarm. Each guide uses its own triggered or
@@ -44,6 +45,19 @@ public class StoryChapter : StoryPart
     [Tooltip("Optional. Hidden while the chapter plays, turned on once every scene has finished. The chapter then " +
              "finishes as usual, so it stays up for this chapter's End Delay on the Story Director.")]
     [SerializeField] GameObject _end;
+
+    // The theme itself is started once by the Story Director; these Wwise states choose what it plays.
+    [Header("Theme Music")]
+    [Tooltip("Optional. The theme to play by how many scenes have finished, in any order: element 0 when the chapter " +
+             "opens, element 1 once any one scene has finished, and so on. Replays do not count. A count with no " +
+             "element sets nothing, so whatever was playing carries on (the next chapter's element 0 takes over).")]
+    [FormerlySerializedAs("_progressStates")]
+    [SerializeField] List<AK.Wwise.State> _themeAfterScenesDone = new();
+
+    [Tooltip("Optional. The theme to play while a scene runs (e.g. None, to fade the theme out). When the scene " +
+             "finishes, Theme After Scenes Done is set again for the new count.")]
+    [FormerlySerializedAs("_themeDuringScene")]
+    [SerializeField] AK.Wwise.State _themeDuringScene;
 
     StoryScene[] _scenes;
     StoryScene _activeScene;
@@ -137,6 +151,28 @@ public class StoryChapter : StoryPart
             scene.gameObject.SetActive(true);
             if (alreadyActive) scene.ResumeWaiting();
         }
+        SetThemeForScenesDone();
+        LogSceneShortcuts();
+    }
+
+    // Development shortcut (Story Skipper, Shift + number): triggers the scene at this 0-based position among the
+    // chapter's included scenes, as if the visitor had walked into it.
+    public void TriggerScene(int index)
+    {
+        if (index < 0 || index >= _scenes.Length)
+        {
+            Debug.Log($"[Story] {name} has no scene {index + 1} (it has {_scenes.Length}).");
+            return;
+        }
+        _scenes[index].TriggerNow();
+    }
+
+    void LogSceneShortcuts()
+    {
+        var keys = new System.Text.StringBuilder($"[Story] {name} scenes:");
+        for (int i = 0; i < _scenes.Length && i < 9; i++)
+            keys.Append($"  Shift+{i + 1} {_scenes[i].name}");
+        Debug.Log(keys.ToString());
     }
 
     // A scene playing → skip that scene (the chapter then carries on as usual); otherwise skip the whole chapter.
@@ -162,6 +198,11 @@ public class StoryChapter : StoryPart
     void OnSceneTriggered(StoryScene triggered)
     {
         _activeScene = triggered;
+        if (_themeDuringScene != null && _themeDuringScene.IsValid())
+        {
+            Debug.Log($"[Story] {name}: {triggered.name} playing, theme {_themeDuringScene.Name}.");
+            _themeDuringScene.SetValue();
+        }
         _activeTimelineStarted = false;
         _activeTimelineFinished = false;
         _activeGuideFaded = false;
@@ -236,6 +277,7 @@ public class StoryChapter : StoryPart
         CancelSceneEndDelay();
         _activeScene = null;
         finished.gameObject.SetActive(false);
+        SetThemeForScenesDone();
 
         bool allDone = true;
         foreach (var scene in _scenes)
@@ -270,6 +312,19 @@ public class StoryChapter : StoryPart
     {
         if (_sceneEndDelay != null) StopCoroutine(_sceneEndDelay);
         _sceneEndDelay = null;
+    }
+
+    // Sets the state for the number of scenes finished so far (each scene counts once, whatever the order).
+    void SetThemeForScenesDone()
+    {
+        int done = 0;
+        foreach (var scene in _scenes)
+            if (scene.Done) done++;
+        if (done >= _themeAfterScenesDone.Count) return;
+        var state = _themeAfterScenesDone[done];
+        if (state == null || !state.IsValid()) return;
+        Debug.Log($"[Story] {name}: {done} scene(s) finished, theme {state.Name}.");
+        state.SetValue();
     }
 
     float EndDelay(StoryScene scene)

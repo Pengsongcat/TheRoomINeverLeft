@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // Owns the order of the story: Onboarding → Scene1 → … → Ending. Every part is turned off at start. Begin turns the
 // first part on and begins it; each time the current part finishes, it is turned off and the next one begins.
@@ -23,6 +24,12 @@ public class StoryDirector : MonoBehaviour
     [Tooltip("In story order. End Delay is the pause after that Chapter or Timeline finishes.")]
     [SerializeField] List<PartTiming> _partTimings = new();
 
+    [Header("Theme Music")]
+    [Tooltip("Optional. The theme music event, posted on this object when the story begins and left playing " +
+             "throughout. Each chapter's Theme After Scenes Done and Theme During Scene choose what it plays.")]
+    [FormerlySerializedAs("_music")]
+    [SerializeField] AK.Wwise.Event _themeMusic;
+
     public event Action Completed;
 
     int _current = -1;
@@ -30,6 +37,9 @@ public class StoryDirector : MonoBehaviour
 
     // True from Begin until the last part has finished.
     public bool Running => _current >= 0 && _current < _partTimings.Count;
+
+    // The part playing now, or null before Begin and after the last part.
+    public StoryPart Current => Running ? _partTimings[_current].part : null;
 
     void Awake()
     {
@@ -84,6 +94,7 @@ public class StoryDirector : MonoBehaviour
     public void Begin()
     {
         if (_current >= 0) return;
+        if (_themeMusic != null && _themeMusic.IsValid()) _themeMusic.Post(gameObject);
         Enter(0);
     }
 

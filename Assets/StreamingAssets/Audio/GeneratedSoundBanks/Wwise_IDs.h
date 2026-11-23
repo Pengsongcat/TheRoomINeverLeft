@@ -180,6 +180,10 @@ namespace AK
                 static const AkUniqueID CH1_1 = 760825937U;
                 static const AkUniqueID CH1_2 = 760825938U;
                 static const AkUniqueID CH2_0 = 3982275847U;
+                static const AkUniqueID CH2_1 = 3982275846U;
+                static const AkUniqueID CH2_2 = 3982275845U;
+                static const AkUniqueID CH2_3 = 3982275844U;
+                static const AkUniqueID CH3_0 = 761223358U;
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
         } // namespace THEME_MUSIC_PROGRESS

@@ -160,6 +160,18 @@ public class StoryScene : MonoBehaviour
         StoryPart.JumpToEnd(_timeline);
     }
 
+    // Development shortcut (Story Skipper): acts as if the visitor had walked into the trigger, even while a pulsing
+    // guide has its trigger disarmed. Ignored, as an entry would be, when the scene cannot trigger now.
+    public void TriggerNow()
+    {
+        if (!isActiveAndEnabled)
+        {
+            Debug.Log($"[Story] {name} is not waiting; nothing to trigger.");
+            return;
+        }
+        OnEntered();
+    }
+
     void OnEntered()
     {
         if (!CanWait) return;
