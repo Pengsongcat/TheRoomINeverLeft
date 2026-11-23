@@ -13,6 +13,8 @@ public sealed class DesktopTestMode : MonoBehaviour
     StoryDirector story;
     bool usePC;
 
+    GameObject view;
+    
     void Awake()
     {
         // This component only runs when its GameObject is active. Disable/remove it for VR.
@@ -57,7 +59,7 @@ public sealed class DesktopTestMode : MonoBehaviour
         rigidbody.useGravity = false;
         rigidbody.isKinematic = true;
 
-        var view = new GameObject("PC Camera") { tag = "MainCamera" };
+        view = new GameObject("PC Camera") { tag = "MainCamera" };
         view.transform.SetParent(player.transform, false);
         var pcCamera = view.AddComponent<Camera>();
         if (source != null) pcCamera.CopyFrom(source);
@@ -80,9 +82,13 @@ public sealed class DesktopTestMode : MonoBehaviour
 
     void Start()
     {
+        view.AddComponent<AkAudioListener>();
+        view.AddComponent<AkSpatialAudioListener>();
         if (!usePC) return;
         // Start runs after StoryDirector.Awake has hidden and registered its parts.
         if (story != null) story.Begin();
         else Debug.LogError("[Main Test] No StoryDirector in this scene.", this);
+
+
     }
 }
