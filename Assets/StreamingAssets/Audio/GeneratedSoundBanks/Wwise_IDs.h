@@ -15,7 +15,6 @@ namespace AK
     {
         static const AkUniqueID PLAY_MX_THEME = 4224048659U;
         static const AkUniqueID PLAY_OB_VOICE = 375159154U;
-        static const AkUniqueID PLAY_S11_GUIDE = 2040783566U;
         static const AkUniqueID PLAY_S11_NARRATION = 4052039844U;
         static const AkUniqueID PLAY_S11_NARRATORSTEPS = 3347888462U;
         static const AkUniqueID PLAY_S11_NEW_BREEZE = 2864213206U;
