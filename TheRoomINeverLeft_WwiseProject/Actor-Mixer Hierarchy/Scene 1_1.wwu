@@ -353,6 +353,9 @@
 							</ChildrenList>
 						</Folder>
 						<ActorMixer Name="ambienceBirds" ID="{7A3C9440-BEFF-4E8F-814C-51D0166CACDA}" ShortID="1029188984">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
@@ -363,6 +366,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="vr_s11_q2_ambienceBirds" ID="{BD7B5A64-7799-4F4E-BEBF-2AE3FEB2388D}" ShortID="403056630">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
@@ -523,6 +533,11 @@
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="ambienceBreeze" ID="{64BDC550-79F0-4EE3-BA1F-A1480140C559}" ShortID="265425003">
+							<PropertyList>
+								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
@@ -533,6 +548,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="vr_s11_breeze" ID="{E89895EF-7C26-4181-B806-7128FE9FC5B9}" ShortID="730208871">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
@@ -625,6 +647,9 @@
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="narratorsteps" ID="{C5D2B595-F044-4B2D-80D8-F25A6F88000A}" ShortID="422034804">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
@@ -669,6 +694,14 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="vr_s11_river" ID="{D4969FCC-4436-4211-B46C-96362ABA6AE7}" ShortID="667350876">
+									<PropertyList>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
@@ -693,6 +726,9 @@
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="guidingsound" ID="{0E3F3CDD-CF21-4D42-8562-C5E469880B33}" ShortID="29311935">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
