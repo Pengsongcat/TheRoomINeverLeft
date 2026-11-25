@@ -67,6 +67,16 @@ namespace AK
         static const AkUniqueID PLAY_S13_NEW_SNORE = 307014454U;
         static const AkUniqueID PLAY_S13_NEW_SONG = 142870330U;
         static const AkUniqueID PLAY_S13_NEW_TREES = 1679357632U;
+        static const AkUniqueID PLAY_S21_NARRATION_1 = 34355301U;
+        static const AkUniqueID PLAY_S21_NARRATION_2 = 34355302U;
+        static const AkUniqueID PLAY_S21_NARRATION_3 = 34355303U;
+        static const AkUniqueID PLAY_S21_NARRATION_4 = 34355296U;
+        static const AkUniqueID PLAY_S21_NARRATION_5 = 34355297U;
+        static const AkUniqueID PLAY_S21_NARRATION_6 = 34355298U;
+        static const AkUniqueID PLAY_S21_NARRATION_7 = 34355299U;
+        static const AkUniqueID PLAY_S21_NARRATION_8 = 34355308U;
+        static const AkUniqueID PLAY_S21_NARRATION_9 = 34355309U;
+        static const AkUniqueID PLAY_S21_NARRATION_10 = 2654783183U;
         static const AkUniqueID PLAY_S21_NEW_BANDMUSIC = 4278533422U;
         static const AkUniqueID PLAY_S21_NEW_BARAMBIENCE = 3640045207U;
         static const AkUniqueID PLAY_S21_NEW_CAR1 = 374281543U;
