@@ -10,24 +10,83 @@
     "Type": "Event",
     "GUID": "{0249C1C2-09AB-4F09-AF76-BBFB40CA3E0C}",
     "Language": "SFX",
-    "Hash": "{C2F58D7E-8299-6B67-A866-DA89AA001115}",
+    "Hash": "{0004AFE3-4799-ECBB-96DD-0C67676DC487}",
     "ObjectPath": "Play_S21_New_Traffic",
     "ShortName": "Play_S21_New_Traffic",
     "Path": "Event/Play_S21_New_Traffic.bnk",
+    "Media": [
+     {
+      "Id": "340504311",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Traffic\\11-city noise-consolidated_01.wav",
+      "Path": "Media/340504311.wem",
+      "CachePath": "9B/{9BA150AB-3BB2-4F81-F2B2-F04B9ED1F998}.wem"
+     },
+     {
+      "Id": "394179705",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Traffic\\Traffic_2_01.wav",
+      "Path": "Media/394179705.wem",
+      "CachePath": "F1/{F1E3F2A8-BA17-9A62-780F-67AA4E5E2429}.wem"
+     },
+     {
+      "Id": "1071941065",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Traffic\\Traffic_1_01.wav",
+      "Path": "Media/1071941065.wem",
+      "CachePath": "58/{58723E8A-E5CF-9418-6696-D29F841C2B36}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "4115668107",
       "Name": "Play_S21_New_Traffic",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_New_Traffic",
       "GUID": "{0249C1C2-09AB-4F09-AF76-BBFB40CA3E0C}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "85",
+      "DurationMax": "85",
+      "MediaRefs": [
+       {
+        "Id": "340504311"
+       },
+       {
+        "Id": "394179705"
+       },
+       {
+        "Id": "1071941065"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{E87CF37C-CFB0-50D1-99AB-B7352D06B060}"
+  "FileHash": "{9FDAC919-0051-8541-E072-073DA3400C76}"
  }
 }

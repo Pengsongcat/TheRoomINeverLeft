@@ -10,24 +10,71 @@
     "Type": "Event",
     "GUID": "{CFB400AC-3ADD-4DB3-8D3E-CDA5DB67AAD5}",
     "Language": "SFX",
-    "Hash": "{2E5C9372-E440-ED80-367F-0936EE721573}",
+    "Hash": "{9B6CC69D-3CB9-2D06-F155-2417285D9894}",
     "ObjectPath": "Play_S21_New_Footsteps",
     "ShortName": "Play_S21_New_Footsteps",
     "Path": "Event/Play_S21_New_Footsteps.bnk",
+    "Media": [
+     {
+      "Id": "876242903",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Footstep\\footsteps_1_01.wav",
+      "Path": "Media/876242903.wem",
+      "CachePath": "E1/{E18419C9-7EC5-4937-3C10-75FB47645341}.wem"
+     },
+     {
+      "Id": "1000290752",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Footstep\\footsteps_2_01.wav",
+      "Path": "Media/1000290752.wem",
+      "CachePath": "53/{53BAC990-3748-BDBD-0728-2703522C19DE}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "1436251453",
       "Name": "Play_S21_New_Footsteps",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_New_Footsteps",
       "GUID": "{CFB400AC-3ADD-4DB3-8D3E-CDA5DB67AAD5}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "85",
+      "DurationMax": "85",
+      "MediaRefs": [
+       {
+        "Id": "876242903"
+       },
+       {
+        "Id": "1000290752"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{BDA561D6-AC2A-066C-CC92-3ECED5A1ECE2}"
+  "FileHash": "{0820F7A9-4263-F5B3-5AA2-CA8130FF956D}"
  }
 }

@@ -10,24 +10,71 @@
     "Type": "Event",
     "GUID": "{CB2F5CC2-9CBB-473B-954A-7665E54C7E48}",
     "Language": "SFX",
-    "Hash": "{64B05287-23C0-6BB1-8A1C-D9B45719C181}",
+    "Hash": "{BD08A8CB-1B44-DFF5-D1DC-FC1D7B52DF1F}",
     "ObjectPath": "Play_S21_New_Door",
     "ShortName": "Play_S21_New_Door",
     "Path": "Event/Play_S21_New_Door.bnk",
+    "Media": [
+     {
+      "Id": "308475924",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Door\\Door_1_01.wav",
+      "Path": "Media/308475924.wem",
+      "CachePath": "5E/{5E5390FF-EB2A-A142-AB6B-9BD324409157}.wem"
+     },
+     {
+      "Id": "775902629",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Door\\Door_2_01.wav",
+      "Path": "Media/775902629.wem",
+      "CachePath": "66/{661FA9CF-2FD6-FD12-1F90-A38CC92E9740}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "2152305752",
       "Name": "Play_S21_New_Door",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_New_Door",
       "GUID": "{CB2F5CC2-9CBB-473B-954A-7665E54C7E48}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "85",
+      "DurationMax": "85",
+      "MediaRefs": [
+       {
+        "Id": "308475924"
+       },
+       {
+        "Id": "775902629"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{5800DF27-9FB6-F1F3-D6DA-EBA94D9E8AE6}"
+  "FileHash": "{22137EC3-F204-BE39-1E8C-94CE2984109C}"
  }
 }

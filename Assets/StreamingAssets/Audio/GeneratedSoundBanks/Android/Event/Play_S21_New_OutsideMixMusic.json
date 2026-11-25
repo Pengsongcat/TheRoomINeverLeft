@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{8FF44CEC-A5B3-45F7-81FF-1006CAAC5136}",
     "Language": "SFX",
-    "Hash": "{6DC5E4BF-73F0-CB63-6A34-50F4A9D3F3FF}",
+    "Hash": "{3FAD42A8-8B06-E7C8-1E88-63797C27AFF0}",
     "ObjectPath": "Play_S21_New_OutsideMixMusic",
     "ShortName": "Play_S21_New_OutsideMixMusic",
     "Path": "Event/Play_S21_New_OutsideMixMusic.bnk",
+    "Media": [
+     {
+      "Id": "516378102",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Pedestrian\\Pedestrian 3_01.wav",
+      "Path": "Media/516378102.wem",
+      "CachePath": "8E/{8E4A5B4B-73D1-C225-14EC-E5C4748F69F7}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "2224248830",
       "Name": "Play_S21_New_OutsideMixMusic",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_New_OutsideMixMusic",
       "GUID": "{8FF44CEC-A5B3-45F7-81FF-1006CAAC5136}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "85",
+      "DurationMax": "85",
+      "MediaRefs": [
+       {
+        "Id": "516378102"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{B869461D-F995-6A6C-22C3-4EFCCB5DFFEF}"
+  "FileHash": "{A9253379-C4D0-343D-086E-1466654ECC1A}"
  }
 }

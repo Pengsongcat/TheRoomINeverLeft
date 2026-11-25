@@ -10,24 +10,71 @@
     "Type": "Event",
     "GUID": "{2054979F-30F7-408F-AC86-51A0299D9993}",
     "Language": "SFX",
-    "Hash": "{F13D400B-2C9B-D1E6-24DA-2E3B049180E2}",
+    "Hash": "{B06DC987-5D35-0F0C-F316-47CC998FE8DA}",
     "ObjectPath": "Play_S21_New_Conversation2",
     "ShortName": "Play_S21_New_Conversation2",
     "Path": "Event/Play_S21_New_Conversation2.bnk",
+    "Media": [
+     {
+      "Id": "122240770",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Crowd\\Crowd 2_01.wav",
+      "Path": "Media/122240770.wem",
+      "CachePath": "E6/{E6695755-774D-7C20-16F5-CB34BA5F7463}.wem"
+     },
+     {
+      "Id": "204854473",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Crowd\\Crowd 4_01.wav",
+      "Path": "Media/204854473.wem",
+      "CachePath": "D6/{D61795E0-EF6D-C0AA-D705-D5BB62839665}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "1544405853",
       "Name": "Play_S21_New_Conversation2",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_New_Conversation2",
       "GUID": "{2054979F-30F7-408F-AC86-51A0299D9993}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "85",
+      "DurationMax": "85",
+      "MediaRefs": [
+       {
+        "Id": "122240770"
+       },
+       {
+        "Id": "204854473"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{4685DD70-9F37-1D0B-BCE8-022F24E30921}"
+  "FileHash": "{448794FE-0FDE-6176-BA8D-0834AA29A919}"
  }
 }

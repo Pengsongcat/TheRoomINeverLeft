@@ -10,24 +10,95 @@
     "Type": "Event",
     "GUID": "{4F589EFC-891C-45E8-9FBF-D1DB5344D247}",
     "Language": "SFX",
-    "Hash": "{037A810B-D39F-3438-5EA8-B13ED5205799}",
+    "Hash": "{086FFBAD-0FC9-CF0E-B458-8A5C53C5A6AF}",
     "ObjectPath": "Play_S21_New_BarAmbience",
     "ShortName": "Play_S21_New_BarAmbience",
     "Path": "Event/Play_S21_New_BarAmbience.bnk",
+    "Media": [
+     {
+      "Id": "111568564",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Bar Counter\\Bar Counter_Laugh_01.wav",
+      "Path": "Media/111568564.wem",
+      "CachePath": "94/{94C68A0F-DE85-1222-6712-19CAB117202B}.wem"
+     },
+     {
+      "Id": "172608470",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Bar Counter\\Bar Counter_2_01.wav",
+      "Path": "Media/172608470.wem",
+      "CachePath": "B8/{B8435A35-E149-CC78-3036-BB41017DC2D1}.wem"
+     },
+     {
+      "Id": "801680567",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Bar Counter\\Bar Counter_1_01.wav",
+      "Path": "Media/801680567.wem",
+      "CachePath": "E0/{E043B5DE-489D-577D-C451-B8CE4E24B482}.wem"
+     },
+     {
+      "Id": "966711534",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Bar Counter\\Bar Counter_Glass_01.wav",
+      "Path": "Media/966711534.wem",
+      "CachePath": "BE/{BE2D5AC8-1369-4691-D09A-3F9F7B570653}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "3640045207",
       "Name": "Play_S21_New_BarAmbience",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_New_BarAmbience",
       "GUID": "{4F589EFC-891C-45E8-9FBF-D1DB5344D247}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "85",
+      "DurationMax": "85",
+      "MediaRefs": [
+       {
+        "Id": "111568564"
+       },
+       {
+        "Id": "172608470"
+       },
+       {
+        "Id": "801680567"
+       },
+       {
+        "Id": "966711534"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{6E3E98E7-E64F-3A74-74CB-1526F1F13920}"
+  "FileHash": "{29774D97-57F1-2B02-326C-C8055088C304}"
  }
 }

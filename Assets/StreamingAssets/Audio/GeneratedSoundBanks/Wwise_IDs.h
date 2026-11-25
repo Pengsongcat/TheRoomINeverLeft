@@ -67,30 +67,6 @@ namespace AK
         static const AkUniqueID PLAY_S13_NEW_SNORE = 307014454U;
         static const AkUniqueID PLAY_S13_NEW_SONG = 142870330U;
         static const AkUniqueID PLAY_S13_NEW_TREES = 1679357632U;
-        static const AkUniqueID PLAY_S21_BAND = 1944523496U;
-        static const AkUniqueID PLAY_S21_BARCROWD = 5048555U;
-        static const AkUniqueID PLAY_S21_BARCROWD2 = 1682246083U;
-        static const AkUniqueID PLAY_S21_BARDOOR = 3859023688U;
-        static const AkUniqueID PLAY_S21_BICYCLE = 3429564900U;
-        static const AkUniqueID PLAY_S21_CAR = 4079076693U;
-        static const AkUniqueID PLAY_S21_GLASSES2_1 = 3827013483U;
-        static const AkUniqueID PLAY_S21_GLASSES2_2 = 3827013480U;
-        static const AkUniqueID PLAY_S21_GLASSES2_3 = 3827013481U;
-        static const AkUniqueID PLAY_S21_GLASSES2_4 = 3827013486U;
-        static const AkUniqueID PLAY_S21_GUIDE = 869016119U;
-        static const AkUniqueID PLAY_S21_LAUGHTER1 = 3746309770U;
-        static const AkUniqueID PLAY_S21_LAUGHTER2 = 3746309769U;
-        static const AkUniqueID PLAY_S21_LAUGHTER3 = 3746309768U;
-        static const AkUniqueID PLAY_S21_NARRATION_1 = 34355301U;
-        static const AkUniqueID PLAY_S21_NARRATION_2 = 34355302U;
-        static const AkUniqueID PLAY_S21_NARRATION_3 = 34355303U;
-        static const AkUniqueID PLAY_S21_NARRATION_4 = 34355296U;
-        static const AkUniqueID PLAY_S21_NARRATION_5 = 34355297U;
-        static const AkUniqueID PLAY_S21_NARRATION_6 = 34355298U;
-        static const AkUniqueID PLAY_S21_NARRATION_7 = 34355299U;
-        static const AkUniqueID PLAY_S21_NARRATION_8 = 34355308U;
-        static const AkUniqueID PLAY_S21_NARRATION_9 = 34355309U;
-        static const AkUniqueID PLAY_S21_NARRATION_10 = 2654783183U;
         static const AkUniqueID PLAY_S21_NEW_BANDMUSIC = 4278533422U;
         static const AkUniqueID PLAY_S21_NEW_BARAMBIENCE = 3640045207U;
         static const AkUniqueID PLAY_S21_NEW_CAR1 = 374281543U;
@@ -103,15 +79,9 @@ namespace AK
         static const AkUniqueID PLAY_S21_NEW_GIRLSINSIDEBAR = 2486648156U;
         static const AkUniqueID PLAY_S21_NEW_GIRLSOUTSIDEBAR = 71332237U;
         static const AkUniqueID PLAY_S21_NEW_OUTSIDEMIXMUSIC = 2224248830U;
-        static const AkUniqueID PLAY_S21_NEW_PASSENGER1 = 3667977105U;
-        static const AkUniqueID PLAY_S21_NEW_PASSENGER2 = 3667977106U;
         static const AkUniqueID PLAY_S21_NEW_PEOPLETALKING = 3988993373U;
         static const AkUniqueID PLAY_S21_NEW_SIDEWALK = 2237024074U;
         static const AkUniqueID PLAY_S21_NEW_TRAFFIC = 4115668107U;
-        static const AkUniqueID PLAY_S21_OUTSIDEBAR = 3501910561U;
-        static const AkUniqueID PLAY_S21_PASSERSBY2VOICES = 271655988U;
-        static const AkUniqueID PLAY_S21_PASSERSBYVOICES = 1772315732U;
-        static const AkUniqueID PLAY_S21_STEPS = 508220214U;
         static const AkUniqueID PLAY_S22_CROWDLEFT_AMBIENT_WALKING = 2636307253U;
         static const AkUniqueID PLAY_S22_CROWDLEFT_AMBIENT_WALKING_MUFFLED = 3114007449U;
         static const AkUniqueID PLAY_S22_CROWDRIGHT_AMBIENT_LAUGHING = 639251644U;
@@ -221,6 +191,7 @@ namespace AK
     {
         static const AkUniqueID REFLECTION_SCENE1_1 = 397595872U;
         static const AkUniqueID REFLECTION_SCENE1_2 = 397595875U;
+        static const AkUniqueID REFLECTION_SCENE2_1 = 398140327U;
     } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES

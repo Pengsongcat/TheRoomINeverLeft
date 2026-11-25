@@ -10,24 +10,71 @@
     "Type": "Event",
     "GUID": "{45B13FAF-F354-4FA2-AFAB-AD8056E47C18}",
     "Language": "SFX",
-    "Hash": "{71B759F8-7C40-36AF-C31A-53F7405CCE04}",
+    "Hash": "{45214F46-13E9-5DBF-D153-4333B5A10EED}",
     "ObjectPath": "Play_S21_New_Conversation1",
     "ShortName": "Play_S21_New_Conversation1",
     "Path": "Event/Play_S21_New_Conversation1.bnk",
+    "Media": [
+     {
+      "Id": "482368867",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Crowd\\Crowd 1_01.wav",
+      "Path": "Media/482368867.wem",
+      "CachePath": "AF/{AF6001E6-9FA5-4AE5-FC6C-7C7BA28B7FBB}.wem"
+     },
+     {
+      "Id": "857434201",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Crowd\\Crowd 3_01.wav",
+      "Path": "Media/857434201.wem",
+      "CachePath": "51/{510125DC-2BD2-E23B-7F9C-2F621052D310}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "1544405854",
       "Name": "Play_S21_New_Conversation1",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_New_Conversation1",
       "GUID": "{45B13FAF-F354-4FA2-AFAB-AD8056E47C18}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "85",
+      "DurationMax": "85",
+      "MediaRefs": [
+       {
+        "Id": "482368867"
+       },
+       {
+        "Id": "857434201"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{E6537E53-5B62-E577-0EFC-77A4C6A576FE}"
+  "FileHash": "{73A651BF-98EC-99BC-D41B-7D013836898A}"
  }
 }

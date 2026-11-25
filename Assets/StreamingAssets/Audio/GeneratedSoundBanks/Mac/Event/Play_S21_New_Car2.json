@@ -10,24 +10,59 @@
     "Type": "Event",
     "GUID": "{1F5303C6-546C-44B9-BEB2-48FA8D2A99C7}",
     "Language": "SFX",
-    "Hash": "{5E581636-FB62-7A9C-68DF-2B6D6DF991DE}",
+    "Hash": "{9E6FE7E7-6868-DB71-5E65-8AB930335FFE}",
     "ObjectPath": "Play_S21_New_Car2",
     "ShortName": "Play_S21_New_Car2",
     "Path": "Event/Play_S21_New_Car2.bnk",
+    "Media": [
+     {
+      "Id": "899095676",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Traffic\\Car by 2_01.wav",
+      "Path": "Media/899095676.wem",
+      "CachePath": "1E/{1E1289BB-F36B-CC63-53F3-153C6FACEB60}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "374281540",
       "Name": "Play_S21_New_Car2",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_New_Car2",
       "GUID": "{1F5303C6-546C-44B9-BEB2-48FA8D2A99C7}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "85",
+      "DurationMax": "85",
+      "MediaRefs": [
+       {
+        "Id": "899095676"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{949DA138-4459-09B0-1975-3E3C751E4A62}"
+  "FileHash": "{4EEDA6D2-F001-C184-0FBA-008153682D44}"
  }
 }

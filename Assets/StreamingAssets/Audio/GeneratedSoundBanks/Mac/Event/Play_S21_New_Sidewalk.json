@@ -10,24 +10,71 @@
     "Type": "Event",
     "GUID": "{6390AA7F-13FC-42AE-93C2-BD9F7857D9F5}",
     "Language": "SFX",
-    "Hash": "{2E3C8CAF-DA4E-2217-61B3-EDFF38180B92}",
+    "Hash": "{7BB0D386-851D-4969-4D60-15D04CC688B6}",
     "ObjectPath": "Play_S21_New_Sidewalk",
     "ShortName": "Play_S21_New_Sidewalk",
     "Path": "Event/Play_S21_New_Sidewalk.bnk",
+    "Media": [
+     {
+      "Id": "828597240",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Pedestrian\\Pedestrian 2_01.wav",
+      "Path": "Media/828597240.wem",
+      "CachePath": "85/{851BED69-1BEA-C9FB-896C-C2AD46534896}.wem"
+     },
+     {
+      "Id": "1045497659",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "Pedestrian\\Pedestrian 1_01.wav",
+      "Path": "Media/1045497659.wem",
+      "CachePath": "EB/{EB98F88E-FF04-123A-0A18-84B444DE4B9E}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "2237024074",
       "Name": "Play_S21_New_Sidewalk",
       "ObjectPath": "\\Events\\Scene 2_1\\Play_S21_New_Sidewalk",
       "GUID": "{6390AA7F-13FC-42AE-93C2-BD9F7857D9F5}",
-      "MaxAttenuation": "0",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "85",
+      "DurationMax": "85",
+      "MediaRefs": [
+       {
+        "Id": "828597240"
+       },
+       {
+        "Id": "1045497659"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{E468D148-EFA7-2BA1-B70A-E0A7D3B2875F}"
+  "FileHash": "{0E76B418-07FB-C608-4298-12A60600F91F}"
  }
 }
