@@ -8,8 +8,10 @@ public class SoundLightSettings
     [Min(0f)] public float maxIntensity = 6f;
 
     [Header("Audio → brightness")]
-    [Tooltip("Loudness weight. Typical speech / music RMS is 0.05–0.25.")]
-    [Min(0f)] public float gain = 4f;
+    [Tooltip("Loudness (dBFS) at or below which the light is dark. Lower = quiet sounds light up more. Typical music averages -20 to -30 dB, quiet ambience -40 dB.")]
+    public float silentDb = -55f;
+    [Tooltip("Loudness (dBFS) at or above which the light is at Max Intensity. Brightness rises evenly in dB between Silent Db and this. Lower = more sounds reach full brightness.")]
+    public float fullDb = -30f;
     [Tooltip("Spectral flux weight: short spikes when the spectrum rises, which gives the flicker.")]
     [Min(0f)] public float fluxWeight = 2f;
     [Tooltip("Flux weight of the lowest frequency bin; rises linearly to the high weight.")]
@@ -110,7 +112,7 @@ public class SoundLight : MonoBehaviour
         float rms   = SoundLightMath.Rms(_samples);
         float flux  = SoundLightMath.SpectralFlux(_spectrum, _prevSpectrum, _settings.lowBandWeight, _settings.highBandWeight);
         float heard = _settings.heardDistance ? Heard(Vector3.Distance(_source.transform.position, listenerPosition)) : 1f;
-        Desired = SoundLightMath.Target(rms, flux, _settings.gain, _settings.fluxWeight, heard, _settings.maxIntensity);
+        Desired = SoundLightMath.TargetDb(rms, flux, _settings.silentDb, _settings.fullDb, _settings.fluxWeight, heard, _settings.maxIntensity);
     }
 
     // The source's own falloff at the listener, using its current (room-scaled) min / max distance.

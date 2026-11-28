@@ -38,6 +38,15 @@ public static class SoundLightMath
     public static float Target(float rms, float flux, float gain, float fluxWeight, float heard, float maxIntensity) =>
         maxIntensity * Mathf.Clamp01(gain * rms + fluxWeight * flux) * Mathf.Clamp01(heard);
 
+    // Loudness on a dB scale: 0 at or below silentDb, 1 at or above fullDb, linear in dB in between.
+    // Closer to how loudness is heard than raw RMS, so quiet and loud sounds differ less.
+    public static float DbLevel(float rms, float silentDb, float fullDb) =>
+        rms <= 0f ? 0f : Mathf.InverseLerp(silentDb, fullDb, 20f * Mathf.Log10(rms));
+
+    // Same as Target, with loudness mapped through DbLevel instead of a linear gain.
+    public static float TargetDb(float rms, float flux, float silentDb, float fullDb, float fluxWeight, float heard, float maxIntensity) =>
+        maxIntensity * Mathf.Clamp01(DbLevel(rms, silentDb, fullDb) + fluxWeight * flux) * Mathf.Clamp01(heard);
+
     // Exponential approach with separate time constants for rising (attack) and falling (release), in seconds.
     public static float Smooth(float current, float target, float attackSeconds, float releaseSeconds, float deltaTime)
     {

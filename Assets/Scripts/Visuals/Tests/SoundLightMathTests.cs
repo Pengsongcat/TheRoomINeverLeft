@@ -45,6 +45,23 @@ public class SoundLightMathTests
     }
 
     [Test]
+    public void DbLevel_IsLinearInDb_AndClamped()
+    {
+        Assert.AreEqual(0f,   SoundLightMath.DbLevel(0f,     silentDb: -60f, fullDb: -20f), Eps); // silence
+        Assert.AreEqual(0f,   SoundLightMath.DbLevel(0.0001f, silentDb: -60f, fullDb: -20f), Eps); // -80 dB
+        Assert.AreEqual(0.5f, SoundLightMath.DbLevel(0.01f,  silentDb: -60f, fullDb: -20f), Eps); // -40 dB
+        Assert.AreEqual(1f,   SoundLightMath.DbLevel(1f,     silentDb: -60f, fullDb: -20f), Eps); // 0 dB
+    }
+
+    [Test]
+    public void TargetDb_IsClampedToMaxIntensity_AndScaledByHeard()
+    {
+        Assert.AreEqual(1.5f, SoundLightMath.TargetDb(rms: 0.01f, flux: 0f, silentDb: -60f, fullDb: -20f, fluxWeight: 0f, heard: 1f,   maxIntensity: 3f), Eps);
+        Assert.AreEqual(3f,   SoundLightMath.TargetDb(rms: 1f,    flux: 1f, silentDb: -60f, fullDb: -20f, fluxWeight: 2f, heard: 1f,   maxIntensity: 3f), Eps);
+        Assert.AreEqual(0.75f, SoundLightMath.TargetDb(rms: 0.01f, flux: 0f, silentDb: -60f, fullDb: -20f, fluxWeight: 0f, heard: 0.5f, maxIntensity: 3f), Eps);
+    }
+
+    [Test]
     public void Smooth_AttackIsFasterThanRelease()
     {
         float up   = SoundLightMath.Smooth(0f, 1f, attackSeconds: 0.02f, releaseSeconds: 0.15f, deltaTime: 1f / 72f);
