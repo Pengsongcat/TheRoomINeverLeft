@@ -1,0 +1,67 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "458192298",
+    "Type": "Event",
+    "GUID": "{0C02E0B1-B942-422E-85E3-7C57C134FCF5}",
+    "Language": "SFX",
+    "Hash": "{7E2A029D-9CE1-7737-45E9-61A2A1BFA900}",
+    "ObjectPath": "Play_S12_Kitchen_kitchen2",
+    "ShortName": "Play_S12_Kitchen_kitchen2",
+    "Path": "Event/Play_S12_Kitchen_kitchen2.bnk",
+    "Media": [
+     {
+      "Id": "461254580",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "kitchen2.wav",
+      "Path": "Media/461254580.wem",
+      "CachePath": "0B/{0B083CE9-16FA-438B-8D16-048C84E5115F}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "458192298",
+      "Name": "Play_S12_Kitchen_kitchen2",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Kitchen_kitchen2",
+      "GUID": "{0C02E0B1-B942-422E-85E3-7C57C134FCF5}",
+      "DurationType": "OneShot",
+      "DurationMin": "30",
+      "DurationMax": "30",
+      "MediaRefs": [
+       {
+        "Id": "461254580"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{D52C3AF4-FC5F-5DE4-19F3-5E28A89E4DC7}"
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1934990199",
+    "Type": "Event",
+    "GUID": "{55FB0CC5-08E5-4398-A73A-81C5BD1B247F}",
+    "Language": "SFX",
+    "Hash": "{83FCBAE6-9024-CF01-0491-6BC4FA55B52F}",
+    "ObjectPath": "Play_S11_Bird",
+    "ShortName": "Play_S11_Bird",
+    "Path": "Event/Play_S11_Bird.bnk",
+    "Media": [
+     {
+      "Id": "307762032",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "S11_Bird.wav",
+      "Path": "Media/307762032.wem",
+      "CachePath": "5D/{5D25066F-3207-8DB9-56BC-478AD029344F}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1934990199",
+      "Name": "Play_S11_Bird",
+      "ObjectPath": "\\Events\\Scene 1_1\\Play_S11_Bird",
+      "GUID": "{55FB0CC5-08E5-4398-A73A-81C5BD1B247F}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.88",
+      "DurationMax": "2.88",
+      "MediaRefs": [
+       {
+        "Id": "307762032"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{0F2273F9-9006-AFBE-47AA-DD065FE61A82}"
+ }
+}

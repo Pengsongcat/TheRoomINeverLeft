@@ -1,0 +1,67 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Android",
+  "BasePlatform": "Android",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3542739375",
+    "Type": "Event",
+    "GUID": "{A7FD4CA7-784C-4A75-AA44-C734F687B525}",
+    "Language": "SFX",
+    "Hash": "{DB7C3D0F-702F-776E-DC91-EC01AD1F5FAC}",
+    "ObjectPath": "Play_S12_Kitchen_stove",
+    "ShortName": "Play_S12_Kitchen_stove",
+    "Path": "Event/Play_S12_Kitchen_stove.bnk",
+    "Media": [
+     {
+      "Id": "1063863360",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "stove.wav",
+      "Path": "Media/1063863360.wem",
+      "CachePath": "9D/{9D457F66-6D45-D5B4-0A09-A39949314659}.wem"
+     }
+    ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3542739375",
+      "Name": "Play_S12_Kitchen_stove",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Kitchen_stove",
+      "GUID": "{A7FD4CA7-784C-4A75-AA44-C734F687B525}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.424",
+      "DurationMax": "8.424",
+      "MediaRefs": [
+       {
+        "Id": "1063863360"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "942886362"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{ED3953B1-F832-AA8D-50C9-A7106D952355}"
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "4264130041",
+    "Type": "Event",
+    "GUID": "{C2B89FCF-0591-4410-9921-8D669F5999D1}",
+    "Language": "SFX",
+    "Hash": "{C50254B0-2722-647F-ED2B-2C21492BBF7A}",
+    "ObjectPath": "Play_S12_Guide",
+    "ShortName": "Play_S12_Guide",
+    "Path": "Event/Play_S12_Guide.bnk",
+    "Media": [
+     {
+      "Id": "161163616",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "fireworks_guide.wav",
+      "Path": "Media/161163616.wem",
+      "CachePath": "13/{1349CCFE-3A26-29D0-3300-EF42E343582D}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "687795393",
+       "Name": "Steam Audio Spatializer (HRTF + air)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Scene 1_2\\Scene 1_2\\Original\\Guide\\[Effect Slot [0]: (Steam Audio Spatializer)]\\Steam Audio Spatializer (HRTF + air)",
+       "GUID": "{407F7301-8AAD-4C47-BAD3-A6D98822F95B}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "942886362",
+       "Name": "Steam_HRTF",
+       "ObjectPath": "\\Effects\\Shared\\Steam_HRTF",
+       "GUID": "{876E804C-3C6A-4599-9975-E1176A8C1BBE}",
+       "LibName": "Steam Audio Spatializer",
+       "LibId": "1987253171"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "4264130041",
+      "Name": "Play_S12_Guide",
+      "ObjectPath": "\\Events\\Scene 1_2\\Play_S12_Guide",
+      "GUID": "{C2B89FCF-0591-4410-9921-8D669F5999D1}",
+      "MaxAttenuation": "2",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "161163616"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "687795393"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{AB513EC2-F78F-11A5-4601-5F5B76938749}"
+ }
+}

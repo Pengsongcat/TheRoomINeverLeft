@@ -15,6 +15,11 @@ namespace AK
     {
         static const AkUniqueID PLAY_MX_THEME = 4224048659U;
         static const AkUniqueID PLAY_OB_VOICE = 375159154U;
+        static const AkUniqueID PLAY_S11_BIRD = 1934990199U;
+        static const AkUniqueID PLAY_S11_DOG = 648623912U;
+        static const AkUniqueID PLAY_S11_DUCK = 676528753U;
+        static const AkUniqueID PLAY_S11_FARM = 1078094730U;
+        static const AkUniqueID PLAY_S11_GUIDE = 2040783566U;
         static const AkUniqueID PLAY_S11_NARRATION = 4052039844U;
         static const AkUniqueID PLAY_S11_NARRATORSTEPS = 3347888462U;
         static const AkUniqueID PLAY_S11_NEW_BREEZE = 2864213206U;
@@ -23,6 +28,18 @@ namespace AK
         static const AkUniqueID PLAY_S11_NEW_FOOTSTEPS = 192623436U;
         static const AkUniqueID PLAY_S11_NEW_INSECTSBIRDSRIVER = 2524163228U;
         static const AkUniqueID PLAY_S11_NEW_RUNNINGGRASSBREATH = 1232456012U;
+        static const AkUniqueID PLAY_S12_CROWD_LAUGHTER = 3798677509U;
+        static const AkUniqueID PLAY_S12_CROWD_PEOPLE_TALKING_AROUND_TABLE_1 = 1822790648U;
+        static const AkUniqueID PLAY_S12_CROWD_PEOPLE_TALKING_AROUND_TABLE_2 = 1822790651U;
+        static const AkUniqueID PLAY_S12_FIREWORKS = 1707275831U;
+        static const AkUniqueID PLAY_S12_FIREWORKSAMB = 429689217U;
+        static const AkUniqueID PLAY_S12_GUIDE = 4264130041U;
+        static const AkUniqueID PLAY_S12_KITCHEN_GLASS_CLINK_1 = 1656651098U;
+        static const AkUniqueID PLAY_S12_KITCHEN_GLASS_CLINK_2 = 1656651097U;
+        static const AkUniqueID PLAY_S12_KITCHEN_GLASS_CLINK_3 = 1656651096U;
+        static const AkUniqueID PLAY_S12_KITCHEN_GLASS_CLINK_4 = 1656651103U;
+        static const AkUniqueID PLAY_S12_KITCHEN_KITCHEN2 = 458192298U;
+        static const AkUniqueID PLAY_S12_KITCHEN_STOVE = 3542739375U;
         static const AkUniqueID PLAY_S12_NARRATION_1 = 1828353475U;
         static const AkUniqueID PLAY_S12_NARRATION_2 = 1828353472U;
         static const AkUniqueID PLAY_S12_NEW_ANCESTORTABLE = 316782835U;

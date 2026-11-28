@@ -460,8 +460,17 @@
 								<Sound Name="S13_Guide" ID="{CCFE3B58-6707-4986-8457-10282F2D9B6A}" ShortID="178952608">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Guiding Sound Attenuation" ID="{454B9194-6FF2-4B65-8269-C5D98AF73D7B}" WorkUnitID="{35D54D1D-AF3C-4A24-9C01-5A3036D0538E}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1A4E3915-8248-4FE6-9B07-525ED8794D90}"/>
 										</Reference>
@@ -471,6 +480,12 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="insect_chorus" ID="{2CAA3335-2985-4724-A96F-A3BB06D1B01F}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.57065"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.48911"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="29.42936"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>insect_chorus.wav</AudioFile>
 											<MediaIDList>

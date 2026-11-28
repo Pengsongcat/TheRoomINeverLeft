@@ -41,6 +41,8 @@ public class StoryDirector : MonoBehaviour
     // The part playing now, or null before Begin and after the last part.
     public StoryPart Current => Running ? _partTimings[_current].part : null;
 
+    public bool playMusic = true;
+
     void Awake()
     {
         EnsurePartsMigrated();
@@ -94,7 +96,7 @@ public class StoryDirector : MonoBehaviour
     public void Begin()
     {
         if (_current >= 0) return;
-        if (_themeMusic != null && _themeMusic.IsValid()) _themeMusic.Post(gameObject);
+        if (_themeMusic != null && _themeMusic.IsValid() && playMusic) _themeMusic.Post(gameObject);
         Enter(0);
     }
 
